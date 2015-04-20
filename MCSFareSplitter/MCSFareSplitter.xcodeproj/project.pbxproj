@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		049B12BD1AE564D5002A8800 /* FormBillTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049B12BC1AE564D5002A8800 /* FormBillTableViewController.m */; };
+		049B12C61AE56C2B002A8800 /* StaticDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049B12C51AE56C2B002A8800 /* StaticDataTableViewController.m */; };
+		049B12CE1AE5F926002A8800 /* FSCurrency.m in Sources */ = {isa = PBXBuildFile; fileRef = 049B12CD1AE5F926002A8800 /* FSCurrency.m */; };
+		049B12D01AE5FB50002A8800 /* FSDefinitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 049B12CF1AE5FB50002A8800 /* FSDefinitions.m */; };
 		98F93F241AE15DF700BD514F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F231AE15DF700BD514F /* main.m */; };
 		98F93F271AE15DF700BD514F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F261AE15DF700BD514F /* AppDelegate.m */; };
 		98F93F2A1AE15DF700BD514F /* MCSFareSplitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F281AE15DF700BD514F /* MCSFareSplitter.xcdatamodeld */; };
@@ -65,6 +69,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		049B12BB1AE564D5002A8800 /* FormBillTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormBillTableViewController.h; path = Views/Bills/FormBillTableViewController.h; sourceTree = "<group>"; };
+		049B12BC1AE564D5002A8800 /* FormBillTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormBillTableViewController.m; path = Views/Bills/FormBillTableViewController.m; sourceTree = "<group>"; };
+		049B12C41AE56C2B002A8800 /* StaticDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticDataTableViewController.h; sourceTree = "<group>"; };
+		049B12C51AE56C2B002A8800 /* StaticDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticDataTableViewController.m; sourceTree = "<group>"; };
+		049B12C81AE5F3DA002A8800 /* FSDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSDefinitions.h; path = Resources/Definitions/FSDefinitions.h; sourceTree = "<group>"; };
+		049B12CC1AE5F926002A8800 /* FSCurrency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCurrency.h; path = Models/General/FSCurrency.h; sourceTree = "<group>"; };
+		049B12CD1AE5F926002A8800 /* FSCurrency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCurrency.m; path = Models/General/FSCurrency.m; sourceTree = "<group>"; };
+		049B12CF1AE5FB50002A8800 /* FSDefinitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSDefinitions.m; path = Resources/Definitions/FSDefinitions.m; sourceTree = "<group>"; };
 		98F93F1E1AE15DF700BD514F /* MCSFareSplitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCSFareSplitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F93F221AE15DF700BD514F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98F93F231AE15DF700BD514F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -124,6 +136,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		049B12C31AE56C2B002A8800 /* StaticDataTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				049B12C41AE56C2B002A8800 /* StaticDataTableViewController.h */,
+				049B12C51AE56C2B002A8800 /* StaticDataTableViewController.m */,
+			);
+			name = StaticDataTableViewController;
+			path = "Third Party/StaticDataTableViewController";
+			sourceTree = "<group>";
+		};
+		049B12C71AE5F3A7002A8800 /* Definitions */ = {
+			isa = PBXGroup;
+			children = (
+				049B12C81AE5F3DA002A8800 /* FSDefinitions.h */,
+				049B12CF1AE5FB50002A8800 /* FSDefinitions.m */,
+			);
+			name = Definitions;
+			sourceTree = "<group>";
+		};
+		049B12CB1AE5F7DF002A8800 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				049B12CC1AE5F926002A8800 /* FSCurrency.h */,
+				049B12CD1AE5F926002A8800 /* FSCurrency.m */,
+			);
+			name = General;
+			sourceTree = "<group>";
+		};
 		98F93F151AE15DF700BD514F = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +235,7 @@
 		98F93F4A1AE15EFE00BD514F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				049B12CB1AE5F7DF002A8800 /* General */,
 				98F93F841AE1618700BD514F /* Payments */,
 				98F93F4E1AE15F8500BD514F /* Core Data */,
 				98F93F4D1AE15F6C00BD514F /* Data Manager */,
@@ -217,6 +258,7 @@
 		98F93F4C1AE15F2D00BD514F /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				049B12C31AE56C2B002A8800 /* StaticDataTableViewController */,
 			);
 			name = "Third Party";
 			sourceTree = "<group>";
@@ -250,6 +292,7 @@
 		98F93F501AE1600500BD514F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				049B12C71AE5F3A7002A8800 /* Definitions */,
 				98F93F8B1AE1634A00BD514F /* Localization */,
 			);
 			name = Resources;
@@ -265,6 +308,8 @@
 		98F93F521AE1607F00BD514F /* Bills */ = {
 			isa = PBXGroup;
 			children = (
+				049B12BB1AE564D5002A8800 /* FormBillTableViewController.h */,
+				049B12BC1AE564D5002A8800 /* FormBillTableViewController.m */,
 			);
 			name = Bills;
 			sourceTree = "<group>";
@@ -554,9 +599,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				98F93F271AE15DF700BD514F /* AppDelegate.m in Sources */,
+				049B12CE1AE5F926002A8800 /* FSCurrency.m in Sources */,
 				98F93F2A1AE15DF700BD514F /* MCSFareSplitter.xcdatamodeld in Sources */,
 				98F93F891AE1621400BD514F /* FSUtilities.m in Sources */,
+				049B12C61AE56C2B002A8800 /* StaticDataTableViewController.m in Sources */,
 				98F93F241AE15DF700BD514F /* main.m in Sources */,
+				049B12BD1AE564D5002A8800 /* FormBillTableViewController.m in Sources */,
+				049B12D01AE5FB50002A8800 /* FSDefinitions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -842,6 +891,7 @@
 				98F93F461AE15DF700BD514F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		98F93F471AE15DF700BD514F /* Build configuration list for PBXNativeTarget "MCSFareSplitterTests" */ = {
 			isa = XCConfigurationList;
@@ -850,6 +900,7 @@
 				98F93F491AE15DF700BD514F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		98F93F7C1AE1613F00BD514F /* Build configuration list for PBXNativeTarget "MCSFareSplitter WatchKit App" */ = {
 			isa = XCConfigurationList;
@@ -858,6 +909,7 @@
 				98F93F7E1AE1613F00BD514F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		98F93F7F1AE1613F00BD514F /* Build configuration list for PBXNativeTarget "MCSFareSplitter WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -866,6 +918,7 @@
 				98F93F811AE1613F00BD514F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

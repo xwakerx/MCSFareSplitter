@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <UIKit/UIKit.h>
 
 @interface AppDelegate ()
 
@@ -16,7 +17,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.mainTintColor = [UIColor colorWithRed:0.92 green:0.00 blue:0.47 alpha:1.0];
+    [[UINavigationBar appearance] setTintColor: self.mainTintColor];
+    [[UITabBar appearance] setTintColor:self.mainTintColor];
     return YES;
 }
 
