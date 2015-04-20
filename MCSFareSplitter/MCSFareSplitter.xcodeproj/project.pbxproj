@@ -842,6 +842,7 @@
 				98F93F461AE15DF700BD514F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		98F93F471AE15DF700BD514F /* Build configuration list for PBXNativeTarget "MCSFareSplitterTests" */ = {
 			isa = XCConfigurationList;
@@ -850,6 +851,7 @@
 				98F93F491AE15DF700BD514F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		98F93F7C1AE1613F00BD514F /* Build configuration list for PBXNativeTarget "MCSFareSplitter WatchKit App" */ = {
 			isa = XCConfigurationList;
@@ -858,6 +860,7 @@
 				98F93F7E1AE1613F00BD514F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		98F93F7F1AE1613F00BD514F /* Build configuration list for PBXNativeTarget "MCSFareSplitter WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -866,6 +869,7 @@
 				98F93F811AE1613F00BD514F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

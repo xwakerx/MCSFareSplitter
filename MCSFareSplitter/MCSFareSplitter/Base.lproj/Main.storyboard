@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jPa-M5-ed0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jPa-M5-ed0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -39,25 +39,25 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are owed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bM5-qo-fSk">
                                         <rect key="frame" x="8" y="13" width="189" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You owe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQY-NW-WpC">
                                         <rect key="frame" x="205" y="13" width="190" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nii-1r-fop">
                                         <rect key="frame" x="403" y="33" width="189" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrM-lZ-FpB">
                                         <rect key="frame" x="403" y="13" width="189" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -273,7 +273,7 @@
         <scene sceneID="LU3-bl-U0k">
             <objects>
                 <navigationController storyboardIdentifier="SettingsView" id="qXk-Bt-F3I" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="KbT-Qg-TKN"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Tab Bar Icon - Settings" id="KbT-Qg-TKN"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="G2k-o7-gHr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -290,7 +290,7 @@
         <scene sceneID="tiW-Sm-d0v">
             <objects>
                 <navigationController storyboardIdentifier="NotificationsView" id="Yz6-J1-y42" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notifications" id="nCA-3s-aud"/>
+                    <tabBarItem key="tabBarItem" title="Notifications" image="Tab Bar Icon - Notification" id="nCA-3s-aud"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mi1-uc-b0K">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -303,11 +303,11 @@
             </objects>
             <point key="canvasLocation" x="1100" y="1114"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Contacts-->
         <scene sceneID="NDt-bi-CZC">
             <objects>
                 <navigationController storyboardIdentifier="PeopleView" id="Gom-us-gQO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="a4H-cp-DDr"/>
+                    <tabBarItem key="tabBarItem" title="Contacts" image="Tab Bar Icon - Contacts" id="a4H-cp-DDr"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kzj-f0-BCt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -362,6 +362,9 @@
     </scenes>
     <resources>
         <image name="Tab Bar Icon - Bills" width="32" height="32"/>
+        <image name="Tab Bar Icon - Contacts" width="32" height="32"/>
         <image name="Tab Bar Icon - Home" width="32" height="32"/>
+        <image name="Tab Bar Icon - Notification" width="32" height="32"/>
+        <image name="Tab Bar Icon - Settings" width="32" height="32"/>
     </resources>
 </document>
