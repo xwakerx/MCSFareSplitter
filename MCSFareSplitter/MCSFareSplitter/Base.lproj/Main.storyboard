@@ -251,6 +251,7 @@
                                                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                                                     <connections>
                                                         <action selector="onAmountChanged:" destination="8Tx-4H-EGw" eventType="editingChanged" id="nej-cY-M5W"/>
+                                                        <outlet property="delegate" destination="8Tx-4H-EGw" id="RsO-T5-Poc"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>

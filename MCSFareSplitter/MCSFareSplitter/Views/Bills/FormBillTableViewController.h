@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "StaticDataTableViewController.h"
 
-@interface FormBillTableViewController : StaticDataTableViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface FormBillTableViewController : StaticDataTableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
 @end

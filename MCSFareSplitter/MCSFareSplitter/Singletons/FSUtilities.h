@@ -12,4 +12,8 @@
 
 + (NSString *) getDateString:(NSDate *) date;
 
++ (Boolean) charsAreValidAmount:(NSString *) amount;
+
++ (Boolean) isValidAmount:(NSString *) amount;
+
 @end

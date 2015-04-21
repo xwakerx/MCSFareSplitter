@@ -56,6 +56,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Total amount
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 #pragma mark - Currency Picker
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
@@ -137,7 +145,17 @@
 }
 
 - (IBAction)onAmountChanged:(id)sender {
-    NSLog(@"value changed");
+    NSString *amount = self.tfTotalAmount.text;
+    if(![FSUtilities charsAreValidAmount:self.tfTotalAmount.text]){
+        for(int i=0;i<amount.length;i++){
+            NSString *tmpChar = [NSString stringWithFormat:@"%c",[amount characterAtIndex:i]];
+            if(![FSUtilities charsAreValidAmount:tmpChar]){
+                amount = [amount stringByReplacingOccurrencesOfString:tmpChar withString:@""];
+                i--;
+            }
+        }
+        self.tfTotalAmount.text = amount;
+    }
 }
 
 - (void) hide:(bool) hide button:(UIButton *) button withText:(NSString *) text withBGColor:(UIColor *)color{

@@ -17,4 +17,24 @@
     return [dateFormat stringFromDate:date];
 }
 
++ (Boolean) charsAreValidAmount:(NSString *) amount{
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^([0-9]|\\.|\\$|\\,)*$" options:NSRegularExpressionCaseInsensitive error:nil];
+    NSTextCheckingResult *match = [regex firstMatchInString:amount options:0 range:NSMakeRange(0, [amount length])];
+    if (match) {
+        return true;
+    }else{
+        return false;
+    }
+}
+
++ (Boolean) isValidAmount:(NSString *) amount{
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^(\\$|)([1-9]\\d{0,2}(\\,\\d{3})*|([1-9]\\d*))(\\.\\d{2})?$" options:NSRegularExpressionCaseInsensitive error:nil];
+    NSTextCheckingResult *match = [regex firstMatchInString:amount options:0 range:NSMakeRange(0, [amount length])];
+    if (match) {
+        return true;
+    }else{
+        return false;
+    }
+}
+
 @end
