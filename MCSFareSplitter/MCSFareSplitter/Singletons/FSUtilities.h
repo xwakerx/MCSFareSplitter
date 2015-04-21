@@ -10,4 +10,6 @@
 
 @interface FSUtilities : NSObject
 
++ (NSString *) getDateString:(NSDate *) date;
+
 @end

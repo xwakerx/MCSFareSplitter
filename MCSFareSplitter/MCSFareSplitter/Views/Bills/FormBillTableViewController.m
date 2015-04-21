@@ -9,6 +9,7 @@
 #import "FormBillTableViewController.h"
 #import "FSDefinitions.h"
 #import "FSCurrency.h"
+#import "FSUtilities.h"
 
 @interface FormBillTableViewController ()
 
@@ -24,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *dpDate;
 
 @property (nonatomic) bool currencyHidden;
+@property (nonatomic) bool dateHidden;
 
 @end
 
@@ -43,6 +45,10 @@
     self.lblCurrency.text = ((FSCurrency *)[[FSDefinitions currencies] objectAtIndex:0]).shortName;
     [self hide:YES button:self.btnCurrency withText:@"" withBGColor:self.tvcCurrencyPicker.backgroundColor];
     self.currencyHidden = true;
+    
+    self.lblDate.text = [FSUtilities getDateString:[NSDate date]];
+    [self hide:YES button:self.btnDate withText:@"" withBGColor:self.tvcDatePicker.backgroundColor];
+    self.dateHidden = true;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,13 +113,40 @@
     }
 }
 
+- (IBAction)onDateClicked:(id)sender {
+    if(self.dateHidden){
+        self.hideSectionsWithHiddenRows = YES;
+        [self cell:self.tvcDatePicker setHidden:NO];
+        [self reloadDataAnimated:YES];
+        
+        [self hide:NO button:self.btnDate withText:self.lblDate.text withBGColor:self.tvcDatePicker.backgroundColor];
+        self.dateHidden = false;
+    }else{
+        self.hideSectionsWithHiddenRows = YES;
+        [self cell:self.tvcDatePicker setHidden:YES];
+        [self reloadDataAnimated:YES];
+        
+        self.lblDate.text = self.btnDate.titleLabel.text;
+        [self hide:YES button:self.btnDate withText:@"" withBGColor:self.tvcDatePicker.backgroundColor];
+        self.dateHidden = true;
+    }
+}
+
+- (IBAction)onDateChanged:(id)sender {
+    [self.btnDate setTitle:[FSUtilities getDateString:self.dpDate.date] forState:UIControlStateNormal];
+}
+
+- (IBAction)onAmountChanged:(id)sender {
+    NSLog(@"value changed");
+}
+
 - (void) hide:(bool) hide button:(UIButton *) button withText:(NSString *) text withBGColor:(UIColor *)color{
     if(hide){
-        [self.btnCurrency setTitle:@"" forState:UIControlStateNormal];
-        self.btnCurrency.backgroundColor = [color colorWithAlphaComponent:0.0];
+        [button setTitle:@"" forState:UIControlStateNormal];
+        button.backgroundColor = [color colorWithAlphaComponent:0.0];
     }else{
-        [self.btnCurrency setTitle:text forState:UIControlStateNormal];
-        self.btnCurrency.backgroundColor = [color colorWithAlphaComponent:1.0];
+        [button setTitle:text forState:UIControlStateNormal];
+        button.backgroundColor = [color colorWithAlphaComponent:1.0];
     }
 }
 

@@ -10,4 +10,11 @@
 
 @implementation FSUtilities
 
++ (NSString *) getDateString:(NSDate *) date{
+    if(date == nil){ return @""; }
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MMM dd, yyyy"];
+    return [dateFormat stringFromDate:date];
+}
+
 @end
