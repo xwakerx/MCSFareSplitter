@@ -1,4 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CDItem" syncable="YES">
+        <attribute name="cost" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="enrolledUsers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDUser" inverseName="items" inverseEntity="CDUser" syncable="YES"/>
+        <relationship name="tab" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDTab" syncable="YES"/>
+    </entity>
+    <entity name="CDSplitter" syncable="YES">
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="tab" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDTab" inverseName="split" inverseEntity="CDTab" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDUser" inverseName="splits" inverseEntity="CDUser" syncable="YES"/>
+    </entity>
+    <entity name="CDTab" syncable="YES">
+        <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="splitMethod" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalAmount" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="split" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDSplitter" inverseName="tab" inverseEntity="CDSplitter" syncable="YES"/>
+    </entity>
+    <entity name="CDUser" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profilePic" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDItem" inverseName="enrolledUsers" inverseEntity="CDItem" syncable="YES"/>
+        <relationship name="splits" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDSplitter" inverseName="user" inverseEntity="CDSplitter" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CDUser" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="CDSplitter" positionX="-54" positionY="36" width="128" height="90"/>
+        <element name="CDTab" positionX="-36" positionY="45" width="128" height="150"/>
+        <element name="CDItem" positionX="-27" positionY="99" width="128" height="105"/>
+    </elements>
 </model>
