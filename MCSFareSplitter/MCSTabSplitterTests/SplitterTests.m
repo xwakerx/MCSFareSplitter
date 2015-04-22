@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-#import "FSSplitController.h"
+#import "TSSplitController.h"
 
 @interface SplitterTests : XCTestCase
 
@@ -51,7 +51,7 @@
     
     NSArray *debts = @[a, b, c, d, e, f, g, h, i, j, k];
     
-    FSSplitController *splitController = [FSSplitController new];
+    TSSplitController *splitController = [TSSplitController new];
     
     NSArray *transactions = [splitController splitTabWithPayments:payments andDebts:debts];
     
@@ -83,7 +83,7 @@
                               @{kId: @"j"},
                               @{kId: @"k"}];
     
-    FSSplitController *splitController = [FSSplitController new];
+    TSSplitController *splitController = [TSSplitController new];
     
     NSArray *transactions = [splitController splitTabEquallyWithPayments:payments andParticipants:participants];
     
@@ -117,7 +117,7 @@
     
     NSArray *percentages = @[@10, @4, @2.55, @21, @19, @12, @7, @13, @6, @4.1, @1.35];
     
-    FSSplitController *splitController = [FSSplitController new];
+    TSSplitController *splitController = [TSSplitController new];
     
     NSArray *transactions = [splitController splitTabWithPayments:payments andPercentages:percentages forParticipants:participants];
     
@@ -159,7 +159,7 @@
                        @{kItemDescription: @"item1", kCost: @220, kParticipants: @[@{kId: @"i"}, @{kId: @"a"},@{kId: @"k"}]},
                        @{kItemDescription: @"item1", kCost: @80, kParticipants: @[@{kId: @"j"}]}];
     
-    FSSplitController *splitController = [FSSplitController new];
+    TSSplitController *splitController = [TSSplitController new];
     
     NSArray *transactions = [splitController splitTabWithPayments:payments forParticipants:participants withItems:items];
     

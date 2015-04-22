@@ -629,7 +629,7 @@
 				INFOPLIST_FILE = MCSTabSplitterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MCSFareSplitter.app/MCSFareSplitter";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MCSTabSplitter.app/MCSTabSplitter";
 			};
 			name = Debug;
 		};
@@ -644,7 +644,7 @@
 				INFOPLIST_FILE = MCSTabSplitterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MCSFareSplitter.app/MCSFareSplitter";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MCSTabSplitter.app/MCSTabSplitter";
 			};
 			name = Release;
 		};
