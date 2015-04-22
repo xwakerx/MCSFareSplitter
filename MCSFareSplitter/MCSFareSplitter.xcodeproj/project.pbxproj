@@ -11,6 +11,8 @@
 		049B12C61AE56C2B002A8800 /* StaticDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049B12C51AE56C2B002A8800 /* StaticDataTableViewController.m */; };
 		049B12CE1AE5F926002A8800 /* FSCurrency.m in Sources */ = {isa = PBXBuildFile; fileRef = 049B12CD1AE5F926002A8800 /* FSCurrency.m */; };
 		049B12D01AE5FB50002A8800 /* FSDefinitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 049B12CF1AE5FB50002A8800 /* FSDefinitions.m */; };
+		04BA9F121AE720010094C33A /* FSBillUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9F111AE720010094C33A /* FSBillUser.m */; };
+		04BA9F151AE7242E0094C33A /* FSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9F141AE7242E0094C33A /* FSUser.m */; };
 		98F93F241AE15DF700BD514F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F231AE15DF700BD514F /* main.m */; };
 		98F93F271AE15DF700BD514F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F261AE15DF700BD514F /* AppDelegate.m */; };
 		98F93F2A1AE15DF700BD514F /* MCSFareSplitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F281AE15DF700BD514F /* MCSFareSplitter.xcdatamodeld */; };
@@ -77,6 +79,10 @@
 		049B12CC1AE5F926002A8800 /* FSCurrency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCurrency.h; path = Models/General/FSCurrency.h; sourceTree = "<group>"; };
 		049B12CD1AE5F926002A8800 /* FSCurrency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCurrency.m; path = Models/General/FSCurrency.m; sourceTree = "<group>"; };
 		049B12CF1AE5FB50002A8800 /* FSDefinitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSDefinitions.m; path = Resources/Definitions/FSDefinitions.m; sourceTree = "<group>"; };
+		04BA9F101AE720010094C33A /* FSBillUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSBillUser.h; path = "Models/Data Manager/FSBillUser.h"; sourceTree = "<group>"; };
+		04BA9F111AE720010094C33A /* FSBillUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSBillUser.m; path = "Models/Data Manager/FSBillUser.m"; sourceTree = "<group>"; };
+		04BA9F131AE7242E0094C33A /* FSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSUser.h; path = "Models/Data Manager/FSUser.h"; sourceTree = "<group>"; };
+		04BA9F141AE7242E0094C33A /* FSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSUser.m; path = "Models/Data Manager/FSUser.m"; sourceTree = "<group>"; };
 		98F93F1E1AE15DF700BD514F /* MCSFareSplitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCSFareSplitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F93F221AE15DF700BD514F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98F93F231AE15DF700BD514F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -266,6 +272,10 @@
 		98F93F4D1AE15F6C00BD514F /* Data Manager */ = {
 			isa = PBXGroup;
 			children = (
+				04BA9F101AE720010094C33A /* FSBillUser.h */,
+				04BA9F111AE720010094C33A /* FSBillUser.m */,
+				04BA9F131AE7242E0094C33A /* FSUser.h */,
+				04BA9F141AE7242E0094C33A /* FSUser.m */,
 			);
 			name = "Data Manager";
 			sourceTree = "<group>";
@@ -601,11 +611,13 @@
 				98F93F271AE15DF700BD514F /* AppDelegate.m in Sources */,
 				049B12CE1AE5F926002A8800 /* FSCurrency.m in Sources */,
 				98F93F2A1AE15DF700BD514F /* MCSFareSplitter.xcdatamodeld in Sources */,
+				04BA9F121AE720010094C33A /* FSBillUser.m in Sources */,
 				98F93F891AE1621400BD514F /* FSUtilities.m in Sources */,
 				049B12C61AE56C2B002A8800 /* StaticDataTableViewController.m in Sources */,
 				98F93F241AE15DF700BD514F /* main.m in Sources */,
 				049B12BD1AE564D5002A8800 /* FormBillTableViewController.m in Sources */,
 				049B12D01AE5FB50002A8800 /* FSDefinitions.m in Sources */,
+				04BA9F151AE7242E0094C33A /* FSUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
