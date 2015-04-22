@@ -13,7 +13,7 @@
 
 #pragma mark - MAIN SPLITTER ALGORITHM
 #pragma mark -
--(NSArray *)transactionsForBillWithPayments:(NSArray *)payments andDebts:(NSArray *)debts
+-(NSArray *)transactionsForTabWithPayments:(NSArray *)payments andDebts:(NSArray *)debts
 {
     //Calculate real debt
     debts = [self adjustRealDebtsWithPayments:payments andDebts:debts];
@@ -155,7 +155,7 @@
     return  [newArray copy];
 }
 
--(NSArray *)debtsForParticipants:(NSArray *)billParticipants withItems:(NSArray *)items
+-(NSArray *)debtsForParticipants:(NSArray *)tabParticipants withItems:(NSArray *)items
 {
     for (NSDictionary *item in items)
     {
@@ -174,24 +174,24 @@
         
         for (NSDictionary *itemParticipant in itemParticipants)
         {
-            for (NSMutableDictionary *billParticipant in billParticipants)
+            for (NSMutableDictionary *tabParticipant in tabParticipants)
             {
-                if([[billParticipant objectForKey:kId] isEqualToString:[itemParticipant objectForKey:kId]])
+                if([[tabParticipant objectForKey:kId] isEqualToString:[itemParticipant objectForKey:kId]])
                 {
-                    lastParticipantForItem = billParticipant;
+                    lastParticipantForItem = tabParticipant;
                     
                     NSDecimalNumber *itemParticipantsCount = [self decimalNumberWithNumber:[NSNumber numberWithInteger:itemParticipants.count]];
                     NSDecimalNumber *amount = [self roundToTwoDecimals:[itemCost decimalNumberByDividingBy:itemParticipantsCount]];
                     
                     itemCostRealAccum = [itemCostRealAccum decimalNumberByAdding:amount];
                     
-                    if(![billParticipant objectForKey:kAmount])
+                    if(![tabParticipant objectForKey:kAmount])
                     {
-                        [billParticipant setObject:[self decimalNumberWithNumber:@0] forKey:kAmount];
+                        [tabParticipant setObject:[self decimalNumberWithNumber:@0] forKey:kAmount];
                     }
-                    NSDecimalNumber *accumParticipantAmount = [[billParticipant objectForKey:kAmount] decimalNumberByAdding:amount];
+                    NSDecimalNumber *accumParticipantAmount = [[tabParticipant objectForKey:kAmount] decimalNumberByAdding:amount];
                     
-                    [billParticipant setObject:accumParticipantAmount forKey:kAmount];
+                    [tabParticipant setObject:accumParticipantAmount forKey:kAmount];
                     
                     break;
                 }
@@ -199,7 +199,7 @@
         }
         if(!lastParticipantForItem)
         {
-            [NSException raise:@"FSSplitInvalidItemsListException" format:@"The items list contains a user who is not in the bill"];
+            [NSException raise:@"FSSplitInvalidItemsListException" format:@"The items list contains a user who is not in the tab"];
         }
         
         if([itemCost compare:itemCostRealAccum] != NSOrderedSame)
@@ -211,7 +211,7 @@
         
     }
     
-    return billParticipants;
+    return tabParticipants;
 }
 
 
@@ -305,7 +305,7 @@
 #pragma mark -
 
 #pragma mark Split Equally
--(NSArray *)splitBillEquallyWithPayments:(NSArray *)payments andParticipants:(NSArray *)participants
+-(NSArray *)splitTabEquallyWithPayments:(NSArray *)payments andParticipants:(NSArray *)participants
 {
     NSDecimalNumber *paymentsTotalAmount = [self totalAmountDueForDebts:payments];
     
@@ -331,11 +331,11 @@
         [[debts lastObject] setObject:lastAmount forKey:kAmount];
     }
     
-    return [self splitBillWithPayments:payments andDebts:debts];
+    return [self splitTabWithPayments:payments andDebts:debts];
 }
 
 #pragma mark Split With Payments and Debts
--(NSArray *)splitBillWithPayments:(NSArray *)payments andDebts:(NSArray *)debts
+-(NSArray *)splitTabWithPayments:(NSArray *)payments andDebts:(NSArray *)debts
 {
     payments = [self changeNumberAmountsFromArrayToDecimalNumbers:payments];
     debts = [self changeNumberAmountsFromArrayToDecimalNumbers:debts];
@@ -347,11 +347,11 @@
     {
         [NSException raise:@"FSSplitInvalidArgumentsException" format:@"The amounts of payments and debts don't match"];
     }
-    return [self transactionsForBillWithPayments:payments andDebts:debts];
+    return [self transactionsForTabWithPayments:payments andDebts:debts];
 }
 
 #pragma mark Split with payments and percentages
--(NSArray *)splitBillWithPayments:(NSArray *)payments andPercentages:(NSArray *)percentages forParticipants:(NSArray *)participants
+-(NSArray *)splitTabWithPayments:(NSArray *)payments andPercentages:(NSArray *)percentages forParticipants:(NSArray *)participants
 {
     if(percentages.count != participants.count)
     {
@@ -399,12 +399,12 @@
         [[debts lastObject] setObject:lastAmount forKey:kAmount];
     }
     
-    return [self splitBillWithPayments:payments andDebts:debts];
+    return [self splitTabWithPayments:payments andDebts:debts];
 }
 
 #pragma mark Split with items list
 
--(NSArray *)splitBillWithPayments:(NSArray *)payments forParticipants:(NSArray *)participants withItems:(NSArray *)items
+-(NSArray *)splitTabWithPayments:(NSArray *)payments forParticipants:(NSArray *)participants withItems:(NSArray *)items
 {
     NSDecimalNumber *paymentsTotalAmount = [self totalAmountDueForDebts:payments];
     NSDecimalNumber *itemsTotalCost = [self decimalNumberWithNumber:@0];
@@ -425,7 +425,7 @@
     
     NSArray *debts = [self debtsForParticipants:participants withItems:items];
     
-    return [self splitBillWithPayments:payments andDebts:debts];
+    return [self splitTabWithPayments:payments andDebts:debts];
 }
 
 @end

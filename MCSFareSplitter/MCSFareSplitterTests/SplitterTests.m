@@ -53,7 +53,7 @@
     
     FSSplitController *splitController = [FSSplitController new];
     
-    NSArray *transactions = [splitController splitBillWithPayments:payments andDebts:debts];
+    NSArray *transactions = [splitController splitTabWithPayments:payments andDebts:debts];
     
     XCTAssertNotNil(transactions);
     
@@ -85,7 +85,7 @@
     
     FSSplitController *splitController = [FSSplitController new];
     
-    NSArray *transactions = [splitController splitBillEquallyWithPayments:payments andParticipants:participants];
+    NSArray *transactions = [splitController splitTabEquallyWithPayments:payments andParticipants:participants];
     
     XCTAssertNotNil(transactions);
     
@@ -119,7 +119,7 @@
     
     FSSplitController *splitController = [FSSplitController new];
     
-    NSArray *transactions = [splitController splitBillWithPayments:payments andPercentages:percentages forParticipants:participants];
+    NSArray *transactions = [splitController splitTabWithPayments:payments andPercentages:percentages forParticipants:participants];
     
     XCTAssertNotNil(transactions);
     
@@ -161,7 +161,7 @@
     
     FSSplitController *splitController = [FSSplitController new];
     
-    NSArray *transactions = [splitController splitBillWithPayments:payments forParticipants:participants withItems:items];
+    NSArray *transactions = [splitController splitTabWithPayments:payments forParticipants:participants withItems:items];
     
     XCTAssertNotNil(transactions);
     
