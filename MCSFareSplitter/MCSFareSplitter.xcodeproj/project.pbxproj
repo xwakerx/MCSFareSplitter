@@ -11,6 +11,8 @@
 		049B12C61AE56C2B002A8800 /* StaticDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049B12C51AE56C2B002A8800 /* StaticDataTableViewController.m */; };
 		049B12CE1AE5F926002A8800 /* FSCurrency.m in Sources */ = {isa = PBXBuildFile; fileRef = 049B12CD1AE5F926002A8800 /* FSCurrency.m */; };
 		049B12D01AE5FB50002A8800 /* FSDefinitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 049B12CF1AE5FB50002A8800 /* FSDefinitions.m */; };
+		98D92E691AE688E600573F3B /* FSSplitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D92E681AE688E600573F3B /* FSSplitController.m */; };
+		98D92E6B1AE6896B00573F3B /* SplitterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D92E6A1AE6896B00573F3B /* SplitterTests.m */; };
 		98F93F241AE15DF700BD514F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F231AE15DF700BD514F /* main.m */; };
 		98F93F271AE15DF700BD514F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F261AE15DF700BD514F /* AppDelegate.m */; };
 		98F93F2A1AE15DF700BD514F /* MCSFareSplitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F281AE15DF700BD514F /* MCSFareSplitter.xcdatamodeld */; };
@@ -77,6 +79,9 @@
 		049B12CC1AE5F926002A8800 /* FSCurrency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCurrency.h; path = Models/General/FSCurrency.h; sourceTree = "<group>"; };
 		049B12CD1AE5F926002A8800 /* FSCurrency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCurrency.m; path = Models/General/FSCurrency.m; sourceTree = "<group>"; };
 		049B12CF1AE5FB50002A8800 /* FSDefinitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSDefinitions.m; path = Resources/Definitions/FSDefinitions.m; sourceTree = "<group>"; };
+		98D92E671AE688E600573F3B /* FSSplitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSSplitController.h; path = Controllers/Splitter/FSSplitController.h; sourceTree = "<group>"; };
+		98D92E681AE688E600573F3B /* FSSplitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSSplitController.m; path = Controllers/Splitter/FSSplitController.m; sourceTree = "<group>"; };
+		98D92E6A1AE6896B00573F3B /* SplitterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitterTests.m; sourceTree = "<group>"; };
 		98F93F1E1AE15DF700BD514F /* MCSFareSplitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCSFareSplitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F93F221AE15DF700BD514F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98F93F231AE15DF700BD514F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -219,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				98F93F401AE15DF700BD514F /* MCSFareSplitterTests.m */,
+				98D92E6A1AE6896B00573F3B /* SplitterTests.m */,
 				98F93F3E1AE15DF700BD514F /* Supporting Files */,
 			);
 			path = MCSFareSplitterTests;
@@ -417,6 +423,8 @@
 		98F93F8A1AE1631100BD514F /* Splitter */ = {
 			isa = PBXGroup;
 			children = (
+				98D92E671AE688E600573F3B /* FSSplitController.h */,
+				98D92E681AE688E600573F3B /* FSSplitController.m */,
 			);
 			name = Splitter;
 			sourceTree = "<group>";
@@ -605,6 +613,7 @@
 				049B12C61AE56C2B002A8800 /* StaticDataTableViewController.m in Sources */,
 				98F93F241AE15DF700BD514F /* main.m in Sources */,
 				049B12BD1AE564D5002A8800 /* FormBillTableViewController.m in Sources */,
+				98D92E691AE688E600573F3B /* FSSplitController.m in Sources */,
 				049B12D01AE5FB50002A8800 /* FSDefinitions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,6 +622,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98D92E6B1AE6896B00573F3B /* SplitterTests.m in Sources */,
 				98F93F411AE15DF700BD514F /* MCSFareSplitterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
