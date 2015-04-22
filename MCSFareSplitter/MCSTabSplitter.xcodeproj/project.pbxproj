@@ -7,28 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		048E33661AE6926200FC0D2D /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 048E33651AE6926200FC0D2D /* DataManager.m */; };
 		049B12BD1AE564D5002A8800 /* FormBillTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049B12BC1AE564D5002A8800 /* FormBillTableViewController.m */; };
 		049B12C61AE56C2B002A8800 /* StaticDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049B12C51AE56C2B002A8800 /* StaticDataTableViewController.m */; };
-		049B12CE1AE5F926002A8800 /* FSCurrency.m in Sources */ = {isa = PBXBuildFile; fileRef = 049B12CD1AE5F926002A8800 /* FSCurrency.m */; };
-		049B12D01AE5FB50002A8800 /* FSDefinitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 049B12CF1AE5FB50002A8800 /* FSDefinitions.m */; };
-		04BA9F121AE720010094C33A /* FSBillUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9F111AE720010094C33A /* FSBillUser.m */; };
-		04BA9F151AE7242E0094C33A /* FSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9F141AE7242E0094C33A /* FSUser.m */; };
+		049B12CE1AE5F926002A8800 /* TSCurrency.m in Sources */ = {isa = PBXBuildFile; fileRef = 049B12CD1AE5F926002A8800 /* TSCurrency.m */; };
+		049B12D01AE5FB50002A8800 /* TSDefinitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 049B12CF1AE5FB50002A8800 /* TSDefinitions.m */; };
+		04BA9F121AE720010094C33A /* TSTabUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9F111AE720010094C33A /* TSTabUser.m */; };
+		04BA9F151AE7242E0094C33A /* TSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9F141AE7242E0094C33A /* TSUser.m */; };
+		04CD6A8D1AE7F6F70030433A /* FSSplitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CD6A8C1AE7F6F70030433A /* FSSplitController.m */; };
 		98F93F241AE15DF700BD514F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F231AE15DF700BD514F /* main.m */; };
 		98F93F271AE15DF700BD514F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F261AE15DF700BD514F /* AppDelegate.m */; };
-		98F93F2A1AE15DF700BD514F /* MCSFareSplitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F281AE15DF700BD514F /* MCSFareSplitter.xcdatamodeld */; };
+		98F93F2A1AE15DF700BD514F /* MCSTabSplitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F281AE15DF700BD514F /* MCSTabSplitter.xcdatamodeld */; };
 		98F93F301AE15DF700BD514F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F93F2E1AE15DF700BD514F /* Main.storyboard */; };
 		98F93F321AE15DF700BD514F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F93F311AE15DF700BD514F /* Images.xcassets */; };
 		98F93F351AE15DF700BD514F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98F93F331AE15DF700BD514F /* LaunchScreen.xib */; };
 		98F93F411AE15DF700BD514F /* MCSFareSplitterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F401AE15DF700BD514F /* MCSFareSplitterTests.m */; };
-		98F93F621AE1613F00BD514F /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F611AE1613F00BD514F /* InterfaceController.m */; };
-		98F93F651AE1613F00BD514F /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F641AE1613F00BD514F /* NotificationController.m */; };
-		98F93F681AE1613F00BD514F /* GlanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F671AE1613F00BD514F /* GlanceController.m */; };
-		98F93F6A1AE1613F00BD514F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F93F691AE1613F00BD514F /* Images.xcassets */; };
-		98F93F6E1AE1613F00BD514F /* MCSFareSplitter WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 98F93F6D1AE1613F00BD514F /* MCSFareSplitter WatchKit App.app */; };
-		98F93F761AE1613F00BD514F /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F93F741AE1613F00BD514F /* Interface.storyboard */; };
-		98F93F781AE1613F00BD514F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F93F771AE1613F00BD514F /* Images.xcassets */; };
-		98F93F7B1AE1613F00BD514F /* MCSFareSplitter WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 98F93F5B1AE1613F00BD514F /* MCSFareSplitter WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		98F93F891AE1621400BD514F /* FSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F881AE1621400BD514F /* FSUtilities.m */; };
+		98F93F891AE1621400BD514F /* TSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F881AE1621400BD514F /* TSUtilities.m */; };
 		98F93F921AE1653A00BD514F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 98F93F911AE1653A00BD514F /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -40,20 +34,6 @@
 			remoteGlobalIDString = 98F93F1D1AE15DF700BD514F;
 			remoteInfo = MCSFareSplitter;
 		};
-		98F93F6F1AE1613F00BD514F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 98F93F161AE15DF700BD514F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 98F93F6C1AE1613F00BD514F;
-			remoteInfo = "MCSFareSplitter WatchKit App";
-		};
-		98F93F791AE1613F00BD514F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 98F93F161AE15DF700BD514F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 98F93F5A1AE1613F00BD514F;
-			remoteInfo = "MCSFareSplitter WatchKit Extension";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,7 +43,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				98F93F7B1AE1613F00BD514F /* MCSFareSplitter WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,31 +50,34 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		048E33641AE6926200FC0D2D /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		048E33651AE6926200FC0D2D /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		049B12BB1AE564D5002A8800 /* FormBillTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormBillTableViewController.h; path = Views/Bills/FormBillTableViewController.h; sourceTree = "<group>"; };
 		049B12BC1AE564D5002A8800 /* FormBillTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormBillTableViewController.m; path = Views/Bills/FormBillTableViewController.m; sourceTree = "<group>"; };
 		049B12C41AE56C2B002A8800 /* StaticDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticDataTableViewController.h; sourceTree = "<group>"; };
 		049B12C51AE56C2B002A8800 /* StaticDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticDataTableViewController.m; sourceTree = "<group>"; };
-		049B12C81AE5F3DA002A8800 /* FSDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSDefinitions.h; path = Resources/Definitions/FSDefinitions.h; sourceTree = "<group>"; };
-		049B12CC1AE5F926002A8800 /* FSCurrency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCurrency.h; path = Models/General/FSCurrency.h; sourceTree = "<group>"; };
-		049B12CD1AE5F926002A8800 /* FSCurrency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCurrency.m; path = Models/General/FSCurrency.m; sourceTree = "<group>"; };
-		049B12CF1AE5FB50002A8800 /* FSDefinitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSDefinitions.m; path = Resources/Definitions/FSDefinitions.m; sourceTree = "<group>"; };
-		04BA9F101AE720010094C33A /* FSBillUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSBillUser.h; path = "Models/Data Manager/FSBillUser.h"; sourceTree = "<group>"; };
-		04BA9F111AE720010094C33A /* FSBillUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSBillUser.m; path = "Models/Data Manager/FSBillUser.m"; sourceTree = "<group>"; };
-		04BA9F131AE7242E0094C33A /* FSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSUser.h; path = "Models/Data Manager/FSUser.h"; sourceTree = "<group>"; };
-		04BA9F141AE7242E0094C33A /* FSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSUser.m; path = "Models/Data Manager/FSUser.m"; sourceTree = "<group>"; };
+		049B12C81AE5F3DA002A8800 /* TSDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSDefinitions.h; path = Resources/Definitions/TSDefinitions.h; sourceTree = "<group>"; };
+		049B12CC1AE5F926002A8800 /* TSCurrency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSCurrency.h; path = Models/General/TSCurrency.h; sourceTree = "<group>"; };
+		049B12CD1AE5F926002A8800 /* TSCurrency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSCurrency.m; path = Models/General/TSCurrency.m; sourceTree = "<group>"; };
+		049B12CF1AE5FB50002A8800 /* TSDefinitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSDefinitions.m; path = Resources/Definitions/TSDefinitions.m; sourceTree = "<group>"; };
+		04BA9F101AE720010094C33A /* TSTabUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSTabUser.h; path = "Models/Data Manager/TSTabUser.h"; sourceTree = "<group>"; };
+		04BA9F111AE720010094C33A /* TSTabUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSTabUser.m; path = "Models/Data Manager/TSTabUser.m"; sourceTree = "<group>"; };
+		04BA9F131AE7242E0094C33A /* TSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSUser.h; path = "Models/Data Manager/TSUser.h"; sourceTree = "<group>"; };
+		04BA9F141AE7242E0094C33A /* TSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSUser.m; path = "Models/Data Manager/TSUser.m"; sourceTree = "<group>"; };
+		04CD6A8B1AE7F6F70030433A /* FSSplitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSSplitController.h; path = Controllers/Splitter/FSSplitController.h; sourceTree = "<group>"; };
+		04CD6A8C1AE7F6F70030433A /* FSSplitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSSplitController.m; path = Controllers/Splitter/FSSplitController.m; sourceTree = "<group>"; };
 		98F93F1E1AE15DF700BD514F /* MCSFareSplitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCSFareSplitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F93F221AE15DF700BD514F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98F93F231AE15DF700BD514F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		98F93F251AE15DF700BD514F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		98F93F261AE15DF700BD514F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		98F93F291AE15DF700BD514F /* MCSFareSplitter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MCSFareSplitter.xcdatamodel; sourceTree = "<group>"; };
+		98F93F291AE15DF700BD514F /* MCSTabSplitter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MCSTabSplitter.xcdatamodel; sourceTree = "<group>"; };
 		98F93F2F1AE15DF700BD514F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		98F93F311AE15DF700BD514F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		98F93F341AE15DF700BD514F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		98F93F3A1AE15DF700BD514F /* MCSFareSplitterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCSFareSplitterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F93F3F1AE15DF700BD514F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98F93F401AE15DF700BD514F /* MCSFareSplitterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSFareSplitterTests.m; sourceTree = "<group>"; };
-		98F93F5B1AE1613F00BD514F /* MCSFareSplitter WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MCSFareSplitter WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F93F5E1AE1613F00BD514F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98F93F5F1AE1613F00BD514F /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		98F93F601AE1613F00BD514F /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
@@ -105,12 +87,11 @@
 		98F93F661AE1613F00BD514F /* GlanceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlanceController.h; sourceTree = "<group>"; };
 		98F93F671AE1613F00BD514F /* GlanceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlanceController.m; sourceTree = "<group>"; };
 		98F93F691AE1613F00BD514F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		98F93F6D1AE1613F00BD514F /* MCSFareSplitter WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MCSFareSplitter WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F93F731AE1613F00BD514F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98F93F751AE1613F00BD514F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		98F93F771AE1613F00BD514F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		98F93F871AE1621400BD514F /* FSUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSUtilities.h; path = Singletons/FSUtilities.h; sourceTree = "<group>"; };
-		98F93F881AE1621400BD514F /* FSUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSUtilities.m; path = Singletons/FSUtilities.m; sourceTree = "<group>"; };
+		98F93F871AE1621400BD514F /* TSUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSUtilities.h; path = Singletons/TSUtilities.h; sourceTree = "<group>"; };
+		98F93F881AE1621400BD514F /* TSUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSUtilities.m; path = Singletons/TSUtilities.m; sourceTree = "<group>"; };
 		98F93F8E1AE1641D00BD514F /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/Main.strings"; sourceTree = "<group>"; };
 		98F93F8F1AE1641D00BD514F /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		98F93F901AE1641D00BD514F /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/Interface.strings"; sourceTree = "<group>"; };
@@ -126,13 +107,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		98F93F371AE15DF700BD514F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		98F93F581AE1613F00BD514F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -155,8 +129,8 @@
 		049B12C71AE5F3A7002A8800 /* Definitions */ = {
 			isa = PBXGroup;
 			children = (
-				049B12C81AE5F3DA002A8800 /* FSDefinitions.h */,
-				049B12CF1AE5FB50002A8800 /* FSDefinitions.m */,
+				049B12C81AE5F3DA002A8800 /* TSDefinitions.h */,
+				049B12CF1AE5FB50002A8800 /* TSDefinitions.m */,
 			);
 			name = Definitions;
 			sourceTree = "<group>";
@@ -164,8 +138,8 @@
 		049B12CB1AE5F7DF002A8800 /* General */ = {
 			isa = PBXGroup;
 			children = (
-				049B12CC1AE5F926002A8800 /* FSCurrency.h */,
-				049B12CD1AE5F926002A8800 /* FSCurrency.m */,
+				049B12CC1AE5F926002A8800 /* TSCurrency.h */,
+				049B12CD1AE5F926002A8800 /* TSCurrency.m */,
 			);
 			name = General;
 			sourceTree = "<group>";
@@ -173,10 +147,10 @@
 		98F93F151AE15DF700BD514F = {
 			isa = PBXGroup;
 			children = (
-				98F93F201AE15DF700BD514F /* MCSFareSplitter */,
-				98F93F3D1AE15DF700BD514F /* MCSFareSplitterTests */,
-				98F93F5C1AE1613F00BD514F /* MCSFareSplitter WatchKit Extension */,
-				98F93F711AE1613F00BD514F /* MCSFareSplitter WatchKit App */,
+				98F93F201AE15DF700BD514F /* MCSTabSplitter */,
+				98F93F3D1AE15DF700BD514F /* MCSTabSplitterTests */,
+				98F93F5C1AE1613F00BD514F /* MCSTabSplitter WatchKit Extension */,
+				98F93F711AE1613F00BD514F /* MCSTabSplitter WatchKit App */,
 				98F93F1F1AE15DF700BD514F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -186,13 +160,11 @@
 			children = (
 				98F93F1E1AE15DF700BD514F /* MCSFareSplitter.app */,
 				98F93F3A1AE15DF700BD514F /* MCSFareSplitterTests.xctest */,
-				98F93F5B1AE1613F00BD514F /* MCSFareSplitter WatchKit Extension.appex */,
-				98F93F6D1AE1613F00BD514F /* MCSFareSplitter WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		98F93F201AE15DF700BD514F /* MCSFareSplitter */ = {
+		98F93F201AE15DF700BD514F /* MCSTabSplitter */ = {
 			isa = PBXGroup;
 			children = (
 				98F93F861AE161D900BD514F /* Singletons */,
@@ -209,6 +181,7 @@
 				98F93F511AE1605400BD514F /* Frameworks */,
 				98F93F211AE15DF700BD514F /* Supporting Files */,
 			);
+			name = MCSTabSplitter;
 			path = MCSFareSplitter;
 			sourceTree = "<group>";
 		};
@@ -221,12 +194,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		98F93F3D1AE15DF700BD514F /* MCSFareSplitterTests */ = {
+		98F93F3D1AE15DF700BD514F /* MCSTabSplitterTests */ = {
 			isa = PBXGroup;
 			children = (
 				98F93F401AE15DF700BD514F /* MCSFareSplitterTests.m */,
 				98F93F3E1AE15DF700BD514F /* Supporting Files */,
 			);
+			name = MCSTabSplitterTests;
 			path = MCSFareSplitterTests;
 			sourceTree = "<group>";
 		};
@@ -272,10 +246,10 @@
 		98F93F4D1AE15F6C00BD514F /* Data Manager */ = {
 			isa = PBXGroup;
 			children = (
-				04BA9F101AE720010094C33A /* FSBillUser.h */,
-				04BA9F111AE720010094C33A /* FSBillUser.m */,
-				04BA9F131AE7242E0094C33A /* FSUser.h */,
-				04BA9F141AE7242E0094C33A /* FSUser.m */,
+				04BA9F101AE720010094C33A /* TSTabUser.h */,
+				04BA9F111AE720010094C33A /* TSTabUser.m */,
+				04BA9F131AE7242E0094C33A /* TSUser.h */,
+				04BA9F141AE7242E0094C33A /* TSUser.m */,
 			);
 			name = "Data Manager";
 			sourceTree = "<group>";
@@ -283,7 +257,7 @@
 		98F93F4E1AE15F8500BD514F /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				98F93F281AE15DF700BD514F /* MCSFareSplitter.xcdatamodeld */,
+				98F93F281AE15DF700BD514F /* MCSTabSplitter.xcdatamodeld */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -352,7 +326,7 @@
 			name = "User Management";
 			sourceTree = "<group>";
 		};
-		98F93F5C1AE1613F00BD514F /* MCSFareSplitter WatchKit Extension */ = {
+		98F93F5C1AE1613F00BD514F /* MCSTabSplitter WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
 				98F93F601AE1613F00BD514F /* InterfaceController.h */,
@@ -364,6 +338,7 @@
 				98F93F691AE1613F00BD514F /* Images.xcassets */,
 				98F93F5D1AE1613F00BD514F /* Supporting Files */,
 			);
+			name = "MCSTabSplitter WatchKit Extension";
 			path = "MCSFareSplitter WatchKit Extension";
 			sourceTree = "<group>";
 		};
@@ -376,13 +351,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		98F93F711AE1613F00BD514F /* MCSFareSplitter WatchKit App */ = {
+		98F93F711AE1613F00BD514F /* MCSTabSplitter WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
 				98F93F741AE1613F00BD514F /* Interface.storyboard */,
 				98F93F771AE1613F00BD514F /* Images.xcassets */,
 				98F93F721AE1613F00BD514F /* Supporting Files */,
 			);
+			name = "MCSTabSplitter WatchKit App";
 			path = "MCSFareSplitter WatchKit App";
 			sourceTree = "<group>";
 		};
@@ -418,8 +394,10 @@
 		98F93F861AE161D900BD514F /* Singletons */ = {
 			isa = PBXGroup;
 			children = (
-				98F93F871AE1621400BD514F /* FSUtilities.h */,
-				98F93F881AE1621400BD514F /* FSUtilities.m */,
+				98F93F871AE1621400BD514F /* TSUtilities.h */,
+				98F93F881AE1621400BD514F /* TSUtilities.m */,
+				048E33641AE6926200FC0D2D /* DataManager.h */,
+				048E33651AE6926200FC0D2D /* DataManager.m */,
 			);
 			name = Singletons;
 			sourceTree = "<group>";
@@ -427,6 +405,8 @@
 		98F93F8A1AE1631100BD514F /* Splitter */ = {
 			isa = PBXGroup;
 			children = (
+				04CD6A8B1AE7F6F70030433A /* FSSplitController.h */,
+				04CD6A8C1AE7F6F70030433A /* FSSplitController.m */,
 			);
 			name = Splitter;
 			sourceTree = "<group>";
@@ -449,9 +429,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		98F93F1D1AE15DF700BD514F /* MCSFareSplitter */ = {
+		98F93F1D1AE15DF700BD514F /* MCSTabSplitter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 98F93F441AE15DF700BD514F /* Build configuration list for PBXNativeTarget "MCSFareSplitter" */;
+			buildConfigurationList = 98F93F441AE15DF700BD514F /* Build configuration list for PBXNativeTarget "MCSTabSplitter" */;
 			buildPhases = (
 				98F93F1A1AE15DF700BD514F /* Sources */,
 				98F93F1B1AE15DF700BD514F /* Frameworks */,
@@ -461,16 +441,15 @@
 			buildRules = (
 			);
 			dependencies = (
-				98F93F7A1AE1613F00BD514F /* PBXTargetDependency */,
 			);
-			name = MCSFareSplitter;
+			name = MCSTabSplitter;
 			productName = MCSFareSplitter;
 			productReference = 98F93F1E1AE15DF700BD514F /* MCSFareSplitter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		98F93F391AE15DF700BD514F /* MCSFareSplitterTests */ = {
+		98F93F391AE15DF700BD514F /* MCSTabSplitterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 98F93F471AE15DF700BD514F /* Build configuration list for PBXNativeTarget "MCSFareSplitterTests" */;
+			buildConfigurationList = 98F93F471AE15DF700BD514F /* Build configuration list for PBXNativeTarget "MCSTabSplitterTests" */;
 			buildPhases = (
 				98F93F361AE15DF700BD514F /* Sources */,
 				98F93F371AE15DF700BD514F /* Frameworks */,
@@ -481,43 +460,10 @@
 			dependencies = (
 				98F93F3C1AE15DF700BD514F /* PBXTargetDependency */,
 			);
-			name = MCSFareSplitterTests;
+			name = MCSTabSplitterTests;
 			productName = MCSFareSplitterTests;
 			productReference = 98F93F3A1AE15DF700BD514F /* MCSFareSplitterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		98F93F5A1AE1613F00BD514F /* MCSFareSplitter WatchKit Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 98F93F7F1AE1613F00BD514F /* Build configuration list for PBXNativeTarget "MCSFareSplitter WatchKit Extension" */;
-			buildPhases = (
-				98F93F571AE1613F00BD514F /* Sources */,
-				98F93F581AE1613F00BD514F /* Frameworks */,
-				98F93F591AE1613F00BD514F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				98F93F701AE1613F00BD514F /* PBXTargetDependency */,
-			);
-			name = "MCSFareSplitter WatchKit Extension";
-			productName = "MCSFareSplitter WatchKit Extension";
-			productReference = 98F93F5B1AE1613F00BD514F /* MCSFareSplitter WatchKit Extension.appex */;
-			productType = "com.apple.product-type.watchkit-extension";
-		};
-		98F93F6C1AE1613F00BD514F /* MCSFareSplitter WatchKit App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 98F93F7C1AE1613F00BD514F /* Build configuration list for PBXNativeTarget "MCSFareSplitter WatchKit App" */;
-			buildPhases = (
-				98F93F6B1AE1613F00BD514F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "MCSFareSplitter WatchKit App";
-			productName = "MCSFareSplitter WatchKit App";
-			productReference = 98F93F6D1AE1613F00BD514F /* MCSFareSplitter WatchKit App.app */;
-			productType = "com.apple.product-type.application.watchapp";
 		};
 /* End PBXNativeTarget section */
 
@@ -535,15 +481,9 @@
 						CreatedOnToolsVersion = 6.3;
 						TestTargetID = 98F93F1D1AE15DF700BD514F;
 					};
-					98F93F5A1AE1613F00BD514F = {
-						CreatedOnToolsVersion = 6.3;
-					};
-					98F93F6C1AE1613F00BD514F = {
-						CreatedOnToolsVersion = 6.3;
-					};
 				};
 			};
-			buildConfigurationList = 98F93F191AE15DF700BD514F /* Build configuration list for PBXProject "MCSFareSplitter" */;
+			buildConfigurationList = 98F93F191AE15DF700BD514F /* Build configuration list for PBXProject "MCSTabSplitter" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -556,10 +496,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				98F93F1D1AE15DF700BD514F /* MCSFareSplitter */,
-				98F93F391AE15DF700BD514F /* MCSFareSplitterTests */,
-				98F93F5A1AE1613F00BD514F /* MCSFareSplitter WatchKit Extension */,
-				98F93F6C1AE1613F00BD514F /* MCSFareSplitter WatchKit App */,
+				98F93F1D1AE15DF700BD514F /* MCSTabSplitter */,
+				98F93F391AE15DF700BD514F /* MCSTabSplitterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -583,24 +521,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		98F93F591AE1613F00BD514F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				98F93F6E1AE1613F00BD514F /* MCSFareSplitter WatchKit App.app in Resources */,
-				98F93F6A1AE1613F00BD514F /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		98F93F6B1AE1613F00BD514F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				98F93F761AE1613F00BD514F /* Interface.storyboard in Resources */,
-				98F93F781AE1613F00BD514F /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -609,15 +529,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				98F93F271AE15DF700BD514F /* AppDelegate.m in Sources */,
-				049B12CE1AE5F926002A8800 /* FSCurrency.m in Sources */,
-				98F93F2A1AE15DF700BD514F /* MCSFareSplitter.xcdatamodeld in Sources */,
-				04BA9F121AE720010094C33A /* FSBillUser.m in Sources */,
-				98F93F891AE1621400BD514F /* FSUtilities.m in Sources */,
+				049B12CE1AE5F926002A8800 /* TSCurrency.m in Sources */,
+				98F93F2A1AE15DF700BD514F /* MCSTabSplitter.xcdatamodeld in Sources */,
+				04BA9F121AE720010094C33A /* TSTabUser.m in Sources */,
+				98F93F891AE1621400BD514F /* TSUtilities.m in Sources */,
 				049B12C61AE56C2B002A8800 /* StaticDataTableViewController.m in Sources */,
 				98F93F241AE15DF700BD514F /* main.m in Sources */,
+				04CD6A8D1AE7F6F70030433A /* FSSplitController.m in Sources */,
 				049B12BD1AE564D5002A8800 /* FormBillTableViewController.m in Sources */,
-				049B12D01AE5FB50002A8800 /* FSDefinitions.m in Sources */,
-				04BA9F151AE7242E0094C33A /* FSUser.m in Sources */,
+				048E33661AE6926200FC0D2D /* DataManager.m in Sources */,
+				049B12D01AE5FB50002A8800 /* TSDefinitions.m in Sources */,
+				04BA9F151AE7242E0094C33A /* TSUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,33 +551,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		98F93F571AE1613F00BD514F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				98F93F651AE1613F00BD514F /* NotificationController.m in Sources */,
-				98F93F621AE1613F00BD514F /* InterfaceController.m in Sources */,
-				98F93F681AE1613F00BD514F /* GlanceController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		98F93F3C1AE15DF700BD514F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 98F93F1D1AE15DF700BD514F /* MCSFareSplitter */;
+			target = 98F93F1D1AE15DF700BD514F /* MCSTabSplitter */;
 			targetProxy = 98F93F3B1AE15DF700BD514F /* PBXContainerItemProxy */;
-		};
-		98F93F701AE1613F00BD514F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 98F93F6C1AE1613F00BD514F /* MCSFareSplitter WatchKit App */;
-			targetProxy = 98F93F6F1AE1613F00BD514F /* PBXContainerItemProxy */;
-		};
-		98F93F7A1AE1613F00BD514F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 98F93F5A1AE1613F00BD514F /* MCSFareSplitter WatchKit Extension */;
-			targetProxy = 98F93F791AE1613F00BD514F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -828,66 +730,10 @@
 			};
 			name = Release;
 		};
-		98F93F7D1AE1613F00BD514F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				IBSC_MODULE = MCSFareSplitter_WatchKit_Extension;
-				INFOPLIST_FILE = "MCSFareSplitter WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
-			};
-			name = Debug;
-		};
-		98F93F7E1AE1613F00BD514F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				IBSC_MODULE = MCSFareSplitter_WatchKit_Extension;
-				INFOPLIST_FILE = "MCSFareSplitter WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
-			};
-			name = Release;
-		};
-		98F93F801AE1613F00BD514F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "MCSFareSplitter WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		98F93F811AE1613F00BD514F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "MCSFareSplitter WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		98F93F191AE15DF700BD514F /* Build configuration list for PBXProject "MCSFareSplitter" */ = {
+		98F93F191AE15DF700BD514F /* Build configuration list for PBXProject "MCSTabSplitter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				98F93F421AE15DF700BD514F /* Debug */,
@@ -896,7 +742,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		98F93F441AE15DF700BD514F /* Build configuration list for PBXNativeTarget "MCSFareSplitter" */ = {
+		98F93F441AE15DF700BD514F /* Build configuration list for PBXNativeTarget "MCSTabSplitter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				98F93F451AE15DF700BD514F /* Debug */,
@@ -905,7 +751,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		98F93F471AE15DF700BD514F /* Build configuration list for PBXNativeTarget "MCSFareSplitterTests" */ = {
+		98F93F471AE15DF700BD514F /* Build configuration list for PBXNativeTarget "MCSTabSplitterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				98F93F481AE15DF700BD514F /* Debug */,
@@ -914,34 +760,16 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		98F93F7C1AE1613F00BD514F /* Build configuration list for PBXNativeTarget "MCSFareSplitter WatchKit App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				98F93F7D1AE1613F00BD514F /* Debug */,
-				98F93F7E1AE1613F00BD514F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		98F93F7F1AE1613F00BD514F /* Build configuration list for PBXNativeTarget "MCSFareSplitter WatchKit Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				98F93F801AE1613F00BD514F /* Debug */,
-				98F93F811AE1613F00BD514F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		98F93F281AE15DF700BD514F /* MCSFareSplitter.xcdatamodeld */ = {
+		98F93F281AE15DF700BD514F /* MCSTabSplitter.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				98F93F291AE15DF700BD514F /* MCSFareSplitter.xcdatamodel */,
+				98F93F291AE15DF700BD514F /* MCSTabSplitter.xcdatamodel */,
 			);
-			currentVersion = 98F93F291AE15DF700BD514F /* MCSFareSplitter.xcdatamodel */;
-			path = MCSFareSplitter.xcdatamodeld;
+			currentVersion = 98F93F291AE15DF700BD514F /* MCSTabSplitter.xcdatamodel */;
+			path = MCSTabSplitter.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

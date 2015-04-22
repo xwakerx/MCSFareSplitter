@@ -1,14 +1,14 @@
 //
 //  Utilities.m
-//  MCSFareSplitter
+//  MCSTabSplitter
 //
 //  Created by Manuel Camacho on 4/17/15.
 //  Copyright (c) 2015 MCS. All rights reserved.
 //
 
-#import "FSUtilities.h"
+#import "TSUtilities.h"
 
-@implementation FSUtilities
+@implementation TSUtilities
 
 + (NSString *) getDateString:(NSDate *) date{
     if(date == nil){ return @""; }

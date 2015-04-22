@@ -1,14 +1,14 @@
 //
 //  FSCurrency.m
-//  MCSFareSplitter
+//  MCSTabSplitter
 //
 //  Created by MCS on 4/20/15.
 //  Copyright (c) 2015 MCS. All rights reserved.
 //
 
-#import "FSCurrency.h"
+#import "TSCurrency.h"
 
-@implementation FSCurrency
+@implementation TSCurrency
 
 - (id)init{
     self = [super init];

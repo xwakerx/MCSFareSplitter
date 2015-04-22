@@ -1,15 +1,15 @@
 //
 //  FSBillUser.m
-//  MCSFareSplitter
+//  MCSTabSplitter
 //
 //  Created by MCS on 4/21/15.
 //  Copyright (c) 2015 MCS. All rights reserved.
 //
 
-#import "FSBillUser.h"
-#import "FSDefinitions.h"
+#import "TSTabUser.h"
+#import "TSDefinitions.h"
 
-@implementation FSBillUser
+@implementation TSTabUser
 
 +(NSNumber *) FSUserTypeGhost { return @0; }
 +(NSNumber *) FSUserTypeFacebook { return @1; }
@@ -19,7 +19,7 @@
     if(self!=nil){
         self.email=@"";
         self.profilePic=@"";
-        self.userType=FSBillUser.FSUserTypeGhost;
+        self.userType=TSTabUser.FSUserTypeGhost;
         self.firstName=@"";
         self.middleName=@"";
         self.lastName=@"";

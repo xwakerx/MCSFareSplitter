@@ -1,15 +1,15 @@
 //
 //  FormVillTableViewController.m
-//  MCSFareSplitter
+//  MCSTabSplitter
 //
 //  Created by MCS on 4/20/15.
 //  Copyright (c) 2015 MCS. All rights reserved.
 //
 
 #import "FormBillTableViewController.h"
-#import "FSDefinitions.h"
-#import "FSCurrency.h"
-#import "FSUtilities.h"
+#import "TSDefinitions.h"
+#import "TSCurrency.h"
+#import "TSUtilities.h"
 
 @interface FormBillTableViewController ()
 
@@ -42,11 +42,11 @@
     [self cell:self.tvcDatePicker setHidden:YES];
     [self reloadDataAnimated:NO];
     
-    self.lblCurrency.text = ((FSCurrency *)[[FSDefinitions currencies] objectAtIndex:0]).shortName;
+    self.lblCurrency.text = ((TSCurrency *)[[TSDefinitions currencies] objectAtIndex:0]).shortName;
     [self hide:YES button:self.btnCurrency withText:@"" withBGColor:self.tvcCurrencyPicker.backgroundColor];
     self.currencyHidden = true;
     
-    self.lblDate.text = [FSUtilities getDateString:[NSDate date]];
+    self.lblDate.text = [TSUtilities getDateString:[NSDate date]];
     [self hide:YES button:self.btnDate withText:@"" withBGColor:self.tvcDatePicker.backgroundColor];
     self.dateHidden = true;
 }
@@ -70,7 +70,7 @@
 {
     if (pickerView == self.pvCurrency)
     {
-        [self.btnCurrency setTitle:((FSCurrency *)[[FSDefinitions currencies] objectAtIndex:row]).shortName forState:UIControlStateNormal];
+        [self.btnCurrency setTitle:((TSCurrency *)[[TSDefinitions currencies] objectAtIndex:row]).shortName forState:UIControlStateNormal];
     }
 }
 
@@ -79,7 +79,7 @@
     NSString *returnStr = @"";
     if (pickerView == self.pvCurrency)
     {
-        returnStr = ((FSCurrency *)[[FSDefinitions currencies] objectAtIndex:row]).shortName;
+        returnStr = ((TSCurrency *)[[TSDefinitions currencies] objectAtIndex:row]).shortName;
     }
     
     return returnStr;
@@ -90,7 +90,7 @@
     int rows = 0;
     if (pickerView == self.pvCurrency)
     {
-        rows = (int)[FSDefinitions currencies].count;
+        rows = (int)[TSDefinitions currencies].count;
     }
     return rows;
 }
@@ -141,15 +141,15 @@
 }
 
 - (IBAction)onDateChanged:(id)sender {
-    [self.btnDate setTitle:[FSUtilities getDateString:self.dpDate.date] forState:UIControlStateNormal];
+    [self.btnDate setTitle:[TSUtilities getDateString:self.dpDate.date] forState:UIControlStateNormal];
 }
 
 - (IBAction)onAmountChanged:(id)sender {
     NSString *amount = self.tfTotalAmount.text;
-    if(![FSUtilities charsAreValidAmount:self.tfTotalAmount.text]){
+    if(![TSUtilities charsAreValidAmount:self.tfTotalAmount.text]){
         for(int i=0;i<amount.length;i++){
             NSString *tmpChar = [NSString stringWithFormat:@"%c",[amount characterAtIndex:i]];
-            if(![FSUtilities charsAreValidAmount:tmpChar]){
+            if(![TSUtilities charsAreValidAmount:tmpChar]){
                 amount = [amount stringByReplacingOccurrencesOfString:tmpChar withString:@""];
                 i--;
             }

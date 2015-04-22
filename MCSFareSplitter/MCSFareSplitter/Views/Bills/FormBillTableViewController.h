@@ -1,6 +1,6 @@
 //
 //  FormVillTableViewController.h
-//  MCSFareSplitter
+//  MCSTabSplitter
 //
 //  Created by MCS on 4/20/15.
 //  Copyright (c) 2015 MCS. All rights reserved.
