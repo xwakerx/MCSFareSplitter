@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 MCS. All rights reserved.
 //
 
-#import "FSSplitController.h"
+#import "TSSplitController.h"
 
-@implementation FSSplitController
+@implementation TSSplitController
 
 
 #pragma mark - MAIN SPLITTER ALGORITHM

@@ -14,7 +14,7 @@
 		049B12D01AE5FB50002A8800 /* TSDefinitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 049B12CF1AE5FB50002A8800 /* TSDefinitions.m */; };
 		04BA9F121AE720010094C33A /* TSTabUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9F111AE720010094C33A /* TSTabUser.m */; };
 		04BA9F151AE7242E0094C33A /* TSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9F141AE7242E0094C33A /* TSUser.m */; };
-		04CD6A8D1AE7F6F70030433A /* FSSplitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CD6A8C1AE7F6F70030433A /* FSSplitController.m */; };
+		04CD6A8D1AE7F6F70030433A /* TSSplitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CD6A8C1AE7F6F70030433A /* TSSplitController.m */; };
 		98F93F241AE15DF700BD514F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F231AE15DF700BD514F /* main.m */; };
 		98F93F271AE15DF700BD514F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F261AE15DF700BD514F /* AppDelegate.m */; };
 		98F93F2A1AE15DF700BD514F /* MCSTabSplitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F281AE15DF700BD514F /* MCSTabSplitter.xcdatamodeld */; };
@@ -64,8 +64,8 @@
 		04BA9F111AE720010094C33A /* TSTabUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSTabUser.m; path = "Models/Data Manager/TSTabUser.m"; sourceTree = "<group>"; };
 		04BA9F131AE7242E0094C33A /* TSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSUser.h; path = "Models/Data Manager/TSUser.h"; sourceTree = "<group>"; };
 		04BA9F141AE7242E0094C33A /* TSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSUser.m; path = "Models/Data Manager/TSUser.m"; sourceTree = "<group>"; };
-		04CD6A8B1AE7F6F70030433A /* FSSplitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSSplitController.h; path = Controllers/Splitter/FSSplitController.h; sourceTree = "<group>"; };
-		04CD6A8C1AE7F6F70030433A /* FSSplitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSSplitController.m; path = Controllers/Splitter/FSSplitController.m; sourceTree = "<group>"; };
+		04CD6A8B1AE7F6F70030433A /* TSSplitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSSplitController.h; path = Controllers/Splitter/TSSplitController.h; sourceTree = "<group>"; };
+		04CD6A8C1AE7F6F70030433A /* TSSplitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSSplitController.m; path = Controllers/Splitter/TSSplitController.m; sourceTree = "<group>"; };
 		98F93F1E1AE15DF700BD514F /* MCSFareSplitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCSFareSplitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F93F221AE15DF700BD514F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98F93F231AE15DF700BD514F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -405,8 +405,8 @@
 		98F93F8A1AE1631100BD514F /* Splitter */ = {
 			isa = PBXGroup;
 			children = (
-				04CD6A8B1AE7F6F70030433A /* FSSplitController.h */,
-				04CD6A8C1AE7F6F70030433A /* FSSplitController.m */,
+				04CD6A8B1AE7F6F70030433A /* TSSplitController.h */,
+				04CD6A8C1AE7F6F70030433A /* TSSplitController.m */,
 			);
 			name = Splitter;
 			sourceTree = "<group>";
@@ -535,7 +535,7 @@
 				98F93F891AE1621400BD514F /* TSUtilities.m in Sources */,
 				049B12C61AE56C2B002A8800 /* StaticDataTableViewController.m in Sources */,
 				98F93F241AE15DF700BD514F /* main.m in Sources */,
-				04CD6A8D1AE7F6F70030433A /* FSSplitController.m in Sources */,
+				04CD6A8D1AE7F6F70030433A /* TSSplitController.m in Sources */,
 				049B12BD1AE564D5002A8800 /* FormBillTableViewController.m in Sources */,
 				048E33661AE6926200FC0D2D /* DataManager.m in Sources */,
 				049B12D01AE5FB50002A8800 /* TSDefinitions.m in Sources */,

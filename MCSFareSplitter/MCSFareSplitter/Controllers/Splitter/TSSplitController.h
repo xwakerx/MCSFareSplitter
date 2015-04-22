@@ -18,7 +18,7 @@ static NSString *const kCost = @"cost";
 static NSString *const kParticipants = @"participants";
 static NSString *const kItemDescription = @"itemDescription";
 
-@interface FSSplitController : NSObject
+@interface TSSplitController : NSObject
 
 -(NSArray *)splitTabWithPayments:(NSArray *)payments andDebts:(NSArray *)debts;
 -(NSArray *)splitTabEquallyWithPayments:(NSArray *)payments andParticipants:(NSArray *)participants;
