@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SaU-ZB-tZC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SaU-ZB-tZC">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -122,7 +122,7 @@
             </objects>
             <point key="canvasLocation" x="1776" y="-969"/>
         </scene>
-        <!--Bills-->
+        <!--Tabs-->
         <scene sceneID="j9j-Ia-0cc">
             <objects>
                 <tableViewController id="SsJ-RS-IBo" sceneMemberID="viewController">
@@ -143,7 +143,7 @@
                             <outlet property="delegate" destination="SsJ-RS-IBo" id="Tss-gb-ZiR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Bills" id="REJ-cH-S9M">
+                    <navigationItem key="navigationItem" title="Tabs" id="REJ-cH-S9M">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="w89-rv-dsr">
                             <connections>
                                 <segue destination="8Tx-4H-EGw" kind="show" id="kPd-OV-U05"/>
@@ -155,14 +155,14 @@
             </objects>
             <point key="canvasLocation" x="1794" y="-215"/>
         </scene>
-        <!--New Bill-->
+        <!--New Tab-->
         <scene sceneID="A3Z-fq-GEy">
             <objects>
                 <tableViewController id="8Tx-4H-EGw" customClass="FormBillTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Qmy-Cv-H0R">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="WgO-85-o1c">
                                 <cells>
@@ -177,7 +177,7 @@
                                                         <constraint firstAttribute="width" constant="120" id="F2r-wb-HjN"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7SN-C6-NRo">
@@ -223,7 +223,7 @@
                                                         <constraint firstAttribute="width" constant="120" id="IsW-gX-AiQ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aS3-S8-53P">
@@ -260,7 +260,7 @@
                                                         <constraint firstAttribute="width" constant="120" id="lub-a5-eUN"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEK-fU-ZoA">
@@ -269,8 +269,8 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAQ-DY-q4X">
-                                                    <rect key="frame" x="8" y="6" width="398" height="33"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAQ-DY-q4X">
+                                                    <rect key="frame" x="8" y="5" width="398" height="33"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="Button">
@@ -325,7 +325,7 @@
                                                         <constraint firstAttribute="width" constant="120" id="kT2-EZ-X05"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOf-Ij-gne">
@@ -334,8 +334,8 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6U-54-137">
-                                                    <rect key="frame" x="8" y="6" width="398" height="33"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6U-54-137">
+                                                    <rect key="frame" x="8" y="5" width="398" height="33"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="Button">
@@ -389,7 +389,7 @@
                             <outlet property="delegate" destination="8Tx-4H-EGw" id="Iqj-Sg-MJ5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="New Bill" id="MfT-eJ-pLH">
+                    <navigationItem key="navigationItem" title="New Tab" id="MfT-eJ-pLH">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="zHh-gK-VEJ"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -410,7 +410,7 @@
             </objects>
             <point key="canvasLocation" x="2508" y="-147"/>
         </scene>
-        <!--Friends in Bill-->
+        <!--Friends in Tab-->
         <scene sceneID="ydf-il-vPv">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="lFV-Iq-iKn" sceneMemberID="viewController">
@@ -487,7 +487,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="QN1-S8-dXP" secondAttribute="trailing" constant="-16" id="zPF-fw-nDt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Friends in Bill" id="RoV-d7-VBM">
+                    <navigationItem key="navigationItem" title="Friends in Tab" id="RoV-d7-VBM">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="QWs-c5-6AW"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -496,11 +496,11 @@
             </objects>
             <point key="canvasLocation" x="3073" y="-147"/>
         </scene>
-        <!--Bills-->
+        <!--Tabs-->
         <scene sceneID="g8x-UP-Z2O">
             <objects>
                 <navigationController storyboardIdentifier="BillsView" id="gLo-NO-Cd1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Bills" image="Tab Bar Icon - Bills" id="Zes-1g-Lmj"/>
+                    <tabBarItem key="tabBarItem" title="Tabs" image="Tab Bar Icon - Bills" id="Zes-1g-Lmj"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FZf-hE-9kw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -696,8 +696,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="AppLogoWithTitle" translatesAutoresizingMaskIntoConstraints="NO" id="lr2-Ds-Mpc">
-                                <rect key="frame" x="171" y="57" width="259" height="327"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppLogoWithTitle" translatesAutoresizingMaskIntoConstraints="NO" id="lr2-Ds-Mpc">
+                                <rect key="frame" x="56" y="-88" width="488" height="617"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lr2-Ds-Mpc" secondAttribute="height" multiplier="259:327" id="UAa-u5-HOc"/>
                                     <constraint firstAttribute="width" constant="259" id="fKV-q4-e1A"/>
@@ -711,8 +711,8 @@
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KwL-1V-25d">
-                                <rect key="frame" x="277" y="500" width="47" height="30"/>
-                                <state key="normal" title="LOGIN">
+                                <rect key="frame" x="213" y="500" width="175" height="30"/>
+                                <state key="normal" title="LOGIN WITH FACEBOOK">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -737,7 +737,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AppLogoWithTitle" width="266" height="324"/>
+        <image name="AppLogoWithTitle" width="266" height="349"/>
         <image name="Tab Bar Icon - Bills" width="32" height="32"/>
         <image name="Tab Bar Icon - Contacts" width="32" height="32"/>
         <image name="Tab Bar Icon - Home" width="32" height="32"/>
