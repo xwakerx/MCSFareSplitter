@@ -16,4 +16,8 @@
 
 + (Boolean) isValidAmount:(NSString *) amount;
 
++ (NSDecimalNumber *)decimalNumberWithNumber:(NSNumber *)number;
+
++ (NSNumber *)addValuesInArray:(NSArray *)array fromValueBlock:(NSNumber *(^)(NSInteger))valueBlock;
+
 @end
