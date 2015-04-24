@@ -26,6 +26,7 @@
 +(NSNumber *) TSUserTypeFacebook;
 
 - (id) initGhostUserWithMail:(NSString *) email;
+- (id) initWithEmail: (NSString *) email withFirstName:(NSString*) firstName withMiddleName:(NSString*) middleName withLastName:(NSString*) lastName userType:(NSNumber*) userType;
 - (NSString *) getFullName;
 
 @end

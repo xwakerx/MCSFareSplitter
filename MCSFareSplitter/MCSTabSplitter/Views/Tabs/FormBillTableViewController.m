@@ -13,6 +13,7 @@
 
 @interface FormBillTableViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *tfTitle;
 @property (weak, nonatomic) IBOutlet UITextField *tfUsers;
 @property (weak, nonatomic) IBOutlet UITextField *tfTotalAmount;
 @property (weak, nonatomic) IBOutlet UILabel *lblCurrency;

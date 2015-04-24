@@ -32,6 +32,24 @@
     return self;
 }
 
+- (id) initWithEmail: (NSString *) email withFirstName:(NSString*) firstName withMiddleName:(NSString*) middleName withLastName:(NSString*) lastName userType:(NSNumber*) userType{
+    self = [super init];
+    if(self!=nil){
+        self.email=email;
+        self.profilePic=@"";
+        self.userType=userType;
+        self.firstName=firstName;
+        self.middleName=middleName;
+        self.lastName=lastName;
+        //TODO Deposit methods
+        //@property (nonatomic) NSArray *depositMethods;
+        //prefered deposit
+        self.owe=[NSNumber numberWithInt:0];
+        self.owed=[NSNumber numberWithInt:0];
+    }
+    return self;
+}
+
 - (id) initGhostUserWithMail:(NSString *) email{
     self = [super init];
     if(self!=nil){
