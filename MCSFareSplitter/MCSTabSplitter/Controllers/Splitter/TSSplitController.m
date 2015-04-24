@@ -7,6 +7,7 @@
 //
 
 #import "TSSplitController.h"
+#import "TSUtilities.h"
 
 @implementation TSSplitController
 
@@ -31,7 +32,7 @@
     theOnesOwed = [[self sortExpenseArray:[theOnesOwed copy] withOrder:NSOrderedDescending] mutableCopy];
     
     //Total amount due
-    NSDecimalNumber *totalAmountDue = [self decimalNumberWithNumber:@0];
+    NSDecimalNumber *totalAmountDue = [TSUtilities decimalNumberWithNumber:@0];
     totalAmountDue = [self totalAmountDueForDebts:theOnesOwed];
     
     //Start
@@ -48,10 +49,10 @@
                     if([settlement compare:@0.0] == NSOrderedDescending
                        || [settlement compare:@0.0] == NSOrderedSame)
                     {
-                        totalAmountDue = [totalAmountDue decimalNumberBySubtracting:[self decimalNumberWithNumber:[theOnesOwed[toThisGuyIndex] objectForKey:kAmount]]];
+                        totalAmountDue = [totalAmountDue decimalNumberBySubtracting:[TSUtilities decimalNumberWithNumber:[theOnesOwed[toThisGuyIndex] objectForKey:kAmount]]];
                         
                         NSDecimalNumber *amount = [theOnesOwed[toThisGuyIndex] objectForKey:kAmount];
-                        amount = [amount decimalNumberByMultiplyingBy:[self decimalNumberWithNumber:[NSNumber numberWithInt:-1]]];
+                        amount = [amount decimalNumberByMultiplyingBy:[TSUtilities decimalNumberWithNumber:[NSNumber numberWithInt:-1]]];
                         
                         [theOnesOwed[toThisGuyIndex] setObject:@0 forKey:kAmount];
                         [theOnesWhoOwe[thisGuyOwesIndex] setObject:settlement forKey:kAmount];
@@ -60,7 +61,7 @@
                     }
                     else
                     {
-                        totalAmountDue = [totalAmountDue decimalNumberByAdding:[self decimalNumberWithNumber:[theOnesWhoOwe[thisGuyOwesIndex] objectForKey:kAmount]]];
+                        totalAmountDue = [totalAmountDue decimalNumberByAdding:[TSUtilities decimalNumberWithNumber:[theOnesWhoOwe[thisGuyOwesIndex] objectForKey:kAmount]]];
                         
                         NSDecimalNumber *amount = [theOnesWhoOwe[thisGuyOwesIndex] objectForKey:kAmount];
                         
@@ -76,8 +77,8 @@
         }
         
         if(thisGuyOwesIndex == theOnesWhoOwe.count - 1
-           && !([totalAmountDue compare:[self decimalNumberWithNumber:@0.001]] == NSOrderedAscending
-           && [totalAmountDue compare:[self decimalNumberWithNumber:@(-0.001)]] == NSOrderedDescending))
+           && !([totalAmountDue compare:[TSUtilities decimalNumberWithNumber:@0.001]] == NSOrderedAscending
+           && [totalAmountDue compare:[TSUtilities decimalNumberWithNumber:@(-0.001)]] == NSOrderedDescending))
         {
             thisGuyOwesIndex = -1;
         }
@@ -145,7 +146,7 @@
         id amount = [element objectForKey:kAmount];
         if([amount isKindOfClass:[NSNumber class]])
         {
-            NSDecimalNumber *decimalAmount = [self roundToTwoDecimals:[self decimalNumberWithNumber:(NSNumber *)amount]];
+            NSDecimalNumber *decimalAmount = [self roundToTwoDecimals:[TSUtilities decimalNumberWithNumber:(NSNumber *)amount]];
             NSMutableDictionary *mutableElement = [element mutableCopy];
             [mutableElement setObject:decimalAmount forKey:kAmount];
             [newArray addObject:mutableElement];
@@ -159,11 +160,11 @@
 {
     for (NSDictionary *item in items)
     {
-        NSDecimalNumber *itemCost = [self decimalNumberWithNumber:[item objectForKey:kCost]];
+        NSDecimalNumber *itemCost = [TSUtilities decimalNumberWithNumber:[item objectForKey:kCost]];
         
         NSArray *itemParticipants = [item objectForKey:kParticipants];
         
-        NSDecimalNumber *itemCostRealAccum = [self decimalNumberWithNumber:@0];
+        NSDecimalNumber *itemCostRealAccum = [TSUtilities decimalNumberWithNumber:@0];
         
         if(!itemParticipants != itemParticipants.count == 0)
         {
@@ -180,14 +181,14 @@
                 {
                     lastParticipantForItem = tabParticipant;
                     
-                    NSDecimalNumber *itemParticipantsCount = [self decimalNumberWithNumber:[NSNumber numberWithInteger:itemParticipants.count]];
+                    NSDecimalNumber *itemParticipantsCount = [TSUtilities decimalNumberWithNumber:[NSNumber numberWithInteger:itemParticipants.count]];
                     NSDecimalNumber *amount = [self roundToTwoDecimals:[itemCost decimalNumberByDividingBy:itemParticipantsCount]];
                     
                     itemCostRealAccum = [itemCostRealAccum decimalNumberByAdding:amount];
                     
                     if(![tabParticipant objectForKey:kAmount])
                     {
-                        [tabParticipant setObject:[self decimalNumberWithNumber:@0] forKey:kAmount];
+                        [tabParticipant setObject:[TSUtilities decimalNumberWithNumber:@0] forKey:kAmount];
                     }
                     NSDecimalNumber *accumParticipantAmount = [[tabParticipant objectForKey:kAmount] decimalNumberByAdding:amount];
                     
@@ -247,7 +248,7 @@
 #pragma mark - Total Amount
 -(NSDecimalNumber *)totalAmountDueForDebts:(NSArray *)debts
 {
-    NSDecimalNumber *totalAmountDue = [self decimalNumberWithNumber:@0];
+    NSDecimalNumber *totalAmountDue = [TSUtilities decimalNumberWithNumber:@0];
     
     for (NSMutableDictionary *debt in debts)
     {
@@ -279,12 +280,7 @@
                                        raiseOnUnderflow:NO
                                        raiseOnDivideByZero:YES];
     
-    return [num decimalNumberByAdding:[self decimalNumberWithNumber:[NSNumber numberWithInt:0]] withBehavior:roundUp];
-}
-
--(NSDecimalNumber *)decimalNumberWithNumber:(NSNumber *)number
-{
-    return [NSDecimalNumber decimalNumberWithDecimal:[number decimalValue]];
+    return [num decimalNumberByAdding:[TSUtilities decimalNumberWithNumber:[NSNumber numberWithInt:0]] withBehavior:roundUp];
 }
 
 #pragma mark - Utility methods
@@ -309,9 +305,9 @@
 {
     NSDecimalNumber *paymentsTotalAmount = [self totalAmountDueForDebts:payments];
     
-    NSDecimalNumber *individualDebtAmount = [paymentsTotalAmount decimalNumberByDividingBy:[self decimalNumberWithNumber:[NSNumber numberWithInteger:participants.count]]];
+    NSDecimalNumber *individualDebtAmount = [paymentsTotalAmount decimalNumberByDividingBy:[TSUtilities decimalNumberWithNumber:[NSNumber numberWithInteger:participants.count]]];
     individualDebtAmount = [self roundToTwoDecimals:individualDebtAmount];
-    NSDecimalNumber *paymentsRealAmountAccum = [self decimalNumberWithNumber:@0];
+    NSDecimalNumber *paymentsRealAmountAccum = [TSUtilities decimalNumberWithNumber:@0];
     
     NSMutableArray *debts = [NSMutableArray array];
     
@@ -326,7 +322,7 @@
     {
         NSDecimalNumber *lastAmount = [[debts lastObject] objectForKey:kAmount];
         
-        lastAmount = [[self decimalNumberWithNumber:lastAmount] decimalNumberByAdding:[paymentsTotalAmount decimalNumberBySubtracting:paymentsRealAmountAccum]];
+        lastAmount = [[TSUtilities decimalNumberWithNumber:lastAmount] decimalNumberByAdding:[paymentsTotalAmount decimalNumberBySubtracting:paymentsRealAmountAccum]];
         
         [[debts lastObject] setObject:lastAmount forKey:kAmount];
     }
@@ -358,20 +354,20 @@
         [NSException raise:@"FSSplitInvalidArgumentsException" format:@"The count of percentages does not match the coung ot participants"];
     }
     
-    NSDecimalNumber *totalPercentage = [self decimalNumberWithNumber:@0];
+    NSDecimalNumber *totalPercentage = [TSUtilities decimalNumberWithNumber:@0];
     
     for (NSNumber *number in percentages)
     {
-        totalPercentage = [totalPercentage decimalNumberByAdding:[self decimalNumberWithNumber:number]];
+        totalPercentage = [totalPercentage decimalNumberByAdding:[TSUtilities decimalNumberWithNumber:number]];
     }
     
-    if([totalPercentage compare:[self decimalNumberWithNumber:@100]] != NSOrderedSame)
+    if([totalPercentage compare:[TSUtilities decimalNumberWithNumber:@100]] != NSOrderedSame)
     {
         [NSException raise:@"FSSplitInvalidArgumentsException" format:@"The percentages do not sum 100"];
     }
     
     NSDecimalNumber *paymentsTotalAmount = [self totalAmountDueForDebts:payments];
-    NSDecimalNumber *paymentsRealAmountAccum = [self decimalNumberWithNumber:@0];
+    NSDecimalNumber *paymentsRealAmountAccum = [TSUtilities decimalNumberWithNumber:@0];
     
     NSMutableArray *debts = [NSMutableArray array];
     
@@ -379,8 +375,8 @@
     {
         NSString *participantID = [participants[i] objectForKey:kId];
         
-        NSDecimalNumber *percentage = [self decimalNumberWithNumber:percentages[i]];
-        percentage = [percentage decimalNumberByDividingBy:[self decimalNumberWithNumber:@100]];
+        NSDecimalNumber *percentage = [TSUtilities decimalNumberWithNumber:percentages[i]];
+        percentage = [percentage decimalNumberByDividingBy:[TSUtilities decimalNumberWithNumber:@100]];
         
         NSDecimalNumber *amount = [paymentsTotalAmount decimalNumberByMultiplyingBy:percentage];
         
@@ -394,7 +390,7 @@
     {
         NSDecimalNumber *lastAmount = [[debts lastObject] objectForKey:kAmount];
         
-        lastAmount = [[self decimalNumberWithNumber:lastAmount] decimalNumberByAdding:[paymentsTotalAmount decimalNumberBySubtracting:paymentsRealAmountAccum]];
+        lastAmount = [[TSUtilities decimalNumberWithNumber:lastAmount] decimalNumberByAdding:[paymentsTotalAmount decimalNumberBySubtracting:paymentsRealAmountAccum]];
         
         [[debts lastObject] setObject:lastAmount forKey:kAmount];
     }
@@ -407,11 +403,11 @@
 -(NSArray *)splitTabWithPayments:(NSArray *)payments forParticipants:(NSArray *)participants withItems:(NSArray *)items
 {
     NSDecimalNumber *paymentsTotalAmount = [self totalAmountDueForDebts:payments];
-    NSDecimalNumber *itemsTotalCost = [self decimalNumberWithNumber:@0];
+    NSDecimalNumber *itemsTotalCost = [TSUtilities decimalNumberWithNumber:@0];
     
     for (NSDictionary *item in items)
     {
-        NSDecimalNumber *itemCost = [self decimalNumberWithNumber:[item objectForKey:kCost]];
+        NSDecimalNumber *itemCost = [TSUtilities decimalNumberWithNumber:[item objectForKey:kCost]];
         
         itemsTotalCost = [itemsTotalCost decimalNumberByAdding:itemCost];
     }

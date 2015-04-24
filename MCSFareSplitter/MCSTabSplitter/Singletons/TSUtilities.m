@@ -37,4 +37,21 @@
     }
 }
 
++ (NSDecimalNumber *)decimalNumberWithNumber:(NSNumber *)number
+{
+    return [NSDecimalNumber decimalNumberWithDecimal:[number decimalValue]];
+}
+
++ (NSNumber *)addValuesInArray:(NSArray *)array fromValueBlock:(NSNumber *(^)(NSInteger))valueBlock
+{
+    NSDecimalNumber *decimalNumber = [TSUtilities decimalNumberWithNumber:@0];
+    for (NSInteger i = 0; i < array.count; i++)
+    {
+        NSDecimalNumber *value = [TSUtilities decimalNumberWithNumber:valueBlock(i)];
+        decimalNumber = [decimalNumber decimalNumberByAdding:value];
+    }
+    
+    return (NSNumber *)decimalNumber;
+}
+
 @end
