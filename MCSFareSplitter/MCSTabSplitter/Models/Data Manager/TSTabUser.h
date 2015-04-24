@@ -22,7 +22,10 @@
 @property (nonatomic) NSNumber *owe;
 @property (nonatomic) NSNumber *owed;
 
-+(NSNumber *) FSUserTypeGhost;
-+(NSNumber *) FSUserTypeFacebook;
++(NSNumber *) TSUserTypeGhost;
++(NSNumber *) TSUserTypeFacebook;
+
+- (id) initGhostUserWithMail:(NSString *) email;
+- (NSString *) getFullName;
 
 @end

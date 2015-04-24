@@ -413,7 +413,7 @@
         <!--Friends in Tab-->
         <scene sceneID="ydf-il-vPv">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="lFV-Iq-iKn" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="lFV-Iq-iKn" customClass="FriendsInTabViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PX2-NU-bDa"/>
                         <viewControllerLayoutGuide type="bottom" id="qPW-nB-apV"/>
@@ -429,6 +429,9 @@
                                         <rect key="frame" x="8" y="5" width="368" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="lFV-Iq-iKn" id="hcj-Ab-t8I"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RML-x2-43U">
                                         <rect key="frame" x="384" y="9" width="22" height="22"/>
@@ -436,9 +439,13 @@
                                             <constraint firstAttribute="width" constant="22" id="ibo-R4-suL"/>
                                             <constraint firstAttribute="height" constant="22" id="jO9-NO-WhC"/>
                                         </constraints>
+                                        <color key="tintColor" red="0.89411764709999997" green="0.0" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onAddClicked:" destination="lFV-Iq-iKn" eventType="touchUpInside" id="EdK-yZ-fai"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
@@ -456,10 +463,18 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jAf-sR-Wrw">
                                 <rect key="frame" x="0.0" y="104" width="414" height="240"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lFV-Iq-iKn" id="tPw-Vw-dpQ"/>
+                                    <outlet property="delegate" destination="lFV-Iq-iKn" id="peo-UY-vZE"/>
+                                </connections>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tMk-U1-ynr">
                                 <rect key="frame" x="0.0" y="348" width="414" height="339"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lFV-Iq-iKn" id="NjU-5g-TJ5"/>
+                                    <outlet property="delegate" destination="lFV-Iq-iKn" id="9xX-Ie-Jnd"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gkq-SB-I2b">
                                 <rect key="frame" x="0.0" y="344" width="414" height="4"/>
@@ -491,6 +506,11 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="QWs-c5-6AW"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="tfEmail" destination="fdC-z4-kIj" id="QNc-AD-PRu"/>
+                        <outlet property="tvAllContacts" destination="tMk-U1-ynr" id="gKF-8o-MoX"/>
+                        <outlet property="tvContactsInTab" destination="jAf-sR-Wrw" id="tWW-c0-WZ0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Djm-QX-9p8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
