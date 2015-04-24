@@ -32,7 +32,7 @@ typedef enum
 @property (nonatomic, strong) TSCurrency *currency;
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, assign) TSTabStatus status;
-@property (nonatomic, copy) NSArray *splitters;
+@property (nonatomic, copy) NSArray *users;
 @property (nonatomic, assign) TSSplitMethod splitMethod;
 @property (nonatomic, copy) NSArray *items;
 @property (nonatomic, copy) NSArray *transactions;

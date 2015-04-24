@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "TSSplitController.h"
+#import "TSTabUser.h"
+#import "TSItem.h"
+#import "TSTab.h"
+#import "TSTransaction.h"
 
 @interface SplitterTests : XCTestCase
 
@@ -28,14 +32,9 @@
 
 -(void)testMainSplitter
 {
-    NSArray *payments = @[@{kId: @"a",
-                            kAmount: @100},
-                          @{kId: @"b",
-                            kAmount: @300},
-                          @{kId: @"c",
-                            kAmount: @500},
-                          @{kId: @"d",
-                            kAmount: @100}];
+    NSDate *date = [NSDate date];
+    NSArray *payments = @[];
+
     
     NSMutableDictionary *a = [NSMutableDictionary dictionaryWithDictionary:@{kId: @"a", kAmount: @99}];
     NSMutableDictionary *b = [NSMutableDictionary dictionaryWithDictionary:@{kId: @"b", kAmount: @81}];
@@ -48,6 +47,8 @@
     NSMutableDictionary *i = [NSMutableDictionary dictionaryWithDictionary:@{kId: @"i", kAmount: @160}];
     NSMutableDictionary *j = [NSMutableDictionary dictionaryWithDictionary:@{kId: @"j", kAmount: @70}];
     NSMutableDictionary *k = [NSMutableDictionary dictionaryWithDictionary:@{kId: @"k", kAmount: @140}];
+    
+//    NSArray *debts = @[];
     
     NSArray *debts = @[a, b, c, d, e, f, g, h, i, j, k];
     

@@ -10,4 +10,17 @@
 
 @implementation TSTransaction
 
+-(instancetype)initWithAmount:(NSNumber *)amount from:(TSTabUser *)sourceUser to:(TSTabUser *)destinationUser withCreationDate:(NSDate *)date
+{
+    if(self = [super init])
+    {
+        self.amount = amount;
+        self.sourceUser = sourceUser;
+        self.destinationUser = destinationUser;
+        self.created = date;
+    }
+    
+    return self;
+}
+
 @end

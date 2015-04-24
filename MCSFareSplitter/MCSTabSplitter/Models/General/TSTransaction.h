@@ -17,4 +17,6 @@
 @property (nonatomic, strong) NSNumber *amount;
 @property (nonatomic, strong) NSDate *created;
 
+-(instancetype)initWithAmount:(NSNumber *)amount from:(TSTabUser *)sourceUser to:(TSTabUser *)destinationUser withCreationDate:(NSDate *)date;
+
 @end
