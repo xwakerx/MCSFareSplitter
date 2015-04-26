@@ -8,6 +8,10 @@
 
 #import "TSTabUser.h"
 
-@interface TSUser : TSTabUser
+@interface TSUser : NSObject
+
+@property (nonatomic, strong) TSTabUser *user;
+
++(TSUser *)sharedUser;
 
 @end

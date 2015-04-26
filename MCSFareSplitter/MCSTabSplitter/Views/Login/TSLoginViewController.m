@@ -8,6 +8,10 @@
 
 #import "TSLoginViewController.h"
 
+#import "TSFacebookController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
 @interface TSLoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *btnLogin;
@@ -19,6 +23,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    FBSDKLoginButton *loginButton = [[TSFacebookController sharedController] facebookLoginButton];
+    loginButton.center = CGPointMake(self.view.center.x, 450);
+    
+    [self.view addSubview:loginButton];
+    
+    self.btnLogin.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
