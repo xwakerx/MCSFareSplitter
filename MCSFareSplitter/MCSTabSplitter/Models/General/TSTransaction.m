@@ -7,6 +7,7 @@
 //
 
 #import "TSTransaction.h"
+#import "TSTabUser.h"
 
 @implementation TSTransaction
 
@@ -21,6 +22,14 @@
     }
     
     return self;
+}
+
+-(NSString *)description
+{
+    return [[super description] stringByAppendingString:[NSString stringWithFormat:@"From: %@ - To: %@ - Amount: %@",
+                                                         self.sourceUser.firstName,
+                                                         self.destinationUser.firstName,
+                                                         self.amount]];
 }
 
 @end

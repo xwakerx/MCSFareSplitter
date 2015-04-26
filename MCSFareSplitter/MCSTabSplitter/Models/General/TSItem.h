@@ -14,4 +14,6 @@
 @property (nonatomic, strong)   NSNumber *cost;
 @property (nonatomic, copy)     NSArray *enrolledUsers;
 
+-(instancetype)initWithCost:(NSNumber *)cost andDetail:(NSString *)detail forUsers:(NSArray *)users;
+
 @end

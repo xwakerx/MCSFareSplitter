@@ -13,6 +13,7 @@
 #import "TSItem.h"
 #import "TSTab.h"
 #import "TSTransaction.h"
+#import "TSUserTabSplit.h"
 
 @interface SplitterTests : XCTestCase
 
@@ -32,25 +33,34 @@
 
 -(void)testMainSplitter
 {
-    NSDate *date = [NSDate date];
-    NSArray *payments = @[];
+    NSArray *users = @[[[TSTabUser alloc]initWithEmail:nil withFirstName:@"A" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"B" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"C" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"D" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"E" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"F" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"G" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"H" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"I" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"J" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"K" withMiddleName:nil withLastName:nil userType:nil]];
+    
+    NSArray *payments = @[[[TSUserTabSplit alloc] initWithUser:users[0] andTab:nil withAmount:@(-100)],
+                          [[TSUserTabSplit alloc] initWithUser:users[1] andTab:nil withAmount:@(-300)],
+                          [[TSUserTabSplit alloc] initWithUser:users[2] andTab:nil withAmount:@(-500)],
+                          [[TSUserTabSplit alloc] initWithUser:users[3] andTab:nil withAmount:@(-100)]];
 
-    
-    NSMutableDictionary *a = [NSMutableDictionary dictionaryWithDictionary:@{kId: @"a", kAmount: @99}];
-    NSMutableDictionary *b = [NSMutableDictionary dictionaryWithDictionary:@{kId: @"b", kAmount: @81}];
-    NSMutableDictionary *c = [NSMutableDictionary dictionaryWithDictionary:@{kId: @"c", kAmount: @60}];
-    NSMutableDictionary *d = [NSMutableDictionary dictionaryWithDictionary:@{kId: @"d", kAmount: @89}];
-    NSMutableDictionary *e = [NSMutableDictionary dictionaryWithDictionary:@{kId: @"e", kAmount: @60}];
-    NSMutableDictionary *f = [NSMutableDictionary dictionaryWithDictionary:@{kId: @"f", kAmount: @65}];
-    NSMutableDictionary *g = [NSMutableDictionary dictionaryWithDictionary:@{kId: @"g", kAmount: @100}];
-    NSMutableDictionary *h = [NSMutableDictionary dictionaryWithDictionary:@{kId: @"h", kAmount: @76}];
-    NSMutableDictionary *i = [NSMutableDictionary dictionaryWithDictionary:@{kId: @"i", kAmount: @160}];
-    NSMutableDictionary *j = [NSMutableDictionary dictionaryWithDictionary:@{kId: @"j", kAmount: @70}];
-    NSMutableDictionary *k = [NSMutableDictionary dictionaryWithDictionary:@{kId: @"k", kAmount: @140}];
-    
-//    NSArray *debts = @[];
-    
-    NSArray *debts = @[a, b, c, d, e, f, g, h, i, j, k];
+    NSArray *debts = @[[[TSUserTabSplit alloc] initWithUser:users[0] andTab:nil withAmount:@99],
+                       [[TSUserTabSplit alloc] initWithUser:users[1] andTab:nil withAmount:@81],
+                       [[TSUserTabSplit alloc] initWithUser:users[2] andTab:nil withAmount:@60],
+                       [[TSUserTabSplit alloc] initWithUser:users[3] andTab:nil withAmount:@89],
+                       [[TSUserTabSplit alloc] initWithUser:users[4] andTab:nil withAmount:@60],
+                       [[TSUserTabSplit alloc] initWithUser:users[5] andTab:nil withAmount:@65],
+                       [[TSUserTabSplit alloc] initWithUser:users[6] andTab:nil withAmount:@100],
+                       [[TSUserTabSplit alloc] initWithUser:users[7] andTab:nil withAmount:@76],
+                       [[TSUserTabSplit alloc] initWithUser:users[8] andTab:nil withAmount:@160],
+                       [[TSUserTabSplit alloc] initWithUser:users[9] andTab:nil withAmount:@70],
+                       [[TSUserTabSplit alloc] initWithUser:users[10] andTab:nil withAmount:@140]];
     
     TSSplitController *splitController = [TSSplitController new];
     
@@ -63,30 +73,26 @@
 
 -(void)testSplitEqually
 {
-    NSArray *payments = @[@{kId: @"a",
-                            kAmount: @100},
-                          @{kId: @"b",
-                            kAmount: @300},
-                          @{kId: @"c",
-                            kAmount: @500},
-                          @{kId: @"d",
-                            kAmount: @100}];
+    NSArray *users = @[[[TSTabUser alloc]initWithEmail:nil withFirstName:@"A" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"B" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"C" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"D" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"E" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"F" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"G" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"H" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"I" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"J" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"K" withMiddleName:nil withLastName:nil userType:nil]];
     
-    NSArray *participants = @[@{kId: @"a"},
-                              @{kId: @"b"},
-                              @{kId: @"c"},
-                              @{kId: @"d"},
-                              @{kId: @"e"},
-                              @{kId: @"f"},
-                              @{kId: @"g"},
-                              @{kId: @"h"},
-                              @{kId: @"i"},
-                              @{kId: @"j"},
-                              @{kId: @"k"}];
+    NSArray *payments = @[[[TSUserTabSplit alloc] initWithUser:users[0] andTab:nil withAmount:@(-100)],
+                          [[TSUserTabSplit alloc] initWithUser:users[1] andTab:nil withAmount:@(-300)],
+                          [[TSUserTabSplit alloc] initWithUser:users[2] andTab:nil withAmount:@(-500)],
+                          [[TSUserTabSplit alloc] initWithUser:users[3] andTab:nil withAmount:@(-100)]];
     
     TSSplitController *splitController = [TSSplitController new];
     
-    NSArray *transactions = [splitController splitTabEquallyWithPayments:payments andParticipants:participants];
+    NSArray *transactions = [splitController splitTabEquallyWithPayments:payments andParticipants:users];
     
     XCTAssertNotNil(transactions);
     
@@ -95,32 +101,28 @@
 
 -(void)testSplitPercentages
 {
-    NSArray *payments = @[@{kId: @"a",
-                            kAmount: @100},
-                          @{kId: @"b",
-                            kAmount: @300},
-                          @{kId: @"c",
-                            kAmount: @500},
-                          @{kId: @"d",
-                            kAmount: @100}];
+    NSArray *users = @[[[TSTabUser alloc]initWithEmail:nil withFirstName:@"A" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"B" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"C" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"D" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"E" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"F" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"G" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"H" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"I" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"J" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"K" withMiddleName:nil withLastName:nil userType:nil]];
     
-    NSArray *participants = @[@{kId: @"a"},
-                              @{kId: @"b"},
-                              @{kId: @"c"},
-                              @{kId: @"d"},
-                              @{kId: @"e"},
-                              @{kId: @"f"},
-                              @{kId: @"g"},
-                              @{kId: @"h"},
-                              @{kId: @"i"},
-                              @{kId: @"j"},
-                              @{kId: @"k"}];
+    NSArray *payments = @[[[TSUserTabSplit alloc] initWithUser:users[0] andTab:nil withAmount:@(-100)],
+                          [[TSUserTabSplit alloc] initWithUser:users[1] andTab:nil withAmount:@(-300)],
+                          [[TSUserTabSplit alloc] initWithUser:users[2] andTab:nil withAmount:@(-500)],
+                          [[TSUserTabSplit alloc] initWithUser:users[3] andTab:nil withAmount:@(-100)]];
     
     NSArray *percentages = @[@10, @4, @2.55, @21, @19, @12, @7, @13, @6, @4.1, @1.35];
     
     TSSplitController *splitController = [TSSplitController new];
     
-    NSArray *transactions = [splitController splitTabWithPayments:payments andPercentages:percentages forParticipants:participants];
+    NSArray *transactions = [splitController splitTabWithPayments:payments andPercentages:percentages forParticipants:users];
     
     XCTAssertNotNil(transactions);
     
@@ -129,40 +131,36 @@
 
 -(void)testSplitItems
 {
-    NSArray *payments = @[@{kId: @"a",
-                            kAmount: @100},
-                          @{kId: @"b",
-                            kAmount: @300},
-                          @{kId: @"c",
-                            kAmount: @500},
-                          @{kId: @"d",
-                            kAmount: @100}];
+    NSArray *users = @[[[TSTabUser alloc]initWithEmail:nil withFirstName:@"A" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"B" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"C" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"D" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"E" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"F" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"G" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"H" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"I" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"J" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"K" withMiddleName:nil withLastName:nil userType:nil]];
     
-    NSArray *participants = @[@{kId: @"a"},
-                              @{kId: @"b"},
-                              @{kId: @"c"},
-                              @{kId: @"d"},
-                              @{kId: @"e"},
-                              @{kId: @"f"},
-                              @{kId: @"g"},
-                              @{kId: @"h"},
-                              @{kId: @"i"},
-                              @{kId: @"j"},
-                              @{kId: @"k"}];
+    NSArray *payments = @[[[TSUserTabSplit alloc] initWithUser:users[0] andTab:nil withAmount:@(-100)],
+                          [[TSUserTabSplit alloc] initWithUser:users[1] andTab:nil withAmount:@(-300)],
+                          [[TSUserTabSplit alloc] initWithUser:users[2] andTab:nil withAmount:@(-500)],
+                          [[TSUserTabSplit alloc] initWithUser:users[3] andTab:nil withAmount:@(-100)]];
     
-    NSArray *items = @[@{kItemDescription: @"item1", kCost: @200, kParticipants: @[@{kId: @"a"}, @{kId: @"b"},@{kId: @"c"}]},
-                       @{kItemDescription: @"item1", kCost: @100, kParticipants: @[@{kId: @"b"}, @{kId: @"c"},@{kId: @"d"}]},
-                       @{kItemDescription: @"item1", kCost: @50, kParticipants: @[@{kId: @"e"}, @{kId: @"f"}]},
-                       @{kItemDescription: @"item1", kCost: @100, kParticipants: @[@{kId: @"a"}]},
-                       @{kItemDescription: @"item1", kCost: @60, kParticipants: @[@{kId: @"j"}, @{kId: @"k"}]},
-                       @{kItemDescription: @"item1", kCost: @40, kParticipants: @[@{kId: @"a"}, @{kId: @"b"},@{kId: @"c"}, @{kId: @"d"}, @{kId: @"e"}, @{kId: @"f"}, @{kId: @"g"}, @{kId: @"h"}, @{kId: @"i"}, @{kId: @"j"}, @{kId: @"k"}]},
-                       @{kItemDescription: @"item1", kCost: @150, kParticipants: @[@{kId: @"k"}]},
-                       @{kItemDescription: @"item1", kCost: @220, kParticipants: @[@{kId: @"i"}, @{kId: @"a"},@{kId: @"k"}]},
-                       @{kItemDescription: @"item1", kCost: @80, kParticipants: @[@{kId: @"j"}]}];
+    NSArray *items = @[[[TSItem alloc]initWithCost:@200 andDetail:@"item1" forUsers:@[users[0], users[1], users[2]]],
+                       [[TSItem alloc]initWithCost:@100 andDetail:@"item2" forUsers:@[users[1], users[2], users[3]]],
+                       [[TSItem alloc]initWithCost:@50  andDetail:@"item3" forUsers:@[users[4], users[5]]],
+                       [[TSItem alloc]initWithCost:@100 andDetail:@"item4" forUsers:@[users[0]]],
+                       [[TSItem alloc]initWithCost:@60  andDetail:@"item5" forUsers:@[users[9], users[10]]],
+                       [[TSItem alloc]initWithCost:@40  andDetail:@"item6" forUsers:users],
+                       [[TSItem alloc]initWithCost:@150 andDetail:@"item7" forUsers:@[users[10]]],
+                       [[TSItem alloc]initWithCost:@220 andDetail:@"item8" forUsers:@[users[8], users[0], users[10]]],
+                       [[TSItem alloc]initWithCost:@80  andDetail:@"item9" forUsers:@[users[9]]]];
     
     TSSplitController *splitController = [TSSplitController new];
     
-    NSArray *transactions = [splitController splitTabWithPayments:payments forParticipants:participants withItems:items];
+    NSArray *transactions = [splitController splitTabWithPayments:payments forParticipants:users withItems:items];
     
     XCTAssertNotNil(transactions);
     

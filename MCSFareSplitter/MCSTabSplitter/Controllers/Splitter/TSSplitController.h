@@ -8,17 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString *const kAmount = @"amount";
-static NSString *const kId = @"id";
+@class TSTab;
+
 static NSString *const kTheOnesOwed = @"theOnesOwed";
 static NSString *const kTheOnesWhoOwe = @"theOnesWhoOwe";
-static NSString *const kFrom = @"from";
-static NSString *const kTo = @"to";
-static NSString *const kCost = @"cost";
-static NSString *const kParticipants = @"participants";
-static NSString *const kItemDescription = @"itemDescription";
 
 @interface TSSplitController : NSObject
+
+@property (nonatomic, strong) TSTab *tab;
+
+-(instancetype)initWithTab:(TSTab *)tab;
 
 -(NSArray *)splitTabWithPayments:(NSArray *)payments andDebts:(NSArray *)debts;
 -(NSArray *)splitTabEquallyWithPayments:(NSArray *)payments andParticipants:(NSArray *)participants;

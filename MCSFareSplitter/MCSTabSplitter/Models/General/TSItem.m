@@ -10,4 +10,15 @@
 
 @implementation TSItem
 
+-(instancetype)initWithCost:(NSNumber *)cost andDetail:(NSString *)detail forUsers:(NSArray *)users
+{
+    if(self = [super init])
+    {
+        self.cost = cost;
+        self.detail = detail;
+        self.enrolledUsers = users;
+    }
+    return self;
+}
+
 @end
