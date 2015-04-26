@@ -26,6 +26,7 @@
 		048098021AE7FC4A00C6DB14 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 048098011AE7FC4A00C6DB14 /* Info.plist */; };
 		048098051AE7FD1100C6DB14 /* MCSFareSplitterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 048098031AE7FD1100C6DB14 /* MCSFareSplitterTests.m */; };
 		048098061AE7FD1100C6DB14 /* SplitterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 048098041AE7FD1100C6DB14 /* SplitterTests.m */; };
+		0483ECF81AED3C7C00BD6DFC /* TSTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0483ECF71AED3C7C00BD6DFC /* TSTabController.m */; };
 		04C825871AE941F000237635 /* FriendsInTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C825861AE941F000237635 /* FriendsInTabViewController.m */; };
 		04C8258D1AECAE3D00237635 /* SplitTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8258C1AECAE3D00237635 /* SplitTabViewController.m */; };
 		04C825901AECAE9600237635 /* TSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8258F1AECAE9600237635 /* TSLoginViewController.m */; };
@@ -94,6 +95,8 @@
 		048098011AE7FC4A00C6DB14 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MCSTabSplitterTests/Info.plist; sourceTree = SOURCE_ROOT; };
 		048098031AE7FD1100C6DB14 /* MCSFareSplitterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCSFareSplitterTests.m; path = MCSTabSplitterTests/MCSFareSplitterTests.m; sourceTree = SOURCE_ROOT; };
 		048098041AE7FD1100C6DB14 /* SplitterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplitterTests.m; path = MCSTabSplitterTests/SplitterTests.m; sourceTree = SOURCE_ROOT; };
+		0483ECF61AED3C7C00BD6DFC /* TSTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSTabController.h; path = MCSTabSplitter/Controllers/Tabs/TSTabController.h; sourceTree = SOURCE_ROOT; };
+		0483ECF71AED3C7C00BD6DFC /* TSTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSTabController.m; path = MCSTabSplitter/Controllers/Tabs/TSTabController.m; sourceTree = SOURCE_ROOT; };
 		04C825851AE941F000237635 /* FriendsInTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsInTabViewController.h; path = MCSTabSplitter/Views/Tabs/FriendsInTabViewController.h; sourceTree = SOURCE_ROOT; };
 		04C825861AE941F000237635 /* FriendsInTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendsInTabViewController.m; path = MCSTabSplitter/Views/Tabs/FriendsInTabViewController.m; sourceTree = SOURCE_ROOT; };
 		04C8258B1AECAE3D00237635 /* SplitTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplitTabViewController.h; path = MCSTabSplitter/Views/Tabs/SplitTabViewController.h; sourceTree = SOURCE_ROOT; };
@@ -141,6 +144,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0483ECF51AED3C0900BD6DFC /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				0483ECF61AED3C7C00BD6DFC /* TSTabController.h */,
+				0483ECF71AED3C7C00BD6DFC /* TSTabController.m */,
+			);
+			name = Tabs;
+			sourceTree = "<group>";
+		};
 		049B12C31AE56C2B002A8800 /* StaticDataTableViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +311,7 @@
 		98F93F4F1AE15FDC00BD514F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0483ECF51AED3C0900BD6DFC /* Tabs */,
 				98F93F8A1AE1631100BD514F /* Splitter */,
 				98F93F851AE161A500BD514F /* Notifications */,
 				98F93F831AE1617C00BD514F /* Payments */,
@@ -541,6 +554,7 @@
 				04C825871AE941F000237635 /* FriendsInTabViewController.m in Sources */,
 				048097D51AE7FA4B00C6DB14 /* FormBillTableViewController.m in Sources */,
 				048097DC1AE7FB3B00C6DB14 /* AppDelegate.m in Sources */,
+				0483ECF81AED3C7C00BD6DFC /* TSTabController.m in Sources */,
 				98A443951AEA8ECE00339D0E /* TSItem.m in Sources */,
 				048097C41AE7F9A800C6DB14 /* TSUtilities.m in Sources */,
 				98A4439A1AEA92BD00339D0E /* TSUserTabSplit.m in Sources */,
