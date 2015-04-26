@@ -9,6 +9,11 @@
 #import "AppDelegate.h"
 #import <UIKit/UIKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
+#import "TSFacebookController.h"
+#import "TSUser.h"
+#import "TSLoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -43,6 +48,16 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [FBSDKAppEvents activateApp];
+    
+    [[TSFacebookController sharedController] requestUserFromFacebookWithUserBlock:^(BOOL success, TSTabUser *user){
+        if(success)
+        {
+            [TSUser sharedUser].user = user;
+            TSLoginViewController *loginVC = (TSLoginViewController *)[self.window rootViewController];
+            [loginVC performSegueWithIdentifier:@"loginSegue" sender:loginVC];
+        }
+    }];
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

@@ -10,4 +10,14 @@
 
 @implementation TSUser
 
++ (TSUser *)sharedUser
+{
+    static TSUser *sharedUser = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedUser = [[self alloc] init];
+    });
+    return sharedUser;
+}
+
 @end
