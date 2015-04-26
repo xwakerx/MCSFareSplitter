@@ -29,6 +29,7 @@
 		04C825871AE941F000237635 /* FriendsInTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C825861AE941F000237635 /* FriendsInTabViewController.m */; };
 		04C8258D1AECAE3D00237635 /* SplitTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8258C1AECAE3D00237635 /* SplitTabViewController.m */; };
 		04C825901AECAE9600237635 /* TSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8258F1AECAE9600237635 /* TSLoginViewController.m */; };
+		04C825921AECB3B300237635 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C825911AECB3B300237635 /* Bolts.framework */; };
 		98805F801AECAB8E00EB2A05 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7D1AECAB8E00EB2A05 /* FBSDKCoreKit.framework */; };
 		98805F811AECAB8E00EB2A05 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7E1AECAB8E00EB2A05 /* FBSDKLoginKit.framework */; };
 		98805F821AECAB8E00EB2A05 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7F1AECAB8E00EB2A05 /* FBSDKShareKit.framework */; };
@@ -99,6 +100,7 @@
 		04C8258C1AECAE3D00237635 /* SplitTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplitTabViewController.m; path = MCSTabSplitter/Views/Tabs/SplitTabViewController.m; sourceTree = SOURCE_ROOT; };
 		04C8258E1AECAE9600237635 /* TSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSLoginViewController.h; path = MCSTabSplitter/Views/Login/TSLoginViewController.h; sourceTree = SOURCE_ROOT; };
 		04C8258F1AECAE9600237635 /* TSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSLoginViewController.m; path = MCSTabSplitter/Views/Login/TSLoginViewController.m; sourceTree = SOURCE_ROOT; };
+		04C825911AECB3B300237635 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = SOURCE_ROOT; };
 		98805F7D1AECAB8E00EB2A05 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = MCSTabSplitter/Frameworks/FBSDKCoreKit.framework; sourceTree = SOURCE_ROOT; };
 		98805F7E1AECAB8E00EB2A05 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = MCSTabSplitter/Frameworks/FBSDKLoginKit.framework; sourceTree = SOURCE_ROOT; };
 		98805F7F1AECAB8E00EB2A05 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = MCSTabSplitter/Frameworks/FBSDKShareKit.framework; sourceTree = SOURCE_ROOT; };
@@ -125,6 +127,7 @@
 				98805F811AECAB8E00EB2A05 /* FBSDKLoginKit.framework in Frameworks */,
 				98805F801AECAB8E00EB2A05 /* FBSDKCoreKit.framework in Frameworks */,
 				98805F821AECAB8E00EB2A05 /* FBSDKShareKit.framework in Frameworks */,
+				04C825921AECB3B300237635 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +319,7 @@
 		98F93F511AE1605400BD514F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04C825911AECB3B300237635 /* Bolts.framework */,
 				98805F7D1AECAB8E00EB2A05 /* FBSDKCoreKit.framework */,
 				98805F7E1AECAB8E00EB2A05 /* FBSDKLoginKit.framework */,
 				98805F7F1AECAB8E00EB2A05 /* FBSDKShareKit.framework */,
@@ -692,6 +696,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -711,6 +716,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

@@ -24,8 +24,8 @@ static const int BTN_ITEMS = 3;
     [super viewDidLoad];
     for(UIButton *btn in self.btnsSplitType){
         [btn.imageView setContentMode:UIViewContentModeScaleAspectFit];
-        
-        btn.imageView.image = btn.imageView.image;
+        btn.imageView.tintColor = [UIColor lightGrayColor];
+        btn.imageView.image = [btn.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     }
     
     
