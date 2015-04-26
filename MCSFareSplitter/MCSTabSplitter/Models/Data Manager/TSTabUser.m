@@ -8,6 +8,7 @@
 
 #import "TSTabUser.h"
 #import "TSDefinitions.h"
+#import "TSUserTabSplit.h"
 
 @implementation TSTabUser
 
@@ -91,6 +92,25 @@
         fullName = [NSString stringWithFormat:@"%@ %@ %@",self.firstName, self.middleName, self.lastName];
     }
     return fullName;
+}
+
+-(void)addSplitTab:(TSUserTabSplit *)splitTab
+{
+    NSMutableArray *mutableSplitTabs = [self.splitTabs mutableCopy];
+    BOOL userHasSplitTab = NO;
+    for (TSUserTabSplit *localSplitTab in self.splitTabs)
+    {
+        if(splitTab.tab == localSplitTab.tab)
+        {
+            userHasSplitTab = YES;
+            break;
+        }
+    }
+    
+    if(!userHasSplitTab)
+    {
+        [mutableSplitTabs addObject:splitTab];
+    }
 }
 
 @end

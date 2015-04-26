@@ -9,15 +9,17 @@
 #import <Foundation/Foundation.h>
 
 @class UIImage;
+@class TSUserTabSplit;
 
 @interface TSTabUser : NSObject
 
-@property (nonatomic) NSString *email;
-@property (nonatomic) UIImage *profilePic;
-@property (nonatomic) NSNumber *userType;
-@property (nonatomic) NSString *firstName;
-@property (nonatomic) NSString *middleName;
-@property (nonatomic) NSString *lastName;
+@property (nonatomic, copy) NSString *email;
+@property (nonatomic, strong) UIImage *profilePic;
+@property (nonatomic, strong) NSNumber *userType;
+@property (nonatomic, copy) NSString *firstName;
+@property (nonatomic, copy) NSString *middleName;
+@property (nonatomic, copy) NSString *lastName;
+@property (nonatomic, copy) NSArray *splitTabs;
 //TODO Deposit methods
 //@property (nonatomic) NSArray *depositMethods;
 //prefered deposit
@@ -31,5 +33,5 @@
 - (id) initGhostUserWithMail:(NSString *) email;
 - (id) initWithEmail: (NSString *) email withFirstName:(NSString*) firstName withMiddleName:(NSString*) middleName withLastName:(NSString*) lastName userType:(NSNumber*) userType;
 - (NSString *) fullName;
-
+-(void)addSplitTab:(TSUserTabSplit *)splitTab;
 @end
