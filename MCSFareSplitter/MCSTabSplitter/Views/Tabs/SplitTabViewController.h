@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SplitTabViewController : UIViewController
+@interface SplitTabViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @end
