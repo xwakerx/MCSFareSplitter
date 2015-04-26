@@ -8,14 +8,17 @@
 
 #import "TSTabController.h"
 #import "TSUserTabSplit.h"
+#import "TSCurrency.h"
 #import "TSTabUser.h"
 #import "TSTab.h"
+#import "TSCurrency.h"
 
 @implementation TSTabController
 
 -(NSArray*) getUserTabs {
     NSArray *tabs = nil;
-    
+    //TODO: get tabs the right way from WWS or CD
+    tabs = [self generateMockTabs];
     return tabs;
 }
 
@@ -35,15 +38,31 @@
 //Mocks
 -(TSTab*)getMockTab {
     
-    return [[TSTab alloc] init];
+    TSTab *tab = [[TSTab alloc] init];
+    tab.date = [NSDate date];
+    int num = arc4random_uniform(100)%2;
+    tab.detail = num == 0 ? @"Walmart G" : @"Costco G";
+    tab.totalAmount = [[NSNumber alloc] initWithDouble:(double)num+213];
+    tab.users = [self generateMockUsers];
+    tab.currency = [[TSCurrency alloc] initWithShortName:@"USD" withFullName:@"US DOLLAR"];
+    tab.items = @[];
+    
+    //Transactions ??
+    
+    return tab;
+    
+}
+
+-(NSArray*) generateMockTabs {
+    return [[NSArray alloc] initWithObjects:[self getMockTab], [self getMockTab], [self getMockTab], nil];
 }
 
 -(NSArray*) generateMockUsers {
     
-    TSTabUser *tu1 = [[TSTabUser alloc] initWithEmail:@"usr1@yahoo.com" withFirstName:@"User" withMiddleName:@"I" withLastName:@"Test" userType:@1];
-    TSTabUser *tu2 = [[TSTabUser alloc] initWithEmail:@"usr2@yahoo.com" withFirstName:@"User" withMiddleName:@"II" withLastName:@"Test" userType:@1];
     NSArray* users = [[NSArray alloc] initWithObjects:
-                     tu1, tu2, nil];
+                     [[TSTabUser alloc] initWithEmail:@"usr1@yahoo.com" withFirstName:@"User" withMiddleName:@"I" withLastName:@"Test" userType:[TSTabUser TSUserTypeContacts]],
+                     [[TSTabUser alloc] initWithEmail:@"usr2@yahoo.com" withFirstName:@"User" withMiddleName:@"II" withLastName:@"Test" userType:[TSTabUser TSUserTypeContacts]],
+                      nil];
     
     return users;
 }
