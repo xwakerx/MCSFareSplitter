@@ -30,6 +30,10 @@
 		04C8258D1AECAE3D00237635 /* SplitTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8258C1AECAE3D00237635 /* SplitTabViewController.m */; };
 		04C825901AECAE9600237635 /* TSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8258F1AECAE9600237635 /* TSLoginViewController.m */; };
 		04C825921AECB3B300237635 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C825911AECB3B300237635 /* Bolts.framework */; };
+		04C825951AED43E300237635 /* SplitAmountTabTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C825941AED43E300237635 /* SplitAmountTabTableViewCell.m */; };
+		04C825981AED505C00237635 /* SplitByAmountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C825971AED505C00237635 /* SplitByAmountTableViewCell.m */; };
+		04C8259B1AED507D00237635 /* SplitByPercentageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8259A1AED507D00237635 /* SplitByPercentageTableViewCell.m */; };
+		04C8259E1AED50A100237635 /* SplitByItemsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8259D1AED50A100237635 /* SplitByItemsTableViewCell.m */; };
 		98805F801AECAB8E00EB2A05 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7D1AECAB8E00EB2A05 /* FBSDKCoreKit.framework */; };
 		98805F811AECAB8E00EB2A05 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7E1AECAB8E00EB2A05 /* FBSDKLoginKit.framework */; };
 		98805F821AECAB8E00EB2A05 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7F1AECAB8E00EB2A05 /* FBSDKShareKit.framework */; };
@@ -101,6 +105,14 @@
 		04C8258E1AECAE9600237635 /* TSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSLoginViewController.h; path = MCSTabSplitter/Views/Login/TSLoginViewController.h; sourceTree = SOURCE_ROOT; };
 		04C8258F1AECAE9600237635 /* TSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSLoginViewController.m; path = MCSTabSplitter/Views/Login/TSLoginViewController.m; sourceTree = SOURCE_ROOT; };
 		04C825911AECB3B300237635 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = SOURCE_ROOT; };
+		04C825931AED43E300237635 /* SplitAmountTabTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplitAmountTabTableViewCell.h; path = MCSTabSplitter/Views/Tabs/SplitAmountTabTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		04C825941AED43E300237635 /* SplitAmountTabTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplitAmountTabTableViewCell.m; path = MCSTabSplitter/Views/Tabs/SplitAmountTabTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		04C825961AED505C00237635 /* SplitByAmountTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplitByAmountTableViewCell.h; path = MCSTabSplitter/Views/Tabs/SplitByAmountTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		04C825971AED505C00237635 /* SplitByAmountTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplitByAmountTableViewCell.m; path = MCSTabSplitter/Views/Tabs/SplitByAmountTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		04C825991AED507D00237635 /* SplitByPercentageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplitByPercentageTableViewCell.h; path = MCSTabSplitter/Views/Tabs/SplitByPercentageTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		04C8259A1AED507D00237635 /* SplitByPercentageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplitByPercentageTableViewCell.m; path = MCSTabSplitter/Views/Tabs/SplitByPercentageTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		04C8259C1AED50A100237635 /* SplitByItemsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplitByItemsTableViewCell.h; path = MCSTabSplitter/Views/Tabs/SplitByItemsTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		04C8259D1AED50A100237635 /* SplitByItemsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplitByItemsTableViewCell.m; path = MCSTabSplitter/Views/Tabs/SplitByItemsTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		98805F7D1AECAB8E00EB2A05 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = MCSTabSplitter/Frameworks/FBSDKCoreKit.framework; sourceTree = SOURCE_ROOT; };
 		98805F7E1AECAB8E00EB2A05 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = MCSTabSplitter/Frameworks/FBSDKLoginKit.framework; sourceTree = SOURCE_ROOT; };
 		98805F7F1AECAB8E00EB2A05 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = MCSTabSplitter/Frameworks/FBSDKShareKit.framework; sourceTree = SOURCE_ROOT; };
@@ -336,6 +348,14 @@
 				04C825861AE941F000237635 /* FriendsInTabViewController.m */,
 				04C8258B1AECAE3D00237635 /* SplitTabViewController.h */,
 				04C8258C1AECAE3D00237635 /* SplitTabViewController.m */,
+				04C825931AED43E300237635 /* SplitAmountTabTableViewCell.h */,
+				04C825941AED43E300237635 /* SplitAmountTabTableViewCell.m */,
+				04C825961AED505C00237635 /* SplitByAmountTableViewCell.h */,
+				04C825971AED505C00237635 /* SplitByAmountTableViewCell.m */,
+				04C825991AED507D00237635 /* SplitByPercentageTableViewCell.h */,
+				04C8259A1AED507D00237635 /* SplitByPercentageTableViewCell.m */,
+				04C8259C1AED50A100237635 /* SplitByItemsTableViewCell.h */,
+				04C8259D1AED50A100237635 /* SplitByItemsTableViewCell.m */,
 			);
 			name = Tabs;
 			sourceTree = "<group>";
@@ -533,6 +553,7 @@
 			files = (
 				98A443961AEA8ECE00339D0E /* TSTab.m in Sources */,
 				048097CC1AE7F9DE00C6DB14 /* TSCurrency.m in Sources */,
+				04C8259E1AED50A100237635 /* SplitByItemsTableViewCell.m in Sources */,
 				98F93F2A1AE15DF700BD514F /* MCSTabSplitter.xcdatamodeld in Sources */,
 				048097D11AE7F9F900C6DB14 /* TSTabUser.m in Sources */,
 				048097F81AE7FBF400C6DB14 /* StaticDataTableViewController.m in Sources */,
@@ -544,7 +565,10 @@
 				98A443951AEA8ECE00339D0E /* TSItem.m in Sources */,
 				048097C41AE7F9A800C6DB14 /* TSUtilities.m in Sources */,
 				98A4439A1AEA92BD00339D0E /* TSUserTabSplit.m in Sources */,
+				04C825951AED43E300237635 /* SplitAmountTabTableViewCell.m in Sources */,
+				04C8259B1AED507D00237635 /* SplitByPercentageTableViewCell.m in Sources */,
 				98A443941AEA8ECE00339D0E /* TSAccount.m in Sources */,
+				04C825981AED505C00237635 /* SplitByAmountTableViewCell.m in Sources */,
 				04C8258D1AECAE3D00237635 /* SplitTabViewController.m in Sources */,
 				048097D21AE7F9F900C6DB14 /* TSUser.m in Sources */,
 				048097FC1AE7FC1A00C6DB14 /* main.m in Sources */,
