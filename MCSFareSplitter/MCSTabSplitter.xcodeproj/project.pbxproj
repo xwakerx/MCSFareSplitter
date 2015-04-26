@@ -39,6 +39,7 @@
 		98A443961AEA8ECE00339D0E /* TSTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A443911AEA8ECE00339D0E /* TSTab.m */; };
 		98A443971AEA8ECE00339D0E /* TSTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A443931AEA8ECE00339D0E /* TSTransaction.m */; };
 		98A4439A1AEA92BD00339D0E /* TSUserTabSplit.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A443991AEA92BD00339D0E /* TSUserTabSplit.m */; };
+		98BE94241AED3E0F003BB045 /* TSFacebookController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BE94231AED3E0F003BB045 /* TSFacebookController.m */; };
 		98F93F2A1AE15DF700BD514F /* MCSTabSplitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F281AE15DF700BD514F /* MCSTabSplitter.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +118,8 @@
 		98A443931AEA8ECE00339D0E /* TSTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSTransaction.m; path = MCSTabSplitter/Models/General/TSTransaction.m; sourceTree = SOURCE_ROOT; };
 		98A443981AEA92BD00339D0E /* TSUserTabSplit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSUserTabSplit.h; path = MCSTabSplitter/Models/General/TSUserTabSplit.h; sourceTree = SOURCE_ROOT; };
 		98A443991AEA92BD00339D0E /* TSUserTabSplit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSUserTabSplit.m; path = MCSTabSplitter/Models/General/TSUserTabSplit.m; sourceTree = SOURCE_ROOT; };
+		98BE94221AED3E0F003BB045 /* TSFacebookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSFacebookController.h; path = MCSTabSplitter/Singletons/TSFacebookController.h; sourceTree = SOURCE_ROOT; };
+		98BE94231AED3E0F003BB045 /* TSFacebookController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSFacebookController.m; path = MCSTabSplitter/Singletons/TSFacebookController.m; sourceTree = SOURCE_ROOT; };
 		98F93F1E1AE15DF700BD514F /* MCSTabSplitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCSTabSplitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F93F291AE15DF700BD514F /* MCSTabSplitter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MCSTabSplitter.xcdatamodel; sourceTree = "<group>"; };
 		98F93F3A1AE15DF700BD514F /* MCSTabSplitterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCSTabSplitterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -405,6 +408,8 @@
 		98F93F861AE161D900BD514F /* Singletons */ = {
 			isa = PBXGroup;
 			children = (
+				98BE94221AED3E0F003BB045 /* TSFacebookController.h */,
+				98BE94231AED3E0F003BB045 /* TSFacebookController.m */,
 				048097BF1AE7F9A800C6DB14 /* DataManager.h */,
 				048097C01AE7F9A800C6DB14 /* DataManager.m */,
 				048097C11AE7F9A800C6DB14 /* TSUtilities.h */,
@@ -564,6 +569,7 @@
 				048097FC1AE7FC1A00C6DB14 /* main.m in Sources */,
 				04C825901AECAE9600237635 /* TSLoginViewController.m in Sources */,
 				048097C31AE7F9A800C6DB14 /* DataManager.m in Sources */,
+				98BE94241AED3E0F003BB045 /* TSFacebookController.m in Sources */,
 				98A443971AEA8ECE00339D0E /* TSTransaction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
