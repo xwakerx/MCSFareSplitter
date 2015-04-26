@@ -7,6 +7,7 @@
 //
 
 #import "SplitTabViewController.h"
+#import "AppDelegate.h"
 
 static const int BTN_EQUAL = 0;
 static const int BTN_AMOUNTS = 1;
@@ -14,7 +15,10 @@ static const int BTN_PERCENTAGE = 2;
 static const int BTN_ITEMS = 3;
 
 @interface SplitTabViewController ()
+
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *btnsSplitType;
+
+@property (nonatomic) NSNumber *currSplitType;
 
 @end
 
@@ -22,15 +26,8 @@ static const int BTN_ITEMS = 3;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    for(UIButton *btn in self.btnsSplitType){
-        [btn.imageView setContentMode:UIViewContentModeScaleAspectFit];
-        btn.imageView.tintColor = [UIColor lightGrayColor];
-        btn.imageView.image = [btn.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    }
     
-    
-    //[[self.itemImageButton imageView] setContentMode: UIViewContentModeScaleAspectFit];
-    //[self.itemImageButton setImage:[UIImage imageNamed:stretchImage] forState:UIControlStateNormal];
+    [self selectButtonWithIndex:BTN_EQUAL];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,14 +35,35 @@ static const int BTN_ITEMS = 3;
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)onTapTypeChanged:(id)sender {
+    [self selectButton:sender];
 }
-*/
+
+- (void)selectButtonWithIndex:(int) indexBtn{
+    for(UIButton *btn in self.btnsSplitType){
+        [btn.imageView setContentMode:UIViewContentModeScaleAspectFit];
+        btn.tintColor = [UIColor lightGrayColor];
+        [btn setImage:[btn.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    }
+    UIButton *selectedBtn = self.btnsSplitType[indexBtn];
+    selectedBtn.tintColor = ((AppDelegate *)[UIApplication sharedApplication].delegate).mainTintColor;
+    [selectedBtn setImage:[selectedBtn.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    self.currSplitType = [NSNumber numberWithInt:indexBtn];
+}
+
+- (void)selectButton:(UIButton *) selectedBtn{
+    NSUInteger count = 0;
+    for(UIButton *btn in self.btnsSplitType){
+        [btn.imageView setContentMode:UIViewContentModeScaleAspectFit];
+        btn.tintColor = [UIColor lightGrayColor];
+        [btn setImage:[btn.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+        if(btn == selectedBtn){
+            self.currSplitType = [NSNumber numberWithInteger: count];
+        }
+        count++;
+    }
+    selectedBtn.tintColor = ((AppDelegate *)[UIApplication sharedApplication].delegate).mainTintColor;
+    [selectedBtn setImage:[selectedBtn.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+}
 
 @end
