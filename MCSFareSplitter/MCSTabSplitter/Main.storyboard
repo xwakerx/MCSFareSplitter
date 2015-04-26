@@ -451,10 +451,10 @@
             </objects>
             <point key="canvasLocation" x="2508" y="-147"/>
         </scene>
-        <!--View Controller-->
+        <!--Some Tab-->
         <scene sceneID="cad-a4-W5A">
             <objects>
-                <viewController id="OAz-de-sdb" sceneMemberID="viewController">
+                <viewController id="OAz-de-sdb" customClass="SplitTabViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cWJ-TY-idI"/>
                         <viewControllerLayoutGuide type="bottom" id="PDS-MV-GqK"/>
@@ -462,9 +462,83 @@
                     <view key="view" contentMode="scaleToFill" id="pEU-2k-Edz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eaP-rk-LCD">
+                                <rect key="frame" x="0.0" y="64" width="414" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hY-AX-jRX">
+                                        <rect key="frame" x="0.0" y="0.0" width="104" height="40"/>
+                                        <state key="normal" image="Icon Equal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DC3-b9-obc">
+                                        <rect key="frame" x="104" y="0.0" width="103" height="40"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
+                                        <state key="normal" image="Icon Dollar">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcM-Ha-DLd">
+                                        <rect key="frame" x="207" y="0.0" width="104" height="40"/>
+                                        <state key="normal" image="Icon Percentage">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ood-aK-sEf">
+                                        <rect key="frame" x="311" y="0.0" width="103" height="40"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
+                                        <state key="normal" image="Icon Cart">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.66461741924285889" green="0.66459751129150391" blue="0.66460877656936646" alpha="0.30000001192092896" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="0hY-AX-jRX" firstAttribute="top" secondItem="eaP-rk-LCD" secondAttribute="top" id="4zu-5m-gsi"/>
+                                    <constraint firstAttribute="bottom" secondItem="ood-aK-sEf" secondAttribute="bottom" id="EVG-Bm-4GJ"/>
+                                    <constraint firstItem="ood-aK-sEf" firstAttribute="leading" secondItem="lcM-Ha-DLd" secondAttribute="trailing" id="Fuj-hN-9J1"/>
+                                    <constraint firstAttribute="bottom" secondItem="0hY-AX-jRX" secondAttribute="bottom" id="GH2-2m-ywh"/>
+                                    <constraint firstItem="lcM-Ha-DLd" firstAttribute="top" secondItem="eaP-rk-LCD" secondAttribute="top" id="JLa-ox-eQ2"/>
+                                    <constraint firstItem="lcM-Ha-DLd" firstAttribute="leading" secondItem="DC3-b9-obc" secondAttribute="trailing" id="O0g-2t-4r1"/>
+                                    <constraint firstItem="DC3-b9-obc" firstAttribute="leading" secondItem="0hY-AX-jRX" secondAttribute="trailing" id="O2S-jn-dQx"/>
+                                    <constraint firstAttribute="bottom" secondItem="lcM-Ha-DLd" secondAttribute="bottom" id="U3S-GS-Uef"/>
+                                    <constraint firstAttribute="bottom" secondItem="DC3-b9-obc" secondAttribute="bottom" id="YYp-2q-6Y8"/>
+                                    <constraint firstAttribute="bottom" secondItem="0hY-AX-jRX" secondAttribute="bottom" id="czW-2g-UKB"/>
+                                    <constraint firstItem="lcM-Ha-DLd" firstAttribute="width" secondItem="0hY-AX-jRX" secondAttribute="width" id="hbZ-5H-NeM"/>
+                                    <constraint firstItem="DC3-b9-obc" firstAttribute="top" secondItem="eaP-rk-LCD" secondAttribute="top" id="hsP-al-yAd"/>
+                                    <constraint firstItem="0hY-AX-jRX" firstAttribute="leading" secondItem="eaP-rk-LCD" secondAttribute="leading" id="i2p-xA-1GM"/>
+                                    <constraint firstAttribute="trailing" secondItem="ood-aK-sEf" secondAttribute="trailing" id="jI6-q0-oga"/>
+                                    <constraint firstAttribute="bottom" secondItem="DC3-b9-obc" secondAttribute="bottom" id="ksl-yC-nj9"/>
+                                    <constraint firstItem="lcM-Ha-DLd" firstAttribute="width" secondItem="DC3-b9-obc" secondAttribute="width" id="mWs-um-0eb"/>
+                                    <constraint firstItem="lcM-Ha-DLd" firstAttribute="width" secondItem="ood-aK-sEf" secondAttribute="width" id="pkT-hY-x2Y"/>
+                                    <constraint firstAttribute="height" constant="40" id="wXa-Kq-0NS"/>
+                                    <constraint firstItem="ood-aK-sEf" firstAttribute="top" secondItem="eaP-rk-LCD" secondAttribute="top" id="waQ-X1-b6m"/>
+                                    <constraint firstItem="0hY-AX-jRX" firstAttribute="top" secondItem="eaP-rk-LCD" secondAttribute="top" id="z2O-IO-nqV"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="czW-2g-UKB"/>
+                                        <exclude reference="z2O-IO-nqV"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eaP-rk-LCD" firstAttribute="leading" secondItem="pEU-2k-Edz" secondAttribute="leadingMargin" constant="-16" id="85R-n1-z4l"/>
+                            <constraint firstItem="eaP-rk-LCD" firstAttribute="top" secondItem="cWJ-TY-idI" secondAttribute="bottom" id="Dg2-4m-f62"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eaP-rk-LCD" secondAttribute="trailing" constant="-16" id="gWB-aS-Ehz"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Some Tab" id="N47-WW-SPl"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outletCollection property="btnsSplitType" destination="0hY-AX-jRX" id="mOI-TB-9k5"/>
+                        <outletCollection property="btnsSplitType" destination="DC3-b9-obc" id="XwF-pB-2fW"/>
+                        <outletCollection property="btnsSplitType" destination="lcM-Ha-DLd" id="qU4-W1-zUu"/>
+                        <outletCollection property="btnsSplitType" destination="ood-aK-sEf" id="yPx-V4-1Oy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xkc-R0-8SK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -762,10 +836,10 @@
             </objects>
             <point key="canvasLocation" x="16" y="1257"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="DBz-8X-ZWH">
             <objects>
-                <viewController id="SaU-ZB-tZC" sceneMemberID="viewController">
+                <viewController id="SaU-ZB-tZC" customClass="TSLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ORm-hj-gOq"/>
                         <viewControllerLayoutGuide type="bottom" id="82w-y2-mwW"/>
@@ -794,7 +868,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="jPa-M5-ed0" kind="show" id="IQh-Sb-NAE"/>
+                                    <segue destination="jPa-M5-ed0" kind="show" identifier="loginSegue" id="IQh-Sb-NAE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -808,6 +882,9 @@
                             <constraint firstAttribute="centerY" secondItem="lr2-Ds-Mpc" secondAttribute="centerY" constant="80" id="myx-kB-HnW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnLogin" destination="KwL-1V-25d" id="goy-UD-hEZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ZR-pm-Gh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -816,6 +893,10 @@
     </scenes>
     <resources>
         <image name="AppLogoWithTitle" width="266" height="349"/>
+        <image name="Icon Cart" width="50" height="50"/>
+        <image name="Icon Dollar" width="50" height="50"/>
+        <image name="Icon Equal" width="50" height="50"/>
+        <image name="Icon Percentage" width="50" height="50"/>
         <image name="Tab Bar Icon - Bills" width="32" height="32"/>
         <image name="Tab Bar Icon - Contacts" width="32" height="32"/>
         <image name="Tab Bar Icon - Home" width="32" height="32"/>
