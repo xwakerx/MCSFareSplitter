@@ -40,6 +40,8 @@
 		98A443971AEA8ECE00339D0E /* TSTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A443931AEA8ECE00339D0E /* TSTransaction.m */; };
 		98A4439A1AEA92BD00339D0E /* TSUserTabSplit.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A443991AEA92BD00339D0E /* TSUserTabSplit.m */; };
 		98BE94241AED3E0F003BB045 /* TSFacebookController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BE94231AED3E0F003BB045 /* TSFacebookController.m */; };
+		98BE94261AED4460003BB045 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98BE94251AED4460003BB045 /* AddressBook.framework */; };
+		98BE94291AED4866003BB045 /* TSContactsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BE94281AED4866003BB045 /* TSContactsManager.m */; };
 		98F93F2A1AE15DF700BD514F /* MCSTabSplitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F281AE15DF700BD514F /* MCSTabSplitter.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +122,9 @@
 		98A443991AEA92BD00339D0E /* TSUserTabSplit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSUserTabSplit.m; path = MCSTabSplitter/Models/General/TSUserTabSplit.m; sourceTree = SOURCE_ROOT; };
 		98BE94221AED3E0F003BB045 /* TSFacebookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSFacebookController.h; path = MCSTabSplitter/Singletons/TSFacebookController.h; sourceTree = SOURCE_ROOT; };
 		98BE94231AED3E0F003BB045 /* TSFacebookController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSFacebookController.m; path = MCSTabSplitter/Singletons/TSFacebookController.m; sourceTree = SOURCE_ROOT; };
+		98BE94251AED4460003BB045 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		98BE94271AED4866003BB045 /* TSContactsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSContactsManager.h; path = MCSTabSplitter/Singletons/TSContactsManager.h; sourceTree = SOURCE_ROOT; };
+		98BE94281AED4866003BB045 /* TSContactsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSContactsManager.m; path = MCSTabSplitter/Singletons/TSContactsManager.m; sourceTree = SOURCE_ROOT; };
 		98F93F1E1AE15DF700BD514F /* MCSTabSplitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCSTabSplitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F93F291AE15DF700BD514F /* MCSTabSplitter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MCSTabSplitter.xcdatamodel; sourceTree = "<group>"; };
 		98F93F3A1AE15DF700BD514F /* MCSTabSplitterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCSTabSplitterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98BE94261AED4460003BB045 /* AddressBook.framework in Frameworks */,
 				98805F811AECAB8E00EB2A05 /* FBSDKLoginKit.framework in Frameworks */,
 				98805F801AECAB8E00EB2A05 /* FBSDKCoreKit.framework in Frameworks */,
 				98805F821AECAB8E00EB2A05 /* FBSDKShareKit.framework in Frameworks */,
@@ -335,6 +341,7 @@
 		98F93F511AE1605400BD514F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				98BE94251AED4460003BB045 /* AddressBook.framework */,
 				04C825911AECB3B300237635 /* Bolts.framework */,
 				98805F7D1AECAB8E00EB2A05 /* FBSDKCoreKit.framework */,
 				98805F7E1AECAB8E00EB2A05 /* FBSDKLoginKit.framework */,
@@ -414,6 +421,8 @@
 				048097C01AE7F9A800C6DB14 /* DataManager.m */,
 				048097C11AE7F9A800C6DB14 /* TSUtilities.h */,
 				048097C21AE7F9A800C6DB14 /* TSUtilities.m */,
+				98BE94271AED4866003BB045 /* TSContactsManager.h */,
+				98BE94281AED4866003BB045 /* TSContactsManager.m */,
 			);
 			name = Singletons;
 			sourceTree = "<group>";
@@ -556,6 +565,7 @@
 				048097F81AE7FBF400C6DB14 /* StaticDataTableViewController.m in Sources */,
 				048097D81AE7FA9500C6DB14 /* TSSplitController.m in Sources */,
 				048097C71AE7F9BB00C6DB14 /* TSDefinitions.m in Sources */,
+				98BE94291AED4866003BB045 /* TSContactsManager.m in Sources */,
 				04C825871AE941F000237635 /* FriendsInTabViewController.m in Sources */,
 				048097D51AE7FA4B00C6DB14 /* FormBillTableViewController.m in Sources */,
 				048097DC1AE7FB3B00C6DB14 /* AppDelegate.m in Sources */,
