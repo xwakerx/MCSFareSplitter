@@ -9,7 +9,7 @@
         <!--Fare Splitter-->
         <scene sceneID="UEP-Ea-Hrr">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="7o0-sf-cvO" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="7o0-sf-cvO" customClass="HomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sIF-Uk-UqO"/>
                         <viewControllerLayoutGuide type="bottom" id="WUh-Vg-AyK"/>
@@ -117,6 +117,12 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Fare Splitter" id="QTy-N1-2Bd"/>
+                    <connections>
+                        <outlet property="lblOwed" destination="9rY-Sc-qds" id="TnT-F2-QRA"/>
+                        <outlet property="lblOwes" destination="omE-xM-0Sd" id="YSx-jV-S2c"/>
+                        <outlet property="lblTotal" destination="nii-1r-fop" id="Rig-8F-2RK"/>
+                        <outlet property="tvNews" destination="zdq-Zp-6Eh" id="YXc-NS-W1s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BDo-U1-7vF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1149,7 +1155,6 @@
                         <segue destination="uZA-rk-HYz" kind="relationship" relationship="viewControllers" id="Iuk-ce-muk"/>
                         <segue destination="gLo-NO-Cd1" kind="relationship" relationship="viewControllers" id="jkE-jU-6KY"/>
                         <segue destination="Gom-us-gQO" kind="relationship" relationship="viewControllers" id="0tn-C6-6KT"/>
-                        <segue destination="Yz6-J1-y42" kind="relationship" relationship="viewControllers" id="foy-gI-rlN"/>
                         <segue destination="qXk-Bt-F3I" kind="relationship" relationship="viewControllers" id="bF9-ih-OSY"/>
                     </connections>
                 </tabBarController>
