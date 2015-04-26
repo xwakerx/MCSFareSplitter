@@ -52,10 +52,10 @@
                  NSString *userEmail = [result objectForKey:@"email"];
                  
                  NSString *userImageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", [[FBSDKAccessToken currentAccessToken] userID]];
-//                 UIImage *userProfilePic = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:userImageURL]]];
+                 UIImage *userProfilePic = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:userImageURL]]];
                  
                  TSTabUser *user = [[TSTabUser alloc]initWithEmail:userEmail withFirstName:userFirstName withMiddleName:userMiddleName withLastName:userLastName userType:[TSTabUser TSUserTypeFacebook]];
-                 user.profilePic = userImageURL;
+                 user.profilePic = userProfilePic;
                  
                  userBlock(YES, user);
              }
@@ -65,34 +65,6 @@
              }
          }];
     }
-}
-
--(void)requestUserFriendsFromFacebookWithFriendsBlock:(void(^)(BOOL, NSArray *)) friendsBlock
-{
-    [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me/taggable_friends" parameters:nil]
-     startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-         if (!error) {
-             NSMutableArray *friends = [NSMutableArray array];
-             for (NSDictionary *friend in [result objectForKey:@"data"])
-             {
-                 NSString *friendFirstName = [friend objectForKey:@"first_name"];
-                 NSString *friendMiddleName = [friend objectForKey:@"middle_name"];
-                 NSString *friendLastName = [friend objectForKey:@"last_name"];
-                 NSString *friendEmail = [friend objectForKey:@"email"];
-                 
-                 TSTabUser *user = [[TSTabUser alloc]initWithEmail:friendEmail withFirstName:friendFirstName withMiddleName:friendMiddleName withLastName:friendLastName userType:[TSTabUser TSUserTypeFacebook]];
-                 
-                 [friends addObject:user];
-
-             }
-             
-             friendsBlock(YES, friends);
-         }
-         else{
-             friendsBlock(NO, nil);
-             NSLog(@"%@",error.localizedDescription);
-         }
-     }];
 }
 
 -(void)profileUpdated

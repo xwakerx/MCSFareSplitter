@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class UIImage;
+
 @interface TSTabUser : NSObject
 
 @property (nonatomic) NSString *email;
-@property (nonatomic) NSString *profilePic;
+@property (nonatomic) UIImage *profilePic;
 @property (nonatomic) NSNumber *userType;
 @property (nonatomic) NSString *firstName;
 @property (nonatomic) NSString *middleName;
@@ -24,9 +26,10 @@
 
 +(NSNumber *) TSUserTypeGhost;
 +(NSNumber *) TSUserTypeFacebook;
++(NSNumber *) TSUserTypeContacts;
 
 - (id) initGhostUserWithMail:(NSString *) email;
 - (id) initWithEmail: (NSString *) email withFirstName:(NSString*) firstName withMiddleName:(NSString*) middleName withLastName:(NSString*) lastName userType:(NSNumber*) userType;
-- (NSString *) getFullName;
+- (NSString *) fullName;
 
 @end

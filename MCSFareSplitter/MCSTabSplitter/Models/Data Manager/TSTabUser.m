@@ -13,16 +13,17 @@
 
 +(NSNumber *) TSUserTypeGhost { return @0; }
 +(NSNumber *) TSUserTypeFacebook { return @1; }
++(NSNumber *) TSUserTypeContacts { return @2; }
 
 - (id) init{
     self = [super init];
     if(self!=nil){
-        self.email=@"";
-        self.profilePic=@"";
-        self.userType=TSTabUser.TSUserTypeGhost;
-        self.firstName=@"";
-        self.middleName=@"";
-        self.lastName=@"";
+        self.email = @"";
+        self.profilePic = nil;
+        self.userType = TSTabUser.TSUserTypeGhost;
+        self.firstName = @"";
+        self.middleName = @"";
+        self.lastName = @"";
         //TODO Deposit methods
         //@property (nonatomic) NSArray *depositMethods;
         //prefered deposit
@@ -33,54 +34,60 @@
 }
 
 - (id) initWithEmail: (NSString *) email withFirstName:(NSString*) firstName withMiddleName:(NSString*) middleName withLastName:(NSString*) lastName userType:(NSNumber*) userType{
-    self = [super init];
-    if(self!=nil){
-        self.email=email;
-        self.profilePic=@"";
-        self.userType=userType;
-        self.firstName=firstName;
-        self.middleName=middleName;
-        self.lastName=lastName;
+    self = [self init];
+    if(self != nil){
+        self.email = email;
+        self.userType = userType;
+        if(firstName)
+        {
+            self.firstName = firstName;
+        }
+        if(middleName)
+        {
+            self.middleName = middleName;
+        }
+        if(lastName)
+        {
+            self.lastName = lastName;
+        }
         //TODO Deposit methods
         //@property (nonatomic) NSArray *depositMethods;
         //prefered deposit
-        self.owe=[NSNumber numberWithInt:0];
-        self.owed=[NSNumber numberWithInt:0];
     }
     return self;
 }
 
 - (id) initGhostUserWithMail:(NSString *) email{
-    self = [super init];
-    if(self!=nil){
+    self = [self init];
+    if(self != nil){
         self.email=email;
-        self.profilePic=@"";
         self.userType=TSTabUser.TSUserTypeGhost;
-        self.firstName=@"";
-        self.middleName=@"";
-        self.lastName=@"";
         //TODO Deposit methods
         //@property (nonatomic) NSArray *depositMethods;
         //prefered deposit
-        self.owe=[NSNumber numberWithInt:0];
-        self.owed=[NSNumber numberWithInt:0];
     }
     return self;
 }
 
--(NSString *) description{
+-(NSString *) description
+{
     NSString *description;
-    if(![self.firstName isEqualToString:@""] && ![self.lastName isEqualToString:@""]){
-        description = [NSString stringWithFormat:@"%@ %@ %@",self.firstName, self.middleName, self.lastName];
-    }else{
+    if(![self.firstName isEqualToString:@""] && ![self.lastName isEqualToString:@""])
+    {
+        description = [NSString stringWithFormat:@"%@ - %@",[self fullName], self.email];
+    }
+    else
+    {
         description = self.email;
     }
     return description;
 }
 
-- (NSString *) getFullName{
+- (NSString *) fullName
+{
     NSString *fullName = @"";
-    if(![self.firstName isEqualToString:@""] && ![self.lastName isEqualToString:@""]){
+    if(![self.firstName isEqualToString:@""] && ![self.lastName isEqualToString:@""])
+    {
         fullName = [NSString stringWithFormat:@"%@ %@ %@",self.firstName, self.middleName, self.lastName];
     }
     return fullName;
