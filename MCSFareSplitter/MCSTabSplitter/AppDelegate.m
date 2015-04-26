@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <UIKit/UIKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @interface AppDelegate ()
 
@@ -20,7 +21,9 @@
     self.mainTintColor = [UIColor colorWithRed:0.92 green:0.00 blue:0.47 alpha:1.0];
     [[UINavigationBar appearance] setTintColor: self.mainTintColor];
     [[UITabBar appearance] setTintColor:self.mainTintColor];
-    return YES;
+    
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -39,12 +42,23 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [FBSDKAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
 }
 
 #pragma mark - Core Data stack
