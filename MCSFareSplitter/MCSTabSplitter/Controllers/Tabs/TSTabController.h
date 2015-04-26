@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+
 @class TSTab;
+@class TSTabUser;
+@class TSUserTabSplit;
 
 @interface TSTabController : NSObject
 
 -(NSArray*) getUserTabs;
--(NSArray*) getUserTabSplitters;
+-(NSArray*) getUserTabSplittersForTab:(TSTab*)tab;
 
 @end
