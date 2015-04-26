@@ -50,34 +50,37 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [FBSDKAppEvents activateApp];
     
-    TSLoginViewController *loginVC = (TSLoginViewController *)[self.window rootViewController];
-    
-    __block UIView *overlay = [[UIView alloc]initWithFrame:loginVC.view.frame];
-    
-    overlay.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
-    
-    __block UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]init];
-    activityIndicator.center = overlay.center;
-    
-    [overlay addSubview:activityIndicator];
-    
-    [activityIndicator startAnimating];
-    
-    [loginVC.view addSubview:overlay];
-    
-    [[TSFacebookController sharedController] requestUserFromFacebookWithUserBlock:^(BOOL success, TSTabUser *user){
-        if(success)
-        {
-            [TSUser sharedUser].user = user;
-            
-            [activityIndicator stopAnimating];
-            [overlay removeFromSuperview];
-            activityIndicator = nil;
-            overlay = nil;
-            
-            [loginVC performSegueWithIdentifier:@"loginSegue" sender:loginVC];
-        }
-    }];
+    if([FBSDKAccessToken currentAccessToken])
+    {
+        TSLoginViewController *loginVC = (TSLoginViewController *)[self.window rootViewController];
+        
+        __block UIView *overlay = [[UIView alloc]initWithFrame:loginVC.view.frame];
+        
+        overlay.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
+        
+        __block UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]init];
+        activityIndicator.center = overlay.center;
+        
+        [overlay addSubview:activityIndicator];
+        
+        [activityIndicator startAnimating];
+        
+        [loginVC.view addSubview:overlay];
+        
+        [[TSFacebookController sharedController] requestUserFromFacebookWithUserBlock:^(BOOL success, TSTabUser *user){
+            if(success)
+            {
+                [TSUser sharedUser].user = user;
+                
+                [activityIndicator stopAnimating];
+                [overlay removeFromSuperview];
+                activityIndicator = nil;
+                overlay = nil;
+                
+                [loginVC performSegueWithIdentifier:@"loginSegue" sender:loginVC];
+            }
+        }];
+    }
     
 }
 
