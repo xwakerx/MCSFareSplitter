@@ -11,18 +11,18 @@
 #import "TSCurrency.h"
 #import "TSTabUser.h"
 #import "TSTab.h"
-#import "TSCurrency.h"
+#import "TSDefinitions.h"
 
 @implementation TSTabController
 
--(NSArray*) getUserTabs {
-    NSArray *tabs = nil;
++(NSMutableArray*) getUserTabs {
+    NSMutableArray *tabs = nil;
     //TODO: get tabs the right way from WWS or CD
     tabs = [self generateMockTabs];
     return tabs;
 }
 
--(NSArray*) getUserTabSplittersForTab:(TSTab*)tab withUsers:(NSArray*)users{
++(NSMutableArray*) getUserTabSplittersForTab:(TSTab*)tab withUsers:(NSArray*)users{
     
     NSMutableArray *usrs = [NSMutableArray new];
     for (TSTabUser *usr in users) {
@@ -30,22 +30,22 @@
         TSUserTabSplit *newUsr = [[TSUserTabSplit alloc] initWithUser:usr andTab:tab withAmount:@0];
         [usrs addObject:newUsr];
     }
-    return [usrs mutableCopy];
+    return usrs;
 }
 
 
 
 //Mocks
--(TSTab*)getMockTab {
++(TSTab*)getMockTab {
     
     TSTab *tab = [[TSTab alloc] init];
     tab.date = [NSDate date];
     int num = arc4random_uniform(13)%2;
     tab.detail = num == 0 ? @"Walmart G" : @"Costco G";
     tab.totalAmount = [[NSNumber alloc] initWithDouble:(double)num+213];
-    tab.users = [self generateMockUsers];
-    tab.currency = [[TSCurrency alloc] initWithShortName:@"USD" withFullName:@"US DOLLAR"];
+    tab.currency = [[TSDefinitions currencies] objectAtIndex:0];
     tab.items = @[];
+    tab.users = [self generateMockUsersForTab:tab];
     
     //Transactions ??
     
@@ -53,15 +53,21 @@
     
 }
 
--(NSArray*) generateMockTabs {
-    return [[NSArray alloc] initWithObjects:[self getMockTab], [self getMockTab], [self getMockTab], nil];
++(NSMutableArray*) generateMockTabs {
+    return [[NSMutableArray alloc] initWithObjects:[self getMockTab], [self getMockTab], [self getMockTab], nil];
 }
 
--(NSArray*) generateMockUsers {
++(NSArray*) generateMockUsersForTab:(TSTab*)tab {
     
     NSArray* users = [[NSArray alloc] initWithObjects:
-                     [[TSTabUser alloc] initWithEmail:@"usr1@yahoo.com" withFirstName:@"User" withMiddleName:@"I" withLastName:@"Test" userType:[TSTabUser TSUserTypeContacts]],
-                     [[TSTabUser alloc] initWithEmail:@"usr2@yahoo.com" withFirstName:@"User" withMiddleName:@"II" withLastName:@"Test" userType:[TSTabUser TSUserTypeContacts]],
+                      [[TSUserTabSplit alloc] initWithUser:[
+                                                            [TSTabUser alloc] initWithEmail:@"usr1@yahoo.com" withFirstName:@"John" withMiddleName:@"J" withLastName:@"Smith" userType:[TSTabUser TSUserTypeContacts]]
+                                                    andTab:tab withAmount:@0]
+                     ,
+                      [[TSUserTabSplit alloc] initWithUser:[[TSTabUser alloc] initWithEmail:@"usr2@yahoo.com" withFirstName:@"Mary" withMiddleName:@"L" withLastName:@"Schulz" userType:[TSTabUser TSUserTypeContacts]]
+                                                    andTab:tab withAmount:@0]
+                                                            
+                     ,
                       nil];
     
     return users;

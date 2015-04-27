@@ -15,7 +15,7 @@
     if(currencies == nil){
         currencies = @[
                        [[TSCurrency alloc] initWithShortName:@"USD" withFullName:@"United States Dollar"],
-                       [[TSCurrency alloc] initWithShortName:@"MXN" withFullName:@"Mexican Peso"],
+                       [[TSCurrency alloc] initWithShortName:@"MXP" withFullName:@"Mexican Peso"],
                        [[TSCurrency alloc] initWithShortName:@"IRP" withFullName:@"Indian Rupie"]
                     ];
     }

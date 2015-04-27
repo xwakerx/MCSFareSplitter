@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FriendsInTabViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@protocol UpdateSelectedContactsDelegate <NSObject>
 
+@required
+-(void)loadTabSplitUsersWithUsersArray:(NSArray*)users;
+
+@end
+
+@interface FriendsInTabViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@property (nonatomic) NSMutableArray *contactsInTab;
+@property (nonatomic) id<UpdateSelectedContactsDelegate> usersDelegate;
 @end

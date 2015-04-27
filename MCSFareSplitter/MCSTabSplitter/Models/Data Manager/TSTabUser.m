@@ -85,6 +85,9 @@
 
 - (NSString *) fullName
 {
+    if(self.userType == [TSTabUser TSUserTypeGhost]){
+        return self.email;
+    }
     NSString *fullName = @"";
     if(![self.firstName isEqualToString:@""] && ![self.lastName isEqualToString:@""])
     {

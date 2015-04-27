@@ -9,7 +9,10 @@
 #import "FormBillTableViewController.h"
 #import "TSDefinitions.h"
 #import "TSCurrency.h"
+#import "TSTab.h"
 #import "TSUtilities.h"
+#import "TSTabController.h"
+#import "SplitTabViewController.h"
 
 @interface FormBillTableViewController ()
 
@@ -28,12 +31,15 @@
 @property (nonatomic) bool currencyHidden;
 @property (nonatomic) bool dateHidden;
 
+@property (strong, nonatomic) TSTab *tab;
+
 @end
 
 @implementation FormBillTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tab = [TSTab new];
     
     self.insertTableViewRowAnimation = UITableViewRowAnimationFade;
     self.deleteTableViewRowAnimation = UITableViewRowAnimationFade;
@@ -44,6 +50,7 @@
     [self reloadDataAnimated:NO];
     
     self.lblCurrency.text = ((TSCurrency *)[[TSDefinitions currencies] objectAtIndex:0]).shortName;
+    self.tab.currency = [[TSDefinitions currencies] objectAtIndex:0];
     [self hide:YES button:self.btnCurrency withText:@"" withBGColor:self.tvcCurrencyPicker.backgroundColor];
     self.currencyHidden = true;
     
@@ -72,6 +79,7 @@
     if (pickerView == self.pvCurrency)
     {
         [self.btnCurrency setTitle:((TSCurrency *)[[TSDefinitions currencies] objectAtIndex:row]).shortName forState:UIControlStateNormal];
+        self.tab.currency = (TSCurrency *)[[TSDefinitions currencies] objectAtIndex:row];
     }
 }
 
@@ -167,6 +175,46 @@
         [button setTitle:text forState:UIControlStateNormal];
         button.backgroundColor = [color colorWithAlphaComponent:1.0];
     }
+}
+
+-(void)loadTabSplitUsersWithUsersArray:(NSArray *)users{
+    if (users.count > 0) {
+        self.tab.users = [TSTabController getUserTabSplittersForTab:self.tab withUsers:users];
+        [self.tfUsers setText:[NSString stringWithFormat:@"%li selected.", [self.tab.users count]]];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+-(void) setupTab{
+    self.tab.totalAmount = [NSNumber numberWithDouble:[self.tfTotalAmount.text doubleValue]];
+    self.tab.detail = [self.tfTitle text];
+
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString: @"addUsers"]) {
+        FriendsInTabViewController *friends = segue.destinationViewController;
+        friends.usersDelegate = self;
+    } else if([segue.identifier  isEqualToString: @"selectSplitM"]) {
+        SplitTabViewController *splitView = segue.destinationViewController;
+        splitView.tab = self.tab;
+        splitView.isNew = YES;
+    }
+    
+}
+
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    
+    if([identifier  isEqualToString: @"selectSplitM"]){
+        [self setupTab];
+        if ([self.tfTotalAmount.text isEqualToString:@""] || [self.tfTitle.text isEqualToString:@""] || self.tab.users.count < 1) {
+            [[[UIAlertView alloc] initWithTitle:@"Incomplete Tab" message:@"Please provide a Title, Amount and at least one user." delegate:nil cancelButtonTitle:@"Ok!" otherButtonTitles: nil] show];
+            return NO;
+        }
+    }
+    
+    return YES;
 }
 
 @end

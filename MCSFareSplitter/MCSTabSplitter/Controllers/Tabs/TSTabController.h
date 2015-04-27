@@ -14,7 +14,7 @@
 
 @interface TSTabController : NSObject
 
--(NSArray*) getUserTabs;
--(NSArray*) getUserTabSplittersForTab:(TSTab*)tab withUsers:(NSArray*)users;
++(NSArray*) getUserTabs;
++(NSArray*) getUserTabSplittersForTab:(TSTab*)tab withUsers:(NSArray*)users;
 
 @end

@@ -150,7 +150,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="8Tx-4H-EGw" kind="show" identifier="showTab" id="f67-lg-PE0"/>
+                                    <segue destination="OAz-de-sdb" kind="show" identifier="showTab" id="BJR-SA-DCB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -247,7 +247,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="lFV-Iq-iKn" kind="show" id="L6Z-wr-6ZJ"/>
+                                                        <segue destination="lFV-Iq-iKn" kind="show" identifier="addUsers" id="L6Z-wr-6ZJ"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -285,7 +285,7 @@
                                                     </constraints>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                                     <connections>
                                                         <action selector="onAmountChanged:" destination="8Tx-4H-EGw" eventType="editingChanged" id="nej-cY-M5W"/>
                                                         <outlet property="delegate" destination="8Tx-4H-EGw" id="RsO-T5-Poc"/>
@@ -444,7 +444,7 @@
                     <navigationItem key="navigationItem" title="New Tab" id="MfT-eJ-pLH">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="zHh-gK-VEJ">
                             <connections>
-                                <segue destination="OAz-de-sdb" kind="show" id="47P-SZ-oPC"/>
+                                <segue destination="OAz-de-sdb" kind="show" identifier="selectSplitM" id="47P-SZ-oPC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -598,6 +598,9 @@
                                             <color key="titleColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="C6D-Pv-vSz" kind="unwind" unwindAction="addNewTab:" id="fCg-hy-NWD"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.66461741924285889" green="0.66459751129150391" blue="0.66460877656936646" alpha="0.30000001192092896" colorSpace="calibratedRGB"/>
@@ -694,7 +697,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$0.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JdO-yg-ljR">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$0.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JdO-yg-ljR">
                                                     <rect key="frame" x="286" y="7" width="120" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="gGW-Ra-lE7"/>
@@ -702,7 +705,11 @@
                                                     </constraints>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
+                                                    <connections>
+                                                        <action selector="updateTotalAmount:" destination="zPH-Hf-yjE" eventType="editingDidEnd" id="X2V-sq-3et"/>
+                                                        <outlet property="delegate" destination="OAz-de-sdb" id="HfI-NU-JmR"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -730,7 +737,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0%" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jYi-ow-8QQ">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0%" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jYi-ow-8QQ">
                                                     <rect key="frame" x="167" y="7" width="80" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="DnI-aZ-B4Z"/>
@@ -738,7 +745,10 @@
                                                     </constraints>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
+                                                    <connections>
+                                                        <action selector="updateTotalAmounWithPercentage:" destination="YFk-UA-yio" eventType="editingChanged" id="bPa-Rf-6ek"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mio-DX-tMa">
                                                     <rect key="frame" x="286" y="11" width="120" height="21"/>
@@ -878,6 +888,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xkc-R0-8SK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="C6D-Pv-vSz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3115" y="-147"/>
         </scene>
@@ -974,7 +985,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Friends in Tab" id="RoV-d7-VBM">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="6Hu-oq-cs2"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="6Hu-oq-cs2">
+                            <connections>
+                                <action selector="loadTabUsersForTab:" destination="lFV-Iq-iKn" id="S0w-JW-ySb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -1265,6 +1280,6 @@
         <image name="Tab Bar Icon - Settings" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="f67-lg-PE0"/>
+        <segue reference="47P-SZ-oPC"/>
     </inferredMetricsTieBreakers>
 </document>

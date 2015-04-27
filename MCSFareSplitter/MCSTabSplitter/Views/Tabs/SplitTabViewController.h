@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TSTab.h"
 
 @interface SplitTabViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
-- (IBAction)loadTabUsers:(UIStoryboardSegue*)segue;
+@property (nonatomic) TSTab * tab;
+@property (nonatomic) BOOL isNew;
 
 @end

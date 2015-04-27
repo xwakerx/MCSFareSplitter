@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tvContactsInTab;
 @property (weak, nonatomic) IBOutlet UITableView *tvAllContacts;
 
-@property (nonatomic) NSMutableArray *contactsInTab, *allContacts;
+@property (nonatomic) NSMutableArray *allContacts;
 @property (nonatomic) NSString *ciContactsInTab, *ciAllContacts;
 
 @end
@@ -33,12 +33,6 @@
     self.ciContactsInTab = @"ciContactsInTab";
     self.ciAllContacts = @"ciAllContacts";
     
-    TSTabUser *tmpUser = [[TSTabUser alloc] init];
-    tmpUser.firstName = @"Jhon";
-    tmpUser.lastName = @"Smith";
-    tmpUser.email = @"jhon.smith@gmail.com";
-    tmpUser.userType = [TSTabUser TSUserTypeFacebook];
-    [self.allContacts addObject:tmpUser];
     self.allContacts = [[[TSContactsManager sharedManager] phoneContacts] mutableCopy];
 }
 
@@ -102,7 +96,7 @@
         tmpCell.imageView.image = [UIImage imageNamed:@"Ghost User"];
         tmpCell.detailTextLabel.text = @"";
     }else{
-        tmpCell.textLabel.text = tmpUser.description;
+        tmpCell.textLabel.text = tmpUser.fullName;
         tmpCell.imageView.image = nil;
         tmpCell.detailTextLabel.text = tmpUser.email;
     }
@@ -147,6 +141,13 @@
         [self.tvContactsInTab endUpdates];
         self.tfEmail.text = @"";
         [self.tfEmail resignFirstResponder];
+    }
+}
+
+
+- (IBAction)loadTabUsersForTab:(id)sender {
+    if (self.usersDelegate != nil) {
+        [self.usersDelegate loadTabSplitUsersWithUsersArray:self.contactsInTab];
     }
 }
 

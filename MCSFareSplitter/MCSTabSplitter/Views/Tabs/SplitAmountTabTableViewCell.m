@@ -20,4 +20,22 @@
     // Configure the view for the selected state
 }*/
 
+- (IBAction)updateTotalAmount:(id)sender {
+    if (self.delegate != nil) {
+        [self.delegate updateTotalAmountWithValue:[NSNumber numberWithDouble:[self.tfAmount.text doubleValue]] atIndex:self.index];
+    }
+}
+
+- (IBAction)updateTotalAmounWithPercentage:(id)sender {
+    
+    if (self.delegate != nil) {
+        [self.delegate updateTotalAmountWithPercentage:[self.tfPercentage.text doubleValue] atIndex:self.index];
+    }
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
 @end

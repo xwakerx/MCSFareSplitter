@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "StaticDataTableViewController.h"
+#import "FriendsInTabViewController.h"
 
-@interface FormBillTableViewController : StaticDataTableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
+@interface FormBillTableViewController : StaticDataTableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UpdateSelectedContactsDelegate>
 
 @end

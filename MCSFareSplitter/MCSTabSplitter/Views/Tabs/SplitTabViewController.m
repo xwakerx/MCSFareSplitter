@@ -11,6 +11,9 @@
 #import "SplitAmountTabTableViewCell.h"
 #import "FriendsInTabViewController.h"
 #import "TSTab.h"
+#import "TSSplitController.h"
+#import "TSUserTabSplit.h"
+#import "TSTabUser.h"
 
 static const int BTN_EQUAL = 0;
 static const int BTN_AMOUNTS = 1;
@@ -22,7 +25,11 @@ static NSString *CELL_ID_AMOUNTS = @"cellWithEditableAmount";
 static NSString *CELL_ID_PERCENTAGE = @"cellWithPercentage";
 static NSString *CELL_ID_ITEMS = @"cellWithItems";
 
-@interface SplitTabViewController ()
+@interface SplitTabViewController () <UpdateTotalAmountDelegate>{
+    
+    double personalAmount, percentageAmount;
+    
+}
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *btnsSplitType;
 @property (weak, nonatomic) IBOutlet UILabel *lblTotalAmountOfTab;
@@ -31,9 +38,8 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
 @property (weak, nonatomic) IBOutlet UIButton *btnOptions;
 @property (weak, nonatomic) IBOutlet UIButton *btnCreate;
 
-@property (strong, nonatomic) TSTab *tab;
-
 @property (nonatomic) NSNumber *currSplitType;
+
 
 @end
 
@@ -41,7 +47,7 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tab = [TSTab new];
+    personalAmount = percentageAmount = 0.0;
     [self selectButtonWithIndex:BTN_EQUAL];
 }
 
@@ -50,8 +56,17 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //TSSplitController *splitController = [[TSSplitController alloc] initWithTab:self.tab];
+    self.lblTotalAmountOfTab.text = [NSString stringWithFormat:@"$%.2f", [self.tab.totalAmount floatValue]];
+    if (!self.isNew) {
+        [self.btnCreate setEnabled:NO];
+    }
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    return [self.tab.users count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -78,26 +93,36 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
         cell = [[SplitAmountTabTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    cell.lblUser.text = @"User";
-    cell.lblAmount.text = @"$0.00";
-    cell.tfAmount.text = @"$0.00";
+    TSUserTabSplit * usr = [[self.tab users] objectAtIndex:indexPath.row];
+    cell.lblUser.text = [usr.user fullName];
+    
+    cell.tfAmount.placeholder = @"$0.00";
     cell.tfAmount.delegate = self;
-    cell.tfPercentage.text = @"0%";
+    cell.tfPercentage.placeholder = @"0%";
     cell.tfPercentage.delegate = self;
     cell.lblItems.text = @"1 Items";
     self.tvUsersInTab.allowsSelection = NO;
+    cell.delegate = self;
+    cell.index = indexPath.row;
     
+    double cellAmount = 0.0;
     switch ([self.currSplitType intValue]) {
         case BTN_EQUAL:
-            cell.lblUser.text = @"test EQUAL User";
+            cellAmount = ([self.tab.totalAmount doubleValue] / (double) self.tab.users.count);
+            cell.lblAmount.text = [NSString stringWithFormat:@"$%.2f", cellAmount];
+            
             break;
             
         case BTN_AMOUNTS:
-            cell.lblUser.text = @"test AMOUNTS User";
+            cellAmount = [[cell.tfAmount text] doubleValue];
+            personalAmount += cellAmount;
             break;
             
         case BTN_PERCENTAGE:
-            cellIdentifier = @"test PERCENTAGE User";
+            cellAmount = ([[cell.tfPercentage text] doubleValue]/100.0*[self.tab.totalAmount doubleValue]);
+            cell.lblAmount.text = [NSString stringWithFormat:@"$%.2f", cellAmount];
+            percentageAmount += cellAmount;
+            
             break;
             
         case BTN_ITEMS:
@@ -106,7 +131,8 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
             break;
     }
     
-    
+    usr.amount = [NSNumber numberWithDouble: cellAmount];
+    [self updateTotalAmount];
     
     return cell;
 }
@@ -121,13 +147,6 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
     [self selectButton:sender];
     
     [self.tvUsersInTab reloadData];
-}
-
-- (IBAction)loadTabUsers:(UIStoryboardSegue*)segue{
-    
-    FriendsInTabViewController *friends = segue.sourceViewController;
-    
-    
 }
 
 - (void)selectButtonWithIndex:(int) indexBtn{
@@ -155,6 +174,40 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
     }
     selectedBtn.tintColor = ((AppDelegate *)[UIApplication sharedApplication].delegate).mainTintColor;
     [selectedBtn setImage:[selectedBtn.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+}
+
+-(void)updateTotalAmountWithValue:(NSNumber *)val atIndex:(NSInteger)index{
+    TSUserTabSplit * usr = [[self.tab users] objectAtIndex:index];
+    usr.amount = val;
+    
+    [self updateTotalAmount];
+    
+}
+
+-(void)updateTotalAmountWithPercentage:(double)percentage atIndex:(NSInteger)index{
+    double perAmount = [self.tab.totalAmount doubleValue] * percentage/100.0;
+    TSUserTabSplit * usr = [[self.tab users] objectAtIndex:index];
+    usr.amount = [NSNumber numberWithDouble:perAmount];
+    ;
+    
+    SplitAmountTabTableViewCell *cell = (SplitAmountTabTableViewCell*)[self.tvUsersInTab cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+        cell.lblAmount.text = [NSString stringWithFormat:@"$%.2f", perAmount];
+    
+    [self updateTotalAmount];
+}
+
+-(void) updateTotalAmount {
+    double amount = 0.0;
+    for (TSUserTabSplit *usr in self.tab.users) {
+        amount += [[usr amount] doubleValue];
+    }
+    if (amount != [self.tab.totalAmount doubleValue]) {
+        [self.lblTotalAmount setTextColor:[UIColor redColor]];
+    }
+    else {
+        [self.lblTotalAmount setTextColor:[UIColor blackColor]];
+    }
+    [self.lblTotalAmount setText:[NSString stringWithFormat:@"$%.2f", amount]];
 }
 
 @end
