@@ -37,6 +37,7 @@
 		04C8259B1AED507D00237635 /* SplitByPercentageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8259A1AED507D00237635 /* SplitByPercentageTableViewCell.m */; };
 		04C8259E1AED50A100237635 /* SplitByItemsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8259D1AED50A100237635 /* SplitByItemsTableViewCell.m */; };
 		04C825A21AEDA7FB00237635 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C825A11AEDA7FB00237635 /* HomeViewController.m */; };
+		04C825A91AEDAB2600237635 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C825A81AEDAB2600237635 /* SettingsTableViewController.m */; };
 		98805F801AECAB8E00EB2A05 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7D1AECAB8E00EB2A05 /* FBSDKCoreKit.framework */; };
 		98805F811AECAB8E00EB2A05 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7E1AECAB8E00EB2A05 /* FBSDKLoginKit.framework */; };
 		98805F821AECAB8E00EB2A05 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7F1AECAB8E00EB2A05 /* FBSDKShareKit.framework */; };
@@ -125,6 +126,8 @@
 		04C8259D1AED50A100237635 /* SplitByItemsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplitByItemsTableViewCell.m; path = MCSTabSplitter/Views/Tabs/SplitByItemsTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		04C825A01AEDA7FB00237635 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = MCSTabSplitter/Views/Home/HomeViewController.h; sourceTree = SOURCE_ROOT; };
 		04C825A11AEDA7FB00237635 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = MCSTabSplitter/Views/Home/HomeViewController.m; sourceTree = SOURCE_ROOT; };
+		04C825A71AEDAB2600237635 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = SOURCE_ROOT; };
+		04C825A81AEDAB2600237635 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = SOURCE_ROOT; };
 		98805F7D1AECAB8E00EB2A05 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = MCSTabSplitter/Frameworks/FBSDKCoreKit.framework; sourceTree = SOURCE_ROOT; };
 		98805F7E1AECAB8E00EB2A05 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = MCSTabSplitter/Frameworks/FBSDKLoginKit.framework; sourceTree = SOURCE_ROOT; };
 		98805F7F1AECAB8E00EB2A05 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = MCSTabSplitter/Frameworks/FBSDKShareKit.framework; sourceTree = SOURCE_ROOT; };
@@ -227,6 +230,15 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
+		04C825A31AEDAACE00237635 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				04C825A71AEDAB2600237635 /* SettingsTableViewController.h */,
+				04C825A81AEDAB2600237635 /* SettingsTableViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		98F93F151AE15DF700BD514F = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +320,7 @@
 		98F93F4B1AE15F0A00BD514F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				04C825A31AEDAACE00237635 /* Settings */,
 				04C8259F1AEDA79600237635 /* Home */,
 				98F93F931AE1655A00BD514F /* Login */,
 				98F93F551AE1609700BD514F /* Contacts */,
@@ -596,6 +609,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04C825A91AEDAB2600237635 /* SettingsTableViewController.m in Sources */,
 				98A443961AEA8ECE00339D0E /* TSTab.m in Sources */,
 				048097CC1AE7F9DE00C6DB14 /* TSCurrency.m in Sources */,
 				04C8259E1AED50A100237635 /* SplitByItemsTableViewCell.m in Sources */,

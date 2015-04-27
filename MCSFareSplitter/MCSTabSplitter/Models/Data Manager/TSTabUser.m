@@ -9,6 +9,7 @@
 #import "TSTabUser.h"
 #import "TSDefinitions.h"
 #import "TSUserTabSplit.h"
+#import "TSUtilities.h"
 
 @implementation TSTabUser
 
@@ -28,8 +29,6 @@
         //TODO Deposit methods
         //@property (nonatomic) NSArray *depositMethods;
         //prefered deposit
-        self.owe=[NSNumber numberWithInt:0];
-        self.owed=[NSNumber numberWithInt:0];
     }
     return self;
 }
@@ -113,4 +112,33 @@
     }
 }
 
+-(NSNumber *)owe
+{
+    NSDecimalNumber *owe = [TSUtilities decimalNumberWithNumber:@0];
+    
+    for (TSUserTabSplit *splitTab in self.splitTabs)
+    {
+        if([splitTab.amount doubleValue] >= 0)
+        {
+            owe = [owe decimalNumberByAdding:[TSUtilities decimalNumberWithNumber:splitTab.amount]];
+        }
+    }
+    
+    return (NSNumber *)owe;
+}
+
+-(NSNumber *)owed
+{
+    NSDecimalNumber *owed = [TSUtilities decimalNumberWithNumber:@0];
+    
+    for (TSUserTabSplit *splitTab in self.splitTabs)
+    {
+        if([splitTab.amount doubleValue] <= 0)
+        {
+            owed = [owed decimalNumberByAdding:[[TSUtilities decimalNumberWithNumber:splitTab.amount] decimalNumberByMultiplyingBy:[TSUtilities decimalNumberWithNumber:@(-1)]]];
+        }
+    }
+    
+    return (NSNumber *)owed;
+}
 @end

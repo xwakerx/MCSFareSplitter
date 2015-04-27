@@ -8,9 +8,6 @@
 
 #import "TSFacebookController.h"
 
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
-
 #import "TSTabUser.h"
 
 @implementation TSFacebookController

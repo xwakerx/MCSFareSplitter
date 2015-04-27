@@ -23,8 +23,8 @@
 //TODO Deposit methods
 //@property (nonatomic) NSArray *depositMethods;
 //prefered deposit
-@property (nonatomic) NSNumber *owe;
-@property (nonatomic) NSNumber *owed;
+@property (nonatomic, readonly) NSNumber *owe;
+@property (nonatomic, readonly) NSNumber *owed;
 
 +(NSNumber *) TSUserTypeGhost;
 +(NSNumber *) TSUserTypeFacebook;

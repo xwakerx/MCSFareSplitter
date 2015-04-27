@@ -25,21 +25,10 @@
 
 -(NSArray *)phoneContacts
 {
-    if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusDenied ||
-        ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusRestricted)
+    if(self.hasPermissions)
     {
-        NSLog(@"Denied");
-    }
-    else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized)
-    {
-        NSLog(@"Authorized");
         return [self getAllContacts];
     }
-    else //ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined
-    {
-        NSLog(@"Not determined");
-    }
-    
     return nil;
 }
 
@@ -49,7 +38,7 @@
     ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, error);
     ABRecordRef source = ABAddressBookCopyDefaultSource(addressBook);
     CFArrayRef allPeople = (ABAddressBookCopyArrayOfAllPeopleInSourceWithSortOrdering(addressBook, source, kABPersonSortByFirstName));
-    CFIndex nPeople = ABAddressBookGetPersonCount(addressBook);
+    CFIndex nPeople =CFArrayGetCount(allPeople);
     NSMutableArray *contacts = [NSMutableArray array];
      
     for (int i = 0; i < nPeople; i++) {
@@ -117,6 +106,40 @@
     CFRelease(source);
     
     return contacts;
+}
+
+-(void)requestPermissions
+{
+    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
+    ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(granted)
+            {
+                [[NSNotificationCenter defaultCenter] postNotificationName:kContactsAccessPermissionsWereGranted object:nil];
+            }
+            else
+            {
+                [[NSNotificationCenter defaultCenter] postNotificationName:kContactsAccessPermissionsWereDenied object:nil];
+            }
+        });
+    });
+}
+
+-(BOOL)hasPermissions
+{
+    if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusDenied ||
+        ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusRestricted)
+    {
+        return NO;
+    }
+    else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized)
+    {
+        return YES;
+    }
+    else //ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined
+    {
+        return NO;
+    }
 }
 
 
