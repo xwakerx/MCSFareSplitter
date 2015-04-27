@@ -24,6 +24,19 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    application.applicationIconBadgeNumber = 0;
+    
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
+    }
+    
+    UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+    
+    [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+    
+    
     self.mainTintColor = [UIColor colorWithRed:0.92 green:0.00 blue:0.47 alpha:1.0];
     [[UINavigationBar appearance] setTintColor: self.mainTintColor];
     [[UITabBar appearance] setTintColor:self.mainTintColor];
@@ -185,6 +198,22 @@
             abort();
         }
     }
+}
+
+#pragma mark - Registration for Notifications
+
+#ifdef __IPHONE_8_0
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+    [application registerForRemoteNotifications];
+}
+#endif
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSLog(@"The Token is: %@", deviceToken);
+}
+
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"Failed to get token, error: %@", error);
 }
 
 @end

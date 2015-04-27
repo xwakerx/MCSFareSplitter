@@ -38,6 +38,7 @@
 		04C8259E1AED50A100237635 /* SplitByItemsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8259D1AED50A100237635 /* SplitByItemsTableViewCell.m */; };
 		04C825A21AEDA7FB00237635 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C825A11AEDA7FB00237635 /* HomeViewController.m */; };
 		04C825A91AEDAB2600237635 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C825A81AEDAB2600237635 /* SettingsTableViewController.m */; };
+		04FD49C11AEDC58500D46DD2 /* Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FD49C01AEDC58500D46DD2 /* Notifications.m */; };
 		98805F801AECAB8E00EB2A05 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7D1AECAB8E00EB2A05 /* FBSDKCoreKit.framework */; };
 		98805F811AECAB8E00EB2A05 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7E1AECAB8E00EB2A05 /* FBSDKLoginKit.framework */; };
 		98805F821AECAB8E00EB2A05 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7F1AECAB8E00EB2A05 /* FBSDKShareKit.framework */; };
@@ -128,6 +129,8 @@
 		04C825A11AEDA7FB00237635 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = MCSTabSplitter/Views/Home/HomeViewController.m; sourceTree = SOURCE_ROOT; };
 		04C825A71AEDAB2600237635 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = SOURCE_ROOT; };
 		04C825A81AEDAB2600237635 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = SOURCE_ROOT; };
+		04FD49BF1AEDC58500D46DD2 /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Notifications.h; path = MCSTabSplitter/Controllers/Notifications/Notifications.h; sourceTree = SOURCE_ROOT; };
+		04FD49C01AEDC58500D46DD2 /* Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Notifications.m; path = MCSTabSplitter/Controllers/Notifications/Notifications.m; sourceTree = SOURCE_ROOT; };
 		98805F7D1AECAB8E00EB2A05 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = MCSTabSplitter/Frameworks/FBSDKCoreKit.framework; sourceTree = SOURCE_ROOT; };
 		98805F7E1AECAB8E00EB2A05 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = MCSTabSplitter/Frameworks/FBSDKLoginKit.framework; sourceTree = SOURCE_ROOT; };
 		98805F7F1AECAB8E00EB2A05 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = MCSTabSplitter/Frameworks/FBSDKShareKit.framework; sourceTree = SOURCE_ROOT; };
@@ -459,6 +462,8 @@
 		98F93F851AE161A500BD514F /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
+				04FD49BF1AEDC58500D46DD2 /* Notifications.h */,
+				04FD49C01AEDC58500D46DD2 /* Notifications.m */,
 			);
 			name = Notifications;
 			sourceTree = "<group>";
@@ -613,6 +618,7 @@
 				98A443961AEA8ECE00339D0E /* TSTab.m in Sources */,
 				048097CC1AE7F9DE00C6DB14 /* TSCurrency.m in Sources */,
 				04C8259E1AED50A100237635 /* SplitByItemsTableViewCell.m in Sources */,
+				04FD49C11AEDC58500D46DD2 /* Notifications.m in Sources */,
 				98F93F2A1AE15DF700BD514F /* MCSTabSplitter.xcdatamodeld in Sources */,
 				048097D11AE7F9F900C6DB14 /* TSTabUser.m in Sources */,
 				048097F81AE7FBF400C6DB14 /* StaticDataTableViewController.m in Sources */,
@@ -758,6 +764,7 @@
 				INFOPLIST_FILE = MCSTabSplitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "fcdb2708-c0bc-44bb-9bdc-e6b8d99c0a36";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -776,6 +783,7 @@
 				INFOPLIST_FILE = MCSTabSplitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "fcdb2708-c0bc-44bb-9bdc-e6b8d99c0a36";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
