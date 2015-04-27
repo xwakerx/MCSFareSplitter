@@ -28,6 +28,8 @@
     [[UINavigationBar appearance] setTintColor: self.mainTintColor];
     [[UITabBar appearance] setTintColor:self.mainTintColor];
     
+    [[TSContactsManager sharedManager] requestPermissions];
+    
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];
 }
@@ -50,8 +52,12 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [FBSDKAppEvents activateApp];
     
+    
     if([FBSDKAccessToken currentAccessToken])
     {
+        NSArray *phoneContacts = [[TSContactsManager sharedManager]phoneContacts];
+        NSLog(@"%@", phoneContacts);
+        
         TSLoginViewController *loginVC = (TSLoginViewController *)[self.window rootViewController];
         
         __block UIView *overlay = [[UIView alloc]initWithFrame:loginVC.view.frame];
