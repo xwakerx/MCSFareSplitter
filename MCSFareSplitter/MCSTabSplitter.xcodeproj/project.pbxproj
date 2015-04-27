@@ -27,6 +27,7 @@
 		048098051AE7FD1100C6DB14 /* MCSFareSplitterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 048098031AE7FD1100C6DB14 /* MCSFareSplitterTests.m */; };
 		048098061AE7FD1100C6DB14 /* SplitterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 048098041AE7FD1100C6DB14 /* SplitterTests.m */; };
 		0483ECF81AED3C7C00BD6DFC /* TSTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0483ECF71AED3C7C00BD6DFC /* TSTabController.m */; };
+		0483ECFB1AEDAD3900BD6DFC /* TabsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0483ECFA1AEDAD3900BD6DFC /* TabsViewController.m */; };
 		04C825871AE941F000237635 /* FriendsInTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C825861AE941F000237635 /* FriendsInTabViewController.m */; };
 		04C8258D1AECAE3D00237635 /* SplitTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8258C1AECAE3D00237635 /* SplitTabViewController.m */; };
 		04C825901AECAE9600237635 /* TSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8258F1AECAE9600237635 /* TSLoginViewController.m */; };
@@ -105,6 +106,8 @@
 		048098041AE7FD1100C6DB14 /* SplitterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplitterTests.m; path = MCSTabSplitterTests/SplitterTests.m; sourceTree = SOURCE_ROOT; };
 		0483ECF61AED3C7C00BD6DFC /* TSTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSTabController.h; path = MCSTabSplitter/Controllers/Tabs/TSTabController.h; sourceTree = SOURCE_ROOT; };
 		0483ECF71AED3C7C00BD6DFC /* TSTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSTabController.m; path = MCSTabSplitter/Controllers/Tabs/TSTabController.m; sourceTree = SOURCE_ROOT; };
+		0483ECF91AEDAD3900BD6DFC /* TabsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabsViewController.h; path = MCSTabSplitter/Views/Tabs/TabsViewController.h; sourceTree = SOURCE_ROOT; };
+		0483ECFA1AEDAD3900BD6DFC /* TabsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabsViewController.m; path = MCSTabSplitter/Views/Tabs/TabsViewController.m; sourceTree = SOURCE_ROOT; };
 		04C825851AE941F000237635 /* FriendsInTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsInTabViewController.h; path = MCSTabSplitter/Views/Tabs/FriendsInTabViewController.h; sourceTree = SOURCE_ROOT; };
 		04C825861AE941F000237635 /* FriendsInTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendsInTabViewController.m; path = MCSTabSplitter/Views/Tabs/FriendsInTabViewController.m; sourceTree = SOURCE_ROOT; };
 		04C8258B1AECAE3D00237635 /* SplitTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplitTabViewController.h; path = MCSTabSplitter/Views/Tabs/SplitTabViewController.h; sourceTree = SOURCE_ROOT; };
@@ -392,6 +395,8 @@
 				04C8259A1AED507D00237635 /* SplitByPercentageTableViewCell.m */,
 				04C8259C1AED50A100237635 /* SplitByItemsTableViewCell.h */,
 				04C8259D1AED50A100237635 /* SplitByItemsTableViewCell.m */,
+				0483ECF91AEDAD3900BD6DFC /* TabsViewController.h */,
+				0483ECFA1AEDAD3900BD6DFC /* TabsViewController.m */,
 			);
 			name = Tabs;
 			sourceTree = "<group>";
@@ -617,6 +622,7 @@
 				04C825901AECAE9600237635 /* TSLoginViewController.m in Sources */,
 				04C825A21AEDA7FB00237635 /* HomeViewController.m in Sources */,
 				048097C31AE7F9A800C6DB14 /* DataManager.m in Sources */,
+				0483ECFB1AEDAD3900BD6DFC /* TabsViewController.m in Sources */,
 				98BE94241AED3E0F003BB045 /* TSFacebookController.m in Sources */,
 				98A443971AEA8ECE00339D0E /* TSTransaction.m in Sources */,
 			);

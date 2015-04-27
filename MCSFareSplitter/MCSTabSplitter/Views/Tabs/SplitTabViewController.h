@@ -10,4 +10,6 @@
 
 @interface SplitTabViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
+- (IBAction)loadTabUsers:(UIStoryboardSegue*)segue;
+
 @end

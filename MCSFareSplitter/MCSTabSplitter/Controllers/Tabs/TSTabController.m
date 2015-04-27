@@ -40,7 +40,7 @@
     
     TSTab *tab = [[TSTab alloc] init];
     tab.date = [NSDate date];
-    int num = arc4random_uniform(100)%2;
+    int num = arc4random_uniform(13)%2;
     tab.detail = num == 0 ? @"Walmart G" : @"Costco G";
     tab.totalAmount = [[NSNumber alloc] initWithDouble:(double)num+213];
     tab.users = [self generateMockUsers];

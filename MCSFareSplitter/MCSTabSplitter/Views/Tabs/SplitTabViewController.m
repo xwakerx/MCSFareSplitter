@@ -9,6 +9,8 @@
 #import "SplitTabViewController.h"
 #import "AppDelegate.h"
 #import "SplitAmountTabTableViewCell.h"
+#import "FriendsInTabViewController.h"
+#import "TSTab.h"
 
 static const int BTN_EQUAL = 0;
 static const int BTN_AMOUNTS = 1;
@@ -29,6 +31,8 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
 @property (weak, nonatomic) IBOutlet UIButton *btnOptions;
 @property (weak, nonatomic) IBOutlet UIButton *btnCreate;
 
+@property (strong, nonatomic) TSTab *tab;
+
 @property (nonatomic) NSNumber *currSplitType;
 
 @end
@@ -37,7 +41,7 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.tab = [TSTab new];
     [self selectButtonWithIndex:BTN_EQUAL];
 }
 
@@ -117,6 +121,13 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
     [self selectButton:sender];
     
     [self.tvUsersInTab reloadData];
+}
+
+- (IBAction)loadTabUsers:(UIStoryboardSegue*)segue{
+    
+    FriendsInTabViewController *friends = segue.sourceViewController;
+    
+    
 }
 
 - (void)selectButtonWithIndex:(int) indexBtn{

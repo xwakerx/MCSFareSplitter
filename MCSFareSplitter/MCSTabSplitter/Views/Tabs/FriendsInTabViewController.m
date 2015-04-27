@@ -9,6 +9,7 @@
 #import "FriendsInTabViewController.h"
 #import "TSTabUser.h"
 #import "AppDelegate.h"
+#import "TSContactsManager.h"
 
 @interface FriendsInTabViewController ()
 
@@ -38,6 +39,7 @@
     tmpUser.email = @"jhon.smith@gmail.com";
     tmpUser.userType = [TSTabUser TSUserTypeFacebook];
     [self.allContacts addObject:tmpUser];
+    self.allContacts = [[[TSContactsManager sharedManager] phoneContacts] mutableCopy];
 }
 
 - (void)didReceiveMemoryWarning {
