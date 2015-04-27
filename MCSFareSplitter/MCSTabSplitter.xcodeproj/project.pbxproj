@@ -236,8 +236,8 @@
 		04C825A31AEDAACE00237635 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				04C825A71AEDAB2600237635 /* SettingsTableViewController.h */,
-				04C825A81AEDAB2600237635 /* SettingsTableViewController.m */,
+				04C825B01AEDD11300237635 /* SettingsTableViewController.h */,
+				04C825B11AEDD11300237635 /* SettingsTableViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -434,6 +434,8 @@
 		98F93F551AE1609700BD514F /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				04C825AD1AEDD0C000237635 /* ContactsTableViewController.h */,
+				04C825AE1AEDD0C000237635 /* ContactsTableViewController.m */,
 			);
 			name = Contacts;
 			sourceTree = "<group>";
@@ -614,7 +616,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04C825A91AEDAB2600237635 /* SettingsTableViewController.m in Sources */,
 				98A443961AEA8ECE00339D0E /* TSTab.m in Sources */,
 				048097CC1AE7F9DE00C6DB14 /* TSCurrency.m in Sources */,
 				04C8259E1AED50A100237635 /* SplitByItemsTableViewCell.m in Sources */,
@@ -623,6 +624,7 @@
 				048097D11AE7F9F900C6DB14 /* TSTabUser.m in Sources */,
 				048097F81AE7FBF400C6DB14 /* StaticDataTableViewController.m in Sources */,
 				048097D81AE7FA9500C6DB14 /* TSSplitController.m in Sources */,
+				04C825AF1AEDD0C000237635 /* ContactsTableViewController.m in Sources */,
 				048097C71AE7F9BB00C6DB14 /* TSDefinitions.m in Sources */,
 				98BE94291AED4866003BB045 /* TSContactsManager.m in Sources */,
 				04C825871AE941F000237635 /* FriendsInTabViewController.m in Sources */,
@@ -644,6 +646,7 @@
 				048097C31AE7F9A800C6DB14 /* DataManager.m in Sources */,
 				0483ECFB1AEDAD3900BD6DFC /* TabsViewController.m in Sources */,
 				98BE94241AED3E0F003BB045 /* TSFacebookController.m in Sources */,
+				04C825B21AEDD11300237635 /* SettingsTableViewController.m in Sources */,
 				98A443971AEA8ECE00339D0E /* TSTransaction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
