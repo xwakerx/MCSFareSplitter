@@ -8,6 +8,9 @@
 
 #import "TabsViewController.h"
 #import "TSTabController.h"
+#import "TSUserTabSplit.h"
+#import "TSTabUser.h"
+#import "TSUser.h"
 #import "TSTab.h"
 #import "SplitTabViewController.h"
 
@@ -93,6 +96,13 @@
 -(IBAction)addNewTab:(UIStoryboardSegue*)segue{
     SplitTabViewController *splitV = segue.sourceViewController;
     TSTab *newTab = splitV.tab;
+    
+    //TODO: check this logic .....
+//    for (TSUserTabSplit *usrTS in newTab.users) {
+//        if ([usrTS.user.email isEqualToString:[TSUser sharedUser].user.email]) {
+//            [TSUser sharedUser].user.splitTabs = @[usrTS];
+//        }
+//    }
     [self.tabs addObject:newTab];
     [self.tableView reloadData];
     

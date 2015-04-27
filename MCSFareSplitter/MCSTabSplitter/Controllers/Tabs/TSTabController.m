@@ -11,6 +11,7 @@
 #import "TSCurrency.h"
 #import "TSTabUser.h"
 #import "TSTab.h"
+#import "TSUser.h"
 #import "TSDefinitions.h"
 
 @implementation TSTabController
@@ -25,11 +26,16 @@
 +(NSMutableArray*) getUserTabSplittersForTab:(TSTab*)tab withUsers:(NSArray*)users{
     
     NSMutableArray *usrs = [NSMutableArray new];
+    TSUserTabSplit *admin = [[TSUserTabSplit alloc] initWithUser:[TSUser sharedUser].user andTab:tab withAmount:@0];
+    [usrs addObject:admin];
+    
     for (TSTabUser *usr in users) {
         //convert users to tabsplitusers
         TSUserTabSplit *newUsr = [[TSUserTabSplit alloc] initWithUser:usr andTab:tab withAmount:@0];
         [usrs addObject:newUsr];
     }
+    
+    
     return usrs;
 }
 
