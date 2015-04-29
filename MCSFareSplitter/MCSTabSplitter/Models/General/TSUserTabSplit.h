@@ -14,7 +14,7 @@ typedef enum
 {
     TSUserTabTypeOwes,
     TSUserTabTypeOwed,
-    TSUserTabSettled
+    TSUserTabTypeSettled
 } TSUserTabType;
 
 @interface TSUserTabSplit : NSObject

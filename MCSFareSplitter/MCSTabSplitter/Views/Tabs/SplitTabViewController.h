@@ -11,7 +11,9 @@
 
 @interface SplitTabViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
-@property (nonatomic) TSTab * tab;
+@property (strong, nonatomic) TSTab * tab;
 @property (nonatomic) BOOL isNew;
+
+-(IBAction)addItem:(UIStoryboardSegue*)segue;
 
 @end

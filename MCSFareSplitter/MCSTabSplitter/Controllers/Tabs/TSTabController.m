@@ -27,6 +27,7 @@
     
     NSMutableArray *usrs = [NSMutableArray new];
     TSUserTabSplit *admin = [[TSUserTabSplit alloc] initWithUser:[TSUser sharedUser].user andTab:tab withAmount:@0];
+    //admin.userType = TSUserTabTypeOwed;
     [usrs addObject:admin];
     
     for (TSTabUser *usr in users) {
