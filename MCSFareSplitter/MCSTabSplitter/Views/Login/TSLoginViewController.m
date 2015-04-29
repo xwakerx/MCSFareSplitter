@@ -27,8 +27,9 @@
     loginButton.center = CGPointMake(self.view.center.x, 450);
     
     [self.view addSubview:loginButton];
+    self.btnLogin.center = CGPointMake(self.view.center.x, 500);
     
-    self.btnLogin.hidden = YES;
+//    self.btnLogin.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {

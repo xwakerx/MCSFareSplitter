@@ -64,11 +64,11 @@
     
     TSSplitController *splitController = [TSSplitController new];
     
-    NSArray *transactions = [splitController splitTabWithPayments:payments andDebts:debts];
-    
-    XCTAssertNotNil(transactions);
-    
-    NSLog(@"%@", transactions);
+    [splitController splitTabWithPayments:payments andDebts:debts withCompletionBlock:^(NSArray *transactions){
+        XCTAssertNotNil(transactions);
+        
+        NSLog(@"%@", transactions);
+    }];
 }
 
 -(void)testSplitEqually
@@ -92,11 +92,11 @@
     
     TSSplitController *splitController = [TSSplitController new];
     
-    NSArray *transactions = [splitController splitTabEquallyWithPayments:payments andParticipants:users];
-    
-    XCTAssertNotNil(transactions);
-    
-    NSLog(@"%@", transactions);
+    [splitController splitTabEquallyWithPayments:payments andParticipants:users withCompletionBlock:^(NSArray *transactions){
+        XCTAssertNotNil(transactions);
+        
+        NSLog(@"%@", transactions);
+    }];
 }
 
 -(void)testSplitPercentages
@@ -122,11 +122,13 @@
     
     TSSplitController *splitController = [TSSplitController new];
     
-    NSArray *transactions = [splitController splitTabWithPayments:payments andPercentages:percentages forParticipants:users];
+    [splitController splitTabWithPayments:payments andPercentages:percentages forParticipants:users withCompletionBlock:^(NSArray *transactions){
+        XCTAssertNotNil(transactions);
+        
+        NSLog(@"%@", transactions);
+    }];
     
-    XCTAssertNotNil(transactions);
     
-    NSLog(@"%@", transactions);
 }
 
 -(void)testSplitItems
@@ -160,16 +162,31 @@
     
     TSSplitController *splitController = [TSSplitController new];
     
-    NSArray *transactions = [splitController splitTabWithPayments:payments forParticipants:users withItems:items];
-    
-    XCTAssertNotNil(transactions);
-    
-    NSLog(@"%@", transactions);
+    [splitController splitTabWithPayments:payments forParticipants:users withItems:items withCompletionBlock:^(NSArray *transactions){
+        XCTAssertNotNil(transactions);
+        
+        NSLog(@"%@", transactions);
+    }];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+-(void)testSplitItems2
+{
+    NSArray *users = @[[[TSTabUser alloc]initWithEmail:nil withFirstName:@"A" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"B" withMiddleName:nil withLastName:nil userType:nil],
+                       [[TSTabUser alloc]initWithEmail:nil withFirstName:@"C" withMiddleName:nil withLastName:nil userType:nil]];
+    
+    NSArray *payments = @[[[TSUserTabSplit alloc] initWithUser:users[0] andTab:nil withAmount:@(200)]];
+    
+    NSArray *items = @[[[TSItem alloc]initWithCost:@90 andDetail:@"item1" forUsers:@[users[0], users[1], users[2]]],
+                       [[TSItem alloc]initWithCost:@110 andDetail:@"item2" forUsers:@[users[0], users[1], users[2]]]];
+    
+    TSSplitController *splitController = [TSSplitController new];
+    
+    [splitController splitTabWithPayments:payments forParticipants:users withItems:items withCompletionBlock:^(NSArray *transactions){
+        XCTAssertNotNil(transactions);
+        
+        NSLog(@"%@", transactions);
+    }];
 }
 
 - (void)testPerformanceExample {

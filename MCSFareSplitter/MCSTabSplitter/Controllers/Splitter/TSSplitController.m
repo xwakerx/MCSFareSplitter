@@ -28,7 +28,7 @@
 
 #pragma mark - MAIN SPLITTER ALGORITHM
 #pragma mark -
--(NSArray *)transactionsForTabWithPayments:(NSArray *)payments andDebts:(NSArray *)debts
+-(void)transactionsForTabWithPayments:(NSArray *)payments andDebts:(NSArray *)debts withCompletionBlock:(void (^)(NSArray *))completion
 {
     //Calculate real debt
     debts = [self adjustRealDebtsWithPayments:payments andDebts:debts];
@@ -104,7 +104,7 @@
         }
     }
     
-    return transactions;
+    completion(transactions);
 }
 
 #pragma mark - Debts and payments adjustment and separation
@@ -297,15 +297,16 @@
 
 -(NSDecimalNumber *)roundToTwoDecimals:(NSDecimalNumber *) num
 {
-    NSDecimalNumberHandler *roundUp = [NSDecimalNumberHandler
-                                       decimalNumberHandlerWithRoundingMode:NSRoundUp
+    NSDecimalNumberHandler *roundDown = [NSDecimalNumberHandler
+                                       decimalNumberHandlerWithRoundingMode:NSRoundDown
                                        scale:2
                                        raiseOnExactness:NO
                                        raiseOnOverflow:NO
                                        raiseOnUnderflow:NO
                                        raiseOnDivideByZero:YES];
+    NSDecimalNumber *roundedNumber = [num decimalNumberByAdding:[TSUtilities decimalNumberWithNumber:@0] withBehavior:roundDown];
     
-    return [num decimalNumberByAdding:[TSUtilities decimalNumberWithNumber:[NSNumber numberWithInt:0]] withBehavior:roundUp];
+    return roundedNumber;
 }
 
 #pragma mark - Utility methods
@@ -326,10 +327,10 @@
 #pragma mark -
 
 #pragma mark Split Equally
--(NSArray *)splitTabEquallyWithPayments:(NSArray *)payments andParticipants:(NSArray *)participants
+-(void)splitTabEquallyWithPayments:(NSArray *) payments andParticipants:(NSArray *)participants withCompletionBlock:(void (^)(NSArray *))completion
 {
-    payments = [self paymentsToPositives:payments];
-    NSDecimalNumber *paymentsTotalAmount = [self totalAmountDueForDebts:payments];
+    NSArray *positivePayments = [self paymentsToPositives:payments];
+    NSDecimalNumber *paymentsTotalAmount = [self totalAmountDueForDebts:positivePayments];
     
     NSDecimalNumber *individualDebtAmount = [paymentsTotalAmount decimalNumberByDividingBy:[TSUtilities decimalNumberWithNumber:[NSNumber numberWithInteger:participants.count]]];
     individualDebtAmount = [self roundToTwoDecimals:individualDebtAmount];
@@ -353,26 +354,26 @@
         ((TSUserTabSplit *)[debts lastObject]).amount = (NSNumber *)lastAmount;
     }
     
-    return [self splitTabWithPayments:payments andDebts:debts];
+    [self splitTabWithPayments:positivePayments andDebts:debts withCompletionBlock:completion];
 }
 
 #pragma mark Split With Payments and Debts
--(NSArray *)splitTabWithPayments:(NSArray *)payments andDebts:(NSArray *)debts
+-(void)splitTabWithPayments:(NSArray *)payments andDebts:(NSArray *)debts withCompletionBlock:(void (^)(NSArray *))completion
 {
-    payments = [self paymentsToPositives:payments];
+    NSArray *positivePayments = [self paymentsToPositives:payments];
     
-    NSDecimalNumber *paymentsTotalAmount = [self totalAmountDueForDebts:payments];
+    NSDecimalNumber *paymentsTotalAmount = [self totalAmountDueForDebts:positivePayments];
     NSDecimalNumber *debtsTotalAmount = [self totalAmountDueForDebts:debts];
     
     if(![paymentsTotalAmount isEqualToNumber:debtsTotalAmount])
     {
         [NSException raise:@"FSSplitInvalidArgumentsException" format:@"The amounts of payments and debts don't match"];
     }
-    return [self transactionsForTabWithPayments:payments andDebts:debts];
+    [self transactionsForTabWithPayments:positivePayments andDebts:debts withCompletionBlock:completion];
 }
 
 #pragma mark Split with payments and percentages
--(NSArray *)splitTabWithPayments:(NSArray *)payments andPercentages:(NSArray *)percentages forParticipants:(NSArray *)participants
+-(void)splitTabWithPayments:(NSArray *)payments andPercentages:(NSArray *)percentages forParticipants:(NSArray *)participants withCompletionBlock:(void (^)(NSArray *))completion
 {
     if(percentages.count != participants.count)
     {
@@ -390,10 +391,9 @@
     {
         [NSException raise:@"FSSplitInvalidArgumentsException" format:@"The percentages do not sum 100"];
     }
+    NSArray *positivePayments = [self paymentsToPositives:payments];
     
-    payments = [self paymentsToPositives:payments];
-    
-    NSDecimalNumber *paymentsTotalAmount = [self totalAmountDueForDebts:payments];
+    NSDecimalNumber *paymentsTotalAmount = [self totalAmountDueForDebts:positivePayments];
     NSDecimalNumber *paymentsRealAmountAccum = [TSUtilities decimalNumberWithNumber:@0];
     
     NSMutableArray *debts = [NSMutableArray array];
@@ -419,13 +419,12 @@
         
         ((TSUserTabSplit *)[debts lastObject]).amount = (NSNumber *)lastAmount;
     }
-    
-    return [self splitTabWithPayments:payments andDebts:debts];
+    [self splitTabWithPayments:positivePayments andDebts:debts withCompletionBlock:completion];
 }
 
 #pragma mark Split with items list
 
--(NSArray *)splitTabWithPayments:(NSArray *)payments forParticipants:(NSArray *)participants withItems:(NSArray *)items
+-(void)splitTabWithPayments:(NSArray *)payments forParticipants:(NSArray *)participants withItems:(NSArray *)items withCompletionBlock:(void (^)(NSArray *))completion
 {
     NSDecimalNumber *paymentsTotalAmount = [self totalAmountDueForDebts:[self paymentsToPositives:payments]];
     NSDecimalNumber *itemsTotalCost = [TSUtilities decimalNumberWithNumber:@0];
@@ -444,7 +443,7 @@
     
     NSArray *debts = [self debtsForParticipants:participants withItems:items];
     
-    return [self splitTabWithPayments:payments andDebts:debts];
+    [self splitTabWithPayments:payments andDebts:debts withCompletionBlock:completion];
 }
 
 @end
