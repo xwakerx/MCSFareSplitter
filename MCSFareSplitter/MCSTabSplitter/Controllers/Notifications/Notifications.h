@@ -14,9 +14,10 @@
 
 @property (nonatomic, strong) NSString *title;
 
-- (UIAlertView *)alertViewWithTitle:(NSString *)title andMessage:(NSString *)message;
-- (UIAlertView *)alertViewWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelButton otherButtonTitle:(NSString *)otherButton;
-- (UIAlertView *)alertViewWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelButton otherButtonTitles:(NSArray *)titleButtons;
++(void)alertViewWithTitle:(NSString *)title andMessage:(NSString *)message fromViewController:(UIViewController *)viewController;
++(void)alertViewWithTitle:(NSString *)title andMessage:(NSString *)message withCancelButtonTitle:(NSString *)cancelButtonTitle fromViewController:(UIViewController *)viewController;
++(void)alertViewWithTitle:(NSString *)title andMessage:(NSString *)message withCancelButtonTitle:(NSString *)cancelButtonTitle withOtherActions:(NSArray *)actions fromViewController:(UIViewController *)viewController;
+
 - (void)sendLocalNotification;
 - (void)resetBadgeNumber;
 
