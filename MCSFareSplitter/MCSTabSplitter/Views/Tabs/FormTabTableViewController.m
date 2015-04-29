@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 MCS. All rights reserved.
 //
 
-#import "FormBillTableViewController.h"
+#import "FormTabTableViewController.h"
 #import "TSDefinitions.h"
 #import "TSCurrency.h"
 #import "TSTab.h"
@@ -14,7 +14,7 @@
 #import "TSTabController.h"
 #import "SplitTabViewController.h"
 
-@interface FormBillTableViewController ()
+@interface FormTabTableViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *tfTitle;
 @property (weak, nonatomic) IBOutlet UITextField *tfUsers;
@@ -35,7 +35,7 @@
 
 @end
 
-@implementation FormBillTableViewController
+@implementation FormTabTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -66,9 +66,18 @@
 
 #pragma mark - Total amount
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    if(textField == self.tfTitle){
+        textField.textAlignment = NSTextAlignmentLeft;
+    }
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
+    if(textField == self.tfTitle){
+        textField.textAlignment = NSTextAlignmentRight;
+    }
     return YES;
 }
 

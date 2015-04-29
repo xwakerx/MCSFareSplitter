@@ -10,6 +10,6 @@
 #import "StaticDataTableViewController.h"
 #import "FriendsInTabViewController.h"
 
-@interface FormBillTableViewController : StaticDataTableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UpdateSelectedContactsDelegate>
+@interface FormTabTableViewController : StaticDataTableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UpdateSelectedContactsDelegate>
 
 @end

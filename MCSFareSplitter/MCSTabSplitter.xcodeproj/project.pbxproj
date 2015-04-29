@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0434EADC1AF142D100E5F0FF /* TabTitleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0434EADB1AF142D100E5F0FF /* TabTitleTableViewController.m */; };
 		048097C31AE7F9A800C6DB14 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 048097C01AE7F9A800C6DB14 /* DataManager.m */; };
 		048097C41AE7F9A800C6DB14 /* TSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 048097C21AE7F9A800C6DB14 /* TSUtilities.m */; };
 		048097C71AE7F9BB00C6DB14 /* TSDefinitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 048097C61AE7F9BB00C6DB14 /* TSDefinitions.m */; };
@@ -14,7 +15,7 @@
 		048097CC1AE7F9DE00C6DB14 /* TSCurrency.m in Sources */ = {isa = PBXBuildFile; fileRef = 048097CB1AE7F9DE00C6DB14 /* TSCurrency.m */; };
 		048097D11AE7F9F900C6DB14 /* TSTabUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 048097CE1AE7F9F900C6DB14 /* TSTabUser.m */; };
 		048097D21AE7F9F900C6DB14 /* TSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 048097D01AE7F9F900C6DB14 /* TSUser.m */; };
-		048097D51AE7FA4B00C6DB14 /* FormBillTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048097D41AE7FA4B00C6DB14 /* FormBillTableViewController.m */; };
+		048097D51AE7FA4B00C6DB14 /* FormTabTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048097D41AE7FA4B00C6DB14 /* FormTabTableViewController.m */; };
 		048097D81AE7FA9500C6DB14 /* TSSplitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048097D71AE7FA9500C6DB14 /* TSSplitController.m */; };
 		048097DC1AE7FB3B00C6DB14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 048097DA1AE7FB3B00C6DB14 /* AppDelegate.m */; };
 		048097DD1AE7FB3B00C6DB14 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048097DB1AE7FB3B00C6DB14 /* Images.xcassets */; };
@@ -78,6 +79,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0434EADA1AF142D100E5F0FF /* TabTitleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabTitleTableViewController.h; path = MCSTabSplitter/Views/Tabs/FormTab/TabTitleTableViewController.h; sourceTree = SOURCE_ROOT; };
+		0434EADB1AF142D100E5F0FF /* TabTitleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabTitleTableViewController.m; path = MCSTabSplitter/Views/Tabs/FormTab/TabTitleTableViewController.m; sourceTree = SOURCE_ROOT; };
 		048097BF1AE7F9A800C6DB14 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataManager.h; path = MCSTabSplitter/Singletons/DataManager.h; sourceTree = SOURCE_ROOT; };
 		048097C01AE7F9A800C6DB14 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataManager.m; path = MCSTabSplitter/Singletons/DataManager.m; sourceTree = SOURCE_ROOT; };
 		048097C11AE7F9A800C6DB14 /* TSUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSUtilities.h; path = MCSTabSplitter/Singletons/TSUtilities.h; sourceTree = SOURCE_ROOT; };
@@ -91,8 +94,8 @@
 		048097CE1AE7F9F900C6DB14 /* TSTabUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSTabUser.m; path = "MCSTabSplitter/Models/Data Manager/TSTabUser.m"; sourceTree = SOURCE_ROOT; };
 		048097CF1AE7F9F900C6DB14 /* TSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSUser.h; path = "MCSTabSplitter/Models/Data Manager/TSUser.h"; sourceTree = SOURCE_ROOT; };
 		048097D01AE7F9F900C6DB14 /* TSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSUser.m; path = "MCSTabSplitter/Models/Data Manager/TSUser.m"; sourceTree = SOURCE_ROOT; };
-		048097D31AE7FA4B00C6DB14 /* FormBillTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormBillTableViewController.h; path = MCSTabSplitter/Views/Tabs/FormBillTableViewController.h; sourceTree = SOURCE_ROOT; };
-		048097D41AE7FA4B00C6DB14 /* FormBillTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormBillTableViewController.m; path = MCSTabSplitter/Views/Tabs/FormBillTableViewController.m; sourceTree = SOURCE_ROOT; };
+		048097D31AE7FA4B00C6DB14 /* FormTabTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormTabTableViewController.h; path = MCSTabSplitter/Views/Tabs/FormTabTableViewController.h; sourceTree = SOURCE_ROOT; };
+		048097D41AE7FA4B00C6DB14 /* FormTabTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormTabTableViewController.m; path = MCSTabSplitter/Views/Tabs/FormTabTableViewController.m; sourceTree = SOURCE_ROOT; };
 		048097D61AE7FA9500C6DB14 /* TSSplitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSSplitController.h; path = MCSTabSplitter/Controllers/Splitter/TSSplitController.h; sourceTree = SOURCE_ROOT; };
 		048097D71AE7FA9500C6DB14 /* TSSplitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSSplitController.m; path = MCSTabSplitter/Controllers/Splitter/TSSplitController.m; sourceTree = SOURCE_ROOT; };
 		048097D91AE7FB3B00C6DB14 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MCSTabSplitter/AppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -180,6 +183,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0434EAD91AF141B800E5F0FF /* FormTab */ = {
+			isa = PBXGroup;
+			children = (
+				0434EADA1AF142D100E5F0FF /* TabTitleTableViewController.h */,
+				0434EADB1AF142D100E5F0FF /* TabTitleTableViewController.m */,
+			);
+			name = FormTab;
+			sourceTree = "<group>";
+		};
 		0483ECF51AED3C0900BD6DFC /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,8 +412,9 @@
 		98F93F521AE1607F00BD514F /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				048097D31AE7FA4B00C6DB14 /* FormBillTableViewController.h */,
-				048097D41AE7FA4B00C6DB14 /* FormBillTableViewController.m */,
+				0434EAD91AF141B800E5F0FF /* FormTab */,
+				048097D31AE7FA4B00C6DB14 /* FormTabTableViewController.h */,
+				048097D41AE7FA4B00C6DB14 /* FormTabTableViewController.m */,
 				04C825851AE941F000237635 /* FriendsInTabViewController.h */,
 				04C825861AE941F000237635 /* FriendsInTabViewController.m */,
 				04C8258B1AECAE3D00237635 /* SplitTabViewController.h */,
@@ -631,8 +644,9 @@
 				048097C71AE7F9BB00C6DB14 /* TSDefinitions.m in Sources */,
 				98BE94291AED4866003BB045 /* TSContactsManager.m in Sources */,
 				04C825871AE941F000237635 /* FriendsInTabViewController.m in Sources */,
-				048097D51AE7FA4B00C6DB14 /* FormBillTableViewController.m in Sources */,
+				048097D51AE7FA4B00C6DB14 /* FormTabTableViewController.m in Sources */,
 				048097DC1AE7FB3B00C6DB14 /* AppDelegate.m in Sources */,
+				0434EADC1AF142D100E5F0FF /* TabTitleTableViewController.m in Sources */,
 				0483ECF81AED3C7C00BD6DFC /* TSTabController.m in Sources */,
 				98A443951AEA8ECE00339D0E /* TSItem.m in Sources */,
 				048097C41AE7F9A800C6DB14 /* TSUtilities.m in Sources */,
