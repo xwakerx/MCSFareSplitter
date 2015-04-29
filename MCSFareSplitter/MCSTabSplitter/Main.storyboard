@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Fare Splitter-->
+        <!--Tab Splitter-->
         <scene sceneID="UEP-Ea-Hrr">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="7o0-sf-cvO" customClass="HomeViewController" sceneMemberID="viewController">
@@ -24,13 +24,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVa-pD-67d">
                                 <rect key="frame" x="0.0" y="64" width="600" height="70"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rY-Sc-qds">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rY-Sc-qds">
                                         <rect key="frame" x="8" y="33" width="189" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.18039215689999999" green="0.80000000000000004" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omE-xM-0Sd">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omE-xM-0Sd">
                                         <rect key="frame" x="205" y="33" width="190" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -48,7 +48,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nii-1r-fop">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nii-1r-fop">
                                         <rect key="frame" x="403" y="33" width="189" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -116,7 +116,15 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Fare Splitter" id="QTy-N1-2Bd"/>
+                    <navigationItem key="navigationItem" title="Tab Splitter" id="QTy-N1-2Bd">
+                        <barButtonItem key="rightBarButtonItem" image="Tab Bar Icon - Settings" id="i8c-UR-Awl">
+                            <inset key="imageInsets" minX="2" minY="2" maxX="2" maxY="2"/>
+                            <color key="tintColor" red="0.85599762201309204" green="0.0" blue="0.41146278381347656" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="sm1-uR-mvM" kind="show" id="7zc-Mg-8gj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="lblOwed" destination="9rY-Sc-qds" id="TnT-F2-QRA"/>
                         <outlet property="lblOwes" destination="omE-xM-0Sd" id="YSx-jV-S2c"/>
@@ -126,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BDo-U1-7vF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1776" y="-969"/>
+            <point key="canvasLocation" x="1784" y="-1753"/>
         </scene>
         <!--Tabs-->
         <scene sceneID="j9j-Ia-0cc">
@@ -465,7 +473,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BTB-he-Ptw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2508" y="-147"/>
+            <point key="canvasLocation" x="2460" y="-283"/>
         </scene>
         <!--Some Tab-->
         <scene sceneID="cad-a4-W5A">
@@ -890,7 +898,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xkc-R0-8SK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="C6D-Pv-vSz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3115" y="-147"/>
+            <point key="canvasLocation" x="2460" y="629"/>
         </scene>
         <!--Friends in Tab-->
         <scene sceneID="ydf-il-vPv">
@@ -1000,7 +1008,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Djm-QX-9p8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3115" y="-1037"/>
+            <point key="canvasLocation" x="3115" y="-283"/>
         </scene>
         <!--Tabs-->
         <scene sceneID="g8x-UP-Z2O">
@@ -1044,40 +1052,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YBh-dO-pct" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1794" y="449"/>
-        </scene>
-        <!--Notifications-->
-        <scene sceneID="8MJ-cT-a8Y">
-            <objects>
-                <tableViewController id="ba7-Kt-7RK" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="32r-DQ-DEI">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Frd-lO-5bG">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Frd-lO-5bG" id="uQB-Rc-piX">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="ba7-Kt-7RK" id="usn-dB-Ign"/>
-                            <outlet property="delegate" destination="ba7-Kt-7RK" id="dU4-N4-web"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Notifications" id="L4N-1r-HQJ"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Zt-O6-8YJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1794" y="1114"/>
+            <point key="canvasLocation" x="1794" y="1665"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Kur-i7-cpG">
             <objects>
                 <tableViewController id="sm1-uR-mvM" customClass="SettingsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="c6Z-xR-6IA">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="c6Z-xR-6IA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
@@ -1113,7 +1094,7 @@
                             <outlet property="delegate" destination="sm1-uR-mvM" id="Wze-MF-kRn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="VHG-ls-SIp"/>
+                    <navigationItem key="navigationItem" title="Settings" id="Bp9-Nl-Dkp"/>
                     <connections>
                         <outlet property="tvcLogout" destination="s9X-qI-R6C" id="0JJ-XU-jeA"/>
                     </connections>
@@ -1121,41 +1102,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VWh-3W-LWR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="esg-vs-nKm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1794" y="1786"/>
-        </scene>
-        <!--Settings-->
-        <scene sceneID="LU3-bl-U0k">
-            <objects>
-                <navigationController storyboardIdentifier="SettingsView" id="qXk-Bt-F3I" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="Tab Bar Icon - Settings" id="KbT-Qg-TKN"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="G2k-o7-gHr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="sm1-uR-mvM" kind="relationship" relationship="rootViewController" id="vYw-Lc-RZj"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rGA-6o-dPS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1098" y="1786"/>
-        </scene>
-        <!--Notifications-->
-        <scene sceneID="tiW-Sm-d0v">
-            <objects>
-                <navigationController storyboardIdentifier="NotificationsView" id="Yz6-J1-y42" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notifications" image="Tab Bar Icon - Notification" id="nCA-3s-aud"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mi1-uc-b0K">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="ba7-Kt-7RK" kind="relationship" relationship="rootViewController" id="idV-hP-r5Z"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8wH-XF-CLw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1100" y="1114"/>
+            <point key="canvasLocation" x="2534" y="-1753"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="NDt-bi-CZC">
@@ -1172,7 +1119,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QEa-SJ-kXt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1100" y="449"/>
+            <point key="canvasLocation" x="1100" y="1665"/>
         </scene>
         <!--Home-->
         <scene sceneID="7nS-Wh-9NB">
@@ -1189,7 +1136,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56V-kW-RGX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1100" y="-969"/>
+            <point key="canvasLocation" x="1108" y="-1753"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Q8Q-lS-rNe">
@@ -1205,12 +1152,11 @@
                         <segue destination="uZA-rk-HYz" kind="relationship" relationship="viewControllers" id="Iuk-ce-muk"/>
                         <segue destination="gLo-NO-Cd1" kind="relationship" relationship="viewControllers" id="jkE-jU-6KY"/>
                         <segue destination="Gom-us-gQO" kind="relationship" relationship="viewControllers" id="0tn-C6-6KT"/>
-                        <segue destination="qXk-Bt-F3I" kind="relationship" relationship="viewControllers" id="bF9-ih-OSY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JCS-hb-GKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="16" y="1257"/>
+            <point key="canvasLocation" x="-8" y="-215"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="DBz-8X-ZWH">
@@ -1264,7 +1210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ZR-pm-Gh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-666" y="1257"/>
+            <point key="canvasLocation" x="-770" y="-215"/>
         </scene>
     </scenes>
     <resources>
@@ -1276,7 +1222,6 @@
         <image name="Tab Bar Icon - Bills" width="32" height="32"/>
         <image name="Tab Bar Icon - Contacts" width="32" height="32"/>
         <image name="Tab Bar Icon - Home" width="32" height="32"/>
-        <image name="Tab Bar Icon - Notification" width="32" height="32"/>
         <image name="Tab Bar Icon - Settings" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
