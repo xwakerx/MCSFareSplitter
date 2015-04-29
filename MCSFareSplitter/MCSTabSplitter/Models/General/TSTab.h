@@ -34,8 +34,8 @@ typedef enum
 @property (nonatomic, assign) TSTabStatus status;
 @property (nonatomic, copy) NSArray *users;
 @property (nonatomic, assign) TSSplitMethod splitMethod;
-@property (nonatomic, copy) NSArray *items;
-@property (nonatomic, copy) NSArray *transactions;
+@property (nonatomic, strong) NSMutableArray *items;
+@property (nonatomic, copy) NSMutableArray *transactions;
 
 @property (nonatomic, strong, readonly) NSNumber *paid;
 @property (nonatomic, strong, readonly) NSNumber *remains;

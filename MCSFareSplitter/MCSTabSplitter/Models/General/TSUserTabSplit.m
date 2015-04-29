@@ -33,7 +33,7 @@
     }
     else
     {
-        return TSUserTabSettled;
+        return TSUserTabTypeSettled;
     }
 }
 

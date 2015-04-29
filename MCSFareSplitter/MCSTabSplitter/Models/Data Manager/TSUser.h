@@ -14,4 +14,7 @@
 
 +(TSUser *)sharedUser;
 
+-(void)updateUserWithFirstName:(NSString *)firstName withMiddleName:(NSString *)middleName withLastName:(NSString *)lastName withEmail:(NSString *)email withCompletionBlock:(void(^)(BOOL success, NSError *error))completion;
+-(void)updateUserProfilePic:(UIImage *)profilePic withCompletionBlock:(void(^)(BOOL success, NSError *error))completion;
+
 @end

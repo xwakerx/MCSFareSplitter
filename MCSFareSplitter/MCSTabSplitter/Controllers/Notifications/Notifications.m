@@ -28,29 +28,32 @@
 
 #pragma mark - AlertViews
 
--(UIAlertView *)alertViewWithTitle:(NSString *)title andMessage:(NSString *)message{
-    
-    UIAlertView *alert = [self alertViewWithTitle:title message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-    return alert;
++(void)alertViewWithTitle:(NSString *)title andMessage:(NSString *)message fromViewController:(UIViewController *)viewController
+{
+    [Notifications alertViewWithTitle:title andMessage:message withCancelButtonTitle:@"OK" withOtherActions:nil fromViewController:viewController];
 }
 
--(UIAlertView *)alertViewWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelButton otherButtonTitle:(NSString *)otherButton {
-    
-    UIAlertView *alert = [self alertViewWithTitle:title message:message delegate:delegate cancelButtonTitle:cancelButton otherButtonTitles:[[NSArray alloc]initWithObjects:otherButton, nil]];
-    return alert;
++(void)alertViewWithTitle:(NSString *)title andMessage:(NSString *)message withCancelButtonTitle:(NSString *)cancelButtonTitle fromViewController:(UIViewController *)viewController
+{
+    [Notifications alertViewWithTitle:title andMessage:message withCancelButtonTitle:cancelButtonTitle withOtherActions:nil fromViewController:viewController];
 }
 
--(UIAlertView *)alertViewWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelButton otherButtonTitles:(NSArray *)titleButtons {
-    
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:title message:message delegate:delegate cancelButtonTitle:cancelButton otherButtonTitles: nil];
-    if (titleButtons) {
-        for (int i=0; i<titleButtons.count; i++) {
-            if ([[titleButtons objectAtIndex:i]isKindOfClass:[NSString class]]) {
-                [alert addButtonWithTitle:[titleButtons objectAtIndex:i]];
++(void)alertViewWithTitle:(NSString *)title andMessage:(NSString *)message withCancelButtonTitle:(NSString *)cancelButtonTitle withOtherActions:(NSArray *)actions fromViewController:(UIViewController *)viewController
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    if(actions)
+    {
+        for (id action in actions)
+        {
+            if([action isKindOfClass:[UIAlertAction class]])
+            {
+                [alertController addAction:(UIAlertAction *)action];
             }
         }
     }
-    return alert;
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:nil]];
+    [viewController presentViewController:alertController animated:YES completion:nil];
 }
 
 #pragma mark - LocalNotification
@@ -79,7 +82,5 @@
 -(void)resetBadgeNumber {
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
-
-
 
 @end

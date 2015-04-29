@@ -14,6 +14,7 @@
 #import "TSSplitController.h"
 #import "TSUserTabSplit.h"
 #import "TSTabUser.h"
+#import "ItemsViewController.h"
 
 static const int BTN_EQUAL = 0;
 static const int BTN_AMOUNTS = 1;
@@ -45,6 +46,7 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
 
 @implementation SplitTabViewController
 
+#pragma mark - View Life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     personalAmount = percentageAmount = 0.0;
@@ -64,6 +66,8 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
         [self.btnCreate setEnabled:NO];
     }
 }
+
+#pragma mark - Delegate Methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [self.tab.users count];
@@ -143,6 +147,8 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
     return YES;
 }
 
+#pragma mark - Class Methods
+
 - (IBAction)onTabTypeChanged:(id)sender {
     [self selectButton:sender];
     
@@ -208,6 +214,26 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
         [self.lblTotalAmount setTextColor:[UIColor blackColor]];
     }
     [self.lblTotalAmount setText:[NSString stringWithFormat:@"$%.2f", amount]];
+}
+
+-(void)addItem:(UIStoryboardSegue *)segue {
+    
+    ItemsViewController *itemsVC = segue.sourceViewController;
+    if ([self searchForItemWithItem:itemsVC.item] == -1) {
+        [self.tab.items addObject:itemsVC.item];
+    } else {
+        
+    }
+    
+}
+
+-(NSInteger) searchForItemWithItem:(TSItem*)item {
+    for (NSInteger i = 0; i <  self.tab.items.count; i++) {
+        if(((TSItem*)(self.tab.items[i])).itemId == item.itemId){
+            return i;
+        }
+    }
+    return -1;
 }
 
 @end
