@@ -11,6 +11,7 @@
 #import "TSTabUser.h"
 #import "Reachability.h"
 #import "AppDelegate.h"
+#import "Notifications.h"
 
 @implementation TSFacebookController
 
@@ -73,12 +74,14 @@
     }
     else
     {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Facebook unreachable" message:@"Sorry, there was a problem trying to reach Facebook. You might be connected to a network with restricted Facebook access" preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-        
         AppDelegate *delegate = [UIApplication sharedApplication].delegate;
         
-        [delegate.window.rootViewController presentViewController:alertController animated:YES completion:nil];
+        [Notifications alertViewWithTitle:@"Facebook unreachable"
+                               andMessage:@"Sorry, there was a problem trying to reach Facebook. You might be connected to a network with restricted Facebook access"
+                    withCancelButtonTitle:@"Cancel" withOtherActions:@[[UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction *alertAction){
+            [self requestUserFromFacebookWithUserBlock:userBlock];
+        }]]
+                       fromViewController:delegate.window.rootViewController];
     }
 }
 
