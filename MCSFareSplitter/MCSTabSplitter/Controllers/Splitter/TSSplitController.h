@@ -19,9 +19,9 @@ static NSString *const kTheOnesWhoOwe = @"theOnesWhoOwe";
 
 -(instancetype)initWithTab:(TSTab *)tab;
 
--(void)splitTabWithPayments:(NSArray *)payments andDebts:(NSArray *)debts withCompletionBlock:(void (^)(NSArray *))completion;
--(void)splitTabEquallyWithPayments:(NSArray *)payments andParticipants:(NSArray *)participants withCompletionBlock:(void (^)(NSArray *))completion;
--(void)splitTabWithPayments:(NSArray *)payments andPercentages:(NSArray *)percentages forParticipants:(NSArray *)participants withCompletionBlock:(void (^)(NSArray *))completion;
--(void)splitTabWithPayments:(NSArray *)payments forParticipants:(NSArray *)participants withItems:(NSArray *)items withCompletionBlock:(void (^)(NSArray *))completion;
+-(void)splitTabWithPayments:(NSArray *)payments andDebts:(NSArray *)debts withCompletionBlock:(void (^)(NSArray *transactions))completion;
+-(void)splitTabEquallyWithPayments:(NSArray *)payments andParticipants:(NSArray *)participants withCompletionBlock:(void (^)(NSArray *transactions))completion;
+-(void)splitTabWithPayments:(NSArray *)payments andPercentages:(NSArray *)percentages forParticipants:(NSArray *)participants withCompletionBlock:(void (^)(NSArray *transactions))completion;
+-(void)splitTabWithPayments:(NSArray *)payments forParticipants:(NSArray *)participants withItems:(NSArray *)items withCompletionBlock:(void (^)(NSArray *transactions))completion;
 
 @end
