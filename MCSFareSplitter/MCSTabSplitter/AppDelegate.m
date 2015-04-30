@@ -42,7 +42,7 @@
     [[UITabBar appearance] setTintColor:self.mainTintColor];
     
     [[TSContactsManager sharedManager] requestPermissions];
-    
+
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];
 }
@@ -87,16 +87,26 @@
         [loginVC.view addSubview:overlay];
         
         [[TSFacebookController sharedController] requestUserFromFacebookWithUserBlock:^(BOOL success, TSTabUser *user){
+            
+            [activityIndicator stopAnimating];
+            [overlay removeFromSuperview];
+            activityIndicator = nil;
+            overlay = nil;
+
             if(success)
             {
                 [TSUser sharedUser].user = user;
                 
-                [activityIndicator stopAnimating];
-                [overlay removeFromSuperview];
-                activityIndicator = nil;
-                overlay = nil;
-                
                 [loginVC performSegueWithIdentifier:@"loginSegue" sender:loginVC];
+            }
+            else
+            {
+                //Logout facebook
+                
+                FBSDKLoginButton *loginButton = [[TSFacebookController sharedController] facebookLoginButton];
+                loginButton.center = CGPointMake(loginVC.view.center.x, 450);
+                
+                [loginVC.view addSubview:loginButton];
             }
         }];
     }

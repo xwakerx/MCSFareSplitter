@@ -36,75 +36,83 @@
     //Sort debt array
     debts = [self sortExpenseArray:debts withOrder:NSOrderedAscending];
     
-    //Separate debt (owe and owed)
-    NSDictionary *separatedDebts = [self separateDebtsArray:debts];
-    
-    NSMutableArray *theOnesOwed = [separatedDebts objectForKey:kTheOnesOwed];
-    NSMutableArray *theOnesWhoOwe = [separatedDebts objectForKey:kTheOnesWhoOwe];
     NSMutableArray *transactions = [NSMutableArray array];
-    
-    theOnesOwed = [[self sortExpenseArray:[theOnesOwed copy] withOrder:NSOrderedDescending] mutableCopy];
-    
-    //Total amount due
-    NSDecimalNumber *totalAmountDue = [TSUtilities decimalNumberWithNumber:@0];
-    totalAmountDue = [self totalAmountDueForDebts:theOnesOwed];
-    
-    //Start
-    for (NSInteger thisGuyOwesIndex = 0; thisGuyOwesIndex < theOnesWhoOwe.count; thisGuyOwesIndex++)
-    {
-        TSUserTabSplit *thisGuyOwes = (TSUserTabSplit *)theOnesWhoOwe[thisGuyOwesIndex];
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         
-        if([thisGuyOwes.amount compare:@0.0] == NSOrderedDescending)
+        NSLog(@"%@", [NSThread currentThread]);
+        //Separate debt (owe and owed)
+        NSDictionary *separatedDebts = [self separateDebtsArray:debts];
+        
+        NSMutableArray *theOnesOwed = [separatedDebts objectForKey:kTheOnesOwed];
+        NSMutableArray *theOnesWhoOwe = [separatedDebts objectForKey:kTheOnesWhoOwe];
+        
+        
+        theOnesOwed = [[self sortExpenseArray:[theOnesOwed copy] withOrder:NSOrderedDescending] mutableCopy];
+        
+        //Total amount due
+        NSDecimalNumber *totalAmountDue = [TSUtilities decimalNumberWithNumber:@0];
+        totalAmountDue = [self totalAmountDueForDebts:theOnesOwed];
+        
+        //Start
+        for (NSInteger thisGuyOwesIndex = 0; thisGuyOwesIndex < theOnesWhoOwe.count; thisGuyOwesIndex++)
         {
-            for (NSInteger toThisGuyIndex = 0; toThisGuyIndex < theOnesOwed.count; toThisGuyIndex++)
+            TSUserTabSplit *thisGuyOwes = (TSUserTabSplit *)theOnesWhoOwe[thisGuyOwesIndex];
+            
+            if([thisGuyOwes.amount compare:@0.0] == NSOrderedDescending)
             {
-                TSUserTabSplit *toThisGuy = (TSUserTabSplit *)theOnesOwed[toThisGuyIndex];
-                
-                if([toThisGuy.amount compare:@0.0] == NSOrderedAscending)
+                for (NSInteger toThisGuyIndex = 0; toThisGuyIndex < theOnesOwed.count; toThisGuyIndex++)
                 {
-                    NSDecimalNumber *thisGuyOwesAmount = [TSUtilities decimalNumberWithNumber:thisGuyOwes.amount];
-                    NSDecimalNumber *toThisGuyAmount = [TSUtilities decimalNumberWithNumber:toThisGuy.amount];
+                    TSUserTabSplit *toThisGuy = (TSUserTabSplit *)theOnesOwed[toThisGuyIndex];
                     
-                    NSDecimalNumber *settlement = [thisGuyOwesAmount decimalNumberByAdding:toThisGuyAmount];
-                    
-                    if([settlement compare:@0.0] == NSOrderedDescending
-                       || [settlement compare:@0.0] == NSOrderedSame)
+                    if([toThisGuy.amount compare:@0.0] == NSOrderedAscending)
                     {
-                        totalAmountDue = [totalAmountDue decimalNumberBySubtracting:[TSUtilities decimalNumberWithNumber:toThisGuyAmount]];
+                        NSDecimalNumber *thisGuyOwesAmount = [TSUtilities decimalNumberWithNumber:thisGuyOwes.amount];
+                        NSDecimalNumber *toThisGuyAmount = [TSUtilities decimalNumberWithNumber:toThisGuy.amount];
                         
-                        NSDecimalNumber *amount = toThisGuyAmount;
-                        amount = [amount decimalNumberByMultiplyingBy:[TSUtilities decimalNumberWithNumber:[NSNumber numberWithInt:-1]]];
+                        NSDecimalNumber *settlement = [thisGuyOwesAmount decimalNumberByAdding:toThisGuyAmount];
                         
-                        thisGuyOwes.amount = settlement;
-                        toThisGuy.amount = @0;
-                        
-                        [transactions addObject:[self transactionFrom:thisGuyOwes to:toThisGuy ofAmount:amount]];
+                        if([settlement compare:@0.0] == NSOrderedDescending
+                           || [settlement compare:@0.0] == NSOrderedSame)
+                        {
+                            totalAmountDue = [totalAmountDue decimalNumberBySubtracting:[TSUtilities decimalNumberWithNumber:toThisGuyAmount]];
+                            
+                            NSDecimalNumber *amount = toThisGuyAmount;
+                            amount = [amount decimalNumberByMultiplyingBy:[TSUtilities decimalNumberWithNumber:[NSNumber numberWithInt:-1]]];
+                            
+                            thisGuyOwes.amount = settlement;
+                            toThisGuy.amount = @0;
+                            
+                            [transactions addObject:[self transactionFrom:thisGuyOwes to:toThisGuy ofAmount:amount]];
+                        }
+                        else
+                        {
+                            totalAmountDue = [totalAmountDue decimalNumberByAdding:[TSUtilities decimalNumberWithNumber:thisGuyOwesAmount]];
+                            
+                            NSDecimalNumber *amount = thisGuyOwesAmount;
+                            
+                            thisGuyOwes.amount = @0;
+                            toThisGuy.amount = settlement;
+                            
+                            [transactions addObject:[self transactionFrom:thisGuyOwes to:toThisGuy ofAmount:amount]];
+                        }
+                        break;
                     }
-                    else
-                    {
-                        totalAmountDue = [totalAmountDue decimalNumberByAdding:[TSUtilities decimalNumberWithNumber:thisGuyOwesAmount]];
-                        
-                        NSDecimalNumber *amount = thisGuyOwesAmount;
-                        
-                        thisGuyOwes.amount = @0;
-                        toThisGuy.amount = settlement;
-                        
-                        [transactions addObject:[self transactionFrom:thisGuyOwes to:toThisGuy ofAmount:amount]];
-                    }
-                    break;
                 }
             }
+            
+            if(thisGuyOwesIndex == theOnesWhoOwe.count - 1
+               && !([totalAmountDue compare:[TSUtilities decimalNumberWithNumber:@0.001]] == NSOrderedAscending
+                    && [totalAmountDue compare:[TSUtilities decimalNumberWithNumber:@(-0.001)]] == NSOrderedDescending))
+            {
+                thisGuyOwesIndex = -1;
+            }
         }
-        
-        if(thisGuyOwesIndex == theOnesWhoOwe.count - 1
-           && !([totalAmountDue compare:[TSUtilities decimalNumberWithNumber:@0.001]] == NSOrderedAscending
-           && [totalAmountDue compare:[TSUtilities decimalNumberWithNumber:@(-0.001)]] == NSOrderedDescending))
-        {
-            thisGuyOwesIndex = -1;
-        }
-    }
-    
-    completion(transactions);
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(transactions);
+        });
+    });
 }
 
 #pragma mark - Debts and payments adjustment and separation
@@ -329,47 +337,55 @@
 #pragma mark Split Equally
 -(void)splitTabEquallyWithPayments:(NSArray *) payments andParticipants:(NSArray *)participants withCompletionBlock:(void (^)(NSArray *))completion
 {
-    NSArray *positivePayments = [self paymentsToPositives:payments];
-    NSDecimalNumber *paymentsTotalAmount = [self totalAmountDueForDebts:positivePayments];
-    
-    NSDecimalNumber *individualDebtAmount = [paymentsTotalAmount decimalNumberByDividingBy:[TSUtilities decimalNumberWithNumber:[NSNumber numberWithInteger:participants.count]]];
-    individualDebtAmount = [self roundToTwoDecimals:individualDebtAmount];
-    NSDecimalNumber *paymentsRealAmountAccum = [TSUtilities decimalNumberWithNumber:@0];
-    
-    NSMutableArray *debts = [NSMutableArray array];
-    
-    for (TSTabUser *participant in participants)
-    {
-        TSUserTabSplit *debt = [[TSUserTabSplit alloc]initWithUser:participant andTab:nil withAmount:individualDebtAmount];
-        [debts addObject:debt];
-        paymentsRealAmountAccum = [paymentsRealAmountAccum decimalNumberByAdding:individualDebtAmount];
-    }
-    
-    if(![paymentsTotalAmount isEqualToNumber:paymentsRealAmountAccum])
-    {
-        NSDecimalNumber *lastAmount = [TSUtilities decimalNumberWithNumber:((TSUserTabSplit *)[debts lastObject]).amount];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        NSArray *positivePayments = [self paymentsToPositives:payments];
+        NSDecimalNumber *paymentsTotalAmount = [self totalAmountDueForDebts:positivePayments];
         
-        lastAmount = [[TSUtilities decimalNumberWithNumber:lastAmount] decimalNumberByAdding:[paymentsTotalAmount decimalNumberBySubtracting:paymentsRealAmountAccum]];
+        NSDecimalNumber *individualDebtAmount = [paymentsTotalAmount decimalNumberByDividingBy:[TSUtilities decimalNumberWithNumber:[NSNumber numberWithInteger:participants.count]]];
+        individualDebtAmount = [self roundToTwoDecimals:individualDebtAmount];
+        NSDecimalNumber *paymentsRealAmountAccum = [TSUtilities decimalNumberWithNumber:@0];
         
-        ((TSUserTabSplit *)[debts lastObject]).amount = (NSNumber *)lastAmount;
-    }
-    
-    [self splitTabWithPayments:positivePayments andDebts:debts withCompletionBlock:completion];
+        NSMutableArray *debts = [NSMutableArray array];
+        
+        for (TSTabUser *participant in participants)
+        {
+            TSUserTabSplit *debt = [[TSUserTabSplit alloc]initWithUser:participant andTab:nil withAmount:individualDebtAmount];
+            [debts addObject:debt];
+            paymentsRealAmountAccum = [paymentsRealAmountAccum decimalNumberByAdding:individualDebtAmount];
+        }
+        
+        if(![paymentsTotalAmount isEqualToNumber:paymentsRealAmountAccum])
+        {
+            NSDecimalNumber *lastAmount = [TSUtilities decimalNumberWithNumber:((TSUserTabSplit *)[debts lastObject]).amount];
+            
+            lastAmount = [[TSUtilities decimalNumberWithNumber:lastAmount] decimalNumberByAdding:[paymentsTotalAmount decimalNumberBySubtracting:paymentsRealAmountAccum]];
+            
+            ((TSUserTabSplit *)[debts lastObject]).amount = (NSNumber *)lastAmount;
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self splitTabWithPayments:positivePayments andDebts:debts withCompletionBlock:completion];
+        });
+    });
 }
 
 #pragma mark Split With Payments and Debts
 -(void)splitTabWithPayments:(NSArray *)payments andDebts:(NSArray *)debts withCompletionBlock:(void (^)(NSArray *))completion
 {
-    NSArray *positivePayments = [self paymentsToPositives:payments];
-    
-    NSDecimalNumber *paymentsTotalAmount = [self totalAmountDueForDebts:positivePayments];
-    NSDecimalNumber *debtsTotalAmount = [self totalAmountDueForDebts:debts];
-    
-    if(![paymentsTotalAmount isEqualToNumber:debtsTotalAmount])
-    {
-        [NSException raise:@"FSSplitInvalidArgumentsException" format:@"The amounts of payments and debts don't match"];
-    }
-    [self transactionsForTabWithPayments:positivePayments andDebts:debts withCompletionBlock:completion];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        NSArray *positivePayments = [self paymentsToPositives:payments];
+        
+        NSDecimalNumber *paymentsTotalAmount = [self totalAmountDueForDebts:positivePayments];
+        NSDecimalNumber *debtsTotalAmount = [self totalAmountDueForDebts:debts];
+        
+        if(![paymentsTotalAmount isEqualToNumber:debtsTotalAmount])
+        {
+            [NSException raise:@"FSSplitInvalidArgumentsException" format:@"The amounts of payments and debts don't match"];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self transactionsForTabWithPayments:positivePayments andDebts:debts withCompletionBlock:completion];
+        });
+    });
 }
 
 #pragma mark Split with payments and percentages
@@ -391,59 +407,68 @@
     {
         [NSException raise:@"FSSplitInvalidArgumentsException" format:@"The percentages do not sum 100"];
     }
-    NSArray *positivePayments = [self paymentsToPositives:payments];
     
-    NSDecimalNumber *paymentsTotalAmount = [self totalAmountDueForDebts:positivePayments];
-    NSDecimalNumber *paymentsRealAmountAccum = [TSUtilities decimalNumberWithNumber:@0];
-    
-    NSMutableArray *debts = [NSMutableArray array];
-    
-    for (NSInteger i = 0; i < participants.count; i++)
-    {
-        NSDecimalNumber *percentage = [TSUtilities decimalNumberWithNumber:percentages[i]];
-        percentage = [percentage decimalNumberByDividingBy:[TSUtilities decimalNumberWithNumber:@100]];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        NSArray *positivePayments = [self paymentsToPositives:payments];
         
-        NSDecimalNumber *amount = [paymentsTotalAmount decimalNumberByMultiplyingBy:percentage];
+        NSDecimalNumber *paymentsTotalAmount = [self totalAmountDueForDebts:positivePayments];
+        NSDecimalNumber *paymentsRealAmountAccum = [TSUtilities decimalNumberWithNumber:@0];
         
-        TSUserTabSplit *debt = [[TSUserTabSplit alloc]initWithUser:participants[i] andTab:nil withAmount:amount];
-        [debts addObject:debt];
+        NSMutableArray *debts = [NSMutableArray array];
         
-        paymentsRealAmountAccum = [paymentsRealAmountAccum decimalNumberByAdding:amount];
-    }
-    
-    if(![paymentsTotalAmount isEqualToNumber:paymentsRealAmountAccum])
-    {
-        NSDecimalNumber *lastAmount = [TSUtilities decimalNumberWithNumber:((TSUserTabSplit *)[debts lastObject]).amount];
+        for (NSInteger i = 0; i < participants.count; i++)
+        {
+            NSDecimalNumber *percentage = [TSUtilities decimalNumberWithNumber:percentages[i]];
+            percentage = [percentage decimalNumberByDividingBy:[TSUtilities decimalNumberWithNumber:@100]];
+            
+            NSDecimalNumber *amount = [paymentsTotalAmount decimalNumberByMultiplyingBy:percentage];
+            
+            TSUserTabSplit *debt = [[TSUserTabSplit alloc]initWithUser:participants[i] andTab:nil withAmount:amount];
+            [debts addObject:debt];
+            
+            paymentsRealAmountAccum = [paymentsRealAmountAccum decimalNumberByAdding:amount];
+        }
         
-        lastAmount = [[TSUtilities decimalNumberWithNumber:lastAmount] decimalNumberByAdding:[paymentsTotalAmount decimalNumberBySubtracting:paymentsRealAmountAccum]];
-        
-        ((TSUserTabSplit *)[debts lastObject]).amount = (NSNumber *)lastAmount;
-    }
-    [self splitTabWithPayments:positivePayments andDebts:debts withCompletionBlock:completion];
+        if(![paymentsTotalAmount isEqualToNumber:paymentsRealAmountAccum])
+        {
+            NSDecimalNumber *lastAmount = [TSUtilities decimalNumberWithNumber:((TSUserTabSplit *)[debts lastObject]).amount];
+            
+            lastAmount = [[TSUtilities decimalNumberWithNumber:lastAmount] decimalNumberByAdding:[paymentsTotalAmount decimalNumberBySubtracting:paymentsRealAmountAccum]];
+            
+            ((TSUserTabSplit *)[debts lastObject]).amount = (NSNumber *)lastAmount;
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self splitTabWithPayments:positivePayments andDebts:debts withCompletionBlock:completion];
+        });
+    });
 }
 
 #pragma mark Split with items list
 
 -(void)splitTabWithPayments:(NSArray *)payments forParticipants:(NSArray *)participants withItems:(NSArray *)items withCompletionBlock:(void (^)(NSArray *))completion
 {
-    NSDecimalNumber *paymentsTotalAmount = [self totalAmountDueForDebts:[self paymentsToPositives:payments]];
-    NSDecimalNumber *itemsTotalCost = [TSUtilities decimalNumberWithNumber:@0];
-    
-    for (TSItem *item in items)
-    {
-        NSDecimalNumber *itemCost = [TSUtilities decimalNumberWithNumber:item.cost];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        NSDecimalNumber *paymentsTotalAmount = [self totalAmountDueForDebts:[self paymentsToPositives:payments]];
+        NSDecimalNumber *itemsTotalCost = [TSUtilities decimalNumberWithNumber:@0];
         
-        itemsTotalCost = [itemsTotalCost decimalNumberByAdding:itemCost];
-    }
-    
-    if([paymentsTotalAmount compare:itemsTotalCost] != NSOrderedSame)
-    {
-        [NSException raise:@"FSSplitInvalidArgumentsException" format:@"The total cost of items does not match the payments total amount"];
-    }
-    
-    NSArray *debts = [self debtsForParticipants:participants withItems:items];
-    
-    [self splitTabWithPayments:payments andDebts:debts withCompletionBlock:completion];
+        for (TSItem *item in items)
+        {
+            NSDecimalNumber *itemCost = [TSUtilities decimalNumberWithNumber:item.cost];
+            
+            itemsTotalCost = [itemsTotalCost decimalNumberByAdding:itemCost];
+        }
+        
+        if([paymentsTotalAmount compare:itemsTotalCost] != NSOrderedSame)
+        {
+            [NSException raise:@"FSSplitInvalidArgumentsException" format:@"The total cost of items does not match the payments total amount"];
+        }
+        
+        NSArray *debts = [self debtsForParticipants:participants withItems:items];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self splitTabWithPayments:payments andDebts:debts withCompletionBlock:completion];
+        });
+    });
 }
 
 @end
