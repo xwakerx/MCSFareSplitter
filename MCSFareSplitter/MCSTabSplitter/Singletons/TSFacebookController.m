@@ -30,7 +30,7 @@
 {
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
     
-//    loginButton.loginBehavior = FBSDKLoginBehaviorSystemAccount;
+    loginButton.loginBehavior = FBSDKLoginBehaviorSystemAccount;
     
     loginButton.readPermissions = @[@"email", @"user_friends"];
     [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];

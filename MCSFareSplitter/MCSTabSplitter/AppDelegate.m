@@ -102,6 +102,11 @@
             else
             {
                 //Logout facebook
+                
+                FBSDKLoginButton *loginButton = [[TSFacebookController sharedController] facebookLoginButton];
+                loginButton.center = CGPointMake(loginVC.view.center.x, 450);
+                
+                [loginVC.view addSubview:loginButton];
             }
         }];
     }
