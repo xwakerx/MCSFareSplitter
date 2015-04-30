@@ -48,7 +48,7 @@
     TSTab *tab = [[TSTab alloc] init];
     tab.date = [NSDate date];
     int num = arc4random_uniform(13)%2;
-    tab.detail = num == 0 ? @"Walmart G" : @"Costco G";
+    tab.title = num == 0 ? @"Walmart G" : @"Costco G";
     tab.totalAmount = [[NSNumber alloc] initWithDouble:(double)num+213];
     tab.currency = [[TSDefinitions currencies] objectAtIndex:0];
     tab.items = @[];

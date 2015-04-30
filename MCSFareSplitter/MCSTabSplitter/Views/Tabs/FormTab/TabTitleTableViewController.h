@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TabTitleTableViewController : UITableViewController
+@interface TabTitleTableViewController : UITableViewController <UITextFieldDelegate>
+
+@property (strong, nonatomic) NSString *tabTitle;
 
 @end

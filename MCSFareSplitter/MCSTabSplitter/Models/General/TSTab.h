@@ -27,7 +27,8 @@ typedef enum
 
 @interface TSTab : NSObject
 
-@property (nonatomic, copy) NSString *detail;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *memo;
 @property (nonatomic, strong) NSNumber *totalAmount;
 @property (nonatomic, strong) TSCurrency *currency;
 @property (nonatomic, strong) NSDate *date;

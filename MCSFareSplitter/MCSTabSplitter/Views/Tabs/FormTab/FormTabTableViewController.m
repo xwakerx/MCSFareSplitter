@@ -13,6 +13,7 @@
 #import "TSUtilities.h"
 #import "TSTabController.h"
 #import "SplitTabViewController.h"
+#import "TabTitleTableViewController.h"
 
 @interface FormTabTableViewController ()
 
@@ -57,6 +58,10 @@
     self.lblDate.text = [TSUtilities getDateString:[NSDate date]];
     [self hide:YES button:self.btnDate withText:@"" withBGColor:self.tvcDatePicker.backgroundColor];
     self.dateHidden = true;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    self.tfTitle.text = self.currTab.title;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -196,13 +201,17 @@
 
 -(void) setupTab{
     self.tab.totalAmount = [NSNumber numberWithDouble:[self.tfTotalAmount.text doubleValue]];
-    self.tab.detail = [self.tfTitle text];
+    self.tab.title = [self.tfTitle text];
 
 }
 
+#pragma mark - Navigation Control
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([segue.identifier isEqualToString: @"addUsers"]) {
+    if ([segue.identifier isEqualToString: @"setTabTitle"]){
+        TabTitleTableViewController *tabTitleVC = segue.destinationViewController;
+        tabTitleVC.tabTitle = self.tfTitle.text;
+    }else if ([segue.identifier isEqualToString: @"addUsers"]) {
         FriendsInTabViewController *friends = segue.destinationViewController;
         friends.usersDelegate = self;
     } else if([segue.identifier  isEqualToString: @"selectSplitM"]) {

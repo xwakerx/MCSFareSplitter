@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "StaticDataTableViewController.h"
 #import "FriendsInTabViewController.h"
+#import "TSTab.h"
 
 @interface FormTabTableViewController : StaticDataTableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UpdateSelectedContactsDelegate>
+
+@property (strong, nonatomic) TSTab *currTab;
 
 @end

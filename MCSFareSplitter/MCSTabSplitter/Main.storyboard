@@ -182,7 +182,7 @@
         <!--Title-->
         <scene sceneID="WhV-Vb-BWO">
             <objects>
-                <tableViewController title="Title" id="86A-m2-2nm" sceneMemberID="viewController">
+                <tableViewController title="Title" id="86A-m2-2nm" customClass="TabTitleTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="hlY-h7-PE2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -198,11 +198,10 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title for the tab" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jIP-nX-7oc">
                                                     <rect key="frame" x="8" y="7" width="398" height="30"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                     <connections>
-                                                        <outlet property="delegate" destination="8Tx-4H-EGw" id="85K-93-Dee"/>
+                                                        <outlet property="delegate" destination="86A-m2-2nm" id="nQn-6U-NTw"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -224,6 +223,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="gij-iJ-ZG3"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="tfTitle" destination="jIP-nX-7oc" id="46i-Ml-Okc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJp-TC-ssw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -255,7 +257,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vxK-Cg-ct0">
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vxK-Cg-ct0">
                                                     <rect key="frame" x="136" y="7" width="237" height="30"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -270,7 +272,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="86A-m2-2nm" kind="show" id="FYn-Tp-q5X"/>
+                                                        <segue destination="86A-m2-2nm" kind="show" identifier="setTabTitle" id="FYn-Tp-q5X"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
