@@ -30,6 +30,8 @@
 {
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
     
+//    loginButton.loginBehavior = FBSDKLoginBehaviorSystemAccount;
+    
     loginButton.readPermissions = @[@"email", @"user_friends"];
     [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
     
@@ -50,32 +52,34 @@
         {
             if([FBSDKAccessToken currentAccessToken])
             {
-                [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
-                 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-                     if (!error) {
-                         NSString *userFirstName = [result objectForKey:@"first_name"];
-                         NSString *userMiddleName = [result objectForKey:@"middle_name"];
-                         NSString *userLastName = [result objectForKey:@"last_name"];
-                         NSString *userEmail = [result objectForKey:@"email"];
-                         
-                         NSString *userImageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", [[FBSDKAccessToken currentAccessToken] userID]];
-                         UIImage *userProfilePic = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:userImageURL]]];
-                         
-                         TSTabUser *user = [[TSTabUser alloc]initWithEmail:userEmail withFirstName:userFirstName withMiddleName:userMiddleName withLastName:userLastName userType:[TSTabUser TSUserTypeFacebook]];
-                         user.profilePic = userProfilePic;
-                         
-                         dispatch_async(dispatch_get_main_queue(), ^{
-                             userBlock(YES, user);
-                         });
-                         
-                     }
-                     else{
-                         dispatch_async(dispatch_get_main_queue(), ^{
-                             userBlock(NO, nil);
-                         });
-                         NSLog(@"%@",error.localizedDescription);
-                     }
-                 }];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+                     startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                         if (!error) {
+                             NSString *userFirstName = [result objectForKey:@"first_name"];
+                             NSString *userMiddleName = [result objectForKey:@"middle_name"];
+                             NSString *userLastName = [result objectForKey:@"last_name"];
+                             NSString *userEmail = [result objectForKey:@"email"];
+                             
+                             NSString *userImageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", [[FBSDKAccessToken currentAccessToken] userID]];
+                             UIImage *userProfilePic = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:userImageURL]]];
+                             
+                             TSTabUser *user = [[TSTabUser alloc]initWithEmail:userEmail withFirstName:userFirstName withMiddleName:userMiddleName withLastName:userLastName userType:[TSTabUser TSUserTypeFacebook]];
+                             user.profilePic = userProfilePic;
+                             
+                             dispatch_async(dispatch_get_main_queue(), ^{
+                                 userBlock(YES, user);
+                             });
+                             
+                         }
+                         else{
+                             dispatch_async(dispatch_get_main_queue(), ^{
+                                 userBlock(NO, nil);
+                             });
+                             NSLog(@"%@",error.localizedDescription);
+                         }
+                     }];
+                });
             }
         }
         else
