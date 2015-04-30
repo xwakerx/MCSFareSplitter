@@ -1314,7 +1314,7 @@
         <!--Payers-->
         <scene sceneID="43S-DV-y5Y">
             <objects>
-                <viewController title="Payers" id="zQe-YR-FcN" sceneMemberID="viewController">
+                <viewController title="Payers" id="zQe-YR-FcN" customClass="TabPayersViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eKB-rW-gRo"/>
                         <viewControllerLayoutGuide type="bottom" id="3iY-Zz-nxt"/>
@@ -1322,10 +1322,115 @@
                     <view key="view" contentMode="scaleToFill" id="lE5-NA-sqY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bni-bL-zZg">
+                                <rect key="frame" x="0.0" y="64" width="414" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EjU-P3-cDo">
+                                        <rect key="frame" x="8" y="5" width="398" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="lFV-Iq-iKn" id="QK8-c8-qMp"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYk-X6-rKt">
+                                        <rect key="frame" x="384" y="9" width="22" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="k2S-7n-5bj"/>
+                                            <constraint firstAttribute="width" constant="22" id="laD-vC-hVM"/>
+                                        </constraints>
+                                        <state key="normal" image="Icon Close"/>
+                                        <connections>
+                                            <action selector="onAddClicked:" destination="lFV-Iq-iKn" eventType="touchUpInside" id="uwq-on-sRG"/>
+                                            <action selector="onCancelClicked:" destination="zQe-YR-FcN" eventType="touchUpInside" id="dQX-x7-ASD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2IF-hS-LBC">
+                                        <rect key="frame" x="8" y="5" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="MV2-qh-MOB"/>
+                                            <constraint firstAttribute="width" constant="30" id="YNa-Ll-teY"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                        <state key="normal" title="Button" image="Icon Search">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onSearchClicked:" destination="zQe-YR-FcN" eventType="touchUpInside" id="eLi-cS-CXv"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HV-1y-0y1">
+                                        <rect key="frame" x="38" y="11" width="45" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajP-HL-emf">
+                                        <rect key="frame" x="8" y="5" width="398" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="0Uq-Vb-Ps5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onSearchClicked:" destination="zQe-YR-FcN" eventType="touchUpInside" id="Q7s-X7-4ap"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="pYk-X6-rKt" secondAttribute="bottom" constant="9" id="3Vg-Bu-zXp"/>
+                                    <constraint firstAttribute="trailing" secondItem="pYk-X6-rKt" secondAttribute="trailing" constant="8" id="4lJ-wP-KqV"/>
+                                    <constraint firstItem="EjU-P3-cDo" firstAttribute="leading" secondItem="Bni-bL-zZg" secondAttribute="leading" constant="8" id="Axz-2X-9XK"/>
+                                    <constraint firstAttribute="trailing" secondItem="ajP-HL-emf" secondAttribute="trailing" constant="8" id="BoV-iT-563"/>
+                                    <constraint firstAttribute="trailing" secondItem="EjU-P3-cDo" secondAttribute="trailing" constant="8" id="Cs1-nZ-khK"/>
+                                    <constraint firstItem="ajP-HL-emf" firstAttribute="leading" secondItem="2IF-hS-LBC" secondAttribute="trailing" id="EOU-25-mTh"/>
+                                    <constraint firstItem="2IF-hS-LBC" firstAttribute="leading" secondItem="Bni-bL-zZg" secondAttribute="leading" constant="8" id="F7Z-mw-mFE"/>
+                                    <constraint firstItem="EjU-P3-cDo" firstAttribute="top" secondItem="Bni-bL-zZg" secondAttribute="top" constant="5" id="Jw9-WU-PGs"/>
+                                    <constraint firstAttribute="bottom" secondItem="EjU-P3-cDo" secondAttribute="bottom" constant="5" id="WTt-uV-HNv"/>
+                                    <constraint firstItem="pYk-X6-rKt" firstAttribute="top" secondItem="Bni-bL-zZg" secondAttribute="top" constant="9" id="WaC-jE-d2q"/>
+                                    <constraint firstAttribute="centerY" secondItem="5HV-1y-0y1" secondAttribute="centerY" id="geg-yA-BX8"/>
+                                    <constraint firstAttribute="centerY" secondItem="2IF-hS-LBC" secondAttribute="centerY" id="lPx-Fr-Qmt"/>
+                                    <constraint firstAttribute="centerY" secondItem="ajP-HL-emf" secondAttribute="centerY" id="okQ-Hn-PMA"/>
+                                    <constraint firstItem="ajP-HL-emf" firstAttribute="leading" secondItem="Bni-bL-zZg" secondAttribute="leading" constant="8" id="olM-1R-KhO"/>
+                                    <constraint firstAttribute="height" constant="40" id="vcL-lo-Wt2"/>
+                                    <constraint firstItem="5HV-1y-0y1" firstAttribute="leading" secondItem="2IF-hS-LBC" secondAttribute="trailing" id="w8P-wX-yLv"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="EOU-25-mTh"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bni-bL-zZg" firstAttribute="top" secondItem="eKB-rW-gRo" secondAttribute="bottom" id="2bE-pa-Lrt"/>
+                            <constraint firstItem="Bni-bL-zZg" firstAttribute="leading" secondItem="lE5-NA-sqY" secondAttribute="leadingMargin" constant="-16" id="cxa-3T-pvA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Bni-bL-zZg" secondAttribute="trailing" constant="-16" id="dj2-VH-IW7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Payers" id="Cy2-Yq-vI7"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="btnCancel" destination="pYk-X6-rKt" id="HlB-bW-Q3d"/>
+                        <outlet property="btnSearch" destination="ajP-HL-emf" id="kYz-mb-He5"/>
+                        <outlet property="btnSearchIcon" destination="2IF-hS-LBC" id="Wak-KZ-a9z"/>
+                        <outlet property="lblSearch" destination="5HV-1y-0y1" id="t3i-iE-BIz"/>
+                        <outlet property="tfSearch" destination="EjU-P3-cDo" id="iSk-Dt-iLP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HYg-g0-Uhc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1443,9 +1548,11 @@
     <resources>
         <image name="AppLogoWithTitle" width="266" height="349"/>
         <image name="Icon Cart" width="50" height="50"/>
+        <image name="Icon Close" width="50" height="50"/>
         <image name="Icon Dollar" width="50" height="50"/>
         <image name="Icon Equal" width="50" height="50"/>
         <image name="Icon Percentage" width="50" height="50"/>
+        <image name="Icon Search" width="50" height="50"/>
         <image name="Tab Bar Icon - Bills" width="32" height="32"/>
         <image name="Tab Bar Icon - Contacts" width="32" height="32"/>
         <image name="Tab Bar Icon - Home" width="32" height="32"/>

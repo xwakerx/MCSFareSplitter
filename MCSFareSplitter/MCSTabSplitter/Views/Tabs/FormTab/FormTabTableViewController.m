@@ -193,8 +193,8 @@
 
 -(void)loadTabSplitUsersWithUsersArray:(NSArray *)users{
     if (users.count > 0) {
-        self.tab.users = [TSTabController getUserTabSplittersForTab:self.tab withUsers:users];
-        [self.tfUsers setText:[NSString stringWithFormat:@"%li selected.", [self.tab.users count]]];
+        self.tab.participants = [TSTabController getUserTabSplittersForTab:self.tab withUsers:users];
+        [self.tfUsers setText:[NSString stringWithFormat:@"%li selected.", [self.tab.participants count]]];
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
@@ -226,7 +226,7 @@
     
     if([identifier  isEqualToString: @"selectSplitM"]){
         [self setupTab];
-        if ([self.tfTotalAmount.text isEqualToString:@""] || [self.tfTitle.text isEqualToString:@""] || self.tab.users.count < 1) {
+        if ([self.tfTotalAmount.text isEqualToString:@""] || [self.tfTitle.text isEqualToString:@""] || self.tab.participants.count < 1) {
             [[[UIAlertView alloc] initWithTitle:@"Incomplete Tab" message:@"Please provide a Title, Amount and at least one user." delegate:nil cancelButtonTitle:@"Ok!" otherButtonTitles: nil] show];
             return NO;
         }

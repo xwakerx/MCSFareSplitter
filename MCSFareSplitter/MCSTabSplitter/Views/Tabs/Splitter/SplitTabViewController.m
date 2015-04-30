@@ -70,7 +70,7 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
 #pragma mark - Delegate Methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.tab.users count];
+    return [self.tab.participants count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -97,7 +97,7 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
         cell = [[SplitAmountTabTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    TSUserTabSplit * usr = [[self.tab users] objectAtIndex:indexPath.row];
+    TSUserTabSplit * usr = [[self.tab participants] objectAtIndex:indexPath.row];
     cell.lblUser.text = [usr.user fullName];
     
     cell.tfAmount.placeholder = @"$0.00";
@@ -112,7 +112,7 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
     double cellAmount = 0.0;
     switch ([self.currSplitType intValue]) {
         case BTN_EQUAL:
-            cellAmount = ([self.tab.totalAmount doubleValue] / (double) self.tab.users.count);
+            cellAmount = ([self.tab.totalAmount doubleValue] / (double) self.tab.participants.count);
             cell.lblAmount.text = [NSString stringWithFormat:@"$%.2f", cellAmount];
             
             break;
@@ -183,7 +183,7 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
 }
 
 -(void)updateTotalAmountWithValue:(NSNumber *)val atIndex:(NSInteger)index{
-    TSUserTabSplit * usr = [[self.tab users] objectAtIndex:index];
+    TSUserTabSplit * usr = [[self.tab participants] objectAtIndex:index];
     usr.amount = val;
     
     [self updateTotalAmount];
@@ -192,7 +192,7 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
 
 -(void)updateTotalAmountWithPercentage:(double)percentage atIndex:(NSInteger)index{
     double perAmount = [self.tab.totalAmount doubleValue] * percentage/100.0;
-    TSUserTabSplit * usr = [[self.tab users] objectAtIndex:index];
+    TSUserTabSplit * usr = [[self.tab participants] objectAtIndex:index];
     usr.amount = [NSNumber numberWithDouble:perAmount];
     ;
     
@@ -204,7 +204,7 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
 
 -(void) updateTotalAmount {
     double amount = 0.0;
-    for (TSUserTabSplit *usr in self.tab.users) {
+    for (TSUserTabSplit *usr in self.tab.participants) {
         amount += [[usr amount] doubleValue];
     }
     if (amount != [self.tab.totalAmount doubleValue]) {

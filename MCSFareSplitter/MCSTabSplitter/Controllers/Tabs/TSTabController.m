@@ -52,7 +52,7 @@
     tab.totalAmount = [[NSNumber alloc] initWithDouble:(double)num+213];
     tab.currency = [[TSDefinitions currencies] objectAtIndex:0];
     tab.items = @[];
-    tab.users = [self generateMockUsersForTab:tab];
+    tab.participants = [self generateMockUsersForTab:tab];
     
     //Transactions ??
     
