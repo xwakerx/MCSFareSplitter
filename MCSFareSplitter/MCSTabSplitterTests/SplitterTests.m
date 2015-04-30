@@ -67,7 +67,7 @@
     [splitController splitTabWithPayments:payments andDebts:debts withCompletionBlock:^(NSArray *transactions){
         XCTAssertNotNil(transactions);
         
-        NSLog(@"%@", transactions);
+        NSLog(@"Main: \n%@", transactions);
     }];
 }
 
@@ -95,7 +95,7 @@
     [splitController splitTabEquallyWithPayments:payments andParticipants:users withCompletionBlock:^(NSArray *transactions){
         XCTAssertNotNil(transactions);
         
-        NSLog(@"%@", transactions);
+        NSLog(@"Equally: \n%@", transactions);
     }];
 }
 
@@ -125,7 +125,7 @@
     [splitController splitTabWithPayments:payments andPercentages:percentages forParticipants:users withCompletionBlock:^(NSArray *transactions){
         XCTAssertNotNil(transactions);
         
-        NSLog(@"%@", transactions);
+        NSLog(@"Percentage: \n%@", transactions);
     }];
     
     
@@ -165,7 +165,7 @@
     [splitController splitTabWithPayments:payments forParticipants:users withItems:items withCompletionBlock:^(NSArray *transactions){
         XCTAssertNotNil(transactions);
         
-        NSLog(@"%@", transactions);
+        NSLog(@"Items: \n%@", transactions);
     }];
 }
 
@@ -185,7 +185,7 @@
     [splitController splitTabWithPayments:payments forParticipants:users withItems:items withCompletionBlock:^(NSArray *transactions){
         XCTAssertNotNil(transactions);
         
-        NSLog(@"%@", transactions);
+        NSLog(@"Items 2:\n%@", transactions);
     }];
 }
 
