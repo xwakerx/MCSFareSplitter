@@ -7,6 +7,7 @@
 //
 
 #import "TSCoreDataManager.h"
+#import "TSDefinitions.h"
 
 @interface TSCoreDataManager ()
 
@@ -22,17 +23,15 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedManager = [[self alloc] init];
+        sharedManager.appDelegate = [UIApplication sharedApplication].delegate;
     });
     return sharedManager;
 }
 
 -(instancetype)init
 {
-    if (self = [super init])
-    {
-        self.appDelegate = [UIApplication sharedApplication].delegate;
-    }
-    return self;
+    [NSException raise:kTSSingletonException format:@"You can't call init in a singleton duh!"];
+    return nil;
 }
 
 -(void)saveContext

@@ -12,6 +12,7 @@
 #import "Reachability.h"
 #import "AppDelegate.h"
 #import "TSNotificationManager.h"
+#import "TSDefinitions.h"
 
 @implementation TSFacebookController
 
@@ -25,6 +26,11 @@
     return sharedController;
 }
 
+-(instancetype)init
+{
+    [NSException raise:kTSSingletonException format:@"You can't call init in a singleton duh!"];
+    return nil;
+}
 
 -(FBSDKLoginButton *)facebookLoginButton
 {

@@ -10,6 +10,7 @@
 #import "TSTabUser.h"
 #import <UIKit/UIKit.h>
 #import <AddressBook/AddressBook.h>
+#import "TSDefinitions.h"
 
 @implementation TSContactsManager
 
@@ -21,6 +22,12 @@
         sharedManager = [[self alloc] init];
     });
     return sharedManager;
+}
+
+-(instancetype)init
+{
+    [NSException raise:kTSSingletonException format:@"You can't call init in a singleton duh!"];
+    return nil;
 }
 
 -(NSArray *)phoneContacts

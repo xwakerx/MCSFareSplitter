@@ -39,6 +39,7 @@
 		04C825A21AEDA7FB00237635 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C825A11AEDA7FB00237635 /* HomeViewController.m */; };
 		04FD49C11AEDC58500D46DD2 /* TSNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FD49C01AEDC58500D46DD2 /* TSNotificationManager.m */; };
 		98400D0B1AF1256600686B62 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 98400D0A1AF1256600686B62 /* Reachability.m */; };
+		98573FFB1AF3C8F2003D3314 /* CoreDataManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98573FFA1AF3C8F2003D3314 /* CoreDataManagerTests.m */; };
 		987FCD551AEE6FE700A5D50D /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 987FCD541AEE6FE700A5D50D /* SettingsTableViewController.m */; };
 		987FCD581AEE8F3B00A5D50D /* ContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 987FCD571AEE8F3B00A5D50D /* ContactsTableViewController.m */; };
 		98805F801AECAB8E00EB2A05 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7D1AECAB8E00EB2A05 /* FBSDKCoreKit.framework */; };
@@ -134,6 +135,7 @@
 		04FD49C01AEDC58500D46DD2 /* TSNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSNotificationManager.m; path = MCSTabSplitter/Controllers/Notifications/TSNotificationManager.m; sourceTree = SOURCE_ROOT; };
 		98400D091AF1256600686B62 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "MCSTabSplitter/Third Party/Reachability/Reachability.h"; sourceTree = SOURCE_ROOT; };
 		98400D0A1AF1256600686B62 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "MCSTabSplitter/Third Party/Reachability/Reachability.m"; sourceTree = SOURCE_ROOT; };
+		98573FFA1AF3C8F2003D3314 /* CoreDataManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataManagerTests.m; path = MCSTabSplitterTests/CoreDataManagerTests.m; sourceTree = SOURCE_ROOT; };
 		987FCD531AEE6FE700A5D50D /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsTableViewController.h; path = MCSTabSplitter/Views/Settings/SettingsTableViewController.h; sourceTree = SOURCE_ROOT; };
 		987FCD541AEE6FE700A5D50D /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsTableViewController.m; path = MCSTabSplitter/Views/Settings/SettingsTableViewController.m; sourceTree = SOURCE_ROOT; };
 		987FCD561AEE8F3B00A5D50D /* ContactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactsTableViewController.h; path = MCSTabSplitter/Views/Contacts/ContactsTableViewController.h; sourceTree = SOURCE_ROOT; };
@@ -341,6 +343,7 @@
 			children = (
 				048098031AE7FD1100C6DB14 /* MCSFareSplitterTests.m */,
 				048098041AE7FD1100C6DB14 /* SplitterTests.m */,
+				98573FFA1AF3C8F2003D3314 /* CoreDataManagerTests.m */,
 				98F93F3E1AE15DF700BD514F /* Supporting Files */,
 			);
 			name = MCSTabSplitterTests;
@@ -697,6 +700,7 @@
 			files = (
 				048098061AE7FD1100C6DB14 /* SplitterTests.m in Sources */,
 				048098051AE7FD1100C6DB14 /* MCSFareSplitterTests.m in Sources */,
+				98573FFB1AF3C8F2003D3314 /* CoreDataManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import "DataManager.h"
+#import "TSDefinitions.h"
 
 @implementation DataManager
 
@@ -20,11 +21,10 @@
     return sharedManager;
 }
 
-- (id)init {
-    if (self = [super init]) {
-        //
-    }
-    return self;
+-(instancetype)init
+{
+    [NSException raise:kTSSingletonException format:@"You can't call init in a singleton duh!"];
+    return nil;
 }
 
 - (void)configureRestCall:(NSURL*) baseURL requestString:(NSString*)request forObjectOfType:(id)object
