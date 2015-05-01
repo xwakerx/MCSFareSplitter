@@ -183,6 +183,7 @@
 - (NSManagedObjectContext *)managedObjectContext {
     // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)
     if (_managedObjectContext != nil) {
+        _managedObjectContext.undoManager = [[NSUndoManager alloc]init];
         return _managedObjectContext;
     }
     

@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface Notifications : NSObject
+@interface TSNotificationManager : NSObject
 
 @property (nonatomic, strong) NSString *title;
 
