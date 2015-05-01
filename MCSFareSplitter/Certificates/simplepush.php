@@ -2,10 +2,10 @@
 
 // Put your device token here (without spaces):
 //David
-//$deviceToken = 'f05ea7c9c19e07d423b32bc0fe6d9bd8f86b42c2ec17bd828bb53b3dbb93e50b';
+$deviceToken = 'f05ea7c9c19e07d423b32bc0fe6d9bd8f86b42c2ec17bd828bb53b3dbb93e50b';
 
 //Sergio
-$deviceToken = '328749ca224c316f321bae91f82ec3a31bb323a7f875f5e334e774b317a64e00';
+//$deviceToken = '328749ca224c316f321bae91f82ec3a31bb323a7f875f5e334e774b317a64e00';
 
 //Jose
 //$deviceToken = '75f92184bcc59076ab2092a0e47a0fe347be439db70d0a8712cc638e94076994';
@@ -43,7 +43,7 @@ $body['aps'] = array(
 	'sound' => 'Paid'
 );
 $body['tabSplitter'] = array (
-    'test' => 'Paid'
+    'type' => 'Paid'
 );
 
 //echo $body;

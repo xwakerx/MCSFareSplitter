@@ -7,6 +7,12 @@
 //
 
 #import "TSNotificationManager.h"
+#import "TSDefinitions.h"
+
+@interface TSNotificationManager ()
+
+@property (nonatomic, strong) NSMutableArray *notifications;
+@end
 
 @implementation TSNotificationManager
 
@@ -14,16 +20,15 @@
     static TSNotificationManager *notifications = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        notifications = [[self alloc] init];
+        notifications = [super init];
+        notifications.notifications = [NSMutableArray new];
     });
     return notifications;
 }
 
 - (id)init {
-    if (self = [super init]) {
-        
-    }
-    return self;
+    [NSException raise:@"TSSingletonException" format:@"You can't access to the init in a singleton"];
+    return nil;
 }
 
 #pragma mark - AlertViews
@@ -58,8 +63,8 @@
 
 #pragma mark - LocalNotification
 
--(void)sendLocalNotification {
-    [self sendLocalNotificationWithFireDate:[NSDate dateWithTimeIntervalSinceNow:10] alertBody:@"Ya te depositaron Rupias!" soundFile:@"SoundRupias.mp3"];
+-(void)sendLocalNotification:(NSString*)message {
+    [self sendLocalNotificationWithFireDate:[NSDate dateWithTimeIntervalSinceNow:10] alertBody:message soundFile:@"SoundRupias.mp3"];
     
 }
 
@@ -78,6 +83,25 @@
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
+
+#pragma mark - PushNotifications
+
+-(void)notificationReceivedWithTitle:(NSString *)title withMessage:(NSString *)message andType:(TSNotificationType *)type{
+    TSNotification *notification = [TSNotification new];
+    
+    [notification setTitle:title];
+    [notification setMessage:message];
+    [notification setType:type];
+    
+    [self.notifications addObject:notification];
+}
+
+-(void)showNotifications{
+    for (TSNotification *notification in self.notifications) {
+        NSLog(@"Title:%@ \nMessage:%@\nType:%ul",notification.title, notification.message, notification.type);
+    }
+}
+
 
 -(void)resetBadgeNumber {
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;

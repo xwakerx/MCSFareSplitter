@@ -15,6 +15,7 @@
 #import "TSUser.h"
 #import "TSLoginViewController.h"
 #import "TSContactsManager.h"
+#import "TSNotificationManager.h"
 
 @interface AppDelegate ()
 
@@ -224,6 +225,16 @@
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     NSLog(@"Failed to get token, error: %@", error);
+}
+
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    NSLog(@"-------------------NOTIFICATIONS--------------");
+    NSDictionary *notificationInfo = [userInfo valueForKey:@"tabSplitter"];
+    
+    [[TSNotificationManager sharedNotifications]notificationReceivedWithTitle:[notificationInfo valueForKey:@"type"] withMessage:[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] andType:TSNotificationTypePaid];
+    
+    [[TSNotificationManager sharedNotifications] showNotifications];
+    NSLog(@"-------------------NOTIFICATIONS--------------");
 }
 
 @end

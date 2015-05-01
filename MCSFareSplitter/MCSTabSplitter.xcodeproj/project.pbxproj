@@ -34,6 +34,7 @@
 		048098061AE7FD1100C6DB14 /* SplitterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 048098041AE7FD1100C6DB14 /* SplitterTests.m */; };
 		0483ECF81AED3C7C00BD6DFC /* TSTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0483ECF71AED3C7C00BD6DFC /* TSTabController.m */; };
 		0483ECFB1AEDAD3900BD6DFC /* TabsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0483ECFA1AEDAD3900BD6DFC /* TabsViewController.m */; };
+		04C7BDE71AF3C0D9000D2DEE /* TSNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C7BDE61AF3C0D9000D2DEE /* TSNotification.m */; };
 		04C825901AECAE9600237635 /* TSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8258F1AECAE9600237635 /* TSLoginViewController.m */; };
 		04C825921AECB3B300237635 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C825911AECB3B300237635 /* Bolts.framework */; };
 		04C825A21AEDA7FB00237635 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C825A11AEDA7FB00237635 /* HomeViewController.m */; };
@@ -124,6 +125,8 @@
 		0483ECF71AED3C7C00BD6DFC /* TSTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSTabController.m; path = MCSTabSplitter/Controllers/Tabs/TSTabController.m; sourceTree = SOURCE_ROOT; };
 		0483ECF91AEDAD3900BD6DFC /* TabsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabsViewController.h; path = MCSTabSplitter/Views/Tabs/TabsViewController.h; sourceTree = SOURCE_ROOT; };
 		0483ECFA1AEDAD3900BD6DFC /* TabsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabsViewController.m; path = MCSTabSplitter/Views/Tabs/TabsViewController.m; sourceTree = SOURCE_ROOT; };
+		04C7BDE51AF3C0D9000D2DEE /* TSNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSNotification.h; path = MCSTabSplitter/Models/Notification/TSNotification.h; sourceTree = SOURCE_ROOT; };
+		04C7BDE61AF3C0D9000D2DEE /* TSNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSNotification.m; path = MCSTabSplitter/Models/Notification/TSNotification.m; sourceTree = SOURCE_ROOT; };
 		04C8258E1AECAE9600237635 /* TSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSLoginViewController.h; path = MCSTabSplitter/Views/Login/TSLoginViewController.h; sourceTree = SOURCE_ROOT; };
 		04C8258F1AECAE9600237635 /* TSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSLoginViewController.m; path = MCSTabSplitter/Views/Login/TSLoginViewController.m; sourceTree = SOURCE_ROOT; };
 		04C825911AECB3B300237635 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = SOURCE_ROOT; };
@@ -258,6 +261,15 @@
 			name = General;
 			sourceTree = "<group>";
 		};
+		04C7BDE41AF3C0AC000D2DEE /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				04C7BDE51AF3C0D9000D2DEE /* TSNotification.h */,
+				04C7BDE61AF3C0D9000D2DEE /* TSNotification.m */,
+			);
+			name = Notification;
+			sourceTree = "<group>";
+		};
 		04C8259F1AEDA79600237635 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +367,7 @@
 		98F93F4A1AE15EFE00BD514F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				04C7BDE41AF3C0AC000D2DEE /* Notification */,
 				049B12CB1AE5F7DF002A8800 /* General */,
 				98F93F841AE1618700BD514F /* Payments */,
 				98F93F4E1AE15F8500BD514F /* Core Data */,
@@ -677,6 +690,7 @@
 				0434EAE81AF1AE6B00E5F0FF /* SplitAmountTabTableViewCell.m in Sources */,
 				048097C31AE7F9A800C6DB14 /* DataManager.m in Sources */,
 				0483ECFB1AEDAD3900BD6DFC /* TabsViewController.m in Sources */,
+				04C7BDE71AF3C0D9000D2DEE /* TSNotification.m in Sources */,
 				0434EAE11AF1AE4B00E5F0FF /* FormTabTableViewController.m in Sources */,
 				98BE94241AED3E0F003BB045 /* TSFacebookController.m in Sources */,
 				987FCD551AEE6FE700A5D50D /* SettingsTableViewController.m in Sources */,
@@ -792,7 +806,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: David Amezcua (42GM498338)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: David Amezcua (42GM498338)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -813,7 +827,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: David Amezcua (42GM498338)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: David Amezcua (42GM498338)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

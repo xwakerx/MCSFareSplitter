@@ -8,18 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "TSNotification.h"
 
 
 @interface TSNotificationManager : NSObject
-
-@property (nonatomic, strong) NSString *title;
 
 +(void)alertViewWithTitle:(NSString *)title andMessage:(NSString *)message fromViewController:(UIViewController *)viewController;
 +(void)alertViewWithTitle:(NSString *)title andMessage:(NSString *)message withCancelButtonTitle:(NSString *)cancelButtonTitle fromViewController:(UIViewController *)viewController;
 +(void)alertViewWithTitle:(NSString *)title andMessage:(NSString *)message withCancelButtonTitle:(NSString *)cancelButtonTitle withOtherActions:(NSArray *)actions fromViewController:(UIViewController *)viewController;
 
-- (void)sendLocalNotification;
+- (void)sendLocalNotification:(NSString*)message;
 - (void)resetBadgeNumber;
+- (void)notificationReceivedWithTitle:(NSString *)title withMessage:(NSString *)message andType:(TSNotificationType *)type;
+- (void)showNotifications;
 
 + (id)sharedNotifications;
 @end
