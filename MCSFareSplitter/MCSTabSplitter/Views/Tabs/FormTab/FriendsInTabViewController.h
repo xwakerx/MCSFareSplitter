@@ -13,6 +13,9 @@
 @required
 -(void)loadTabSplitUsersWithUsersArray:(NSArray*)users;
 
+@required
+-(void)loadTabSplitPayersWithUsersArray:(NSArray*)users;
+
 @end
 
 @interface FriendsInTabViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
