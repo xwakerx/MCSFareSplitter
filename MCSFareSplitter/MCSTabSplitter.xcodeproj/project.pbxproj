@@ -38,8 +38,9 @@
 		04C825901AECAE9600237635 /* TSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8258F1AECAE9600237635 /* TSLoginViewController.m */; };
 		04C825921AECB3B300237635 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C825911AECB3B300237635 /* Bolts.framework */; };
 		04C825A21AEDA7FB00237635 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C825A11AEDA7FB00237635 /* HomeViewController.m */; };
-		04FD49C11AEDC58500D46DD2 /* Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FD49C01AEDC58500D46DD2 /* Notifications.m */; };
+		04FD49C11AEDC58500D46DD2 /* TSNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FD49C01AEDC58500D46DD2 /* TSNotificationManager.m */; };
 		98400D0B1AF1256600686B62 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 98400D0A1AF1256600686B62 /* Reachability.m */; };
+		98573FFB1AF3C8F2003D3314 /* CoreDataManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98573FFA1AF3C8F2003D3314 /* CoreDataManagerTests.m */; };
 		987FCD551AEE6FE700A5D50D /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 987FCD541AEE6FE700A5D50D /* SettingsTableViewController.m */; };
 		987FCD581AEE8F3B00A5D50D /* ContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 987FCD571AEE8F3B00A5D50D /* ContactsTableViewController.m */; };
 		98805F801AECAB8E00EB2A05 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7D1AECAB8E00EB2A05 /* FBSDKCoreKit.framework */; };
@@ -50,6 +51,7 @@
 		98A443961AEA8ECE00339D0E /* TSTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A443911AEA8ECE00339D0E /* TSTab.m */; };
 		98A443971AEA8ECE00339D0E /* TSTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A443931AEA8ECE00339D0E /* TSTransaction.m */; };
 		98A4439A1AEA92BD00339D0E /* TSUserTabSplit.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A443991AEA92BD00339D0E /* TSUserTabSplit.m */; };
+		98B4E5281AF3B62A00F701E0 /* TSCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B4E5271AF3B62A00F701E0 /* TSCoreDataManager.m */; };
 		98BE94241AED3E0F003BB045 /* TSFacebookController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BE94231AED3E0F003BB045 /* TSFacebookController.m */; };
 		98BE94261AED4460003BB045 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98BE94251AED4460003BB045 /* AddressBook.framework */; };
 		98BE94291AED4866003BB045 /* TSContactsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BE94281AED4866003BB045 /* TSContactsManager.m */; };
@@ -132,10 +134,11 @@
 		04C825911AECB3B300237635 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = SOURCE_ROOT; };
 		04C825A01AEDA7FB00237635 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = MCSTabSplitter/Views/Home/HomeViewController.h; sourceTree = SOURCE_ROOT; };
 		04C825A11AEDA7FB00237635 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = MCSTabSplitter/Views/Home/HomeViewController.m; sourceTree = SOURCE_ROOT; };
-		04FD49BF1AEDC58500D46DD2 /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Notifications.h; path = MCSTabSplitter/Controllers/Notifications/Notifications.h; sourceTree = SOURCE_ROOT; };
-		04FD49C01AEDC58500D46DD2 /* Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Notifications.m; path = MCSTabSplitter/Controllers/Notifications/Notifications.m; sourceTree = SOURCE_ROOT; };
+		04FD49BF1AEDC58500D46DD2 /* TSNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSNotificationManager.h; path = MCSTabSplitter/Controllers/Notifications/TSNotificationManager.h; sourceTree = SOURCE_ROOT; };
+		04FD49C01AEDC58500D46DD2 /* TSNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSNotificationManager.m; path = MCSTabSplitter/Controllers/Notifications/TSNotificationManager.m; sourceTree = SOURCE_ROOT; };
 		98400D091AF1256600686B62 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "MCSTabSplitter/Third Party/Reachability/Reachability.h"; sourceTree = SOURCE_ROOT; };
 		98400D0A1AF1256600686B62 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "MCSTabSplitter/Third Party/Reachability/Reachability.m"; sourceTree = SOURCE_ROOT; };
+		98573FFA1AF3C8F2003D3314 /* CoreDataManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataManagerTests.m; path = MCSTabSplitterTests/CoreDataManagerTests.m; sourceTree = SOURCE_ROOT; };
 		987FCD531AEE6FE700A5D50D /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsTableViewController.h; path = MCSTabSplitter/Views/Settings/SettingsTableViewController.h; sourceTree = SOURCE_ROOT; };
 		987FCD541AEE6FE700A5D50D /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsTableViewController.m; path = MCSTabSplitter/Views/Settings/SettingsTableViewController.m; sourceTree = SOURCE_ROOT; };
 		987FCD561AEE8F3B00A5D50D /* ContactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactsTableViewController.h; path = MCSTabSplitter/Views/Contacts/ContactsTableViewController.h; sourceTree = SOURCE_ROOT; };
@@ -153,6 +156,8 @@
 		98A443931AEA8ECE00339D0E /* TSTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSTransaction.m; path = MCSTabSplitter/Models/General/TSTransaction.m; sourceTree = SOURCE_ROOT; };
 		98A443981AEA92BD00339D0E /* TSUserTabSplit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSUserTabSplit.h; path = MCSTabSplitter/Models/General/TSUserTabSplit.h; sourceTree = SOURCE_ROOT; };
 		98A443991AEA92BD00339D0E /* TSUserTabSplit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSUserTabSplit.m; path = MCSTabSplitter/Models/General/TSUserTabSplit.m; sourceTree = SOURCE_ROOT; };
+		98B4E5261AF3B62A00F701E0 /* TSCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSCoreDataManager.h; path = MCSTabSplitter/Singletons/TSCoreDataManager.h; sourceTree = SOURCE_ROOT; };
+		98B4E5271AF3B62A00F701E0 /* TSCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSCoreDataManager.m; path = MCSTabSplitter/Singletons/TSCoreDataManager.m; sourceTree = SOURCE_ROOT; };
 		98BE94221AED3E0F003BB045 /* TSFacebookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSFacebookController.h; path = MCSTabSplitter/Singletons/TSFacebookController.h; sourceTree = SOURCE_ROOT; };
 		98BE94231AED3E0F003BB045 /* TSFacebookController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSFacebookController.m; path = MCSTabSplitter/Singletons/TSFacebookController.m; sourceTree = SOURCE_ROOT; };
 		98BE94251AED4460003BB045 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -343,6 +348,7 @@
 			children = (
 				048098031AE7FD1100C6DB14 /* MCSFareSplitterTests.m */,
 				048098041AE7FD1100C6DB14 /* SplitterTests.m */,
+				98573FFA1AF3C8F2003D3314 /* CoreDataManagerTests.m */,
 				98F93F3E1AE15DF700BD514F /* Supporting Files */,
 			);
 			name = MCSTabSplitterTests;
@@ -501,8 +507,8 @@
 		98F93F851AE161A500BD514F /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				04FD49BF1AEDC58500D46DD2 /* Notifications.h */,
-				04FD49C01AEDC58500D46DD2 /* Notifications.m */,
+				04FD49BF1AEDC58500D46DD2 /* TSNotificationManager.h */,
+				04FD49C01AEDC58500D46DD2 /* TSNotificationManager.m */,
 			);
 			name = Notifications;
 			sourceTree = "<group>";
@@ -518,6 +524,8 @@
 				048097C21AE7F9A800C6DB14 /* TSUtilities.m */,
 				98BE94271AED4866003BB045 /* TSContactsManager.h */,
 				98BE94281AED4866003BB045 /* TSContactsManager.m */,
+				98B4E5261AF3B62A00F701E0 /* TSCoreDataManager.h */,
+				98B4E5271AF3B62A00F701E0 /* TSCoreDataManager.m */,
 			);
 			name = Singletons;
 			sourceTree = "<group>";
@@ -598,7 +606,7 @@
 				TargetAttributes = {
 					98F93F1D1AE15DF700BD514F = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = VB9TB448N4;
+						DevelopmentTeam = 46PXCYRCS9;
 					};
 					98F93F391AE15DF700BD514F = {
 						CreatedOnToolsVersion = 6.3;
@@ -656,13 +664,14 @@
 			files = (
 				98A443961AEA8ECE00339D0E /* TSTab.m in Sources */,
 				048097CC1AE7F9DE00C6DB14 /* TSCurrency.m in Sources */,
-				04FD49C11AEDC58500D46DD2 /* Notifications.m in Sources */,
+				04FD49C11AEDC58500D46DD2 /* TSNotificationManager.m in Sources */,
 				0434EAE21AF1AE4B00E5F0FF /* FriendsInTabViewController.m in Sources */,
 				98F93F2A1AE15DF700BD514F /* MCSTabSplitter.xcdatamodeld in Sources */,
 				048097D11AE7F9F900C6DB14 /* TSTabUser.m in Sources */,
 				048097F81AE7FBF400C6DB14 /* StaticDataTableViewController.m in Sources */,
 				048097D81AE7FA9500C6DB14 /* TSSplitController.m in Sources */,
 				048097C71AE7F9BB00C6DB14 /* TSDefinitions.m in Sources */,
+				98B4E5281AF3B62A00F701E0 /* TSCoreDataManager.m in Sources */,
 				98BE94291AED4866003BB045 /* TSContactsManager.m in Sources */,
 				048097DC1AE7FB3B00C6DB14 /* AppDelegate.m in Sources */,
 				0434EADC1AF142D100E5F0FF /* TabTitleTableViewController.m in Sources */,
@@ -697,6 +706,7 @@
 			files = (
 				048098061AE7FD1100C6DB14 /* SplitterTests.m in Sources */,
 				048098051AE7FD1100C6DB14 /* MCSFareSplitterTests.m in Sources */,
+				98573FFB1AF3C8F2003D3314 /* CoreDataManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,8 +808,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: David Amezcua (42GM498338)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: David Amezcua (42GM498338)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -809,7 +819,7 @@
 				INFOPLIST_FILE = MCSTabSplitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "a602a27e-9275-41db-a46f-a13a5fecc753";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -819,8 +829,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: David Amezcua (42GM498338)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: David Amezcua (42GM498338)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -830,7 +840,7 @@
 				INFOPLIST_FILE = MCSTabSplitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "a602a27e-9275-41db-a46f-a13a5fecc753";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

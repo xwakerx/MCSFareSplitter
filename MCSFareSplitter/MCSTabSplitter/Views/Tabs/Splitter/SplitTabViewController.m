@@ -219,10 +219,12 @@ static NSString *CELL_ID_ITEMS = @"cellWithItems";
 -(void)addItem:(UIStoryboardSegue *)segue {
     
     ItemsViewController *itemsVC = segue.sourceViewController;
-    if ([self searchForItemWithItem:itemsVC.item] == -1) {
+    
+    NSInteger idx = [self searchForItemWithItem:itemsVC.item];
+    if (idx == -1) {
         [self.tab.items addObject:itemsVC.item];
     } else {
-        
+        self.tab.items[idx] = itemsVC.item;
     }
     
 }

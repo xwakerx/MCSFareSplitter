@@ -10,17 +10,25 @@
 #import "TSTabUser.h"
 #import <UIKit/UIKit.h>
 #import <AddressBook/AddressBook.h>
+#import "TSDefinitions.h"
 
 @implementation TSContactsManager
+
+static TSContactsManager *sharedManager = nil;
 
 + (id)sharedManager
 {
     static TSContactsManager *sharedManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedManager = [[self alloc] init];
+        sharedManager = [[super allocWithZone:NULL]init];
     });
     return sharedManager;
+}
+
++ (id) allocWithZone:(NSZone *)zone
+{
+    return [TSContactsManager sharedManager];
 }
 
 -(NSArray *)phoneContacts

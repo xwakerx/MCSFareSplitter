@@ -199,6 +199,16 @@
     }
 }
 
+-(void)loadTabSplitPayersWithUsersArray:(NSArray *)users {
+    if (users.count > 0) {
+        
+        //TODO: build up payers from selector itself...
+        self.tab.payers = [TSTabController getUserTabSplittersForTab:self.tab withUsers:users];
+        [self.tfUsers setText:[NSString stringWithFormat:@"%li selected.", [self.tab.participants count]]];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 -(void) setupTab{
     self.tab.totalAmount = [NSNumber numberWithDouble:[self.tfTotalAmount.text doubleValue]];
     self.tab.title = [self.tfTitle text];
@@ -227,7 +237,7 @@
     if([identifier  isEqualToString: @"selectSplitM"]){
         [self setupTab];
         if ([self.tfTotalAmount.text isEqualToString:@""] || [self.tfTitle.text isEqualToString:@""] || self.tab.participants.count < 1) {
-            [[[UIAlertView alloc] initWithTitle:@"Incomplete Tab" message:@"Please provide a Title, Amount and at least one user." delegate:nil cancelButtonTitle:@"Ok!" otherButtonTitles: nil] show];
+            [[[UIAlertView alloc] initWithTitle:@"Incomplete Tab" message:@"Please provide a Title, Amount and at least one participant." delegate:nil cancelButtonTitle:@"Ok!" otherButtonTitles: nil] show];
             return NO;
         }
     }

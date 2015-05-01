@@ -23,10 +23,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    FBSDKLoginButton *loginButton = [[TSFacebookController sharedController] facebookLoginButton];
-    loginButton.center = CGPointMake(self.view.center.x, 450);
     
-    [self.view addSubview:loginButton];
+    if(![FBSDKAccessToken currentAccessToken])
+    {
+        FBSDKLoginButton *loginButton = [[TSFacebookController sharedController] facebookLoginButton];
+        loginButton.center = CGPointMake(self.view.center.x, 450);
+        
+        [self.view addSubview:loginButton];
+    }
+    
     self.btnLogin.center = CGPointMake(self.view.center.x, 500);
     
 //    self.btnLogin.hidden = YES;

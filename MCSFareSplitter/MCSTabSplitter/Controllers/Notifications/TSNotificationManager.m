@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 neo.daj.man. All rights reserved.
 //
 
-#import "Notifications.h"
+#import "TSNotificationManager.h"
 
-@implementation Notifications
+@implementation TSNotificationManager
 
 + (id)sharedNotifications {
-    static Notifications *notifications = nil;
+    static TSNotificationManager *notifications = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         notifications = [[self alloc] init];
@@ -30,12 +30,12 @@
 
 +(void)alertViewWithTitle:(NSString *)title andMessage:(NSString *)message fromViewController:(UIViewController *)viewController
 {
-    [Notifications alertViewWithTitle:title andMessage:message withCancelButtonTitle:@"OK" withOtherActions:nil fromViewController:viewController];
+    [TSNotificationManager alertViewWithTitle:title andMessage:message withCancelButtonTitle:@"OK" withOtherActions:nil fromViewController:viewController];
 }
 
 +(void)alertViewWithTitle:(NSString *)title andMessage:(NSString *)message withCancelButtonTitle:(NSString *)cancelButtonTitle fromViewController:(UIViewController *)viewController
 {
-    [Notifications alertViewWithTitle:title andMessage:message withCancelButtonTitle:cancelButtonTitle withOtherActions:nil fromViewController:viewController];
+    [TSNotificationManager alertViewWithTitle:title andMessage:message withCancelButtonTitle:cancelButtonTitle withOtherActions:nil fromViewController:viewController];
 }
 
 +(void)alertViewWithTitle:(NSString *)title andMessage:(NSString *)message withCancelButtonTitle:(NSString *)cancelButtonTitle withOtherActions:(NSArray *)actions fromViewController:(UIViewController *)viewController
