@@ -16,20 +16,20 @@
 
 @implementation TSFacebookController
 
+static TSFacebookController *sharedController = nil;
+
 + (id)sharedController
 {
-    static TSFacebookController *sharedController = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedController = [[self alloc] init];
+        sharedController = [[super allocWithZone:NULL]init];
     });
     return sharedController;
 }
 
--(instancetype)init
++ (id) allocWithZone:(NSZone *)zone
 {
-    [NSException raise:kTSSingletonException format:@"You can't call init in a singleton duh!"];
-    return nil;
+    return [TSFacebookController sharedController];
 }
 
 -(FBSDKLoginButton *)facebookLoginButton

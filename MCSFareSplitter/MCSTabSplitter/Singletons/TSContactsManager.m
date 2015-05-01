@@ -14,20 +14,21 @@
 
 @implementation TSContactsManager
 
+static TSContactsManager *sharedManager = nil;
+
 + (id)sharedManager
 {
     static TSContactsManager *sharedManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedManager = [[self alloc] init];
+        sharedManager = [[super allocWithZone:NULL]init];
     });
     return sharedManager;
 }
 
--(instancetype)init
++ (id) allocWithZone:(NSZone *)zone
 {
-    [NSException raise:kTSSingletonException format:@"You can't call init in a singleton duh!"];
-    return nil;
+    return [TSContactsManager sharedManager];
 }
 
 -(NSArray *)phoneContacts

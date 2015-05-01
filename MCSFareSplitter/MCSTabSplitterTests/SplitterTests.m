@@ -30,7 +30,7 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
-
+/*
 -(void)testMainSplitter
 {
     NSArray *users = @[[[TSTabUser alloc]initWithEmail:nil withFirstName:@"A" withMiddleName:nil withLastName:nil userType:nil],
@@ -195,5 +195,5 @@
         // Put the code you want to measure the time of here.
     }];
 }
-
+*/
 @end

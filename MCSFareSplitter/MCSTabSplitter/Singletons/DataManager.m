@@ -11,20 +11,21 @@
 
 @implementation DataManager
 
+static DataManager *sharedManager = nil;
+
 + (id)sharedManager {
-    static DataManager *sharedManager = nil;
+    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedManager = [[self alloc] init];
+        sharedManager = [[super allocWithZone:NULL]init];
     });
     
     return sharedManager;
 }
 
--(instancetype)init
++ (id) allocWithZone:(NSZone *)zone
 {
-    [NSException raise:kTSSingletonException format:@"You can't call init in a singleton duh!"];
-    return nil;
+    return [DataManager sharedManager];
 }
 
 - (void)configureRestCall:(NSURL*) baseURL requestString:(NSString*)request forObjectOfType:(id)object
