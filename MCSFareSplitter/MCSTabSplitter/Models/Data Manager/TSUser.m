@@ -24,6 +24,7 @@
 {
     //TODO - Call WS
     //When done if success
+    //Save in Core Data
     
     self.user.firstName = firstName;
     self.user.middleName = middleName;
@@ -38,6 +39,7 @@
 {
     //TODO - Call WS
     //When done if success
+    //Save in Core Data
     
     self.user.profilePic = profilePic;
     
