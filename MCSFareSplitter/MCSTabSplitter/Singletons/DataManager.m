@@ -7,24 +7,25 @@
 //
 
 #import "DataManager.h"
+#import "TSDefinitions.h"
 
 @implementation DataManager
 
+static DataManager *sharedManager = nil;
+
 + (id)sharedManager {
-    static DataManager *sharedManager = nil;
+    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedManager = [[self alloc] init];
+        sharedManager = [[super allocWithZone:NULL]init];
     });
     
     return sharedManager;
 }
 
-- (id)init {
-    if (self = [super init]) {
-        //
-    }
-    return self;
++ (id) allocWithZone:(NSZone *)zone
+{
+    return [DataManager sharedManager];
 }
 
 - (void)configureRestCall:(NSURL*) baseURL requestString:(NSString*)request forObjectOfType:(id)object

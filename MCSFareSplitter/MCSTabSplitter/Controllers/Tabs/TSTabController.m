@@ -26,13 +26,10 @@
 +(NSMutableArray*) getUserTabSplittersForTab:(TSTab*)tab withUsers:(NSArray*)users{
     
     NSMutableArray *usrs = [NSMutableArray new];
-    TSUserTabSplit *admin = [[TSUserTabSplit alloc] initWithUser:[TSUser sharedUser].user andTab:tab withAmount:@0];
-    //admin.userType = TSUserTabTypeOwed;
-    [usrs addObject:admin];
     
     for (TSTabUser *usr in users) {
         //convert users to tabsplitusers
-        TSUserTabSplit *newUsr = [[TSUserTabSplit alloc] initWithUser:usr andTab:tab withAmount:@0];
+        TSUserTabSplit *newUsr = [[TSUserTabSplit alloc] initWithNormalUser:usr andTab:tab withAmount:@0];
         [usrs addObject:newUsr];
     }
     
@@ -51,7 +48,7 @@
     tab.title = num == 0 ? @"Walmart G" : @"Costco G";
     tab.totalAmount = [[NSNumber alloc] initWithDouble:(double)num+213];
     tab.currency = [[TSDefinitions currencies] objectAtIndex:0];
-    tab.items = @[];
+    tab.items = [NSMutableArray new];
     tab.participants = [self generateMockUsersForTab:tab];
     
     //Transactions ??
@@ -67,11 +64,11 @@
 +(NSArray*) generateMockUsersForTab:(TSTab*)tab {
     
     NSArray* users = [[NSArray alloc] initWithObjects:
-                      [[TSUserTabSplit alloc] initWithUser:[
+                      [[TSUserTabSplit alloc] initWithPayerUser:[
                                                             [TSTabUser alloc] initWithEmail:@"usr1@yahoo.com" withFirstName:@"John" withMiddleName:@"J" withLastName:@"Smith" userType:[TSTabUser TSUserTypeContacts]]
                                                     andTab:tab withAmount:@0]
                      ,
-                      [[TSUserTabSplit alloc] initWithUser:[[TSTabUser alloc] initWithEmail:@"usr2@yahoo.com" withFirstName:@"Mary" withMiddleName:@"L" withLastName:@"Schulz" userType:[TSTabUser TSUserTypeContacts]]
+                      [[TSUserTabSplit alloc] initWithNormalUser:[[TSTabUser alloc] initWithEmail:@"usr2@yahoo.com" withFirstName:@"Mary" withMiddleName:@"L" withLastName:@"Schulz" userType:[TSTabUser TSUserTypeContacts]]
                                                     andTab:tab withAmount:@0]
                                                             
                      ,

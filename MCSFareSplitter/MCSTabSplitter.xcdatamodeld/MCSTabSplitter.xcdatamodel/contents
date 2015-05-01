@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="TSAccounts" syncable="YES">
+    <entity name="TSAccount" syncable="YES">
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="accounts_users" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSUsers" syncable="YES"/>
+        <relationship name="accounts_users" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSUser" syncable="YES"/>
     </entity>
     <entity name="TSItem" syncable="YES">
         <attribute name="cost" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="items_users" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSUsers" syncable="YES"/>
+        <relationship name="items_users" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSUser" syncable="YES"/>
     </entity>
-    <entity name="TSTabs" syncable="YES">
+    <entity name="TSTab" syncable="YES">
         <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="splitMethod" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="totalAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
-    <entity name="TSUsers" syncable="YES">
+    <entity name="TSUser" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastname" optional="YES" attributeType="String" syncable="YES"/>
@@ -28,9 +28,9 @@
         <attribute name="usertype" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TSAccounts" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="TSAccount" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="TSItem" positionX="-54" positionY="18" width="128" height="90"/>
-        <element name="TSUsers" positionX="-36" positionY="36" width="128" height="135"/>
-        <element name="TSTabs" positionX="-18" positionY="81" width="128" height="120"/>
+        <element name="TSTab" positionX="-18" positionY="81" width="128" height="120"/>
+        <element name="TSUser" positionX="-36" positionY="36" width="128" height="135"/>
     </elements>
 </model>

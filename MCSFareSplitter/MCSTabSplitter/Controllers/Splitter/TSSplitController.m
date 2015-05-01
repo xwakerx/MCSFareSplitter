@@ -172,7 +172,7 @@
     
     for (TSUserTabSplit *payment in payments)
     {
-        TSUserTabSplit *newPayment = [[TSUserTabSplit alloc]initWithUser:payment.user andTab:payment.tab withAmount:payment.amount];
+        TSUserTabSplit *newPayment = [[TSUserTabSplit alloc]initWithNormalUser:payment.user andTab:payment.tab withAmount:payment.amount];
         
         if(payment.amount.doubleValue < 0)
         {
@@ -194,7 +194,7 @@
     
     for (TSTabUser *user in tabParticipants)
     {
-        TSUserTabSplit *userTabSplit = [[TSUserTabSplit alloc]initWithUser:user andTab:nil withAmount:@0];
+        TSUserTabSplit *userTabSplit = [[TSUserTabSplit alloc]initWithNormalUser:user andTab:nil withAmount:@0];
         [userTabSplitsArray addObject:userTabSplit];
     }
     
@@ -349,7 +349,7 @@
         
         for (TSTabUser *participant in participants)
         {
-            TSUserTabSplit *debt = [[TSUserTabSplit alloc]initWithUser:participant andTab:nil withAmount:individualDebtAmount];
+            TSUserTabSplit *debt = [[TSUserTabSplit alloc]initWithNormalUser:participant andTab:nil withAmount:individualDebtAmount];
             [debts addObject:debt];
             paymentsRealAmountAccum = [paymentsRealAmountAccum decimalNumberByAdding:individualDebtAmount];
         }
@@ -423,7 +423,7 @@
             
             NSDecimalNumber *amount = [paymentsTotalAmount decimalNumberByMultiplyingBy:percentage];
             
-            TSUserTabSplit *debt = [[TSUserTabSplit alloc]initWithUser:participants[i] andTab:nil withAmount:amount];
+            TSUserTabSplit *debt = [[TSUserTabSplit alloc]initWithNormalUser:participants[i] andTab:nil withAmount:amount];
             [debts addObject:debt];
             
             paymentsRealAmountAccum = [paymentsRealAmountAccum decimalNumberByAdding:amount];

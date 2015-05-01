@@ -15,6 +15,12 @@ typedef enum
     TSUserTabTypeOwes,
     TSUserTabTypeOwed,
     TSUserTabTypeSettled
+} TSUserTabDebtType;
+
+typedef enum
+{
+    TSUserTypeParticipant,
+    TSUserTypePayer
 } TSUserTabType;
 
 @interface TSUserTabSplit : NSObject
@@ -22,8 +28,10 @@ typedef enum
 @property (nonatomic, strong) TSTabUser *user;
 @property (nonatomic, strong) TSTab *tab;
 @property (nonatomic, strong) NSNumber *amount;
-@property (nonatomic, assign, readonly) TSUserTabType userType;
+@property (nonatomic, assign, readonly) TSUserTabDebtType userDebtType;
+@property (nonatomic, assign, readonly) TSUserTabType userTabType;
 
--(instancetype)initWithUser:(TSTabUser *)user andTab:(TSTab *)tab withAmount:(NSNumber *)amount;
+-(instancetype)initWithNormalUser:(TSTabUser *)user andTab:(TSTab *)tab withAmount:(NSNumber *)amount;
+-(instancetype)initWithPayerUser:(TSTabUser *)user andTab:(TSTab *)tab withAmount:(NSNumber *)amount;
 
 @end

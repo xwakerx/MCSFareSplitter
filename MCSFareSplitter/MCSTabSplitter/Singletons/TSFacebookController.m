@@ -12,19 +12,25 @@
 #import "Reachability.h"
 #import "AppDelegate.h"
 #import "TSNotificationManager.h"
+#import "TSDefinitions.h"
 
 @implementation TSFacebookController
 
+static TSFacebookController *sharedController = nil;
+
 + (id)sharedController
 {
-    static TSFacebookController *sharedController = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedController = [[self alloc] init];
+        sharedController = [[super allocWithZone:NULL]init];
     });
     return sharedController;
 }
 
++ (id) allocWithZone:(NSZone *)zone
+{
+    return [TSFacebookController sharedController];
+}
 
 -(FBSDKLoginButton *)facebookLoginButton
 {
