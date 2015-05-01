@@ -10,6 +10,26 @@
 
 @implementation TSUtilities
 
++(void) showAlertInController:(UIViewController *) controller withMessage: (NSString *) message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @""
+                                                    message: message
+                                                   delegate: controller
+                                          cancelButtonTitle: NSLocalizedString(@"ok", nil)
+                                          otherButtonTitles: nil];
+    [alert show];
+}
+
++(void) showAlertInController:(UIViewController *) controller withTitle:(NSString *) title withMessage:(NSString *) message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: title
+                                                    message: message
+                                                   delegate: controller
+                                          cancelButtonTitle: NSLocalizedString(@"ok", nil)
+                                          otherButtonTitles: nil];
+    [alert show];
+}
+
 + (NSString *) getDateString:(NSDate *) date{
     if(date == nil){ return @""; }
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -30,6 +50,17 @@
 + (Boolean) isValidAmount:(NSString *) amount{
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^(\\$|)([1-9]\\d{0,2}(\\,\\d{3})*|([1-9]\\d*))(\\.\\d{2})?$" options:NSRegularExpressionCaseInsensitive error:nil];
     NSTextCheckingResult *match = [regex firstMatchInString:amount options:0 range:NSMakeRange(0, [amount length])];
+    if (match) {
+        return true;
+    }else{
+        return false;
+    }
+}
+
++ (bool) isValidEmailAddress: (NSString*) mail
+{
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@".+@.+\\.[a-z]+" options:NSRegularExpressionCaseInsensitive error:nil];
+    NSTextCheckingResult *match = [regex firstMatchInString:mail options:0 range:NSMakeRange(0, [mail length])];
     if (match) {
         return true;
     }else{

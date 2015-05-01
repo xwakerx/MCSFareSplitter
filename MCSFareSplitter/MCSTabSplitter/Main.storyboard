@@ -1329,9 +1329,11 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EjU-P3-cDo">
                                         <rect key="frame" x="8" y="5" width="398" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                         <connections>
-                                            <outlet property="delegate" destination="lFV-Iq-iKn" id="QK8-c8-qMp"/>
+                                            <action selector="onSearchChanged:" destination="zQe-YR-FcN" eventType="editingChanged" id="ATe-35-Kl5"/>
+                                            <action selector="onSearchChanged:" destination="zQe-YR-FcN" eventType="valueChanged" id="Tkj-DK-qyR"/>
+                                            <outlet property="delegate" destination="zQe-YR-FcN" id="2ej-tn-gR3"/>
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYk-X6-rKt">
@@ -1389,7 +1391,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.66461741924285889" green="0.66459751129150391" blue="0.66460877656936646" alpha="0.30000001192092896" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="pYk-X6-rKt" secondAttribute="bottom" constant="9" id="3Vg-Bu-zXp"/>
                                     <constraint firstAttribute="trailing" secondItem="pYk-X6-rKt" secondAttribute="trailing" constant="8" id="4lJ-wP-KqV"/>
@@ -1414,12 +1416,62 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bsX-rV-9EK">
+                                <rect key="frame" x="0.0" y="104" width="414" height="583"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="zQe-YR-FcN" id="f3L-zZ-Lfe"/>
+                                    <outlet property="delegate" destination="zQe-YR-FcN" id="fGy-9k-iGQ"/>
+                                </connections>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eAO-uI-k2g">
+                                <rect key="frame" x="0.0" y="104" width="414" height="583"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addGhostCell" id="De3-jV-2vp" customClass="AddGhostTableViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="De3-jV-2vp" id="96N-sc-m5S">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add as a Ghost payer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAR-8t-A9C">
+                                                    <rect key="frame" x="133" y="13" width="149" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.85599762201309204" green="0.0" blue="0.41146278381347656" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="VAR-8t-A9C" secondAttribute="centerY" id="OPN-GU-9JS"/>
+                                                <constraint firstAttribute="centerX" secondItem="VAR-8t-A9C" secondAttribute="centerX" id="TTM-8h-tX5"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.66461741924285889" green="0.66459751129150391" blue="0.66460877656936646" alpha="0.30000001192092896" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="lblTitle" destination="VAR-8t-A9C" id="RWm-0V-UlT"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="zQe-YR-FcN" id="Kvt-Oh-gcM"/>
+                                    <outlet property="delegate" destination="zQe-YR-FcN" id="3Ad-Sv-ffL"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Bni-bL-zZg" firstAttribute="top" secondItem="eKB-rW-gRo" secondAttribute="bottom" id="2bE-pa-Lrt"/>
+                            <constraint firstItem="bsX-rV-9EK" firstAttribute="top" secondItem="Bni-bL-zZg" secondAttribute="bottom" id="3cF-cV-Dly"/>
+                            <constraint firstItem="eAO-uI-k2g" firstAttribute="top" secondItem="Bni-bL-zZg" secondAttribute="bottom" id="Fqx-p7-7Lc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bsX-rV-9EK" secondAttribute="trailing" constant="-16" id="QBQ-XF-sy3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eAO-uI-k2g" secondAttribute="trailing" constant="-16" id="Ua9-fh-irS"/>
+                            <constraint firstItem="eAO-uI-k2g" firstAttribute="leading" secondItem="lE5-NA-sqY" secondAttribute="leadingMargin" constant="-16" id="XdC-rW-4KO"/>
                             <constraint firstItem="Bni-bL-zZg" firstAttribute="leading" secondItem="lE5-NA-sqY" secondAttribute="leadingMargin" constant="-16" id="cxa-3T-pvA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Bni-bL-zZg" secondAttribute="trailing" constant="-16" id="dj2-VH-IW7"/>
+                            <constraint firstItem="3iY-Zz-nxt" firstAttribute="top" secondItem="bsX-rV-9EK" secondAttribute="bottom" id="epK-yc-uyj"/>
+                            <constraint firstItem="3iY-Zz-nxt" firstAttribute="top" secondItem="eAO-uI-k2g" secondAttribute="bottom" id="qcH-f1-7aJ"/>
+                            <constraint firstItem="bsX-rV-9EK" firstAttribute="leading" secondItem="lE5-NA-sqY" secondAttribute="leadingMargin" constant="-16" id="quf-vx-JIn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Payers" id="Cy2-Yq-vI7"/>
@@ -1430,6 +1482,8 @@
                         <outlet property="btnSearchIcon" destination="2IF-hS-LBC" id="Wak-KZ-a9z"/>
                         <outlet property="lblSearch" destination="5HV-1y-0y1" id="t3i-iE-BIz"/>
                         <outlet property="tfSearch" destination="EjU-P3-cDo" id="iSk-Dt-iLP"/>
+                        <outlet property="tvPayers" destination="bsX-rV-9EK" id="rYC-9s-vLv"/>
+                        <outlet property="tvSearch" destination="eAO-uI-k2g" id="JoN-UX-myc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HYg-g0-Uhc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1559,6 +1613,6 @@
         <image name="Tab Bar Icon - Settings" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="47P-SZ-oPC"/>
+        <segue reference="BJR-SA-DCB"/>
     </inferredMetricsTieBreakers>
 </document>

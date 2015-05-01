@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TabPayersViewController : UIViewController
+@interface TabPayersViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+
+@property (strong, nonatomic) NSMutableArray *payers;
+@property (strong, nonatomic) NSMutableArray *contactsToAdd;
 
 @end
