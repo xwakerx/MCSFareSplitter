@@ -37,7 +37,7 @@
 		04C825901AECAE9600237635 /* TSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8258F1AECAE9600237635 /* TSLoginViewController.m */; };
 		04C825921AECB3B300237635 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C825911AECB3B300237635 /* Bolts.framework */; };
 		04C825A21AEDA7FB00237635 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C825A11AEDA7FB00237635 /* HomeViewController.m */; };
-		04FD49C11AEDC58500D46DD2 /* Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FD49C01AEDC58500D46DD2 /* Notifications.m */; };
+		04FD49C11AEDC58500D46DD2 /* TSNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FD49C01AEDC58500D46DD2 /* TSNotificationManager.m */; };
 		98400D0B1AF1256600686B62 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 98400D0A1AF1256600686B62 /* Reachability.m */; };
 		987FCD551AEE6FE700A5D50D /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 987FCD541AEE6FE700A5D50D /* SettingsTableViewController.m */; };
 		987FCD581AEE8F3B00A5D50D /* ContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 987FCD571AEE8F3B00A5D50D /* ContactsTableViewController.m */; };
@@ -130,8 +130,8 @@
 		04C825911AECB3B300237635 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = SOURCE_ROOT; };
 		04C825A01AEDA7FB00237635 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = MCSTabSplitter/Views/Home/HomeViewController.h; sourceTree = SOURCE_ROOT; };
 		04C825A11AEDA7FB00237635 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = MCSTabSplitter/Views/Home/HomeViewController.m; sourceTree = SOURCE_ROOT; };
-		04FD49BF1AEDC58500D46DD2 /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Notifications.h; path = MCSTabSplitter/Controllers/Notifications/Notifications.h; sourceTree = SOURCE_ROOT; };
-		04FD49C01AEDC58500D46DD2 /* Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Notifications.m; path = MCSTabSplitter/Controllers/Notifications/Notifications.m; sourceTree = SOURCE_ROOT; };
+		04FD49BF1AEDC58500D46DD2 /* TSNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSNotificationManager.h; path = MCSTabSplitter/Controllers/Notifications/TSNotificationManager.h; sourceTree = SOURCE_ROOT; };
+		04FD49C01AEDC58500D46DD2 /* TSNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSNotificationManager.m; path = MCSTabSplitter/Controllers/Notifications/TSNotificationManager.m; sourceTree = SOURCE_ROOT; };
 		98400D091AF1256600686B62 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "MCSTabSplitter/Third Party/Reachability/Reachability.h"; sourceTree = SOURCE_ROOT; };
 		98400D0A1AF1256600686B62 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "MCSTabSplitter/Third Party/Reachability/Reachability.m"; sourceTree = SOURCE_ROOT; };
 		987FCD531AEE6FE700A5D50D /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsTableViewController.h; path = MCSTabSplitter/Views/Settings/SettingsTableViewController.h; sourceTree = SOURCE_ROOT; };
@@ -499,8 +499,8 @@
 		98F93F851AE161A500BD514F /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				04FD49BF1AEDC58500D46DD2 /* Notifications.h */,
-				04FD49C01AEDC58500D46DD2 /* Notifications.m */,
+				04FD49BF1AEDC58500D46DD2 /* TSNotificationManager.h */,
+				04FD49C01AEDC58500D46DD2 /* TSNotificationManager.m */,
 			);
 			name = Notifications;
 			sourceTree = "<group>";
@@ -598,7 +598,7 @@
 				TargetAttributes = {
 					98F93F1D1AE15DF700BD514F = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = VB9TB448N4;
+						DevelopmentTeam = 46PXCYRCS9;
 					};
 					98F93F391AE15DF700BD514F = {
 						CreatedOnToolsVersion = 6.3;
@@ -656,7 +656,7 @@
 			files = (
 				98A443961AEA8ECE00339D0E /* TSTab.m in Sources */,
 				048097CC1AE7F9DE00C6DB14 /* TSCurrency.m in Sources */,
-				04FD49C11AEDC58500D46DD2 /* Notifications.m in Sources */,
+				04FD49C11AEDC58500D46DD2 /* TSNotificationManager.m in Sources */,
 				0434EAE21AF1AE4B00E5F0FF /* FriendsInTabViewController.m in Sources */,
 				98F93F2A1AE15DF700BD514F /* MCSTabSplitter.xcdatamodeld in Sources */,
 				048097D11AE7F9F900C6DB14 /* TSTabUser.m in Sources */,
@@ -798,8 +798,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: David Amezcua (42GM498338)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: David Amezcua (42GM498338)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -809,7 +809,7 @@
 				INFOPLIST_FILE = MCSTabSplitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "a602a27e-9275-41db-a46f-a13a5fecc753";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -819,8 +819,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: David Amezcua (42GM498338)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: David Amezcua (42GM498338)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -830,7 +830,7 @@
 				INFOPLIST_FILE = MCSTabSplitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "a602a27e-9275-41db-a46f-a13a5fecc753";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
