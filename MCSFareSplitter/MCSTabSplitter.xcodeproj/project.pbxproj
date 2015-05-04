@@ -46,6 +46,7 @@
 		98805F801AECAB8E00EB2A05 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7D1AECAB8E00EB2A05 /* FBSDKCoreKit.framework */; };
 		98805F811AECAB8E00EB2A05 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7E1AECAB8E00EB2A05 /* FBSDKLoginKit.framework */; };
 		98805F821AECAB8E00EB2A05 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7F1AECAB8E00EB2A05 /* FBSDKShareKit.framework */; };
+		989A28E81AF7B0490098D053 /* MCSTabSplitter.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 98C2ED651AF7AFBA00389B36 /* MCSTabSplitter.xcdatamodel */; };
 		98A443941AEA8ECE00339D0E /* TSAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A4438D1AEA8ECE00339D0E /* TSAccount.m */; };
 		98A443951AEA8ECE00339D0E /* TSItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A4438F1AEA8ECE00339D0E /* TSItem.m */; };
 		98A443961AEA8ECE00339D0E /* TSTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A443911AEA8ECE00339D0E /* TSTab.m */; };
@@ -55,7 +56,7 @@
 		98BE94241AED3E0F003BB045 /* TSFacebookController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BE94231AED3E0F003BB045 /* TSFacebookController.m */; };
 		98BE94261AED4460003BB045 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98BE94251AED4460003BB045 /* AddressBook.framework */; };
 		98BE94291AED4866003BB045 /* TSContactsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BE94281AED4866003BB045 /* TSContactsManager.m */; };
-		98F93F2A1AE15DF700BD514F /* MCSTabSplitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F281AE15DF700BD514F /* MCSTabSplitter.xcdatamodeld */; };
+		98C2ED661AF7AFBA00389B36 /* MCSTabSplitter.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 98C2ED651AF7AFBA00389B36 /* MCSTabSplitter.xcdatamodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,8 +164,8 @@
 		98BE94251AED4460003BB045 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		98BE94271AED4866003BB045 /* TSContactsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSContactsManager.h; path = MCSTabSplitter/Singletons/TSContactsManager.h; sourceTree = SOURCE_ROOT; };
 		98BE94281AED4866003BB045 /* TSContactsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSContactsManager.m; path = MCSTabSplitter/Singletons/TSContactsManager.m; sourceTree = SOURCE_ROOT; };
+		98C2ED651AF7AFBA00389B36 /* MCSTabSplitter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = MCSTabSplitter.xcdatamodel; path = MCSTabSplitter.xcdatamodeld/MCSTabSplitter.xcdatamodel; sourceTree = SOURCE_ROOT; };
 		98F93F1E1AE15DF700BD514F /* MCSTabSplitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCSTabSplitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		98F93F291AE15DF700BD514F /* MCSTabSplitter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MCSTabSplitter.xcdatamodel; sourceTree = "<group>"; };
 		98F93F3A1AE15DF700BD514F /* MCSTabSplitterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCSTabSplitterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -411,7 +412,7 @@
 		98F93F4E1AE15F8500BD514F /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				98F93F281AE15DF700BD514F /* MCSTabSplitter.xcdatamodeld */,
+				98C2ED651AF7AFBA00389B36 /* MCSTabSplitter.xcdatamodel */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -666,10 +667,10 @@
 				048097CC1AE7F9DE00C6DB14 /* TSCurrency.m in Sources */,
 				04FD49C11AEDC58500D46DD2 /* TSNotificationManager.m in Sources */,
 				0434EAE21AF1AE4B00E5F0FF /* FriendsInTabViewController.m in Sources */,
-				98F93F2A1AE15DF700BD514F /* MCSTabSplitter.xcdatamodeld in Sources */,
 				048097D11AE7F9F900C6DB14 /* TSTabUser.m in Sources */,
 				048097F81AE7FBF400C6DB14 /* StaticDataTableViewController.m in Sources */,
 				048097D81AE7FA9500C6DB14 /* TSSplitController.m in Sources */,
+				98C2ED661AF7AFBA00389B36 /* MCSTabSplitter.xcdatamodel in Sources */,
 				048097C71AE7F9BB00C6DB14 /* TSDefinitions.m in Sources */,
 				98B4E5281AF3B62A00F701E0 /* TSCoreDataManager.m in Sources */,
 				98BE94291AED4866003BB045 /* TSContactsManager.m in Sources */,
@@ -707,6 +708,7 @@
 				048098061AE7FD1100C6DB14 /* SplitterTests.m in Sources */,
 				048098051AE7FD1100C6DB14 /* MCSFareSplitterTests.m in Sources */,
 				98573FFB1AF3C8F2003D3314 /* CoreDataManagerTests.m in Sources */,
+				989A28E81AF7B0490098D053 /* MCSTabSplitter.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -912,19 +914,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		98F93F281AE15DF700BD514F /* MCSTabSplitter.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				98F93F291AE15DF700BD514F /* MCSTabSplitter.xcdatamodel */,
-			);
-			currentVersion = 98F93F291AE15DF700BD514F /* MCSTabSplitter.xcdatamodel */;
-			path = MCSTabSplitter.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 98F93F161AE15DF700BD514F /* Project object */;
 }
