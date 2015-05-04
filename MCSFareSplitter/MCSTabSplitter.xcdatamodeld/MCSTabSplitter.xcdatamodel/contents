@@ -5,32 +5,54 @@
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="accounts_users" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSUser" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSUser" inverseName="accounts" inverseEntity="TSUser" syncable="YES"/>
     </entity>
     <entity name="TSItem" syncable="YES">
         <attribute name="cost" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="items_users" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSUser" syncable="YES"/>
+        <relationship name="enrolledUsers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TSUser" syncable="YES"/>
     </entity>
     <entity name="TSTab" syncable="YES">
         <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="splitMethod" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="totalAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="transactions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSTransaction" syncable="YES"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TSUserTabSplit" inverseName="tab" inverseEntity="TSUserTabSplit" syncable="YES"/>
+    </entity>
+    <entity name="TSTransaction" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="destination" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSUser" syncable="YES"/>
+        <relationship name="source" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSUser" syncable="YES"/>
     </entity>
     <entity name="TSUser" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="middleName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="profilePicUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userType" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="accounts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TSAccount" inverseName="user" inverseEntity="TSAccount" syncable="YES"/>
+        <relationship name="splits" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TSUserTabSplit" inverseName="user" inverseEntity="TSUserTabSplit" syncable="YES"/>
+    </entity>
+    <entity name="TSUserTabSplit" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="initialAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="userTabType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="tab" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSTab" inverseName="users" inverseEntity="TSTab" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSUser" inverseName="splits" inverseEntity="TSUser" syncable="YES"/>
     </entity>
     <elements>
         <element name="TSAccount" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="TSItem" positionX="-54" positionY="18" width="128" height="90"/>
-        <element name="TSTab" positionX="-18" positionY="81" width="128" height="120"/>
-        <element name="TSUser" positionX="-36" positionY="36" width="128" height="135"/>
+        <element name="TSTab" positionX="-18" positionY="81" width="128" height="180"/>
+        <element name="TSUser" positionX="-36" positionY="36" width="128" height="180"/>
+        <element name="TSTransaction" positionX="-36" positionY="81" width="128" height="105"/>
+        <element name="TSUserTabSplit" positionX="-27" positionY="108" width="128" height="120"/>
     </elements>
 </model>
