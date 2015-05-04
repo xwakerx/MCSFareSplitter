@@ -48,6 +48,12 @@
 		98805F811AECAB8E00EB2A05 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7E1AECAB8E00EB2A05 /* FBSDKLoginKit.framework */; };
 		98805F821AECAB8E00EB2A05 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7F1AECAB8E00EB2A05 /* FBSDKShareKit.framework */; };
 		989A28E81AF7B0490098D053 /* MCSTabSplitter.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 98C2ED651AF7AFBA00389B36 /* MCSTabSplitter.xcdatamodel */; };
+		989A293F1AF7D2200098D053 /* TSCDAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A29341AF7D2200098D053 /* TSCDAccount.m */; };
+		989A29401AF7D2200098D053 /* TSCDItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A29361AF7D2200098D053 /* TSCDItem.m */; };
+		989A29411AF7D2200098D053 /* TSCDTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A29381AF7D2200098D053 /* TSCDTab.m */; };
+		989A29421AF7D2200098D053 /* TSCDTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A293A1AF7D2200098D053 /* TSCDTransaction.m */; };
+		989A29431AF7D2200098D053 /* TSCDUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A293C1AF7D2200098D053 /* TSCDUser.m */; };
+		989A29441AF7D2200098D053 /* TSCDUserTabSplit.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A293E1AF7D2200098D053 /* TSCDUserTabSplit.m */; };
 		98A443941AEA8ECE00339D0E /* TSAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A4438D1AEA8ECE00339D0E /* TSAccount.m */; };
 		98A443951AEA8ECE00339D0E /* TSItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A4438F1AEA8ECE00339D0E /* TSItem.m */; };
 		98A443961AEA8ECE00339D0E /* TSTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A443911AEA8ECE00339D0E /* TSTab.m */; };
@@ -150,6 +156,18 @@
 		98805F7D1AECAB8E00EB2A05 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = MCSTabSplitter/Frameworks/FBSDKCoreKit.framework; sourceTree = SOURCE_ROOT; };
 		98805F7E1AECAB8E00EB2A05 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = MCSTabSplitter/Frameworks/FBSDKLoginKit.framework; sourceTree = SOURCE_ROOT; };
 		98805F7F1AECAB8E00EB2A05 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = MCSTabSplitter/Frameworks/FBSDKShareKit.framework; sourceTree = SOURCE_ROOT; };
+		989A29331AF7D2200098D053 /* TSCDAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSCDAccount.h; path = "MCSTabSplitter/Models/Core Data/Managed Objects/TSCDAccount.h"; sourceTree = SOURCE_ROOT; };
+		989A29341AF7D2200098D053 /* TSCDAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSCDAccount.m; path = "MCSTabSplitter/Models/Core Data/Managed Objects/TSCDAccount.m"; sourceTree = SOURCE_ROOT; };
+		989A29351AF7D2200098D053 /* TSCDItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSCDItem.h; path = "MCSTabSplitter/Models/Core Data/Managed Objects/TSCDItem.h"; sourceTree = SOURCE_ROOT; };
+		989A29361AF7D2200098D053 /* TSCDItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSCDItem.m; path = "MCSTabSplitter/Models/Core Data/Managed Objects/TSCDItem.m"; sourceTree = SOURCE_ROOT; };
+		989A29371AF7D2200098D053 /* TSCDTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSCDTab.h; path = "MCSTabSplitter/Models/Core Data/Managed Objects/TSCDTab.h"; sourceTree = SOURCE_ROOT; };
+		989A29381AF7D2200098D053 /* TSCDTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSCDTab.m; path = "MCSTabSplitter/Models/Core Data/Managed Objects/TSCDTab.m"; sourceTree = SOURCE_ROOT; };
+		989A29391AF7D2200098D053 /* TSCDTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSCDTransaction.h; path = "MCSTabSplitter/Models/Core Data/Managed Objects/TSCDTransaction.h"; sourceTree = SOURCE_ROOT; };
+		989A293A1AF7D2200098D053 /* TSCDTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSCDTransaction.m; path = "MCSTabSplitter/Models/Core Data/Managed Objects/TSCDTransaction.m"; sourceTree = SOURCE_ROOT; };
+		989A293B1AF7D2200098D053 /* TSCDUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSCDUser.h; path = "MCSTabSplitter/Models/Core Data/Managed Objects/TSCDUser.h"; sourceTree = SOURCE_ROOT; };
+		989A293C1AF7D2200098D053 /* TSCDUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSCDUser.m; path = "MCSTabSplitter/Models/Core Data/Managed Objects/TSCDUser.m"; sourceTree = SOURCE_ROOT; };
+		989A293D1AF7D2200098D053 /* TSCDUserTabSplit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSCDUserTabSplit.h; path = "MCSTabSplitter/Models/Core Data/Managed Objects/TSCDUserTabSplit.h"; sourceTree = SOURCE_ROOT; };
+		989A293E1AF7D2200098D053 /* TSCDUserTabSplit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSCDUserTabSplit.m; path = "MCSTabSplitter/Models/Core Data/Managed Objects/TSCDUserTabSplit.m"; sourceTree = SOURCE_ROOT; };
 		98A4438C1AEA8ECE00339D0E /* TSAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSAccount.h; path = MCSTabSplitter/Models/General/TSAccount.h; sourceTree = SOURCE_ROOT; };
 		98A4438D1AEA8ECE00339D0E /* TSAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSAccount.m; path = MCSTabSplitter/Models/General/TSAccount.m; sourceTree = SOURCE_ROOT; };
 		98A4438E1AEA8ECE00339D0E /* TSItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSItem.h; path = MCSTabSplitter/Models/General/TSItem.h; sourceTree = SOURCE_ROOT; };
@@ -301,6 +319,26 @@
 			name = Reachability;
 			sourceTree = "<group>";
 		};
+		989A28EA1AF7D0980098D053 /* Managed Objects */ = {
+			isa = PBXGroup;
+			children = (
+				989A29331AF7D2200098D053 /* TSCDAccount.h */,
+				989A29341AF7D2200098D053 /* TSCDAccount.m */,
+				989A29351AF7D2200098D053 /* TSCDItem.h */,
+				989A29361AF7D2200098D053 /* TSCDItem.m */,
+				989A29371AF7D2200098D053 /* TSCDTab.h */,
+				989A29381AF7D2200098D053 /* TSCDTab.m */,
+				989A29391AF7D2200098D053 /* TSCDTransaction.h */,
+				989A293A1AF7D2200098D053 /* TSCDTransaction.m */,
+				989A293B1AF7D2200098D053 /* TSCDUser.h */,
+				989A293C1AF7D2200098D053 /* TSCDUser.m */,
+				989A293D1AF7D2200098D053 /* TSCDUserTabSplit.h */,
+				989A293E1AF7D2200098D053 /* TSCDUserTabSplit.m */,
+			);
+			name = "Managed Objects";
+			path = "MCSTabSplitter/Models/Managed Objects";
+			sourceTree = SOURCE_ROOT;
+		};
 		98F93F151AE15DF700BD514F = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +455,7 @@
 		98F93F4E1AE15F8500BD514F /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				989A28EA1AF7D0980098D053 /* Managed Objects */,
 				98C2ED651AF7AFBA00389B36 /* MCSTabSplitter.xcdatamodel */,
 			);
 			name = "Core Data";
@@ -677,11 +716,15 @@
 				048097F81AE7FBF400C6DB14 /* StaticDataTableViewController.m in Sources */,
 				048097D81AE7FA9500C6DB14 /* TSSplitController.m in Sources */,
 				98C2ED661AF7AFBA00389B36 /* MCSTabSplitter.xcdatamodel in Sources */,
+				989A29441AF7D2200098D053 /* TSCDUserTabSplit.m in Sources */,
 				048097C71AE7F9BB00C6DB14 /* TSDefinitions.m in Sources */,
+				989A29401AF7D2200098D053 /* TSCDItem.m in Sources */,
 				98B4E5281AF3B62A00F701E0 /* TSCoreDataManager.m in Sources */,
+				989A293F1AF7D2200098D053 /* TSCDAccount.m in Sources */,
 				98BE94291AED4866003BB045 /* TSContactsManager.m in Sources */,
 				048097DC1AE7FB3B00C6DB14 /* AppDelegate.m in Sources */,
 				0434EADC1AF142D100E5F0FF /* TabTitleTableViewController.m in Sources */,
+				989A29421AF7D2200098D053 /* TSCDTransaction.m in Sources */,
 				0483ECF81AED3C7C00BD6DFC /* TSTabController.m in Sources */,
 				98A443951AEA8ECE00339D0E /* TSItem.m in Sources */,
 				048097C41AE7F9A800C6DB14 /* TSUtilities.m in Sources */,
@@ -693,6 +736,7 @@
 				048097D21AE7F9F900C6DB14 /* TSUser.m in Sources */,
 				0434EAF51AF3E4FF00E5F0FF /* AddGhostTableViewCell.m in Sources */,
 				048097FC1AE7FC1A00C6DB14 /* main.m in Sources */,
+				989A29431AF7D2200098D053 /* TSCDUser.m in Sources */,
 				0434EAE91AF1AE6B00E5F0FF /* SplitTabViewController.m in Sources */,
 				04C825901AECAE9600237635 /* TSLoginViewController.m in Sources */,
 				04C825A21AEDA7FB00237635 /* HomeViewController.m in Sources */,
@@ -703,6 +747,7 @@
 				98BE94241AED3E0F003BB045 /* TSFacebookManager.m in Sources */,
 				987FCD551AEE6FE700A5D50D /* SettingsTableViewController.m in Sources */,
 				987FCD581AEE8F3B00A5D50D /* ContactsTableViewController.m in Sources */,
+				989A29411AF7D2200098D053 /* TSCDTab.m in Sources */,
 				98A443971AEA8ECE00339D0E /* TSTransaction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
