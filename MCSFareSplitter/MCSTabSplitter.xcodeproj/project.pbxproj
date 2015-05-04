@@ -48,6 +48,12 @@
 		98805F811AECAB8E00EB2A05 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7E1AECAB8E00EB2A05 /* FBSDKLoginKit.framework */; };
 		98805F821AECAB8E00EB2A05 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98805F7F1AECAB8E00EB2A05 /* FBSDKShareKit.framework */; };
 		989A28E81AF7B0490098D053 /* MCSTabSplitter.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 98C2ED651AF7AFBA00389B36 /* MCSTabSplitter.xcdatamodel */; };
+		989A28ED1AF7D0C80098D053 /* TSUserTabSplit.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A28EC1AF7D0C80098D053 /* TSUserTabSplit.m */; };
+		989A28F01AF7D0C90098D053 /* TSItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A28EF1AF7D0C90098D053 /* TSItem.m */; };
+		989A28F31AF7D0C90098D053 /* TSAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A28F21AF7D0C90098D053 /* TSAccount.m */; };
+		989A28F61AF7D0C90098D053 /* TSTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A28F51AF7D0C90098D053 /* TSTransaction.m */; };
+		989A28F91AF7D0C90098D053 /* TSTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A28F81AF7D0C90098D053 /* TSTab.m */; };
+		989A28FC1AF7D0C90098D053 /* TSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A28FB1AF7D0C90098D053 /* TSUser.m */; };
 		98A443941AEA8ECE00339D0E /* TSAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A4438D1AEA8ECE00339D0E /* TSAccount.m */; };
 		98A443951AEA8ECE00339D0E /* TSItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A4438F1AEA8ECE00339D0E /* TSItem.m */; };
 		98A443961AEA8ECE00339D0E /* TSTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A443911AEA8ECE00339D0E /* TSTab.m */; };
@@ -150,6 +156,18 @@
 		98805F7D1AECAB8E00EB2A05 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = MCSTabSplitter/Frameworks/FBSDKCoreKit.framework; sourceTree = SOURCE_ROOT; };
 		98805F7E1AECAB8E00EB2A05 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = MCSTabSplitter/Frameworks/FBSDKLoginKit.framework; sourceTree = SOURCE_ROOT; };
 		98805F7F1AECAB8E00EB2A05 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = MCSTabSplitter/Frameworks/FBSDKShareKit.framework; sourceTree = SOURCE_ROOT; };
+		989A28EB1AF7D0C80098D053 /* TSUserTabSplit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSUserTabSplit.h; path = "../Core Data/Managed Objects/TSUserTabSplit.h"; sourceTree = "<group>"; };
+		989A28EC1AF7D0C80098D053 /* TSUserTabSplit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSUserTabSplit.m; path = "../Core Data/Managed Objects/TSUserTabSplit.m"; sourceTree = "<group>"; };
+		989A28EE1AF7D0C90098D053 /* TSItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSItem.h; path = "../Core Data/Managed Objects/TSItem.h"; sourceTree = "<group>"; };
+		989A28EF1AF7D0C90098D053 /* TSItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSItem.m; path = "../Core Data/Managed Objects/TSItem.m"; sourceTree = "<group>"; };
+		989A28F11AF7D0C90098D053 /* TSAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSAccount.h; path = "../Core Data/Managed Objects/TSAccount.h"; sourceTree = "<group>"; };
+		989A28F21AF7D0C90098D053 /* TSAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSAccount.m; path = "../Core Data/Managed Objects/TSAccount.m"; sourceTree = "<group>"; };
+		989A28F41AF7D0C90098D053 /* TSTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSTransaction.h; path = "../Core Data/Managed Objects/TSTransaction.h"; sourceTree = "<group>"; };
+		989A28F51AF7D0C90098D053 /* TSTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSTransaction.m; path = "../Core Data/Managed Objects/TSTransaction.m"; sourceTree = "<group>"; };
+		989A28F71AF7D0C90098D053 /* TSTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSTab.h; path = "../Core Data/Managed Objects/TSTab.h"; sourceTree = "<group>"; };
+		989A28F81AF7D0C90098D053 /* TSTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSTab.m; path = "../Core Data/Managed Objects/TSTab.m"; sourceTree = "<group>"; };
+		989A28FA1AF7D0C90098D053 /* TSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSUser.h; path = "../Core Data/Managed Objects/TSUser.h"; sourceTree = "<group>"; };
+		989A28FB1AF7D0C90098D053 /* TSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSUser.m; path = "../Core Data/Managed Objects/TSUser.m"; sourceTree = "<group>"; };
 		98A4438C1AEA8ECE00339D0E /* TSAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSAccount.h; path = MCSTabSplitter/Models/General/TSAccount.h; sourceTree = SOURCE_ROOT; };
 		98A4438D1AEA8ECE00339D0E /* TSAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSAccount.m; path = MCSTabSplitter/Models/General/TSAccount.m; sourceTree = SOURCE_ROOT; };
 		98A4438E1AEA8ECE00339D0E /* TSItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSItem.h; path = MCSTabSplitter/Models/General/TSItem.h; sourceTree = SOURCE_ROOT; };
@@ -301,6 +319,26 @@
 			name = Reachability;
 			sourceTree = "<group>";
 		};
+		989A28EA1AF7D0980098D053 /* Managed Objects */ = {
+			isa = PBXGroup;
+			children = (
+				989A28FA1AF7D0C90098D053 /* TSUser.h */,
+				989A28FB1AF7D0C90098D053 /* TSUser.m */,
+				989A28F71AF7D0C90098D053 /* TSTab.h */,
+				989A28F81AF7D0C90098D053 /* TSTab.m */,
+				989A28F41AF7D0C90098D053 /* TSTransaction.h */,
+				989A28F51AF7D0C90098D053 /* TSTransaction.m */,
+				989A28F11AF7D0C90098D053 /* TSAccount.h */,
+				989A28F21AF7D0C90098D053 /* TSAccount.m */,
+				989A28EE1AF7D0C90098D053 /* TSItem.h */,
+				989A28EF1AF7D0C90098D053 /* TSItem.m */,
+				989A28EB1AF7D0C80098D053 /* TSUserTabSplit.h */,
+				989A28EC1AF7D0C80098D053 /* TSUserTabSplit.m */,
+			);
+			name = "Managed Objects";
+			path = "MCSTabSplitter/Models/Managed Objects";
+			sourceTree = SOURCE_ROOT;
+		};
 		98F93F151AE15DF700BD514F = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +455,7 @@
 		98F93F4E1AE15F8500BD514F /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				989A28EA1AF7D0980098D053 /* Managed Objects */,
 				98C2ED651AF7AFBA00389B36 /* MCSTabSplitter.xcdatamodel */,
 			);
 			name = "Core Data";
@@ -668,8 +707,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				989A28F91AF7D0C90098D053 /* TSTab.m in Sources */,
 				98A443961AEA8ECE00339D0E /* TSTab.m in Sources */,
 				048097CC1AE7F9DE00C6DB14 /* TSCurrency.m in Sources */,
+				989A28ED1AF7D0C80098D053 /* TSUserTabSplit.m in Sources */,
+				989A28F31AF7D0C90098D053 /* TSAccount.m in Sources */,
 				04FD49C11AEDC58500D46DD2 /* TSNotificationManager.m in Sources */,
 				0434EAF81AF4048900E5F0FF /* PayerTableViewCell.m in Sources */,
 				0434EAE21AF1AE4B00E5F0FF /* FriendsInTabViewController.m in Sources */,
@@ -689,9 +731,12 @@
 				98400D0B1AF1256600686B62 /* Reachability.m in Sources */,
 				98A4439A1AEA92BD00339D0E /* TSUserTabSplit.m in Sources */,
 				0434EAEC1AF1AEC500E5F0FF /* ItemsViewController.m in Sources */,
+				989A28F61AF7D0C90098D053 /* TSTransaction.m in Sources */,
+				989A28FC1AF7D0C90098D053 /* TSUser.m in Sources */,
 				98A443941AEA8ECE00339D0E /* TSAccount.m in Sources */,
 				048097D21AE7F9F900C6DB14 /* TSUser.m in Sources */,
 				0434EAF51AF3E4FF00E5F0FF /* AddGhostTableViewCell.m in Sources */,
+				989A28F01AF7D0C90098D053 /* TSItem.m in Sources */,
 				048097FC1AE7FC1A00C6DB14 /* main.m in Sources */,
 				0434EAE91AF1AE6B00E5F0FF /* SplitTabViewController.m in Sources */,
 				04C825901AECAE9600237635 /* TSLoginViewController.m in Sources */,
