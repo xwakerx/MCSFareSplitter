@@ -7,7 +7,7 @@
 //
 
 #import "TSCDItem.h"
-#import "TSCDUser.h"
+#import "TSCDUserTabSplit.h"
 
 
 @implementation TSCDItem

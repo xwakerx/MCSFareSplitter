@@ -43,6 +43,8 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
+    
     if(self.loginButton.isHidden && ![FBSDKAccessToken currentAccessToken])
     {
         self.loginButton.hidden = NO;

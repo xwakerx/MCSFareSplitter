@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class TSCDTransaction, TSCDUserTabSplit;
+@class TSCDItem, TSCDTransaction, TSCDUserTabSplit;
 
 @interface TSCDTab : NSManagedObject
 
@@ -20,15 +20,26 @@
 @property (nonatomic, retain) NSNumber * status;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSNumber * totalAmount;
-@property (nonatomic, retain) TSCDTransaction *transactions;
+@property (nonatomic, retain) NSSet *transactions;
 @property (nonatomic, retain) NSSet *users;
+@property (nonatomic, retain) NSSet *items;
 @end
 
 @interface TSCDTab (CoreDataGeneratedAccessors)
+
+- (void)addTransactionsObject:(TSCDTransaction *)value;
+- (void)removeTransactionsObject:(TSCDTransaction *)value;
+- (void)addTransactions:(NSSet *)values;
+- (void)removeTransactions:(NSSet *)values;
 
 - (void)addUsersObject:(TSCDUserTabSplit *)value;
 - (void)removeUsersObject:(TSCDUserTabSplit *)value;
 - (void)addUsers:(NSSet *)values;
 - (void)removeUsers:(NSSet *)values;
+
+- (void)addItemsObject:(TSCDItem *)value;
+- (void)removeItemsObject:(TSCDItem *)value;
+- (void)addItems:(NSSet *)values;
+- (void)removeItems:(NSSet *)values;
 
 @end

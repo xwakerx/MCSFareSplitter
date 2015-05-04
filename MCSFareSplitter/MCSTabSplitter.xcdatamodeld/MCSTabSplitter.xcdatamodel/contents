@@ -10,7 +10,7 @@
     <entity name="TSCDItem" representedClassName="TSCDItem" syncable="YES">
         <attribute name="cost" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="enrolledUsers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TSCDUser" syncable="YES"/>
+        <relationship name="enrolledUsers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TSCDUserTabSplit" syncable="YES"/>
     </entity>
     <entity name="TSCDTab" representedClassName="TSCDTab" syncable="YES">
         <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
@@ -20,8 +20,9 @@
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="totalAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="transactions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSCDTransaction" syncable="YES"/>
-        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TSCDUserTabSplit" inverseName="tab" inverseEntity="TSCDUserTabSplit" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TSCDItem" syncable="YES"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TSCDTransaction" syncable="YES"/>
+        <relationship name="users" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSCDUserTabSplit" inverseName="tab" inverseEntity="TSCDUserTabSplit" syncable="YES"/>
     </entity>
     <entity name="TSCDTransaction" representedClassName="TSCDTransaction" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -50,7 +51,7 @@
     <elements>
         <element name="TSCDAccount" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="TSCDItem" positionX="-54" positionY="18" width="128" height="90"/>
-        <element name="TSCDTab" positionX="-18" positionY="81" width="128" height="180"/>
+        <element name="TSCDTab" positionX="-18" positionY="81" width="128" height="195"/>
         <element name="TSCDTransaction" positionX="-36" positionY="81" width="128" height="105"/>
         <element name="TSCDUser" positionX="-36" positionY="36" width="128" height="180"/>
         <element name="TSCDUserTabSplit" positionX="-27" positionY="108" width="128" height="120"/>

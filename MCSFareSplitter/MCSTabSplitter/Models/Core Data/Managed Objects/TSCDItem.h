@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class TSCDUser;
+@class TSCDUserTabSplit;
 
 @interface TSCDItem : NSManagedObject
 
@@ -20,8 +20,8 @@
 
 @interface TSCDItem (CoreDataGeneratedAccessors)
 
-- (void)addEnrolledUsersObject:(TSCDUser *)value;
-- (void)removeEnrolledUsersObject:(TSCDUser *)value;
+- (void)addEnrolledUsersObject:(TSCDUserTabSplit *)value;
+- (void)removeEnrolledUsersObject:(TSCDUserTabSplit *)value;
 - (void)addEnrolledUsers:(NSSet *)values;
 - (void)removeEnrolledUsers:(NSSet *)values;
 

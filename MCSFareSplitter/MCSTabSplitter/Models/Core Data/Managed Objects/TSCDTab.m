@@ -7,6 +7,7 @@
 //
 
 #import "TSCDTab.h"
+#import "TSCDItem.h"
 #import "TSCDTransaction.h"
 #import "TSCDUserTabSplit.h"
 
@@ -22,5 +23,6 @@
 @dynamic totalAmount;
 @dynamic transactions;
 @dynamic users;
+@dynamic items;
 
 @end

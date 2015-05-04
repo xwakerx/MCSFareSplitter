@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "TSCoreDataManager.h"
+#import "TSCDUser.h"
+
+static NSString *const kUserEntity = @"TSCDUser";
 
 @interface CoreDataManagerTests : XCTestCase
 
@@ -28,12 +31,12 @@
 
 -(void)testFetch
 {
-    NSArray *users = [[TSCoreDataManager sharedManager] fetchObjectsFromEntity:@"TSUser" where:@[@"userType"] isEqualTo:@[@0]];
+    NSArray *users = [[TSCoreDataManager sharedManager] fetchObjectsFromEntity:kUserEntity where:@[@"userType"] isEqualTo:@[@0]];
     XCTAssertNotNil(users);
     
     NSLog(@"**************");
     NSLog(@"Fetch returned %li users:", (long)users.count);
-    for (NSManagedObject *user in users)
+    for (TSCDUser *user in users)
     {
         [self printUser:user];
     }
@@ -43,12 +46,12 @@
 
 -(void)testOrderedFetch
 {
-    NSArray *users = [[TSCoreDataManager sharedManager] fetchObjectsFromEntity:@"TSUser" where:@[@"userType"] isEqualTo:@[@0] sortedByAttribute:@"lastName"];
+    NSArray *users = [[TSCoreDataManager sharedManager] fetchObjectsFromEntity:kUserEntity where:@[@"userType"] isEqualTo:@[@0] sortedByAttribute:@"lastName"];
     XCTAssertNotNil(users);
     
     NSLog(@"**************");
     NSLog(@"Fetch returned %li users:", (long)users.count);
-    for (NSManagedObject *user in users)
+    for (TSCDUser *user in users)
     {
         [self printUser:user];
     }
@@ -58,46 +61,50 @@
 
 -(void)testInsert
 {
-    [[TSCoreDataManager sharedManager] insertObjectWithEntity:@"TSUser"
+    [[TSCoreDataManager sharedManager] insertObjectWithEntity:kUserEntity
                                            withInsertionBlock:^(NSManagedObject *managedObject){
-        
-        XCTAssertNotNil(managedObject);
-        
-        [managedObject setValue:@"Sergio" forKey:@"firstName"];
-        [managedObject setValue:@"Cerezo" forKey:@"lastName"];
-        [managedObject setValue:@"wakex" forKey:@"username"];
-        [managedObject setValue:@"sergio_wake@gmail.com" forKey:@"email"];
-        [managedObject setValue:@0 forKey:@"userType"];
-        
-        return YES;
-    }];
+                                               if([managedObject isKindOfClass:[TSCDUser class]])
+                                               {
+                                                   TSCDUser *user = (TSCDUser *)managedObject;
+                                                   
+                                                   user.firstName = @"Manuel";
+                                                   user.lastName = @"Camacho";
+                                                   user.username = @"bloq";
+                                                   user.email = @"bloqmacr@me.com";
+                                                   user.userType = @0;
+                                                   
+                                                   return YES;
+                                               }
+                                               return NO;
+                                           }];
 }
 
--(void)printUser:(NSManagedObject *)user
+-(void)printUser:(TSCDUser *)user
 {
-    NSLog(@"Name: %@ %@", [user valueForKey:@"firstName"], [user valueForKey:@"lastName"]);
-    NSLog(@"Email: %@", [user valueForKey:@"email"]);
-    NSLog(@"Username: %@", [user valueForKey:@"username"]);
+    NSLog(@"Name: %@ %@", user.firstName, user.lastName);
+    NSLog(@"Email: %@", user.email);
+    NSLog(@"Username: %@",user.username);
     NSLog(@"-----");
-
+    
 }
 
 -(void)testUpdate
 {
-    [[TSCoreDataManager sharedManager]updateObjectsFromEntity:@"TSUser"
+    [[TSCoreDataManager sharedManager]updateObjectsFromEntity:kUserEntity
                                                         where:@[@"firstName"]
                                                     isEqualTo:@[@"manuel"]
                                               withUpdateBlock:^(NSManagedObject *managedObject){
-                                                  
-                                                  XCTAssertNotNil(managedObject);
-                                                  
-                                                  [managedObject setValue:@"Camacho Rivera" forKey:@"lastName"];
-    }];
+                                                  if([managedObject isKindOfClass:[TSCDUser class]])
+                                                  {
+                                                      TSCDUser *user = (TSCDUser *)managedObject;
+                                                      user.lastName = @"Camacho Rivera";
+                                                  }
+                                              }];
 }
 
 -(void)testDelete
 {
-    NSArray *users = [[TSCoreDataManager sharedManager] fetchObjectsFromEntity:@"TSUser" where:@[@"firstName"] isEqualTo:@[@"manuel"]];
+    NSArray *users = [[TSCoreDataManager sharedManager] fetchObjectsFromEntity:kUserEntity where:@[@"firstName"] isEqualTo:@[@"manuel"]];
 
     for (NSManagedObject *user in users)
     {

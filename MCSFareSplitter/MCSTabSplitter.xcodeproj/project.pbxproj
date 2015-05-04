@@ -54,6 +54,7 @@
 		989A29421AF7D2200098D053 /* TSCDTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A293A1AF7D2200098D053 /* TSCDTransaction.m */; };
 		989A29431AF7D2200098D053 /* TSCDUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A293C1AF7D2200098D053 /* TSCDUser.m */; };
 		989A29441AF7D2200098D053 /* TSCDUserTabSplit.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A293E1AF7D2200098D053 /* TSCDUserTabSplit.m */; };
+		989A29481AF7D4D30098D053 /* TSCoreDataBridgingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A29471AF7D4D30098D053 /* TSCoreDataBridgingController.m */; };
 		98A443941AEA8ECE00339D0E /* TSAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A4438D1AEA8ECE00339D0E /* TSAccount.m */; };
 		98A443951AEA8ECE00339D0E /* TSItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A4438F1AEA8ECE00339D0E /* TSItem.m */; };
 		98A443961AEA8ECE00339D0E /* TSTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A443911AEA8ECE00339D0E /* TSTab.m */; };
@@ -168,6 +169,8 @@
 		989A293C1AF7D2200098D053 /* TSCDUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSCDUser.m; path = "MCSTabSplitter/Models/Core Data/Managed Objects/TSCDUser.m"; sourceTree = SOURCE_ROOT; };
 		989A293D1AF7D2200098D053 /* TSCDUserTabSplit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSCDUserTabSplit.h; path = "MCSTabSplitter/Models/Core Data/Managed Objects/TSCDUserTabSplit.h"; sourceTree = SOURCE_ROOT; };
 		989A293E1AF7D2200098D053 /* TSCDUserTabSplit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSCDUserTabSplit.m; path = "MCSTabSplitter/Models/Core Data/Managed Objects/TSCDUserTabSplit.m"; sourceTree = SOURCE_ROOT; };
+		989A29461AF7D4D30098D053 /* TSCoreDataBridgingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCoreDataBridgingController.h; sourceTree = "<group>"; };
+		989A29471AF7D4D30098D053 /* TSCoreDataBridgingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCoreDataBridgingController.m; sourceTree = "<group>"; };
 		98A4438C1AEA8ECE00339D0E /* TSAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSAccount.h; path = MCSTabSplitter/Models/General/TSAccount.h; sourceTree = SOURCE_ROOT; };
 		98A4438D1AEA8ECE00339D0E /* TSAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSAccount.m; path = MCSTabSplitter/Models/General/TSAccount.m; sourceTree = SOURCE_ROOT; };
 		98A4438E1AEA8ECE00339D0E /* TSItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSItem.h; path = MCSTabSplitter/Models/General/TSItem.h; sourceTree = SOURCE_ROOT; };
@@ -339,6 +342,16 @@
 			path = "MCSTabSplitter/Models/Managed Objects";
 			sourceTree = SOURCE_ROOT;
 		};
+		989A29451AF7D4C40098D053 /* Core Data Bridging */ = {
+			isa = PBXGroup;
+			children = (
+				989A29461AF7D4D30098D053 /* TSCoreDataBridgingController.h */,
+				989A29471AF7D4D30098D053 /* TSCoreDataBridgingController.m */,
+			);
+			name = "Core Data Bridging";
+			path = "MCSTabSplitter/Controllers/Core Data Bridging";
+			sourceTree = SOURCE_ROOT;
+		};
 		98F93F151AE15DF700BD514F = {
 			isa = PBXGroup;
 			children = (
@@ -464,6 +477,7 @@
 		98F93F4F1AE15FDC00BD514F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				989A29451AF7D4C40098D053 /* Core Data Bridging */,
 				0483ECF51AED3C0900BD6DFC /* Tabs */,
 				98F93F8A1AE1631100BD514F /* Splitter */,
 				98F93F851AE161A500BD514F /* Notifications */,
@@ -732,6 +746,7 @@
 				98400D0B1AF1256600686B62 /* Reachability.m in Sources */,
 				98A4439A1AEA92BD00339D0E /* TSUserTabSplit.m in Sources */,
 				0434EAEC1AF1AEC500E5F0FF /* ItemsViewController.m in Sources */,
+				989A29481AF7D4D30098D053 /* TSCoreDataBridgingController.m in Sources */,
 				98A443941AEA8ECE00339D0E /* TSAccount.m in Sources */,
 				048097D21AE7F9F900C6DB14 /* TSUser.m in Sources */,
 				0434EAF51AF3E4FF00E5F0FF /* AddGhostTableViewCell.m in Sources */,
