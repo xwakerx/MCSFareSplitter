@@ -170,6 +170,22 @@ static NSString *ciAddGhost = @"addGhostCell";
     return 44;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(tableView == self.tvPayers){
+        return YES;
+    }
+    return NO;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(tableView == self.tvPayers){
+        if (editingStyle == UITableViewCellEditingStyleDelete) {
+            [self.payers removeObjectAtIndex:indexPath.row];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+    }
+}
+
 #pragma mark - textfield management
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
