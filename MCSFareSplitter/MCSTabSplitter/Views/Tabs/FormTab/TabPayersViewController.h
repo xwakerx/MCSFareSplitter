@@ -13,4 +13,6 @@
 @property (strong, nonatomic) NSMutableArray *payers;
 @property (strong, nonatomic) NSMutableArray *contactsToAdd;
 
+-(void)updateTotalAmount;
+
 @end

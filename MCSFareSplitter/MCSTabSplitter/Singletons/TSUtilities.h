@@ -15,6 +15,7 @@
 +(void) showAlertInController:(UIViewController *) controller withTitle:(NSString *) title withMessage:(NSString *) message;
 
 + (NSString *) getDateString:(NSDate *) date;
++ (NSString *) getCurrencyString:(NSNumber *) amount;
 
 + (Boolean) charsAreValidAmount:(NSString *) amount;
 

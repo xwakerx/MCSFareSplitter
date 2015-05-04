@@ -37,6 +37,18 @@
     return [dateFormat stringFromDate:date];
 }
 
++ (NSString *) getCurrencyString:(NSNumber *) amount{
+    NSNumberFormatter *currencyStyle = [[NSNumberFormatter alloc] init];
+    
+    // set options.
+    [currencyStyle setFormatterBehavior:NSNumberFormatterBehavior10_4];
+    [currencyStyle setNumberStyle:NSNumberFormatterCurrencyStyle];
+    
+    // get formatted string
+    NSString* formatted = [currencyStyle stringFromNumber:amount];
+    return formatted;
+}
+
 + (Boolean) charsAreValidAmount:(NSString *) amount{
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^([0-9]|\\.|\\$|\\,)*$" options:NSRegularExpressionCaseInsensitive error:nil];
     NSTextCheckingResult *match = [regex firstMatchInString:amount options:0 range:NSMakeRange(0, [amount length])];

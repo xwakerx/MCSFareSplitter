@@ -13,9 +13,12 @@
 #import "TSContactsManager.h"
 #import "AddGhostTableViewCell.h"
 #import "TSUtilities.h"
+#import "PayerTableViewCell.h"
+#import "TSUserTabSplit.h"
 
 static NSString *ciContactToAdd = @"contactToAddCell";
 static NSString *ciPayer = @"payerCell";
+static NSString *ciGhostPayer = @"ghostPayerCell";
 static NSString *ciAddGhost = @"addGhostCell";
 
 @interface TabPayersViewController ()
@@ -27,6 +30,7 @@ static NSString *ciAddGhost = @"addGhostCell";
 @property (weak, nonatomic) IBOutlet UIButton *btnSearch;
 @property (weak, nonatomic) IBOutlet UITableView *tvPayers;
 @property (weak, nonatomic) IBOutlet UITableView *tvSearch;
+@property (weak, nonatomic) IBOutlet UILabel *lblTotalAmount;
 
 @property (nonatomic) bool isSearching;
 
@@ -70,12 +74,24 @@ static NSString *ciAddGhost = @"addGhostCell";
     TSTabUser *tmpUser;
     
     if(tableView == self.tvPayers){
-        tmpCell = [self.tvPayers dequeueReusableCellWithIdentifier:ciPayer];
-        if(tmpCell==nil){
-            tmpCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ciPayer];
+        NSString *cellIdentifier = ciPayer;
+        TSUserTabSplit *tmpSplitUser = [self.payers objectAtIndex:indexPath.row];
+        if(tmpSplitUser.user.userType == TSTabUser.TSUserTypeGhost){
+            cellIdentifier=ciGhostPayer;
         }
-        tmpUser = [self.payers objectAtIndex:indexPath.row];
-        tmpCell.accessoryType = UITableViewCellAccessoryNone;
+        PayerTableViewCell *cell = [self.tvPayers dequeueReusableCellWithIdentifier:cellIdentifier];
+        if(cell==nil){
+            cell = [[PayerTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        }
+        cell.lblName.text = tmpSplitUser.user.fullName;
+        cell.lblEmail.text = tmpSplitUser.user.email;
+        
+        cell.tabUser = tmpSplitUser;
+        cell.tpVC = self;
+        
+        [cell setDoneButton];
+        
+        return cell;
     }else if(tableView == self.tvSearch){
         tmpUser = [self.contactsToAdd objectAtIndex:indexPath.row];
         if(tmpUser.userType == TSTabUser.TSUserTypeAction){
@@ -91,7 +107,8 @@ static NSString *ciAddGhost = @"addGhostCell";
                 tmpCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ciContactToAdd];
             }
             
-            if([self userIsPayer: tmpUser]){
+            TSUserTabSplit *tmptmpUser = [[TSUserTabSplit alloc] initWithPayerUser:tmpUser andTab:nil withAmount:@0];
+            if([self userIsPayer: tmptmpUser]){
                 tmpCell.accessoryType = UITableViewCellAccessoryCheckmark;
             }else{
                 tmpCell.accessoryType = UITableViewCellAccessoryNone;
@@ -101,11 +118,9 @@ static NSString *ciAddGhost = @"addGhostCell";
     
     if(tmpUser.userType == TSTabUser.TSUserTypeGhost){
         tmpCell.textLabel.text = tmpUser.email;
-        //tmpCell.imageView.image = [UIImage imageNamed:@"Ghost User"];
         tmpCell.detailTextLabel.text = @"";
     }else{
         tmpCell.textLabel.text = tmpUser.fullName;
-        //tmpCell.imageView.image = nil;
         tmpCell.detailTextLabel.text = tmpUser.email;
     }
     
@@ -114,11 +129,12 @@ static NSString *ciAddGhost = @"addGhostCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(tableView == self.tvSearch){
-        TSTabUser *tmpUser = [self.contactsToAdd objectAtIndex:indexPath.row];
-        if(tmpUser.userType == [TSTabUser TSUserTypeAction]){
+        //TSTabUser *tmpUser = [self.contactsToAdd objectAtIndex:indexPath.row];
+        TSUserTabSplit *tmpUser = [[TSUserTabSplit alloc] initWithPayerUser:[self.contactsToAdd objectAtIndex:indexPath.row] andTab:nil withAmount:@0];
+        if(tmpUser.user.userType == [TSTabUser TSUserTypeAction]){
             if(![self userIsPayer:tmpUser]){
-                if([TSUtilities isValidEmailAddress:tmpUser.email]){
-                    tmpUser = [[TSTabUser alloc] initGhostUserWithMail:tmpUser.email];
+                if([TSUtilities isValidEmailAddress:tmpUser.user.email]){
+                    tmpUser = [[TSUserTabSplit alloc] initWithPayerUser:[[TSTabUser alloc] initGhostUserWithMail:tmpUser.user.email] andTab:nil withAmount:@0];
                     [self.payers addObject:tmpUser];
                     [self.tvPayers reloadData];
                     [self onCancelClicked:tableView];
@@ -126,9 +142,10 @@ static NSString *ciAddGhost = @"addGhostCell";
                     [TSUtilities showAlertInController:self withMessage:NSLocalizedString(@"must_enter_valid_email", nil)];
                 }
             }else{
-                [TSUtilities showAlertInController:self withMessage:[NSString stringWithFormat: NSLocalizedString(@"is_already_payer", nil), tmpUser.email]];
+                [TSUtilities showAlertInController:self withMessage:[NSString stringWithFormat: NSLocalizedString(@"is_already_payer", nil), tmpUser.user.email]];
             }
         }else{
+            tmpUser = [[TSUserTabSplit alloc] initWithPayerUser:tmpUser.user andTab:nil withAmount:@0];
             [self.payers addObject:tmpUser];
             [self.tvPayers reloadData];
             [self onCancelClicked:tableView];
@@ -217,6 +234,12 @@ static NSString *ciAddGhost = @"addGhostCell";
                      }];
 }
 
+- (IBAction)doneClicked:(id)sender{
+    [self.view endEditing:YES];
+}
+
+#pragma mark - other methods
+
 -(void) searchContact{
     NSString *stringToSearch = self.tfSearch.text;
     NSArray *tmpArray;
@@ -231,7 +254,8 @@ static NSString *ciAddGhost = @"addGhostCell";
         [self.contactsToAdd addObject:[[TSTabUser alloc] initActionUserWithMail:stringToSearch]];
     }
     for(TSTabUser *user in tmpArray){
-        if(![self userIsPayer:user]){
+        TSUserTabSplit *tmpUser = [[TSUserTabSplit alloc] initWithPayerUser:user andTab:nil withAmount:@0];
+        if(![self userIsPayer:tmpUser]){
             [self.contactsToAdd addObject:user];
         }
     }
@@ -239,14 +263,22 @@ static NSString *ciAddGhost = @"addGhostCell";
 }
 
 
--(bool) userIsPayer: (TSTabUser *) user{
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self.email like[cd] %@", user.email];
+-(bool) userIsPayer: (TSUserTabSplit *) user{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self.user.email like[cd] %@", user.user.email];
     NSArray *tmpArray = [self.payers filteredArrayUsingPredicate:predicate];
     if(tmpArray.count>0){
         return true;
     }else{
         return false;
     }
+}
+
+-(void)updateTotalAmount{
+    long double total = 0.0;
+    for(TSUserTabSplit *tabUser in self.payers){
+        total = total + [tabUser.amount doubleValue];
+    }
+    self.lblTotalAmount.text = [TSUtilities getCurrencyString:[NSNumber numberWithDouble:total]];
 }
 
 @end
