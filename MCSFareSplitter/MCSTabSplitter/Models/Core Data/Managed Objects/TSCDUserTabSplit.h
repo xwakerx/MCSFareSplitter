@@ -1,5 +1,5 @@
 //
-//  TSUserTabSplit.h
+//  TSCDUserTabSplit.h
 //  MCSTabSplitter
 //
 //  Created by Manuel Camacho on 5/4/15.
@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class NSManagedObject;
+@class TSCDTab, TSCDUser;
 
-@interface TSUserTabSplit : NSManagedObject
+@interface TSCDUserTabSplit : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * amount;
 @property (nonatomic, retain) NSNumber * initialAmount;
 @property (nonatomic, retain) NSNumber * userTabType;
-@property (nonatomic, retain) NSManagedObject *tab;
-@property (nonatomic, retain) NSManagedObject *user;
+@property (nonatomic, retain) TSCDTab *tab;
+@property (nonatomic, retain) TSCDUser *user;
 
 @end

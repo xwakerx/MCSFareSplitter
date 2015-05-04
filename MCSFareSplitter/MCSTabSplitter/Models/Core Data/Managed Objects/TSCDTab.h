@@ -1,5 +1,5 @@
 //
-//  TSTab.h
+//  TSCDTab.h
 //  MCSTabSplitter
 //
 //  Created by Manuel Camacho on 5/4/15.
@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class TSTransaction, TSUserTabSplit;
+@class TSCDTransaction, TSCDUserTabSplit;
 
-@interface TSTab : NSManagedObject
+@interface TSCDTab : NSManagedObject
 
 @property (nonatomic, retain) NSString * currency;
 @property (nonatomic, retain) NSDate * date;
@@ -20,14 +20,14 @@
 @property (nonatomic, retain) NSNumber * status;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSNumber * totalAmount;
-@property (nonatomic, retain) TSTransaction *transactions;
+@property (nonatomic, retain) TSCDTransaction *transactions;
 @property (nonatomic, retain) NSSet *users;
 @end
 
-@interface TSTab (CoreDataGeneratedAccessors)
+@interface TSCDTab (CoreDataGeneratedAccessors)
 
-- (void)addUsersObject:(TSUserTabSplit *)value;
-- (void)removeUsersObject:(TSUserTabSplit *)value;
+- (void)addUsersObject:(TSCDUserTabSplit *)value;
+- (void)removeUsersObject:(TSCDUserTabSplit *)value;
 - (void)addUsers:(NSSet *)values;
 - (void)removeUsers:(NSSet *)values;
 

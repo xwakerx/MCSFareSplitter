@@ -1,5 +1,5 @@
 //
-//  TSItem.h
+//  TSCDItem.h
 //  MCSTabSplitter
 //
 //  Created by Manuel Camacho on 5/4/15.
@@ -9,19 +9,19 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class NSManagedObject;
+@class TSCDUser;
 
-@interface TSItem : NSManagedObject
+@interface TSCDItem : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * cost;
 @property (nonatomic, retain) NSString * detail;
 @property (nonatomic, retain) NSSet *enrolledUsers;
 @end
 
-@interface TSItem (CoreDataGeneratedAccessors)
+@interface TSCDItem (CoreDataGeneratedAccessors)
 
-- (void)addEnrolledUsersObject:(NSManagedObject *)value;
-- (void)removeEnrolledUsersObject:(NSManagedObject *)value;
+- (void)addEnrolledUsersObject:(TSCDUser *)value;
+- (void)removeEnrolledUsersObject:(TSCDUser *)value;
 - (void)addEnrolledUsers:(NSSet *)values;
 - (void)removeEnrolledUsers:(NSSet *)values;
 

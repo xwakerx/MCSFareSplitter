@@ -1,5 +1,5 @@
 //
-//  TSUser.h
+//  TSCDUser.h
 //  MCSTabSplitter
 //
 //  Created by Manuel Camacho on 5/4/15.
@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class TSAccount, TSUserTabSplit;
+@class TSCDAccount, TSCDUserTabSplit;
 
-@interface TSUser : NSManagedObject
+@interface TSCDUser : NSManagedObject
 
 @property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSString * firstName;
@@ -24,15 +24,15 @@
 @property (nonatomic, retain) NSSet *splits;
 @end
 
-@interface TSUser (CoreDataGeneratedAccessors)
+@interface TSCDUser (CoreDataGeneratedAccessors)
 
-- (void)addAccountsObject:(TSAccount *)value;
-- (void)removeAccountsObject:(TSAccount *)value;
+- (void)addAccountsObject:(TSCDAccount *)value;
+- (void)removeAccountsObject:(TSCDAccount *)value;
 - (void)addAccounts:(NSSet *)values;
 - (void)removeAccounts:(NSSet *)values;
 
-- (void)addSplitsObject:(TSUserTabSplit *)value;
-- (void)removeSplitsObject:(TSUserTabSplit *)value;
+- (void)addSplitsObject:(TSCDUserTabSplit *)value;
+- (void)removeSplitsObject:(TSCDUserTabSplit *)value;
 - (void)addSplits:(NSSet *)values;
 - (void)removeSplits:(NSSet *)values;
 
