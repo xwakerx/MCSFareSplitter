@@ -138,6 +138,7 @@ static TSCoreDataManager *sharedManager = nil;
 -(void)deleteManagedObject:(NSManagedObject *)managedObject
 {
     [self.appDelegate.managedObjectContext deleteObject:managedObject];
+    [self.appDelegate saveContext];
 }
 
 @end

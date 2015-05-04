@@ -8,13 +8,18 @@
 
 #import "TSLoginViewController.h"
 
-#import "TSFacebookController.h"
+#import "TSFacebookManager.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-@interface TSLoginViewController ()
+@interface TSLoginViewController () <TSFacebookManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *btnLogin;
+
+@property (nonatomic, strong ) FBSDKLoginButton *loginButton;
+
+@property (nonatomic, strong) UIView *overlay;
+@property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -24,17 +29,24 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    if(![FBSDKAccessToken currentAccessToken])
-    {
-        FBSDKLoginButton *loginButton = [[TSFacebookController sharedController] facebookLoginButton];
-        loginButton.center = CGPointMake(self.view.center.x, 450);
-        
-        [self.view addSubview:loginButton];
-    }
+    [[TSFacebookManager sharedController] setDelegate:self];
+    
+    self.loginButton = [[TSFacebookManager sharedController] facebookLoginButton];
+    self.loginButton.center = CGPointMake(self.view.center.x, 450);
+    
+    [self.view addSubview:self.loginButton];
     
     self.btnLogin.center = CGPointMake(self.view.center.x, 500);
     
-//    self.btnLogin.hidden = YES;
+    //    self.btnLogin.hidden = YES;
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    if(self.loginButton.isHidden && ![FBSDKAccessToken currentAccessToken])
+    {
+        self.loginButton.hidden = NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,14 +55,46 @@
 }
 
 -(IBAction)logoutSegue:(UIStoryboardSegue *)segue{}
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)showLoadingOverlay
+{
+    if(!self.overlay)
+    {
+        self.overlay = [[UIView alloc]init];
+    }
+    self.overlay.frame = self.view.frame;
+    
+    self.overlay.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
+    
+    self.activityIndicator = [[UIActivityIndicatorView alloc]init];
+    self.activityIndicator.center = self.overlay.center;
+    
+    [self.overlay addSubview:self.activityIndicator];
+    
+    [self.activityIndicator startAnimating];
+    
+    [self.view addSubview:self.overlay];
 }
-*/
+
+-(void)hideLoadingOverlay
+{
+    [self.activityIndicator stopAnimating];
+    [self.overlay removeFromSuperview];
+}
+
+-(void)loginWithSuccess:(BOOL)success
+{
+    [self hideLoadingOverlay];
+}
+
+-(void)didLogout
+{
+    [self hideLoadingOverlay];
+}
+
+-(void)willLogin
+{
+    [self showLoadingOverlay];
+}
 
 @end

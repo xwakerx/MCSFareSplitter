@@ -7,7 +7,7 @@
 //
 
 #import "SettingsTableViewController.h"
-#import "TSFacebookController.h"
+#import "TSFacebookManager.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
@@ -26,7 +26,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    FBSDKLoginButton *loginButton = [[TSFacebookController sharedController] facebookLoginButton];
+    FBSDKLoginButton *loginButton = [[TSFacebookManager sharedController] facebookLoginButton];
     loginButton.delegate = self;
     loginButton.center = CGPointMake(self.tvcLogout.frame.size.width/2, self.tvcLogout.frame.size.height/2);
     [self.tvcLogout addSubview:loginButton];
