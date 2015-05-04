@@ -16,6 +16,7 @@
 +(NSNumber *) TSUserTypeGhost { return @0; }
 +(NSNumber *) TSUserTypeFacebook { return @1; }
 +(NSNumber *) TSUserTypeContacts { return @2; }
++(NSNumber *) TSUserTypeAction { return @3; }
 
 - (id) init{
     self = [super init];
@@ -62,6 +63,18 @@
     if(self != nil){
         self.email=email;
         self.userType=TSTabUser.TSUserTypeGhost;
+        //TODO Deposit methods
+        //@property (nonatomic) NSArray *depositMethods;
+        //prefered deposit
+    }
+    return self;
+}
+
+- (id) initActionUserWithMail:(NSString *) email{
+    self = [self init];
+    if(self != nil){
+        self.email=email;
+        self.userType=TSTabUser.TSUserTypeAction;
         //TODO Deposit methods
         //@property (nonatomic) NSArray *depositMethods;
         //prefered deposit
