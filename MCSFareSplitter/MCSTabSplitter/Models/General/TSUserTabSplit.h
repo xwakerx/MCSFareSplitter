@@ -27,6 +27,7 @@ typedef enum
 
 @property (nonatomic, strong) TSTabUser *user;
 @property (nonatomic, strong) TSTab *tab;
+@property (nonatomic, strong) NSNumber *initialAmount;
 @property (nonatomic, strong) NSNumber *amount;
 @property (nonatomic, assign, readonly) TSUserTabDebtType userDebtType;
 @property (nonatomic, assign, readonly) TSUserTabType userTabType;

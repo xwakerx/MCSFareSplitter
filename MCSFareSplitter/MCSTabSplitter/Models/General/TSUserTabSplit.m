@@ -31,7 +31,7 @@
 {
     self.user = user;
     self.tab = tab;
-    self.amount = amount;
+    self.initialAmount = amount;
     _userTabType = type;
 }
 
