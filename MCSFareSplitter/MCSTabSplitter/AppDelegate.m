@@ -11,7 +11,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-#import "TSFacebookController.h"
+#import "TSFacebookManager.h"
 #import "TSUser.h"
 #import "TSLoginViewController.h"
 #import "TSContactsManager.h"
@@ -64,34 +64,16 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [FBSDKAppEvents activateApp];
-    
-    
+
     if([FBSDKAccessToken currentAccessToken])
     {
-        NSArray *phoneContacts = [[TSContactsManager sharedManager]phoneContacts];
-        NSLog(@"%@", phoneContacts);
-        
         TSLoginViewController *loginVC = (TSLoginViewController *)[self.window rootViewController];
         
-        __block UIView *overlay = [[UIView alloc]initWithFrame:loginVC.view.frame];
+        [loginVC showLoadingOverlay];
         
-        overlay.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
-        
-        __block UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]init];
-        activityIndicator.center = overlay.center;
-        
-        [overlay addSubview:activityIndicator];
-        
-        [activityIndicator startAnimating];
-        
-        [loginVC.view addSubview:overlay];
-        
-        [[TSFacebookController sharedController] requestUserFromFacebookWithUserBlock:^(BOOL success, TSTabUser *user){
+        [[TSFacebookManager sharedController] requestUserFromFacebookWithUserBlock:^(BOOL success, TSTabUser *user){
             
-            [activityIndicator stopAnimating];
-            [overlay removeFromSuperview];
-            activityIndicator = nil;
-            overlay = nil;
+            [loginVC hideLoadingOverlay];
 
             if(success)
             {
@@ -103,7 +85,7 @@
             {
                 //Logout facebook
                 
-                FBSDKLoginButton *loginButton = [[TSFacebookController sharedController] facebookLoginButton];
+                FBSDKLoginButton *loginButton = [[TSFacebookManager sharedController] facebookLoginButton];
                 loginButton.center = CGPointMake(loginVC.view.center.x, 450);
                 
                 [loginVC.view addSubview:loginButton];
