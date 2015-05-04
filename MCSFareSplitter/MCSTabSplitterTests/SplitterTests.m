@@ -30,7 +30,6 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
-/*
 -(void)testMainSplitter
 {
     NSArray *users = @[[[TSTabUser alloc]initWithEmail:nil withFirstName:@"A" withMiddleName:nil withLastName:nil userType:nil],
@@ -45,22 +44,22 @@
                        [[TSTabUser alloc]initWithEmail:nil withFirstName:@"J" withMiddleName:nil withLastName:nil userType:nil],
                        [[TSTabUser alloc]initWithEmail:nil withFirstName:@"K" withMiddleName:nil withLastName:nil userType:nil]];
     
-    NSArray *payments = @[[[TSUserTabSplit alloc] initWithUser:users[0] andTab:nil withAmount:@(-100)],
-                          [[TSUserTabSplit alloc] initWithUser:users[1] andTab:nil withAmount:@(-300)],
-                          [[TSUserTabSplit alloc] initWithUser:users[2] andTab:nil withAmount:@(-500)],
-                          [[TSUserTabSplit alloc] initWithUser:users[3] andTab:nil withAmount:@(-100)]];
+    NSArray *payments = @[[[TSUserTabSplit alloc] initWithPayerUser:users[0] andTab:nil withAmount:@(-100)],
+                          [[TSUserTabSplit alloc] initWithPayerUser:users[1] andTab:nil withAmount:@(-300)],
+                          [[TSUserTabSplit alloc] initWithPayerUser:users[2] andTab:nil withAmount:@(-500)],
+                          [[TSUserTabSplit alloc] initWithPayerUser:users[3] andTab:nil withAmount:@(-100)]];
 
-    NSArray *debts = @[[[TSUserTabSplit alloc] initWithUser:users[0] andTab:nil withAmount:@99],
-                       [[TSUserTabSplit alloc] initWithUser:users[1] andTab:nil withAmount:@81],
-                       [[TSUserTabSplit alloc] initWithUser:users[2] andTab:nil withAmount:@60],
-                       [[TSUserTabSplit alloc] initWithUser:users[3] andTab:nil withAmount:@89],
-                       [[TSUserTabSplit alloc] initWithUser:users[4] andTab:nil withAmount:@60],
-                       [[TSUserTabSplit alloc] initWithUser:users[5] andTab:nil withAmount:@65],
-                       [[TSUserTabSplit alloc] initWithUser:users[6] andTab:nil withAmount:@100],
-                       [[TSUserTabSplit alloc] initWithUser:users[7] andTab:nil withAmount:@76],
-                       [[TSUserTabSplit alloc] initWithUser:users[8] andTab:nil withAmount:@160],
-                       [[TSUserTabSplit alloc] initWithUser:users[9] andTab:nil withAmount:@70],
-                       [[TSUserTabSplit alloc] initWithUser:users[10] andTab:nil withAmount:@140]];
+    NSArray *debts = @[[[TSUserTabSplit alloc] initWithPayerUser:users[0] andTab:nil withAmount:@99],
+                       [[TSUserTabSplit alloc] initWithPayerUser:users[1] andTab:nil withAmount:@81],
+                       [[TSUserTabSplit alloc] initWithPayerUser:users[2] andTab:nil withAmount:@60],
+                       [[TSUserTabSplit alloc] initWithPayerUser:users[3] andTab:nil withAmount:@89],
+                       [[TSUserTabSplit alloc] initWithPayerUser:users[4] andTab:nil withAmount:@60],
+                       [[TSUserTabSplit alloc] initWithPayerUser:users[5] andTab:nil withAmount:@65],
+                       [[TSUserTabSplit alloc] initWithPayerUser:users[6] andTab:nil withAmount:@100],
+                       [[TSUserTabSplit alloc] initWithPayerUser:users[7] andTab:nil withAmount:@76],
+                       [[TSUserTabSplit alloc] initWithPayerUser:users[8] andTab:nil withAmount:@160],
+                       [[TSUserTabSplit alloc] initWithPayerUser:users[9] andTab:nil withAmount:@70],
+                       [[TSUserTabSplit alloc] initWithPayerUser:users[10] andTab:nil withAmount:@140]];
     
     TSSplitController *splitController = [TSSplitController new];
     
@@ -85,10 +84,10 @@
                        [[TSTabUser alloc]initWithEmail:nil withFirstName:@"J" withMiddleName:nil withLastName:nil userType:nil],
                        [[TSTabUser alloc]initWithEmail:nil withFirstName:@"K" withMiddleName:nil withLastName:nil userType:nil]];
     
-    NSArray *payments = @[[[TSUserTabSplit alloc] initWithUser:users[0] andTab:nil withAmount:@(-100)],
-                          [[TSUserTabSplit alloc] initWithUser:users[1] andTab:nil withAmount:@(-300)],
-                          [[TSUserTabSplit alloc] initWithUser:users[2] andTab:nil withAmount:@(-500)],
-                          [[TSUserTabSplit alloc] initWithUser:users[3] andTab:nil withAmount:@(-100)]];
+    NSArray *payments = @[[[TSUserTabSplit alloc] initWithPayerUser:users[0] andTab:nil withAmount:@(-100)],
+                          [[TSUserTabSplit alloc] initWithPayerUser:users[1] andTab:nil withAmount:@(-300)],
+                          [[TSUserTabSplit alloc] initWithPayerUser:users[2] andTab:nil withAmount:@(-500)],
+                          [[TSUserTabSplit alloc] initWithPayerUser:users[3] andTab:nil withAmount:@(-100)]];
     
     TSSplitController *splitController = [TSSplitController new];
     
@@ -113,10 +112,10 @@
                        [[TSTabUser alloc]initWithEmail:nil withFirstName:@"J" withMiddleName:nil withLastName:nil userType:nil],
                        [[TSTabUser alloc]initWithEmail:nil withFirstName:@"K" withMiddleName:nil withLastName:nil userType:nil]];
     
-    NSArray *payments = @[[[TSUserTabSplit alloc] initWithUser:users[0] andTab:nil withAmount:@(-100)],
-                          [[TSUserTabSplit alloc] initWithUser:users[1] andTab:nil withAmount:@(-300)],
-                          [[TSUserTabSplit alloc] initWithUser:users[2] andTab:nil withAmount:@(-500)],
-                          [[TSUserTabSplit alloc] initWithUser:users[3] andTab:nil withAmount:@(-100)]];
+    NSArray *payments = @[[[TSUserTabSplit alloc] initWithPayerUser:users[0] andTab:nil withAmount:@(-100)],
+                          [[TSUserTabSplit alloc] initWithPayerUser:users[1] andTab:nil withAmount:@(-300)],
+                          [[TSUserTabSplit alloc] initWithPayerUser:users[2] andTab:nil withAmount:@(-500)],
+                          [[TSUserTabSplit alloc] initWithPayerUser:users[3] andTab:nil withAmount:@(-100)]];
     
     NSArray *percentages = @[@10, @4, @2.55, @21, @19, @12, @7, @13, @6, @4.1, @1.35];
     
@@ -145,10 +144,10 @@
                        [[TSTabUser alloc]initWithEmail:nil withFirstName:@"J" withMiddleName:nil withLastName:nil userType:nil],
                        [[TSTabUser alloc]initWithEmail:nil withFirstName:@"K" withMiddleName:nil withLastName:nil userType:nil]];
     
-    NSArray *payments = @[[[TSUserTabSplit alloc] initWithUser:users[0] andTab:nil withAmount:@(-100)],
-                          [[TSUserTabSplit alloc] initWithUser:users[1] andTab:nil withAmount:@(-300)],
-                          [[TSUserTabSplit alloc] initWithUser:users[2] andTab:nil withAmount:@(-500)],
-                          [[TSUserTabSplit alloc] initWithUser:users[3] andTab:nil withAmount:@(-100)]];
+    NSArray *payments = @[[[TSUserTabSplit alloc] initWithPayerUser:users[0] andTab:nil withAmount:@(-100)],
+                          [[TSUserTabSplit alloc] initWithPayerUser:users[1] andTab:nil withAmount:@(-300)],
+                          [[TSUserTabSplit alloc] initWithPayerUser:users[2] andTab:nil withAmount:@(-500)],
+                          [[TSUserTabSplit alloc] initWithPayerUser:users[3] andTab:nil withAmount:@(-100)]];
     
     NSArray *items = @[[[TSItem alloc]initWithCost:@200 andDetail:@"item1" forUsers:[NSMutableArray arrayWithArray:@[users[0], users[1], users[2]]]],
                        [[TSItem alloc]initWithCost:@100 andDetail:@"item2" forUsers:[NSMutableArray arrayWithArray:@[users[1], users[2], users[3]]]],
@@ -175,7 +174,7 @@
                        [[TSTabUser alloc]initWithEmail:nil withFirstName:@"B" withMiddleName:nil withLastName:nil userType:nil],
                        [[TSTabUser alloc]initWithEmail:nil withFirstName:@"C" withMiddleName:nil withLastName:nil userType:nil]];
     
-    NSArray *payments = @[[[TSUserTabSplit alloc] initWithUser:users[0] andTab:nil withAmount:@(200)]];
+    NSArray *payments = @[[[TSUserTabSplit alloc] initWithPayerUser:users[0] andTab:nil withAmount:@(200)]];
     
     NSArray *items = @[[[TSItem alloc]initWithCost:@90 andDetail:@"item1" forUsers:[NSMutableArray arrayWithArray:@[users[0], users[1], users[2]]]],
                        [[TSItem alloc]initWithCost:@110 andDetail:@"item2" forUsers:[NSMutableArray arrayWithArray:@[users[0], users[1], users[2]]]]];
@@ -195,5 +194,5 @@
         // Put the code you want to measure the time of here.
     }];
 }
-*/
+
 @end
