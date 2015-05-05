@@ -7,14 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface TSUtilities : NSObject
 
++(void) showAlertInController:(UIViewController *) controller withMessage: (NSString *) message;
++(void) showAlertInController:(UIViewController *) controller withTitle:(NSString *) title withMessage:(NSString *) message;
+
 + (NSString *) getDateString:(NSDate *) date;
++ (NSString *) getCurrencyString:(NSNumber *) amount;
 
 + (Boolean) charsAreValidAmount:(NSString *) amount;
 
 + (Boolean) isValidAmount:(NSString *) amount;
++ (bool) isValidEmailAddress: (NSString*) mail;
 
 + (NSDecimalNumber *)decimalNumberWithNumber:(NSNumber *)number;
 

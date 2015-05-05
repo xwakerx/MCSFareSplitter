@@ -9,3 +9,6 @@
 
 "contacts_in_tab" = "Contacts in Tab";
 "all_contacts" = "All Contacts";
+"must_enter_valid_email" = "You must enter a valid email address";
+"is_already_payer" = "\"%@\" is already a payer";
+"advice" = "Advice";

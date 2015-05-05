@@ -10,4 +10,7 @@
 
 @interface TSLoginViewController : UIViewController
 
+-(void)showLoadingOverlay;
+-(void)hideLoadingOverlay;
+
 @end

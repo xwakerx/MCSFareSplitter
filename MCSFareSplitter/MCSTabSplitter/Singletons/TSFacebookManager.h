@@ -13,7 +13,18 @@
 @class FBSDKLoginButton;
 @class TSTabUser;
 
-@interface TSFacebookController : NSObject
+@protocol TSFacebookManagerDelegate <NSObject>
+
+@optional
+-(void)loginWithSuccess:(BOOL)login;
+-(void)didLogout;
+-(void)willLogin;
+
+@end
+
+@interface TSFacebookManager : NSObject
+
+@property (nonatomic, assign) id <TSFacebookManagerDelegate> delegate;
 
 + (id)sharedController;
 
