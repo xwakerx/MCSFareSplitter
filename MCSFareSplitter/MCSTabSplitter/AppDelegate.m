@@ -17,6 +17,8 @@
 #import "TSContactsManager.h"
 #import "TSNotificationManager.h"
 
+#import "HomeViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -65,7 +67,10 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [[TSNotificationManager sharedNotifications]resetBadgeNumber];
+    if([((UINavigationController *)((UITabBarController *)self.window.rootViewController.presentedViewController).selectedViewController).visibleViewController isKindOfClass:[HomeViewController class]])
+    {
+        [[TSNotificationManager sharedNotifications]resetBadgeNumber];
+    }
     
     [FBSDKAppEvents activateApp];
 
