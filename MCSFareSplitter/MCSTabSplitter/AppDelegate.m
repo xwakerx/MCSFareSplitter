@@ -43,6 +43,7 @@
     [[UITabBar appearance] setTintColor:self.mainTintColor];
     
     [[TSContactsManager sharedManager] requestPermissions];
+    [[TSNotificationManager sharedNotifications] resetBadgeNumber];
 
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];
@@ -64,6 +65,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [[TSNotificationManager sharedNotifications]resetBadgeNumber];
+    
     [FBSDKAppEvents activateApp];
     
     
@@ -228,14 +231,40 @@
     NSLog(@"Failed to get token, error: %@", error);
 }
 
--(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    NSLog(@"-------------------NOTIFICATIONS--------------");
-    NSDictionary *notificationInfo = [userInfo valueForKey:@"tabSplitter"];
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
-    [[TSNotificationManager sharedNotifications]notificationReceivedWithTitle:[notificationInfo valueForKey:@"type"] withMessage:[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] andType:TSNotificationTypePaid];
-    
-    [[TSNotificationManager sharedNotifications] showNotifications];
-    NSLog(@"-------------------NOTIFICATIONS--------------");
+    if(application.applicationState == UIApplicationStateInactive) {
+        
+        NSLog(@"Inactive");
+        
+        NSLog(@"-------------------NOTIFICATIONS--------------");
+        NSDictionary *notificationInfo = [userInfo valueForKey:@"tabSplitter"];
+        
+        [[TSNotificationManager sharedNotifications]notificationReceivedWithTitle:[notificationInfo valueForKey:@"type"] withMessage:[[userInfo valueForKey:@"aps"] valueForKey:@"alert"] andType:TSNotificationTypeReminder];
+        
+        [[TSNotificationManager sharedNotifications] showNotifications];
+        NSLog(@"-------------------NOTIFICATIONS--------------");
+        
+        completionHandler(UIBackgroundFetchResultNewData);
+        
+    } else if (application.applicationState == UIApplicationStateBackground) {
+        
+        NSLog(@"Background");
+        
+        //Refresh the local model
+        
+        completionHandler(UIBackgroundFetchResultNewData);
+        
+    } else {
+        
+        NSLog(@"Active");
+        
+        //Show an in-app banner
+        
+        completionHandler(UIBackgroundFetchResultNewData);
+        
+    }
 }
+
 
 @end

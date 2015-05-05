@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "TSUser.h"
 #import "TSUtilities.h"
+#import "TSNotificationManager.h"
 
 @interface HomeViewController ()
 
@@ -16,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblOwes;
 @property (weak, nonatomic) IBOutlet UILabel *lblTotal;
 @property (weak, nonatomic) IBOutlet UITableView *tvNews;
+
+@property (nonatomic) NSString *ciNews;
 
 @end
 
@@ -25,6 +28,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.ciNews = @"News";
+    [self.tvNews reloadData];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -50,6 +56,25 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - TableView
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    //return [[TSNotificationManager sharedNotifications] getNotifications].count;
+    return 1;
+    //return from DataManager
+    
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:self.ciNews];
+    
+    NSArray *tempNotifications = [[TSNotificationManager sharedNotifications]getNotifications];
+    if (!tempNotifications) {
+        cell.textLabel.text = [(TSNotification*)[tempNotifications objectAtIndex:(int)indexPath]title];
+    }
+    return cell;
 }
 
 @end

@@ -20,6 +20,7 @@
 - (void)sendLocalNotification:(NSString*)message;
 - (void)resetBadgeNumber;
 - (void)notificationReceivedWithTitle:(NSString *)title withMessage:(NSString *)message andType:(TSNotificationType *)type;
+- (NSArray*)getNotifications;
 - (void)showNotifications;
 
 + (id)sharedNotifications;

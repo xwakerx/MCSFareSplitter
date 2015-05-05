@@ -20,15 +20,15 @@
     static TSNotificationManager *notifications = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        notifications = [super init];
+        notifications = [[super allocWithZone:NULL]init];
         notifications.notifications = [NSMutableArray new];
     });
     return notifications;
 }
 
-- (id)init {
-    [NSException raise:@"TSSingletonException" format:@"You can't access to the init in a singleton"];
-    return nil;
++ (id) allocWithZone:(NSZone *)zone
+{
+    return [TSNotificationManager sharedNotifications];
 }
 
 #pragma mark - AlertViews
@@ -98,10 +98,13 @@
 
 -(void)showNotifications{
     for (TSNotification *notification in self.notifications) {
-        NSLog(@"Title:%@ \nMessage:%@\nType:%ul",notification.title, notification.message, notification.type);
+        NSLog(@"\n\nTitle:%@ \nMessage:%@\nType:%u",notification.title, notification.message, (unsigned int)notification.type);
     }
 }
 
+-(NSArray*)getNotifications {
+    return self.notifications;
+}
 
 -(void)resetBadgeNumber {
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;

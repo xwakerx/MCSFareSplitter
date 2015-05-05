@@ -17,7 +17,7 @@ $deviceToken = 'f05ea7c9c19e07d423b32bc0fe6d9bd8f86b42c2ec17bd828bb53b3dbb93e50b
 $passphrase = 'splitter';
 
 // Alert message:
-$message = 'Que trancita banda?';
+$message = 'Someone had paid you!';
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -40,7 +40,9 @@ echo 'Connected to APNS' . PHP_EOL;
 // Create the payload body
 $body['aps'] = array(
 	'alert' => $message,
-	'sound' => 'Paid'
+	'sound' => 'Paid',
+    'badge' => 1,
+    'content-available' => '1'
 );
 $body['tabSplitter'] = array (
     'type' => 'Paid'

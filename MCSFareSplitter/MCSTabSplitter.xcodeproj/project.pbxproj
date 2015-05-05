@@ -515,8 +515,6 @@
 		98F93F851AE161A500BD514F /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				04FD49BF1AEDC58500D46DD2 /* TSNotificationManager.h */,
-				04FD49C01AEDC58500D46DD2 /* TSNotificationManager.m */,
 			);
 			name = Notifications;
 			sourceTree = "<group>";
@@ -534,6 +532,8 @@
 				98BE94281AED4866003BB045 /* TSContactsManager.m */,
 				98B4E5261AF3B62A00F701E0 /* TSCoreDataManager.h */,
 				98B4E5271AF3B62A00F701E0 /* TSCoreDataManager.m */,
+				04FD49BF1AEDC58500D46DD2 /* TSNotificationManager.h */,
+				04FD49C01AEDC58500D46DD2 /* TSNotificationManager.m */,
 			);
 			name = Singletons;
 			sourceTree = "<group>";
@@ -615,6 +615,11 @@
 					98F93F1D1AE15DF700BD514F = {
 						CreatedOnToolsVersion = 6.3;
 						DevelopmentTeam = 46PXCYRCS9;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					98F93F391AE15DF700BD514F = {
 						CreatedOnToolsVersion = 6.3;
