@@ -49,34 +49,34 @@
     return formatted;
 }
 
-+ (Boolean) charsAreValidAmount:(NSString *) amount{
++ (BOOL) charsAreValidAmount:(NSString *) amount{
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^([0-9]|\\.|\\$|\\,)*$" options:NSRegularExpressionCaseInsensitive error:nil];
     NSTextCheckingResult *match = [regex firstMatchInString:amount options:0 range:NSMakeRange(0, [amount length])];
     if (match) {
-        return true;
+        return YES;
     }else{
-        return false;
+        return NO;
     }
 }
 
-+ (Boolean) isValidAmount:(NSString *) amount{
++ (BOOL) isValidAmount:(NSString *) amount{
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^(\\$|)([1-9]\\d{0,2}(\\,\\d{3})*|([1-9]\\d*))(\\.\\d{2})?$" options:NSRegularExpressionCaseInsensitive error:nil];
     NSTextCheckingResult *match = [regex firstMatchInString:amount options:0 range:NSMakeRange(0, [amount length])];
     if (match) {
-        return true;
+        return YES;
     }else{
-        return false;
+        return NO;
     }
 }
 
-+ (bool) isValidEmailAddress: (NSString*) mail
++ (BOOL) isValidEmailAddress: (NSString*) mail
 {
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@".+@.+\\.[a-z]+" options:NSRegularExpressionCaseInsensitive error:nil];
     NSTextCheckingResult *match = [regex firstMatchInString:mail options:0 range:NSMakeRange(0, [mail length])];
     if (match) {
-        return true;
+        return YES;
     }else{
-        return false;
+        return NO;
     }
 }
 

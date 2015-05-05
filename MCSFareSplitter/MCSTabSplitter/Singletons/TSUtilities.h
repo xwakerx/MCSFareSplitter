@@ -17,10 +17,10 @@
 + (NSString *) getDateString:(NSDate *) date;
 + (NSString *) getCurrencyString:(NSNumber *) amount;
 
-+ (Boolean) charsAreValidAmount:(NSString *) amount;
++ (BOOL) charsAreValidAmount:(NSString *) amount;
 
-+ (Boolean) isValidAmount:(NSString *) amount;
-+ (bool) isValidEmailAddress: (NSString*) mail;
++ (BOOL) isValidAmount:(NSString *) amount;
++ (BOOL) isValidEmailAddress: (NSString*) mail;
 
 + (NSDecimalNumber *)decimalNumberWithNumber:(NSNumber *)number;
 

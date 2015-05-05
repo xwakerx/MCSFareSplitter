@@ -10,6 +10,7 @@
 #import "TSUser.h"
 #import "TSUtilities.h"
 #import "TSNotificationManager.h"
+#import "TSContactsManager.h"
 
 @interface HomeViewController ()
 
@@ -31,6 +32,11 @@
     
     self.ciNews = @"News";
     [self.tvNews reloadData];
+    
+    if(![[TSContactsManager sharedManager]hasPermissions])
+    {
+        [[TSContactsManager sharedManager]requestPermissions];
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated
