@@ -46,7 +46,10 @@ static NSString *const kUserEntity = @"TSCDUser";
 
 -(void)testOrderedFetch
 {
-    NSArray *users = [[TSCoreDataManager sharedManager] fetchObjectsFromEntity:kUserEntity where:@[@"userType"] isEqualTo:@[@0] sortedByAttribute:@"lastName"];
+    NSArray *users = [[TSCoreDataManager sharedManager] fetchObjectsFromEntity:kUserEntity
+                                                                         where:@[@"userType"]
+                                                                     isEqualTo:@[@0]
+                                                             sortedByAttribute:@"lastName"];
     XCTAssertNotNil(users);
     
     NSLog(@"**************");
