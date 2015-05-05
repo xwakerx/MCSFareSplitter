@@ -10,7 +10,8 @@
     <entity name="TSCDItem" representedClassName="TSCDItem" syncable="YES">
         <attribute name="cost" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="enrolledUsers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TSCDUserTabSplit" syncable="YES"/>
+        <relationship name="enrolledUsers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TSCDUserTabSplit" inverseName="items" inverseEntity="TSCDUserTabSplit" syncable="YES"/>
+        <relationship name="tab" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSCDTab" inverseName="items" inverseEntity="TSCDTab" syncable="YES"/>
     </entity>
     <entity name="TSCDNotification" representedClassName="TSCDNotification" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -26,15 +27,16 @@
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="totalAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TSCDItem" syncable="YES"/>
-        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TSCDTransaction" syncable="YES"/>
-        <relationship name="users" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSCDUserTabSplit" inverseName="tab" inverseEntity="TSCDUserTabSplit" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TSCDItem" inverseName="tab" inverseEntity="TSCDItem" syncable="YES"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TSCDTransaction" inverseName="tab" inverseEntity="TSCDTransaction" syncable="YES"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TSCDUserTabSplit" inverseName="tab" inverseEntity="TSCDUserTabSplit" syncable="YES"/>
     </entity>
     <entity name="TSCDTransaction" representedClassName="TSCDTransaction" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="destination" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSCDUser" syncable="YES"/>
         <relationship name="source" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSCDUser" syncable="YES"/>
+        <relationship name="tab" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSCDTab" inverseName="transactions" inverseEntity="TSCDTab" syncable="YES"/>
     </entity>
     <entity name="TSCDUser" representedClassName="TSCDUser" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
@@ -51,16 +53,17 @@
         <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="initialAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="userTabType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TSCDItem" inverseName="enrolledUsers" inverseEntity="TSCDItem" syncable="YES"/>
         <relationship name="tab" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSCDTab" inverseName="users" inverseEntity="TSCDTab" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSCDUser" inverseName="splits" inverseEntity="TSCDUser" syncable="YES"/>
     </entity>
     <elements>
         <element name="TSCDAccount" positionX="-450" positionY="114" width="128" height="120"/>
-        <element name="TSCDItem" positionX="115" positionY="234" width="128" height="90"/>
-        <element name="TSCDTab" positionX="-63" positionY="-18" width="128" height="195"/>
-        <element name="TSCDTransaction" positionX="-144" positionY="-153" width="128" height="105"/>
-        <element name="TSCDUser" positionX="-459" positionY="-153" width="128" height="180"/>
-        <element name="TSCDUserTabSplit" positionX="-153" positionY="276" width="128" height="120"/>
+        <element name="TSCDItem" positionX="115" positionY="234" width="128" height="103"/>
+        <element name="TSCDTab" positionX="-63" positionY="-18" width="128" height="193"/>
+        <element name="TSCDTransaction" positionX="-144" positionY="-153" width="128" height="118"/>
+        <element name="TSCDUser" positionX="-459" positionY="-153" width="128" height="178"/>
+        <element name="TSCDUserTabSplit" positionX="-153" positionY="276" width="128" height="133"/>
         <element name="TSCDNotification" positionX="-452" positionY="291" width="128" height="103"/>
     </elements>
 </model>

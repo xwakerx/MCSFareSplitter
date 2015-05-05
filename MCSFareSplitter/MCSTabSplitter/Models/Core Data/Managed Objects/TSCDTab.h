@@ -2,7 +2,7 @@
 //  TSCDTab.h
 //  MCSTabSplitter
 //
-//  Created by Manuel Camacho on 5/4/15.
+//  Created by Manuel Camacho on 5/5/15.
 //  Copyright (c) 2015 MCS. All rights reserved.
 //
 
@@ -21,8 +21,8 @@
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSNumber * totalAmount;
 @property (nonatomic, retain) NSSet *transactions;
-@property (nonatomic, retain) NSSet *users;
 @property (nonatomic, retain) NSSet *items;
+@property (nonatomic, retain) NSSet *users;
 @end
 
 @interface TSCDTab (CoreDataGeneratedAccessors)
@@ -32,14 +32,14 @@
 - (void)addTransactions:(NSSet *)values;
 - (void)removeTransactions:(NSSet *)values;
 
-- (void)addUsersObject:(TSCDUserTabSplit *)value;
-- (void)removeUsersObject:(TSCDUserTabSplit *)value;
-- (void)addUsers:(NSSet *)values;
-- (void)removeUsers:(NSSet *)values;
-
 - (void)addItemsObject:(TSCDItem *)value;
 - (void)removeItemsObject:(TSCDItem *)value;
 - (void)addItems:(NSSet *)values;
 - (void)removeItems:(NSSet *)values;
+
+- (void)addUsersObject:(TSCDUserTabSplit *)value;
+- (void)removeUsersObject:(TSCDUserTabSplit *)value;
+- (void)addUsers:(NSSet *)values;
+- (void)removeUsers:(NSSet *)values;
 
 @end

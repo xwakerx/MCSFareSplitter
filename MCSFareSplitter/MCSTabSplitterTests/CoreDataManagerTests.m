@@ -107,14 +107,13 @@ static NSString *const kUserEntity = @"TSCDUser";
 
 -(void)testDelete
 {
-    NSArray *users = [[TSCoreDataManager sharedManager] fetchObjectsFromEntity:kUserEntity where:@[@"firstName"] isEqualTo:@[@"manuel"]];
+    NSArray *users = [[TSCoreDataManager sharedManager] fetchObjectsFromEntity:kUserEntity
+                                                                         where:@[@"firstName", @"lastName"]
+                                                                     isEqualTo:@[@"manuel", @"Camacho Rivera"]];
 
     for (NSManagedObject *user in users)
     {
-        if([[user valueForKey:@"lastName"] isEqualToString:@"Camacho Rivera"])
-        {
-            [[TSCoreDataManager sharedManager] deleteManagedObject:user];
-        }
+        [[TSCoreDataManager sharedManager] deleteManagedObject:user];
     }
 }
 
