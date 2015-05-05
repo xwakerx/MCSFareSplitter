@@ -73,33 +73,36 @@
     }
     
     [FBSDKAppEvents activateApp];
-
-    if([FBSDKAccessToken currentAccessToken])
+    
+    if([((UINavigationController *)((UITabBarController *)self.window.rootViewController.presentedViewController).selectedViewController).visibleViewController isKindOfClass:[TSLoginViewController class]])
     {
-        TSLoginViewController *loginVC = (TSLoginViewController *)[self.window rootViewController];
-        
-        [loginVC showLoadingOverlay];
-        
-        [[TSFacebookManager sharedController] requestUserFromFacebookWithUserBlock:^(BOOL success, TSTabUser *user){
+        if([FBSDKAccessToken currentAccessToken])
+        {
+            TSLoginViewController *loginVC = (TSLoginViewController *)[self.window rootViewController];
             
-            [loginVC hideLoadingOverlay];
-
-            if(success)
-            {
-                [TSUser sharedUser].user = user;
+            [loginVC showLoadingOverlay];
+            
+            [[TSFacebookManager sharedController] requestUserFromFacebookWithUserBlock:^(BOOL success, TSTabUser *user){
                 
-                [loginVC performSegueWithIdentifier:@"loginSegue" sender:loginVC];
-            }
-            else
-            {
-                //Logout facebook
+                [loginVC hideLoadingOverlay];
                 
-                FBSDKLoginButton *loginButton = [[TSFacebookManager sharedController] facebookLoginButton];
-                loginButton.center = CGPointMake(loginVC.view.center.x, 450);
-                
-                [loginVC.view addSubview:loginButton];
-            }
-        }];
+                if(success)
+                {
+                    [TSUser sharedUser].user = user;
+                    
+                    [loginVC performSegueWithIdentifier:@"loginSegue" sender:loginVC];
+                }
+                else
+                {
+                    //Logout facebook
+                    
+                    FBSDKLoginButton *loginButton = [[TSFacebookManager sharedController] facebookLoginButton];
+                    loginButton.center = CGPointMake(loginVC.view.center.x, 450);
+                    
+                    [loginVC.view addSubview:loginButton];
+                }
+            }];
+        }
     }
     
 }
