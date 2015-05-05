@@ -12,6 +12,8 @@
 @class TSCDAccount;
 @class TSItem;
 @class TSCDItem;
+@class TSNotification;
+@class TSCDNotification;
 @class TSTab;
 @class TSCDTab;
 @class TSTransaction;
@@ -25,6 +27,7 @@
 
 +(TSAccount *)localAccountFromCoreDataAccount:(TSCDAccount *)coreDataAccount;
 +(TSItem *)localItemFromCoreDataItem:(TSCDItem *)coreDataItem;
++(TSNotification *)localNotificationFromCoreDataNotification:(TSCDNotification *)coreDataNotification;
 +(TSTab *)localTabFromCoreDataTab:(TSCDTab *)coreDataTab;
 +(TSTransaction *)localTransactionFromCoreDataTransaction:(TSCDTransaction *)coreDataTransaction;
 +(TSTabUser *)localUserFromCoreDataUser:(TSCDUser *)coreDataUser;

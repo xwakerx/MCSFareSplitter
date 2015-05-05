@@ -18,8 +18,8 @@ enum {
 typedef NSUInteger TSNotificationType;
 
 @property (nonatomic, strong) NSString *title;
-@property (nonatomic) TSNotificationType *type;
+@property (nonatomic) TSNotificationType type;
 @property (nonatomic, strong) NSString *message;
-@property (nonatomic, strong) NSString *amount;
+@property (nonatomic, strong) NSNumber *amount;
 
 @end

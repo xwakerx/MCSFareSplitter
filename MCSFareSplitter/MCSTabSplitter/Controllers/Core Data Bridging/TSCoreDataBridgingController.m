@@ -11,6 +11,7 @@
 #import "TSCoreDataManager.h"
 #import "TSCDAccount.h"
 #import "TSCDItem.h"
+#import "TSCDNotification.h"
 #import "TSCDTab.h"
 #import "TSCDTransaction.h"
 #import "TSCDUser.h"
@@ -18,6 +19,7 @@
 
 #import "TSAccount.h"
 #import "TSItem.h"
+#import "TSNotification.h"
 #import "TSTab.h"
 #import "TSTransaction.h"
 #import "TSTabUser.h"
@@ -29,10 +31,10 @@
 {
     TSAccount *localAccount = [[TSAccount alloc]init];
     
-    localAccount.email = coreDataAccount.email;
-    localAccount.name = coreDataAccount.name;
+    localAccount.email  = coreDataAccount.email;
+    localAccount.name   = coreDataAccount.name;
     localAccount.detail = coreDataAccount.detail;
-    localAccount.type = (TSAccountType)[coreDataAccount.type integerValue];
+    localAccount.type   = (TSAccountType)[coreDataAccount.type integerValue];
     
     return localAccount;
 }
@@ -47,23 +49,35 @@
         [localUsers addObject:localUser];
     }
     
-    TSItem *localItem = [[TSItem alloc]init];
+    TSItem *localItem   = [[TSItem alloc]init];
     
-    localItem.cost = coreDataItem.cost;
-    localItem.detail = coreDataItem.detail;
+    localItem.cost      = coreDataItem.cost;
+    localItem.detail    = coreDataItem.detail;
     
     return localItem;
 }
 
++(TSNotification *)localNotificationFromCoreDataNotification:(TSCDNotification *)coreDataNotification
+{
+    TSNotification *localNotification = [[TSNotification alloc]init];
+    
+    localNotification.title     = coreDataNotification.title;
+    localNotification.message   = coreDataNotification.message;
+    localNotification.amount    = coreDataNotification.amount;
+    localNotification.type      = (TSNotificationType)[coreDataNotification.type integerValue];
+    
+    return localNotification;
+}
+
 +(TSTab *)localTabFromCoreDataTab:(TSCDTab *)coreDataTab
 {
-    TSTab *localTab = [[TSTab alloc]init];
-    localTab.totalAmount = coreDataTab.totalAmount;
-    localTab.title = coreDataTab.title;
-    localTab.memo = coreDataTab.memo;
-    localTab.date = coreDataTab.date;
-    localTab.status = (TSTabStatus)[coreDataTab.status integerValue];
-    localTab.splitMethod = (TSSplitMethod)[coreDataTab.splitMethod integerValue];
+    TSTab *localTab         = [[TSTab alloc]init];
+    localTab.totalAmount    = coreDataTab.totalAmount;
+    localTab.title          = coreDataTab.title;
+    localTab.memo           = coreDataTab.memo;
+    localTab.date           = coreDataTab.date;
+    localTab.status         = (TSTabStatus)[coreDataTab.status integerValue];
+    localTab.splitMethod    = (TSSplitMethod)[coreDataTab.splitMethod integerValue];
     
     NSMutableArray *localItems = [NSMutableArray array];
     for (TSCDItem *cdItem in coreDataTab.items)
@@ -106,8 +120,8 @@
         }
     }
     
-    localTab.participants = [localParticipants copy];
-    localTab.payers = [localPayers copy];
+    localTab.participants   = [localParticipants copy];
+    localTab.payers         = [localPayers copy];
 
     return localTab;
 }

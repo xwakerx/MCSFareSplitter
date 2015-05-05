@@ -12,6 +12,12 @@
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="enrolledUsers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TSCDUserTabSplit" syncable="YES"/>
     </entity>
+    <entity name="TSCDNotification" representedClassName="TSCDNotification" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="TSCDTab" representedClassName="TSCDTab" syncable="YES">
         <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
@@ -49,11 +55,12 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TSCDUser" inverseName="splits" inverseEntity="TSCDUser" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TSCDAccount" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="TSCDItem" positionX="-54" positionY="18" width="128" height="90"/>
-        <element name="TSCDTab" positionX="-18" positionY="81" width="128" height="195"/>
-        <element name="TSCDTransaction" positionX="-36" positionY="81" width="128" height="105"/>
-        <element name="TSCDUser" positionX="-36" positionY="36" width="128" height="180"/>
-        <element name="TSCDUserTabSplit" positionX="-27" positionY="108" width="128" height="120"/>
+        <element name="TSCDAccount" positionX="-450" positionY="114" width="128" height="120"/>
+        <element name="TSCDItem" positionX="115" positionY="234" width="128" height="90"/>
+        <element name="TSCDTab" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="TSCDTransaction" positionX="-144" positionY="-153" width="128" height="105"/>
+        <element name="TSCDUser" positionX="-459" positionY="-153" width="128" height="180"/>
+        <element name="TSCDUserTabSplit" positionX="-153" positionY="276" width="128" height="120"/>
+        <element name="TSCDNotification" positionX="-452" positionY="291" width="128" height="103"/>
     </elements>
 </model>

@@ -56,6 +56,7 @@
 		989A29431AF7D2200098D053 /* TSCDUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A293C1AF7D2200098D053 /* TSCDUser.m */; };
 		989A29441AF7D2200098D053 /* TSCDUserTabSplit.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A293E1AF7D2200098D053 /* TSCDUserTabSplit.m */; };
 		989A29481AF7D4D30098D053 /* TSCoreDataBridgingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A29471AF7D4D30098D053 /* TSCoreDataBridgingController.m */; };
+		989A29541AF8FD1A0098D053 /* TSCDNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 989A29531AF8FD1A0098D053 /* TSCDNotification.m */; };
 		98A443941AEA8ECE00339D0E /* TSAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A4438D1AEA8ECE00339D0E /* TSAccount.m */; };
 		98A443951AEA8ECE00339D0E /* TSItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A4438F1AEA8ECE00339D0E /* TSItem.m */; };
 		98A443961AEA8ECE00339D0E /* TSTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A443911AEA8ECE00339D0E /* TSTab.m */; };
@@ -174,6 +175,8 @@
 		989A293E1AF7D2200098D053 /* TSCDUserTabSplit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSCDUserTabSplit.m; path = "MCSTabSplitter/Models/Core Data/Managed Objects/TSCDUserTabSplit.m"; sourceTree = SOURCE_ROOT; };
 		989A29461AF7D4D30098D053 /* TSCoreDataBridgingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCoreDataBridgingController.h; sourceTree = "<group>"; };
 		989A29471AF7D4D30098D053 /* TSCoreDataBridgingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCoreDataBridgingController.m; sourceTree = "<group>"; };
+		989A29521AF8FD1A0098D053 /* TSCDNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSCDNotification.h; path = "MCSTabSplitter/Models/Core Data/Managed Objects/TSCDNotification.h"; sourceTree = SOURCE_ROOT; };
+		989A29531AF8FD1A0098D053 /* TSCDNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSCDNotification.m; path = "MCSTabSplitter/Models/Core Data/Managed Objects/TSCDNotification.m"; sourceTree = SOURCE_ROOT; };
 		98A4438C1AEA8ECE00339D0E /* TSAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSAccount.h; path = MCSTabSplitter/Models/General/TSAccount.h; sourceTree = SOURCE_ROOT; };
 		98A4438D1AEA8ECE00339D0E /* TSAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSAccount.m; path = MCSTabSplitter/Models/General/TSAccount.m; sourceTree = SOURCE_ROOT; };
 		98A4438E1AEA8ECE00339D0E /* TSItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSItem.h; path = MCSTabSplitter/Models/General/TSItem.h; sourceTree = SOURCE_ROOT; };
@@ -341,6 +344,8 @@
 				989A29341AF7D2200098D053 /* TSCDAccount.m */,
 				989A29351AF7D2200098D053 /* TSCDItem.h */,
 				989A29361AF7D2200098D053 /* TSCDItem.m */,
+				989A29521AF8FD1A0098D053 /* TSCDNotification.h */,
+				989A29531AF8FD1A0098D053 /* TSCDNotification.m */,
 				989A29371AF7D2200098D053 /* TSCDTab.h */,
 				989A29381AF7D2200098D053 /* TSCDTab.m */,
 				989A29391AF7D2200098D053 /* TSCDTransaction.h */,
@@ -753,6 +758,7 @@
 				989A29401AF7D2200098D053 /* TSCDItem.m in Sources */,
 				98B4E5281AF3B62A00F701E0 /* TSCoreDataManager.m in Sources */,
 				989A293F1AF7D2200098D053 /* TSCDAccount.m in Sources */,
+				989A29541AF8FD1A0098D053 /* TSCDNotification.m in Sources */,
 				98BE94291AED4866003BB045 /* TSContactsManager.m in Sources */,
 				048097DC1AE7FB3B00C6DB14 /* AppDelegate.m in Sources */,
 				0434EADC1AF142D100E5F0FF /* TabTitleTableViewController.m in Sources */,
