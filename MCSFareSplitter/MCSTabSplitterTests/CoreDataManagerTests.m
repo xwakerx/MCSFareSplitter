@@ -9,9 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "TSCoreDataManager.h"
+
+#import "TSUtilities.h"
 #import "TSCDUser.h"
+#import "TSCDTab.h"
+#import "TSCDUserTabSplit.h"
 
 static NSString *const kUserEntity = @"TSCDUser";
+static NSString *const kTabEntity = @"TSCDTab";
 
 @interface CoreDataManagerTests : XCTestCase
 
@@ -74,12 +79,123 @@ static NSString *const kUserEntity = @"TSCDUser";
                                                    user.lastName = @"Camacho";
                                                    user.username = @"bloq";
                                                    user.email = @"bloqmacr@me.com";
-                                                   user.userType = @0;
+                                                   user.userType = @2;
                                                    
                                                    return YES;
                                                }
                                                return NO;
                                            }];
+}
+
+-(void)insertUserTabSplitWithUser:(TSCDUser *)user withRole:(NSNumber *)role;
+{
+    [[TSCoreDataManager sharedManager] insertObjectWithEntity:@"TSCDUserTabSplit"
+                                           withInsertionBlock:^(NSManagedObject *managedObject){
+                                               if([managedObject isKindOfClass:[TSCDUserTabSplit class]])
+                                               {
+                                                   TSCDUserTabSplit *split = (TSCDUserTabSplit *)managedObject;
+                                                   
+                                                   split.initialAmount = @20.0;
+                                                   split.amount = @20.0;
+                                                   split.userTabType = role;
+                                                   split.user = user;
+                                                
+                                                   return YES;
+                                               }
+                                               return NO;
+                                           }];
+}
+
+-(void)testInsertTab
+{
+    for(NSInteger i = 0; i < 10; i++)
+    {
+        [self testInsert];
+    }
+    
+    NSArray *users = [[TSCoreDataManager sharedManager] fetchObjectsFromEntity:kUserEntity
+                                                                         where:@[@"userType"]
+                                                                     isEqualTo:@[@2]
+                                                             sortedByAttribute:@"lastName"];
+    
+    NSInteger i = 0;
+    for (TSCDUser *user in users)
+    {
+        if(i % 2 == 0)
+        {
+            [self insertUserTabSplitWithUser:user withRole:@0];
+        }
+        else
+        {
+            [self insertUserTabSplitWithUser:user withRole:@1];
+        }
+        i++;
+    }
+
+    NSArray *participants = [[TSCoreDataManager sharedManager] fetchObjectsFromEntity:@"TSCDUserTabSplit"
+                                                                                where:@[@"userTabType"]
+                                                                            isEqualTo:@[@0]];
+    
+    NSArray *payers = [[TSCoreDataManager sharedManager] fetchObjectsFromEntity:@"TSCDUserTabSplit"
+                                                                          where:@[@"userTabType"]
+                                                                      isEqualTo:@[@1]];
+    
+    NSArray *allUsers = [participants arrayByAddingObjectsFromArray:payers];
+    
+    
+    NSDecimalNumber *totalAmount = [TSUtilities decimalNumberWithNumber:@0];
+    
+    for (TSCDUserTabSplit *split in payers)
+    {
+        totalAmount = [totalAmount decimalNumberByAdding:[TSUtilities decimalNumberWithNumber:split.initialAmount]];
+    }
+    
+    [[TSCoreDataManager sharedManager] insertObjectWithEntity:kTabEntity
+                                           withInsertionBlock:^(NSManagedObject *managedObject){
+                                               if([managedObject isKindOfClass:[TSCDTab class]])
+                                               {
+                                                   TSCDTab *tab = (TSCDTab *)managedObject;
+                                                   
+                                                   tab.title        = @"Tab title";
+                                                   tab.memo         = @"Tab memo";
+                                                   tab.totalAmount  = (NSNumber *)totalAmount;
+                                                   tab.currency     = @"MXN";
+                                                   tab.date         = [NSDate date];
+                                                   tab.splitMethod  = @0;
+                                                   tab.status       = @0;
+                                                   
+                                                   for (TSCDUserTabSplit *split in allUsers)
+                                                   {
+                                                       [tab addUsersObject:split];
+                                                       split.tab = tab;
+                                                   }
+                                                   
+                                                   return YES;
+                                               }
+                                               return NO;
+                                           }];
+}
+
+-(void)testFetchTab
+{
+    NSArray *tabs = [[TSCoreDataManager sharedManager] fetchObjectsFromEntity:kTabEntity
+                                                                         where:@[@"currency"]
+                                                                     isEqualTo:@[@"MXN"]
+                                                             sortedByAttribute:@"title"];
+    
+    XCTAssertNotNil(tabs);
+    
+    NSLog(@"**************");
+    NSLog(@"Fetch returned %li Tabs:", (long)tabs.count);
+    for (TSCDTab *tab in tabs)
+    {
+        [self printTabs:tab];
+        for (TSCDUserTabSplit *split in tab.users)
+        {
+            [self printUser:split.user];
+        }
+    }
+    NSLog(@"**************");
 }
 
 -(void)printUser:(TSCDUser *)user
@@ -88,7 +204,14 @@ static NSString *const kUserEntity = @"TSCDUser";
     NSLog(@"Email: %@", user.email);
     NSLog(@"Username: %@",user.username);
     NSLog(@"-----");
-    
+}
+
+-(void)printTabs:(TSCDTab *)tab
+{
+    NSLog(@"Title: %@", tab.title);
+    NSLog(@"Memo: %@", tab.memo);
+    NSLog(@"Amount: %@",tab.totalAmount);
+    NSLog(@"-----");
 }
 
 -(void)testUpdate
