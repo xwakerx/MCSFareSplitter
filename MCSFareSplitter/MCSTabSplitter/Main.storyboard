@@ -1626,11 +1626,15 @@
                                     <outlet property="delegate" destination="zQe-YR-FcN" id="3Ad-Sv-ffL"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="58f-re-5t5">
+                                <rect key="frame" x="197" y="117" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Bni-bL-zZg" firstAttribute="top" secondItem="eKB-rW-gRo" secondAttribute="bottom" id="2bE-pa-Lrt"/>
                             <constraint firstItem="bsX-rV-9EK" firstAttribute="top" secondItem="Bni-bL-zZg" secondAttribute="bottom" constant="50" id="3cF-cV-Dly"/>
+                            <constraint firstItem="58f-re-5t5" firstAttribute="top" secondItem="Bni-bL-zZg" secondAttribute="bottom" constant="13" id="DnW-9J-1XV"/>
                             <constraint firstItem="eAO-uI-k2g" firstAttribute="top" secondItem="Bni-bL-zZg" secondAttribute="bottom" id="Fqx-p7-7Lc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bsX-rV-9EK" secondAttribute="trailing" constant="-16" id="QBQ-XF-sy3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="132-Fw-aLl" secondAttribute="trailing" constant="-16" id="TQj-7a-GK1"/>
@@ -1640,6 +1644,7 @@
                             <constraint firstItem="Bni-bL-zZg" firstAttribute="leading" secondItem="lE5-NA-sqY" secondAttribute="leadingMargin" constant="-16" id="cxa-3T-pvA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Bni-bL-zZg" secondAttribute="trailing" constant="-16" id="dj2-VH-IW7"/>
                             <constraint firstItem="3iY-Zz-nxt" firstAttribute="top" secondItem="bsX-rV-9EK" secondAttribute="bottom" id="epK-yc-uyj"/>
+                            <constraint firstAttribute="centerX" secondItem="58f-re-5t5" secondAttribute="centerX" id="o58-u2-jMa"/>
                             <constraint firstItem="3iY-Zz-nxt" firstAttribute="top" secondItem="eAO-uI-k2g" secondAttribute="bottom" id="qcH-f1-7aJ"/>
                             <constraint firstItem="bsX-rV-9EK" firstAttribute="leading" secondItem="lE5-NA-sqY" secondAttribute="leadingMargin" constant="-16" id="quf-vx-JIn"/>
                             <constraint firstItem="132-Fw-aLl" firstAttribute="leading" secondItem="lE5-NA-sqY" secondAttribute="leadingMargin" constant="-16" id="rRQ-tO-WLa"/>
@@ -1660,6 +1665,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="aiContactsToAdd" destination="58f-re-5t5" id="bKk-YB-GNX"/>
                         <outlet property="btnCancel" destination="pYk-X6-rKt" id="HlB-bW-Q3d"/>
                         <outlet property="btnSearch" destination="ajP-HL-emf" id="kYz-mb-He5"/>
                         <outlet property="btnSearchIcon" destination="2IF-hS-LBC" id="Wak-KZ-a9z"/>

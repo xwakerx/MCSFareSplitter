@@ -31,6 +31,7 @@ static NSString *ciAddGhost = @"addGhostCell";
 @property (weak, nonatomic) IBOutlet UITableView *tvPayers;
 @property (weak, nonatomic) IBOutlet UITableView *tvSearch;
 @property (weak, nonatomic) IBOutlet UILabel *lblTotalAmount;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *aiContactsToAdd;
 
 @property (nonatomic) bool isSearching;
 
@@ -41,6 +42,7 @@ static NSString *ciAddGhost = @"addGhostCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.aiContactsToAdd.hidden = YES;
     self.btnCancel.hidden = YES;
     self.btnCancel.tintColor = ((AppDelegate *)[UIApplication sharedApplication].delegate).mainTintColor;
     [self.btnCancel setImage:[self.btnCancel.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
@@ -266,25 +268,39 @@ static NSString *ciAddGhost = @"addGhostCell";
 #pragma mark - other methods
 
 -(void) searchContact{
-    NSString *stringToSearch = self.tfSearch.text;
-    NSArray *tmpArray;
-    if(![stringToSearch isEqualToString:@""]){
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self.fullName contains[cd] %@ or self.email contains[cd] %@", stringToSearch, stringToSearch];
-        tmpArray = [[[TSContactsManager sharedManager] phoneContacts] filteredArrayUsingPredicate:predicate];
-    }else{
-        tmpArray = [[TSContactsManager sharedManager] phoneContacts];
-    }
-    self.contactsToAdd = [NSMutableArray array];
-    if(![stringToSearch isEqualToString:@""]){
-        [self.contactsToAdd addObject:[[TSTabUser alloc] initActionUserWithMail:stringToSearch]];
-    }
-    for(TSTabUser *user in tmpArray){
-        TSUserTabSplit *tmpUser = [[TSUserTabSplit alloc] initWithPayerUser:user andTab:self.tab withAmount:@0];
-        if(![self userIsPayer:tmpUser]){
-            [self.contactsToAdd addObject:user];
-        }
-    }
+    [self.aiContactsToAdd startAnimating];
+    self.aiContactsToAdd.hidden = NO;
+    [self.contactsToAdd removeAllObjects];
     [self.tvSearch reloadData];
+    
+    dispatch_queue_t queue = dispatch_queue_create("searchContact", NULL);
+    dispatch_async(queue, ^{
+        
+        NSString *stringToSearch = self.tfSearch.text;
+        NSArray *tmpArray;
+        if(![stringToSearch isEqualToString:@""]){
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self.fullName contains[cd] %@ or self.email contains[cd] %@", stringToSearch, stringToSearch];
+            tmpArray = [[[TSContactsManager sharedManager] phoneContacts] filteredArrayUsingPredicate:predicate];
+        }else{
+            tmpArray = [[TSContactsManager sharedManager] phoneContacts];
+        }
+        self.contactsToAdd = [NSMutableArray array];
+        if(![stringToSearch isEqualToString:@""]){
+            [self.contactsToAdd addObject:[[TSTabUser alloc] initActionUserWithMail:stringToSearch]];
+        }
+        for(TSTabUser *user in tmpArray){
+            TSUserTabSplit *tmpUser = [[TSUserTabSplit alloc] initWithPayerUser:user andTab:self.tab withAmount:@0];
+            if(![self userIsPayer:tmpUser]){
+                [self.contactsToAdd addObject:user];
+            }
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tvSearch reloadData];
+            [self.aiContactsToAdd stopAnimating];
+            self.aiContactsToAdd.hidden = YES;
+        });
+    });
 }
 
 
