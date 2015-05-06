@@ -37,6 +37,19 @@
     return usrs;
 }
 
++(NSMutableArray*) getPayersTabSplittersForTab:(TSTab*)tab withUsers:(NSArray*)users{
+    
+    NSMutableArray *usrs = [NSMutableArray new];
+    
+    for (TSUserTabSplit *usr in users) {
+        TSUserTabSplit *newUsr = [[TSUserTabSplit alloc] initWithNormalUser:usr.user andTab:tab withAmount:usr.initialAmount];
+        [usrs addObject:newUsr];
+    }
+    
+    
+    return usrs;
+}
+
 
 
 //Mocks

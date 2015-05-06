@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UpdateSelectedContactsDelegate.h"
+#import "TSTab.h"
 
 @interface TabPayersViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @property (strong, nonatomic) NSMutableArray *payers;
 @property (strong, nonatomic) NSMutableArray *contactsToAdd;
+@property (strong, nonatomic) TSTab *tab;
+
+@property (nonatomic) id<UpdateSelectedContactsDelegate> usersDelegate;
 
 -(void)updateTotalAmount;
 

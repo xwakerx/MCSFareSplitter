@@ -57,8 +57,8 @@
         stringAmount = [stringAmount substringToIndex:12];
     }
     long long enteredAmount = [stringAmount longLongValue];
-    self.tabUser.amount = [NSNumber numberWithDouble:((long double)enteredAmount)/100.0];
-    self.tfAmount.text = [TSUtilities getCurrencyString:self.tabUser.amount];
+    self.tabUser.initialAmount = [NSNumber numberWithDouble:((long double)enteredAmount)/100.0];
+    self.tfAmount.text = [TSUtilities getCurrencyString:self.tabUser.initialAmount];
     
     [self.tpVC updateTotalAmount];
 }

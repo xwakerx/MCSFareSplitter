@@ -10,6 +10,7 @@
 #import "TSTabUser.h"
 #import "TSUtilities.h"
 #import "TSTransaction.h"
+#import "TSUserTabSplit.h"
 
 @implementation TSTab
 
@@ -31,6 +32,14 @@
     NSDecimalNumber *decimalTotalAmount = [TSUtilities decimalNumberWithNumber:self.totalAmount];
     
     return  (NSNumber *)[decimalTotalAmount decimalNumberBySubtracting:paid];
+}
+
+-(void)updateTotalAmount{
+    long double total = 0.0;
+    for(TSUserTabSplit *tabUser in self.payers){
+        total = total + [tabUser.initialAmount doubleValue];
+    }
+    self.totalAmount = [NSNumber numberWithDouble: total];
 }
 
 @end
