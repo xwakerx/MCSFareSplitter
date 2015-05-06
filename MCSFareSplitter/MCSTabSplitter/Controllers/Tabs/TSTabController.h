@@ -16,5 +16,6 @@
 
 +(NSArray*) getUserTabs;
 +(NSArray*) getUserTabSplittersForTab:(TSTab*)tab withUsers:(NSArray*)users;
++(NSArray*) getPayersTabSplittersForTab:(TSTab*)tab withUsers:(NSArray*)users;
 
 @end

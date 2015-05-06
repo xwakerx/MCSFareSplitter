@@ -18,6 +18,7 @@
 @interface FormTabTableViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *tfTitle;
+@property (weak, nonatomic) IBOutlet UITextField *tfPayers;
 @property (weak, nonatomic) IBOutlet UITextField *tfUsers;
 @property (weak, nonatomic) IBOutlet UITextField *tfTotalAmount;
 @property (weak, nonatomic) IBOutlet UILabel *lblCurrency;
@@ -192,21 +193,17 @@
 }
 
 -(void)loadTabSplitUsersWithUsersArray:(NSArray *)users{
-    if (users.count > 0) {
-        self.tab.participants = [TSTabController getUserTabSplittersForTab:self.tab withUsers:users];
-        [self.tfUsers setText:[NSString stringWithFormat:@"%li selected.", [self.tab.participants count]]];
-        [self.navigationController popViewControllerAnimated:YES];
-    }
+    self.tab.participants = [TSTabController getUserTabSplittersForTab:self.tab withUsers:users];
+    [self.tfUsers setText:[NSString stringWithFormat:@"%li selected", [self.tab.participants count]]];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)loadTabSplitPayersWithUsersArray:(NSArray *)users {
-    if (users.count > 0) {
-        
-        //TODO: build up payers from selector itself...
-        self.tab.payers = [TSTabController getUserTabSplittersForTab:self.tab withUsers:users];
-        [self.tfUsers setText:[NSString stringWithFormat:@"%li selected.", [self.tab.participants count]]];
-        [self.navigationController popViewControllerAnimated:YES];
-    }
+    self.tab.payers = [TSTabController getPayersTabSplittersForTab:self.tab withUsers:users];
+    [self.tfPayers setText:[NSString stringWithFormat:@"%li selected", [self.tab.payers count]]];
+    [self.tab updateTotalAmount];
+    self.tfTotalAmount.text = [TSUtilities getCurrencyString:self.tab.totalAmount];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void) setupTab{
@@ -221,6 +218,11 @@
     if ([segue.identifier isEqualToString: @"setTabTitle"]){
         TabTitleTableViewController *tabTitleVC = segue.destinationViewController;
         tabTitleVC.tabTitle = self.tfTitle.text;
+    }else if([segue.identifier isEqualToString: @"addPayers"]){
+        TabPayersViewController *tpVC = segue.destinationViewController;
+        tpVC.payers = [NSMutableArray arrayWithArray:[TSTabController getPayersTabSplittersForTab:self.tab withUsers:self.tab.payers]];
+        tpVC.tab = self.tab;
+        tpVC.usersDelegate = self;
     }else if ([segue.identifier isEqualToString: @"addUsers"]) {
         FriendsInTabViewController *friends = segue.destinationViewController;
         friends.usersDelegate = self;

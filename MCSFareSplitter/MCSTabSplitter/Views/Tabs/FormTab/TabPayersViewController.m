@@ -50,6 +50,7 @@ static NSString *ciAddGhost = @"addGhostCell";
     self.isSearching = false;
     if(self.payers==nil){self.payers = [NSMutableArray array];}
     if(self.contactsToAdd==nil){self.contactsToAdd = [NSMutableArray array];}
+    [self updateTotalAmount];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,6 +86,8 @@ static NSString *ciAddGhost = @"addGhostCell";
         }
         cell.lblName.text = tmpSplitUser.user.fullName;
         cell.lblEmail.text = tmpSplitUser.user.email;
+        if(tmpSplitUser.initialAmount==nil){tmpSplitUser.initialAmount=@0;}
+        cell.tfAmount.text = [TSUtilities getCurrencyString:tmpSplitUser.initialAmount];
         
         cell.tabUser = tmpSplitUser;
         cell.tpVC = self;
@@ -107,7 +110,7 @@ static NSString *ciAddGhost = @"addGhostCell";
                 tmpCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ciContactToAdd];
             }
             
-            TSUserTabSplit *tmptmpUser = [[TSUserTabSplit alloc] initWithPayerUser:tmpUser andTab:nil withAmount:@0];
+            TSUserTabSplit *tmptmpUser = [[TSUserTabSplit alloc] initWithPayerUser:tmpUser andTab:self.tab withAmount:@0];
             if([self userIsPayer: tmptmpUser]){
                 tmpCell.accessoryType = UITableViewCellAccessoryCheckmark;
             }else{
@@ -130,11 +133,11 @@ static NSString *ciAddGhost = @"addGhostCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(tableView == self.tvSearch){
         //TSTabUser *tmpUser = [self.contactsToAdd objectAtIndex:indexPath.row];
-        TSUserTabSplit *tmpUser = [[TSUserTabSplit alloc] initWithPayerUser:[self.contactsToAdd objectAtIndex:indexPath.row] andTab:nil withAmount:@0];
+        TSUserTabSplit *tmpUser = [[TSUserTabSplit alloc] initWithPayerUser:[self.contactsToAdd objectAtIndex:indexPath.row] andTab:self.tab withAmount:@0];
         if(tmpUser.user.userType == [TSTabUser TSUserTypeAction]){
             if(![self userIsPayer:tmpUser]){
                 if([TSUtilities isValidEmailAddress:tmpUser.user.email]){
-                    tmpUser = [[TSUserTabSplit alloc] initWithPayerUser:[[TSTabUser alloc] initGhostUserWithMail:tmpUser.user.email] andTab:nil withAmount:@0];
+                    tmpUser = [[TSUserTabSplit alloc] initWithPayerUser:[[TSTabUser alloc] initGhostUserWithMail:tmpUser.user.email] andTab:self.tab withAmount:@0];
                     [self.payers addObject:tmpUser];
                     [self.tvPayers reloadData];
                     [self onCancelClicked:tableView];
@@ -145,7 +148,7 @@ static NSString *ciAddGhost = @"addGhostCell";
                 [TSUtilities showAlertInController:self withMessage:[NSString stringWithFormat: NSLocalizedString(@"is_already_payer", nil), tmpUser.user.email]];
             }
         }else{
-            tmpUser = [[TSUserTabSplit alloc] initWithPayerUser:tmpUser.user andTab:nil withAmount:@0];
+            tmpUser = [[TSUserTabSplit alloc] initWithPayerUser:tmpUser.user andTab:self.tab withAmount:@0];
             [self.payers addObject:tmpUser];
             [self.tvPayers reloadData];
             [self onCancelClicked:tableView];
@@ -254,6 +257,12 @@ static NSString *ciAddGhost = @"addGhostCell";
     [self.view endEditing:YES];
 }
 
+- (IBAction)onDoneClicked:(id)sender {
+    if (self.usersDelegate != nil) {
+        [self.usersDelegate loadTabSplitPayersWithUsersArray:self.payers];
+    }
+}
+
 #pragma mark - other methods
 
 -(void) searchContact{
@@ -270,7 +279,7 @@ static NSString *ciAddGhost = @"addGhostCell";
         [self.contactsToAdd addObject:[[TSTabUser alloc] initActionUserWithMail:stringToSearch]];
     }
     for(TSTabUser *user in tmpArray){
-        TSUserTabSplit *tmpUser = [[TSUserTabSplit alloc] initWithPayerUser:user andTab:nil withAmount:@0];
+        TSUserTabSplit *tmpUser = [[TSUserTabSplit alloc] initWithPayerUser:user andTab:self.tab withAmount:@0];
         if(![self userIsPayer:tmpUser]){
             [self.contactsToAdd addObject:user];
         }
@@ -292,7 +301,7 @@ static NSString *ciAddGhost = @"addGhostCell";
 -(void)updateTotalAmount{
     long double total = 0.0;
     for(TSUserTabSplit *tabUser in self.payers){
-        total = total + [tabUser.amount doubleValue];
+        total = total + [tabUser.initialAmount doubleValue];
     }
     self.lblTotalAmount.text = [TSUtilities getCurrencyString:[NSNumber numberWithDouble:total]];
 }

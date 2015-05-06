@@ -42,4 +42,6 @@ typedef enum
 @property (nonatomic, strong, readonly) NSNumber *paid;
 @property (nonatomic, strong, readonly) NSNumber *remains;
 
+-(void)updateTotalAmount;
+
 @end

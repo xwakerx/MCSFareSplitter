@@ -329,7 +329,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="zQe-YR-FcN" kind="show" id="875-xu-oBE"/>
+                                                        <segue destination="zQe-YR-FcN" kind="show" identifier="addPayers" id="875-xu-oBE"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -635,6 +635,7 @@
                         <outlet property="lblCurrency" destination="vEK-fU-ZoA" id="9W7-Ka-GUj"/>
                         <outlet property="lblDate" destination="lOf-Ij-gne" id="YLK-ew-MKy"/>
                         <outlet property="pvCurrency" destination="anu-I6-yXy" id="5Ve-YY-lWc"/>
+                        <outlet property="tfPayers" destination="gxE-78-sDP" id="2XB-MT-x8q"/>
                         <outlet property="tfTitle" destination="vxK-Cg-ct0" id="N2q-O5-km3"/>
                         <outlet property="tfTotalAmount" destination="aS3-S8-53P" id="x2P-bA-NpL"/>
                         <outlet property="tfUsers" destination="7SN-C6-NRo" id="K1q-iL-wE0"/>
@@ -1650,7 +1651,13 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Payers" id="Cy2-Yq-vI7"/>
+                    <navigationItem key="navigationItem" title="Payers" id="Cy2-Yq-vI7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="wIs-ng-QKD">
+                            <connections>
+                                <action selector="onDoneClicked:" destination="zQe-YR-FcN" id="JQF-2b-5Bz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="btnCancel" destination="pYk-X6-rKt" id="HlB-bW-Q3d"/>
@@ -1790,6 +1797,6 @@
         <image name="Tab Bar Icon - Settings" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BJR-SA-DCB"/>
+        <segue reference="47P-SZ-oPC"/>
     </inferredMetricsTieBreakers>
 </document>

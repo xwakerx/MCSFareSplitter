@@ -111,6 +111,7 @@
 		0434EAF41AF3E4FF00E5F0FF /* AddGhostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddGhostTableViewCell.m; path = MCSTabSplitter/Views/Tabs/FormTab/AddGhostTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		0434EAF61AF4048900E5F0FF /* PayerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayerTableViewCell.h; path = MCSTabSplitter/Views/Tabs/FormTab/PayerTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		0434EAF71AF4048900E5F0FF /* PayerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PayerTableViewCell.m; path = MCSTabSplitter/Views/Tabs/FormTab/PayerTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		0434EAF91AF9261800E5F0FF /* UpdateSelectedContactsDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UpdateSelectedContactsDelegate.h; path = MCSTabSplitter/Views/Tabs/FormTab/UpdateSelectedContactsDelegate.h; sourceTree = SOURCE_ROOT; };
 		048097BF1AE7F9A800C6DB14 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataManager.h; path = MCSTabSplitter/Singletons/DataManager.h; sourceTree = SOURCE_ROOT; };
 		048097C01AE7F9A800C6DB14 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataManager.m; path = MCSTabSplitter/Singletons/DataManager.m; sourceTree = SOURCE_ROOT; };
 		048097C11AE7F9A800C6DB14 /* TSUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSUtilities.h; path = MCSTabSplitter/Singletons/TSUtilities.h; sourceTree = SOURCE_ROOT; };
@@ -237,6 +238,7 @@
 				0434EAF41AF3E4FF00E5F0FF /* AddGhostTableViewCell.m */,
 				0434EAF61AF4048900E5F0FF /* PayerTableViewCell.h */,
 				0434EAF71AF4048900E5F0FF /* PayerTableViewCell.m */,
+				0434EAF91AF9261800E5F0FF /* UpdateSelectedContactsDelegate.h */,
 			);
 			name = FormTab;
 			sourceTree = "<group>";
