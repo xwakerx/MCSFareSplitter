@@ -74,7 +74,7 @@
     
     [FBSDKAppEvents activateApp];
     
-    if([((UINavigationController *)((UITabBarController *)self.window.rootViewController.presentedViewController).selectedViewController).visibleViewController isKindOfClass:[TSLoginViewController class]])
+    if(!self.window.rootViewController.presentedViewController)
     {
         if([FBSDKAccessToken currentAccessToken])
         {
