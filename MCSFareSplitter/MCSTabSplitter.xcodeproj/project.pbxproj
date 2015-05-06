@@ -41,6 +41,8 @@
 		04C825921AECB3B300237635 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C825911AECB3B300237635 /* Bolts.framework */; };
 		04C825A21AEDA7FB00237635 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C825A11AEDA7FB00237635 /* HomeViewController.m */; };
 		04FD49C11AEDC58500D46DD2 /* TSNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FD49C01AEDC58500D46DD2 /* TSNotificationManager.m */; };
+		983859931AFA775C000B76C1 /* TSItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 983859921AFA775C000B76C1 /* TSItemsTableViewController.m */; };
+		983859961AFA78E0000B76C1 /* TSItemDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 983859951AFA78E0000B76C1 /* TSItemDetailTableViewController.m */; };
 		98400D0B1AF1256600686B62 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 98400D0A1AF1256600686B62 /* Reachability.m */; };
 		98573FFB1AF3C8F2003D3314 /* CoreDataManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98573FFA1AF3C8F2003D3314 /* CoreDataManagerTests.m */; };
 		987FCD551AEE6FE700A5D50D /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 987FCD541AEE6FE700A5D50D /* SettingsTableViewController.m */; };
@@ -151,6 +153,10 @@
 		04C825A11AEDA7FB00237635 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = MCSTabSplitter/Views/Home/HomeViewController.m; sourceTree = SOURCE_ROOT; };
 		04FD49BF1AEDC58500D46DD2 /* TSNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSNotificationManager.h; path = MCSTabSplitter/Controllers/Notifications/TSNotificationManager.h; sourceTree = SOURCE_ROOT; };
 		04FD49C01AEDC58500D46DD2 /* TSNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSNotificationManager.m; path = MCSTabSplitter/Controllers/Notifications/TSNotificationManager.m; sourceTree = SOURCE_ROOT; };
+		983859911AFA775C000B76C1 /* TSItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSItemsTableViewController.h; sourceTree = "<group>"; };
+		983859921AFA775C000B76C1 /* TSItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSItemsTableViewController.m; sourceTree = "<group>"; };
+		983859941AFA78E0000B76C1 /* TSItemDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSItemDetailTableViewController.h; sourceTree = "<group>"; };
+		983859951AFA78E0000B76C1 /* TSItemDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSItemDetailTableViewController.m; sourceTree = "<group>"; };
 		98400D091AF1256600686B62 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "MCSTabSplitter/Third Party/Reachability/Reachability.h"; sourceTree = SOURCE_ROOT; };
 		98400D0A1AF1256600686B62 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "MCSTabSplitter/Third Party/Reachability/Reachability.m"; sourceTree = SOURCE_ROOT; };
 		98573FFA1AF3C8F2003D3314 /* CoreDataManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataManagerTests.m; path = MCSTabSplitterTests/CoreDataManagerTests.m; sourceTree = SOURCE_ROOT; };
@@ -327,6 +333,18 @@
 			);
 			name = Settings;
 			sourceTree = "<group>";
+		};
+		983859901AFA7737000B76C1 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				983859911AFA775C000B76C1 /* TSItemsTableViewController.h */,
+				983859921AFA775C000B76C1 /* TSItemsTableViewController.m */,
+				983859941AFA78E0000B76C1 /* TSItemDetailTableViewController.h */,
+				983859951AFA78E0000B76C1 /* TSItemDetailTableViewController.m */,
+			);
+			name = Items;
+			path = MCSTabSplitter/Views/Tabs/Items;
+			sourceTree = SOURCE_ROOT;
 		};
 		98400D081AF1254500686B62 /* Reachability */ = {
 			isa = PBXGroup;
@@ -529,6 +547,7 @@
 		98F93F521AE1607F00BD514F /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				983859901AFA7737000B76C1 /* Items */,
 				0434EAE31AF1AE5800E5F0FF /* Splitter */,
 				0434EAD91AF141B800E5F0FF /* FormTab */,
 				0483ECF91AEDAD3900BD6DFC /* TabsViewController.h */,
@@ -748,6 +767,7 @@
 				048097CC1AE7F9DE00C6DB14 /* TSCurrency.m in Sources */,
 				04FD49C11AEDC58500D46DD2 /* TSNotificationManager.m in Sources */,
 				0434EAF81AF4048900E5F0FF /* PayerTableViewCell.m in Sources */,
+				983859961AFA78E0000B76C1 /* TSItemDetailTableViewController.m in Sources */,
 				0434EAE21AF1AE4B00E5F0FF /* FriendsInTabViewController.m in Sources */,
 				048097D11AE7F9F900C6DB14 /* TSTabUser.m in Sources */,
 				048097F81AE7FBF400C6DB14 /* StaticDataTableViewController.m in Sources */,
@@ -777,6 +797,7 @@
 				048097FC1AE7FC1A00C6DB14 /* main.m in Sources */,
 				989A29431AF7D2200098D053 /* TSCDUser.m in Sources */,
 				0434EAE91AF1AE6B00E5F0FF /* SplitTabViewController.m in Sources */,
+				983859931AFA775C000B76C1 /* TSItemsTableViewController.m in Sources */,
 				04C825901AECAE9600237635 /* TSLoginViewController.m in Sources */,
 				04C825A21AEDA7FB00237635 /* HomeViewController.m in Sources */,
 				0434EAE81AF1AE6B00E5F0FF /* SplitAmountTabTableViewCell.m in Sources */,

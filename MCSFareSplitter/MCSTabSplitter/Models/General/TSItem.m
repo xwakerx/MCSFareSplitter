@@ -31,4 +31,9 @@
     return self;
 }
 
+-(void)addUser:(TSUserTabSplit *)user
+{
+    [self.enrolledUsers addObject:user];
+}
+
 @end

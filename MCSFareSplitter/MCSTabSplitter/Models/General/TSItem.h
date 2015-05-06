@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class TSUserTabSplit;
 
 @interface TSItem : NSObject
 
@@ -14,9 +15,12 @@
 
 @property (nonatomic, copy)     NSString *detail;
 @property (nonatomic, strong)   NSNumber *cost;
+@property (nonatomic, assign)   NSInteger quantity;
 @property (nonatomic, copy)     NSMutableArray *enrolledUsers;
 
 -(instancetype)initWithCost:(NSNumber *)cost andDetail:(NSString *)detail;
 -(instancetype)initWithCost:(NSNumber *)cost andDetail:(NSString *)detail forUsers:(NSMutableArray *)users;
+
+-(void)addUser:(TSUserTabSplit *)user;
 
 @end
